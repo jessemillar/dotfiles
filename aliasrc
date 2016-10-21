@@ -5,4 +5,4 @@ alias ip="ipconfig getifaddr en1"
 alias chrome="/usr/bin/open -a '/Applications/Google Chrome.app' 'index.html'"
 alias ode="npm install && node main.js"
 alias test="go test -v -cover ./..."
-
+alias flush="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
