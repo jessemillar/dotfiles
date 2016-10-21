@@ -53,6 +53,17 @@ set pastetoggle=<F12>
 " Show line numbers by default
 set number
 
+" Go syntax highlighting
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+" Run goimports instead of gofmt
+let g:go_fmt_command = "goimports"
+
 " WALMART
 let g:startify_custom_header = [
 			\"          '###'          ",
