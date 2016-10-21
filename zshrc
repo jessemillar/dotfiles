@@ -33,13 +33,13 @@ export PATH=$PATH:/usr/local/m-cli
 export GOPATH=/usr/local/go
 export PATH=$PATH:$GOPATH/bin
 
+source $ZSH/oh-my-zsh.sh
+
 # Load environment variables
 [ -f .envrc ] && source .envrc
 
 # Load custom aliases
 [ -f .aliasrc ] && source .aliasrc
-
-source $ZSH/oh-my-zsh.sh
 
 autoload -U promptinit; promptinit
 
