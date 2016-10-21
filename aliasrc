@@ -1,0 +1,8 @@
+alias att="atom ."
+alias gin="go run server.go"
+alias tunnel="ngrok http 8000"
+alias ip="ipconfig getifaddr en1"
+alias chrome="/usr/bin/open -a '/Applications/Google Chrome.app' 'index.html'"
+alias ode="npm install && node main.js"
+alias test="go test -v -cover ./..."
+
