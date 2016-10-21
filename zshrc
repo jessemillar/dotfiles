@@ -10,9 +10,6 @@ export ZSH=/Users/jessemillar/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="Soliah"
 
-# Uncomment the following line to disable auto-setting terminal title.
-DISABLE_AUTO_TITLE="true"
-
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
