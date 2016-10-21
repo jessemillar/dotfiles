@@ -43,7 +43,5 @@ source $ZSH/oh-my-zsh.sh
 
 autoload -U promptinit; promptinit
 
-PURE_PROMPT_SYMBOL=♦
-PURE_GIT_DOWN_ARROW=▼
-PURE_GIT_UP_ARROW=▲
-prompt pure
+# Load prompt configuration
+[ -f .purerc ] && source .purerc
