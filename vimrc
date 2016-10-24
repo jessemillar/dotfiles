@@ -12,8 +12,13 @@ Plug 'fatih/vim-go'
 Plug 'chiel92/vim-autoformat'
 Plug 'tpope/vim-sensible'
 Plug 'mhinz/vim-startify'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
+
+" Enable JavaScript syntax highlighting
+let g:javascript_plugin_jsdoc = 1
 
 " Change location of saved swap files
 set directory=/tmp
@@ -23,6 +28,9 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Make spellcheck easier
+:map <F11> :setlocal spell! spelllang=en_us<CR>
 
 " Custom tab widths
 :set tabstop=4
