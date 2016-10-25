@@ -64,8 +64,11 @@ set pastetoggle=<F12>
 " Custom mapping for Autoformat
 :command! AF Autoformat
 
-" Show line numbers by default
-set number
+" Show hybrid line numbers by default 
+:set number
+:set relativenumber
+
+" Change the color of line numbers
 highlight LineNr ctermfg=DarkGrey
 
 " Go syntax highlighting
