@@ -7,13 +7,13 @@ module.exports = {
 		fontFamily: 'Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
 
 		// terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-		cursorColor: 'rgba(255,255,255,0.5)',
+		cursorColor: '#ffffff',
 
 		// `BEAM` for |, `UNDERLINE` for _, `BLOCK` for █
 		cursorShape: 'BLOCK',
 
 		// color of the text
-		foregroundColor: 'rgba(255,255,255,0.8)',
+		foregroundColor: '#ffffff',
 
 		// terminal background color
 		backgroundColor: '#1e1e1e',
@@ -81,7 +81,7 @@ module.exports = {
 	//   `hyperpower`
 	//   `@company/project`
 	//   `project#1.0.1`
-	plugins: ['hyperterm-themed-scrollbar'],
+	plugins: ['hyperterm-themed-scrollbar','hyperterm-cursor'],
 
 	// in development, you can create a directory under
 	// `~/.hyperterm_plugins/local/` and include it here

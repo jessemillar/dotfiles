@@ -60,6 +60,7 @@ set pastetoggle=<F12>
 
 " Show line numbers by default
 set number
+highlight LineNr ctermfg=DarkGrey
 
 " Go syntax highlighting
 let g:go_highlight_functions = 1
