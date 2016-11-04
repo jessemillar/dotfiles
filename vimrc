@@ -83,8 +83,8 @@ let g:go_highlight_build_constraints = 1
 " Run goimports instead of gofmt
 let g:go_fmt_command = "goimports"
 
-" Show enough lines around the cursor to see context
-set scrolloff=15
+" Keep the cursor in the center of the screen
+set scrolloff=999
 
 " Make autocomplete honor dash separators
 set iskeyword+=-
