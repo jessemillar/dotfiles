@@ -37,11 +37,11 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Make spellcheck easier
-:map <F11> :setlocal spell! spelllang=en_us<CR>
+map <F11> :setlocal spell! spelllang=en_us<CR>
 
 " Custom tab widths
-:set tabstop=4
-:set shiftwidth=4
+set tabstop=4
+set shiftwidth=4
 
 " Always show Airline
 set laststatus=2
@@ -60,14 +60,14 @@ let g:syntastic_check_on_wq = 0
 set pastetoggle=<F12>
 
 " Custom mapping for NERDTree
-:command! NT NERDTreeToggle
+command! NT NERDTreeToggle
 
 " Custom mapping for Autoformat
-:command! AF Autoformat
+command! AF Autoformat
 
 " Show hybrid line numbers by default 
-:set number
-:set relativenumber
+set number
+set relativenumber
 
 " Change the color of line numbers
 highlight LineNr ctermfg=DarkGrey
@@ -82,6 +82,12 @@ let g:go_highlight_build_constraints = 1
 
 " Run goimports instead of gofmt
 let g:go_fmt_command = "goimports"
+
+" Show enough lines around the cursor to see context
+set scrolloff=15
+
+" Make autocomplete honor dash separators
+set iskeyword+=-
 
 " WALMART
 let g:startify_custom_header = [
