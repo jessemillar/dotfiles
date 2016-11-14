@@ -30,15 +30,15 @@ export PATH=$PATH:$GOPATH/bin
 source $ZSH/oh-my-zsh.sh
 
 # Load environment variables
-[ -f .envrc ] && source .envrc
+[ -f .dotfiles/envrc ] && source .dotfiles/envrc
 
 # Load Docker environment variables
-[ -f .dockerrc ] && source .dockerrc
+[ -f .dotfiles/dockerrc ] && source .dotfiles/dockerrc
 
 # Load custom aliases
-[ -f .aliasrc ] && source .aliasrc
+[ -f .dotfiles/aliasrc ] && source .dotfiles/aliasrc
 
 autoload -U promptinit; promptinit
 
 # Load prompt configuration
-[ -f .purerc ] && source .purerc
+[ -f .dotfiles/purerc ] && source .dotfiles/purerc
