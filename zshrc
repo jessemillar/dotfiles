@@ -30,10 +30,10 @@ export PATH=$PATH:$GOPATH/bin
 source $ZSH/oh-my-zsh.sh
 
 # Load environment variables
-[ -f .dotfiles/envrc ] && source .dotfiles/envrc
+[ -f .envrc ] && source .envrc
 
 # Load Docker environment variables
-[ -f .dotfiles/dockerrc ] && source .dotfiles/dockerrc
+[ -f .dockerrc ] && source .dockerrc
 
 # Load custom aliases
 [ -f .dotfiles/aliasrc ] && source .dotfiles/aliasrc
