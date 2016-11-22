@@ -60,10 +60,10 @@ let g:syntastic_check_on_wq = 0
 set pastetoggle=<F12>
 
 " Custom mapping for NERDTree
-command! nt NERDTreeToggle
+command! NT NERDTreeToggle
 
 " Custom mapping for Autoformat
-command! af Autoformat
+command! AF Autoformat
 
 " Show hybrid line numbers by default 
 set number
