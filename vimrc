@@ -27,6 +27,9 @@ noremap <Right> <Nop>
 " Enable JavaScript syntax highlighting
 let g:javascript_plugin_jsdoc = 1
 
+" PICO-8 syntax highlighting
+au BufNewFile,BufRead *.p8 set filetype=lua
+
 " Change location of saved swap files
 set directory=/tmp
 
