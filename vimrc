@@ -39,9 +39,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Make spellcheck easier
-map <F11> :setlocal spell! spelllang=en_us<CR>
-
 " Custom tab widths
 set tabstop=4
 set shiftwidth=4
@@ -88,9 +85,6 @@ let g:go_fmt_command = "goimports"
 
 " Keep the cursor in the center of the screen
 set scrolloff=999
-
-" Make autocomplete honor dash separators
-set iskeyword+=-
 
 " WALMART
 let g:startify_custom_header = [
