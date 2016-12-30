@@ -18,12 +18,6 @@ Plug 'othree/eregex.vim'
 
 call plug#end()
 
-" Disable arrow keys
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-
 " Enable JavaScript syntax highlighting
 let g:javascript_plugin_jsdoc = 1
 
