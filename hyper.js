@@ -16,10 +16,10 @@ module.exports = {
 		foregroundColor: 'rgba(255,255,255,0.8)',
 
 		// terminal background color
-		backgroundColor: '#1e1e1e',
+		backgroundColor: 'rgba((30,30,30,0.25)',
 
 		// border color (window, tabs)
-		borderColor: '#252525',
+		borderColor: 'rgba(37,37,37,0.5)',
 
 		// custom css to embed in the main window
 		css: '',
@@ -81,7 +81,7 @@ module.exports = {
 	//   `hyperpower`
 	//   `@company/project`
 	//   `project#1.0.1`
-	plugins: ['hyperterm-themed-scrollbar','hyperterm-cursor'],
+	plugins: ['hyperterm-themed-scrollbar','hyperterm-cursor','hyper-dark-vibrancy'],
 
 	// in development, you can create a directory under
 	// `~/.hyperterm_plugins/local/` and include it here

@@ -18,12 +18,6 @@ Plug 'othree/eregex.vim'
 
 call plug#end()
 
-" Disable arrow keys
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-
 " Enable JavaScript syntax highlighting
 let g:javascript_plugin_jsdoc = 1
 
@@ -38,9 +32,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-" Make spellcheck easier
-map <F11> :setlocal spell! spelllang=en_us<CR>
 
 " Custom tab widths
 set tabstop=4
