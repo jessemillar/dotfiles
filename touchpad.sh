@@ -1,7 +1,10 @@
 #!/bin/bash
 
 # Invert touchpad scrolling
-synclient VertScrollDelta=-85
-synclient HorizScrollDelta=-85
-#synclient FingerLow=10
-#synclient FingerHigh=20
+# Higher values equal slower scrolling
+synclient VertScrollDelta=-300
+synclient HorizScrollDelta=-300
+
+# Decrease touchpad sensitivity
+synclient FingerHigh=65
+synclient FingerLow=60
