@@ -52,6 +52,7 @@ margin-bottom = 5
 
 [bar/top-bar]
 width = 100%
+bottom = true
 height = 32
 offset-x = 0
 offset-y = 0
@@ -70,8 +71,7 @@ font-2 = Material Design Icons:size=13;0
 
 modules-left = i3
 modules-center = mpd
-modules-right = wlan volume  battery backlight date
-
+modules-right = wlan volume battery backlight date
 
 [module/rofi]
 type = custom/text
