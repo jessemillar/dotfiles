@@ -204,6 +204,9 @@ bindsym XF86KbdBrightnessDown exec --no-startup-id $HOME/.dotfiles/keyboard-brig
 # Hide window borders
 for_window [class="^.*"] border normal 0
 
+# Make Google Hangouts behave
+for_window [title="Google Hangouts"] floating disabled
+
 # Launch Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
