@@ -9,5 +9,5 @@ synclient VertScrollDelta=-300
 synclient HorizScrollDelta=-400
 
 # Decrease touchpad sensitivity
-synclient FingerHigh=65
-synclient FingerLow=60
+synclient FingerHigh=55
+synclient FingerLow=50
