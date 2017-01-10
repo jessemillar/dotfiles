@@ -78,6 +78,7 @@ type = custom/text
 content = 
 content-padding = 2
 ; click-left = rofi -show run
+
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
@@ -126,8 +127,7 @@ ramp-signal-0 = 
 
 [module/date]
 type = internal/date
-date =  %A, %b. %d  %H:%M
-time = %H:%M
+date =  %A, %b. %d  %I:%M
 interval = 5
 format-font =3
 format-background = ${colors.dark2}
