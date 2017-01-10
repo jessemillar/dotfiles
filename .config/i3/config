@@ -42,7 +42,7 @@ set $faded_aqua       #427b58
 set $faded_orange     #af3a03
 
 ## We first set the titlebar font size to a large size to get a good padding amount. We then use pango markup to force i3 to print with the desired font.
-font pango:DejaVu Sans Mono 16
+font pango:DejaVu Sans Mono 14
 for_window [class=".*"] title_format "<span font='DejaVu Sans Mono 10'> %title</span>"
 
 
