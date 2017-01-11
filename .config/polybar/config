@@ -111,26 +111,11 @@ animation-charging-framerate = 600
 [module/volume]
 type = internal/volume
 
-; Optionally define speaker and headphone mixers
-; Use the following command to list available mixer controls:
-; $ amixer scontrols | sed -nr "s/.*'([[:alnum:]]+)'.*/\1/p"
-; Default: none
-; speaker-mixer = Speaker
-; Default: none
-; headphone-mixer = Headphone
-
-; NOTE: This is required if headphone_mixer is defined
-; Use the following command to list available device controls
-; $ amixer controls | sed -r "/CARD/\!d; s/.*=([0-9]+).*name='([^']+)'.*/printf '%3.0f: %s\n' '\1' '\2'/e" | sort
-; Default: none
-; headphone-id = 9
-
 format-volume = <ramp-volume> <label-volume>
 format-volume-padding = 1
 format-muted-padding = 1
 
 label-muted = 
-label-muted-foreground = ${colors.text_detail}
 
 ramp-volume-0 = 
 ramp-volume-1 = 

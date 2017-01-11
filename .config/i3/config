@@ -145,15 +145,15 @@ bindsym $mod+r mode "resize"
 # pulse audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% # increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% # decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 2 toggle # mute sound
 
 # sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
 
 # keyboard brightness controls
-bindsym XF86KbdBrightnessUp exec --no-startup-id $HOME/.dotfiles/keyboard-brightness.sh up
-bindsym XF86KbdBrightnessDown exec --no-startup-id $HOME/.dotfiles/keyboard-brightness.sh down
+bindsym XF86KbdBrightnessUp exec --no-startup-id sudo $HOME/.dotfiles/keyboard-brightness.sh up
+bindsym XF86KbdBrightnessDown exec --no-startup-id sudo $HOME/.dotfiles/keyboard-brightness.sh down
 
 # open chrome with a shortcut
 bindsym $mod+c exec chromium-browser
@@ -175,6 +175,9 @@ exec_always --no-startup-id $HOME/.dotfiles/touchpad.sh
 
 # configure keyboard
 exec_always --no-startup-id $HOME/.dotfiles/keyboard.sh
+
+# set backlight strength
+exec_always --no-startup-id xbacklight -set 35
 
 # set wallpaper
 exec --no-startup-id feh --bg-fill $HOME/Dropbox/Wallpaper/Desktop/cups.jpg
