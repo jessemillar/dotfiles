@@ -157,8 +157,10 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -200,6 +202,12 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 # Keyboard brightness controls
 bindsym XF86KbdBrightnessUp exec --no-startup-id $HOME/.dotfiles/keyboard-brightness.sh up
 bindsym XF86KbdBrightnessDown exec --no-startup-id $HOME/.dotfiles/keyboard-brightness.sh down
+
+# Open Chrome with a shortcut
+bindsym $mod+c exec chromium-browser
+
+# Open Spotify with a shortcut
+bindsym $mod+p exec spotify
 
 # Hide window borders
 for_window [class="^.*"] border normal 0
