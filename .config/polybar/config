@@ -106,7 +106,7 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-5 = 
 animation-charging-6 = 
-animation-charging-framerate = 600
+animation-charging-framerate = 1000
 
 [module/volume]
 type = internal/volume
