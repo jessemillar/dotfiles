@@ -87,10 +87,11 @@ format-discharging-padding = 1
 format-full-padding = 1
 
 ramp-capacity-0 = 
-ramp-capacity-0-foreground = ${colors.error}
+ramp-capacity-0-background = ${colors.error}
 ramp-capacity-1 = 
-ramp-capacity-1-foreground = ${colors.warning}
+ramp-capacity-1-background = ${colors.warning}
 ramp-capacity-2 = 
+ramp-capacity-2-background = ${colors.warning}
 ramp-capacity-3 = 
 ramp-capacity-4 = 
 ramp-capacity-5 = 
@@ -106,7 +107,7 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-5 = 
 animation-charging-6 = 
-animation-charging-framerate = 1000
+animation-charging-framerate = 5000
 
 [module/volume]
 type = internal/volume
