@@ -60,6 +60,7 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
+format-padding = 1
 label-connected = 
 label-disconnected =  
 ramp-signal-0 = 
@@ -116,7 +117,7 @@ format-volume = <ramp-volume> <label-volume>
 format-volume-padding = 1
 format-muted-padding = 1
 
-label-muted = 
+label-muted =  %percentage%
 
 ramp-volume-0 = 
 ramp-volume-1 = 

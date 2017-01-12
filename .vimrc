@@ -2,8 +2,6 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
@@ -36,10 +34,6 @@ nnoremap <C-H> <C-W><C-H>
 " Custom tab widths
 set tabstop=4
 set shiftwidth=4
-
-" Always show Airline
-set laststatus=2
-let g:airline_theme='papercolor'
 
 " Syntastic settings
 set statusline+=%#warningmsg#

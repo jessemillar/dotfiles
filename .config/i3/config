@@ -1,9 +1,8 @@
 # variables
-set $colors_bar       	#1d2021
+set $colors_bar       	#544538
 set $colors_active 		#5db09d
 set $colors_text 		#ffffff
 set $colors_text_active #544538
-set $colors_text_detail #aaaaaa
 set $colors_warning 	#af3a03
 set $colors_error 		#cc241d
 
@@ -24,7 +23,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill
