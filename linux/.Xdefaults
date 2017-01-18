@@ -1,6 +1,42 @@
+! Enable copy/paste in the way I'm used to
 URxvt.perl-ext-common: clipboard
-URxvt.keysym.M-c:   perl:clipboard:copy
-URxvt.keysym.M-v:   perl:clipboard:paste
-URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-
+URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
+URxvt.keysym.Shift-Control-V:   perl:clipboard:paste
+URxvt.keysym.Shift-Control-M-V: perl:clipboard:paste_escaped
 URxvt.clipboard.autocopy: true
+
+! Disable unicode entry mode so Shift-Control can be used for copy and paste
+URxvt.iso14755_52: false
+URxvt.iso14755: false
+
+! General settings
+URxvt*scrollBar_right: true
+URxvt*scrollBar: false
+
+URxvt*font: xft:Roboto Mono-8
+URxvt*boldFont: xft:Roboto Mono Bold-8
+URxvt*italicFont: xft:Roboto Mono Italic-8
+URxvt*boldItalicFont: xft:Roboto Mono Bold Italic-8
+
+URxvt.internalBorder: 9
+
+! Theme
+URxvt.foreground: #111111
+URxvt.background: #eeeeee
+
+*color0:  #2e3436
+*color1:  #a40000
+*color2:  #4e9a06
+*color3:  #c4a000
+*color4:  #3465a4
+*color5:  #75507b
+*color6:  #ce5c00
+*color7:  #babdb9
+*color8:  #555753
+*color9:  #ef2929
+*color10: #8ae234
+*color11: #fce94f
+*color12: #729fcf
+*color13: #ad7fa8
+*color14: #fcaf3e
+*color15: #eeeeec
