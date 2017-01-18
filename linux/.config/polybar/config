@@ -1,11 +1,10 @@
 [colors]
-bar 			= #544538
-active 			= #5db09d 
-text 			= #ffffff
-text_active 	= #544538
-text_detail 	= #aaaaaa
-warning 		= #af3a03
-error 			= #cc241d
+bar 			= #eeeeee
+active 			= #dcdcdc
+text 			= #111111
+text_active 	= #666666
+warning 		= #ce5c00
+error 			= #ef2929
 
 [global/wm]
 margin-top = 5
