@@ -6,6 +6,9 @@ ln -s ~/.dotfiles/linux/.aliasrc ~/.aliasrc
 if [ -f ~/.vimrc ]; then rm ~/.vimrc; fi
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
 
+if [ -f ~/.Xdefaults ]; then rm ~/.Xdefaults; fi
+ln -s ~/.dotfiles/linux/.Xdefaults ~/.Xdefaults
+
 if [ -d ~/.config/i3 ]; then rm -rf ~/.config/i3; fi
 ln -s ~/.dotfiles/linux/.config/i3 ~/.config/i3
 
