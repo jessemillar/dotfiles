@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Tweak tap to click
-synclient MaxTapTime=300
-
 # Disable edge scrolling
 synclient VertEdgeScroll=0
 

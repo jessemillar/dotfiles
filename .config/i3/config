@@ -23,7 +23,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec st
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -159,6 +159,9 @@ bindsym $mod+c exec chromium-browser
 
 # open spotify with a shortcut
 bindsym $mod+p exec spotify
+
+# turn the screen off with a shortcut
+bindsym $mod+q exec xset dpms force off
 
 # hide window borders
 for_window [class="^.*"] border normal 0
