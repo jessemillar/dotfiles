@@ -9,6 +9,9 @@ ln -s ~/.dotfiles/mac/.dockerrc ~/.dockerrc
 if [ -f ~/.hyper.js ]; then rm ~/.hyper.js; fi
 ln -s ~/.dotfiles/mac/.hyper.js ~/.hyper.js
 
+if [ -f ~/.config/nvim/init.vim ]; then rm ~/.config/nvim/init.vim; fi
+ln -s ~/.dotfiles/.vimrc ~/.config/nvim/init.vim
+
 if [ -f ~/.purerc ]; then rm ~/.purerc; fi
 ln -s ~/.dotfiles/mac/.purerc ~/.purerc
 
