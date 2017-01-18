@@ -36,9 +36,9 @@ source $ZSH/oh-my-zsh.sh
 [ -f .dockerrc ] && source .dockerrc
 
 # Load custom aliases
-[ -f .dotfiles/aliasrc ] && source .dotfiles/aliasrc
+[ -f .aliasrc ] && source .aliasrc
 
 autoload -U promptinit; promptinit
 
 # Load prompt configuration
-[ -f .dotfiles/purerc ] && source .dotfiles/purerc
+[ -f .purerc ] && source .purerc
