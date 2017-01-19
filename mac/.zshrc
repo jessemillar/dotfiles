@@ -42,3 +42,5 @@ autoload -U promptinit; promptinit
 
 # Load prompt configuration
 [ -f .purerc ] && source .purerc
+
+prompt pure
