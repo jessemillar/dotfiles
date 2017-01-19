@@ -1,8 +1,8 @@
 [colors]
 bar 			= #eeeeee
-active 			= #dcdcdc
+active 			= #111111
 text 			= #111111
-text_active 	= #666666
+text_active 	= #eeeeee
 warning 		= #ce5c00
 error 			= #ef2929
 
