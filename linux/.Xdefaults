@@ -14,9 +14,6 @@ URxvt*scrollBar_right: true
 URxvt*scrollBar: false
 
 URxvt*font: xft:Roboto Mono-8
-URxvt*boldFont: xft:Roboto Mono Bold-8
-URxvt*italicFont: xft:Roboto Mono Italic-8
-URxvt*boldItalicFont: xft:Roboto Mono Bold Italic-8
 
 URxvt.internalBorder: 9
 
