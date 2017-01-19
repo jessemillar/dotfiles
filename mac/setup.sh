@@ -13,7 +13,7 @@ if [ -f ~/.config/nvim/init.vim ]; then rm ~/.config/nvim/init.vim; fi
 ln -s ~/.dotfiles/.vimrc ~/.config/nvim/init.vim
 
 if [ -f ~/.purerc ]; then rm ~/.purerc; fi
-ln -s ~/.dotfiles/mac/.purerc ~/.purerc
+ln -s ~/.dotfiles/.purerc ~/.purerc
 
 if [ -f ~/.vimrc ]; then rm ~/.vimrc; fi
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
