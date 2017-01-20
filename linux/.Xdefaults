@@ -18,22 +18,38 @@ URxvt*font: xft:Roboto Mono-8
 URxvt.internalBorder: 9
 
 ! Theme
-URxvt.foreground: #eeeeee
-URxvt.background: #111111
+*.foreground:   #dccbc5
+*.background:   #110b09
+*.cursorColor:  #dccbc5
 
-*color0:  #2e3436
-*color1:  #a40000
-*color2:  #4e9a06
-*color3:  #c4a000
-*color4:  #3465a4
-*color5:  #75507b
-*color6:  #ce5c00
-*color7:  #babdb9
-*color8:  #555753
-*color9:  #ef2929
-*color10: #8ae234
-*color11: #fce94f
-*color12: #729fcf
-*color13: #ad7fa8
-*color14: #fcaf3e
-*color15: #eeeeec
+! black
+*.color0:       #1b1411
+*.color8:       #8d9743
+
+! red
+*.color1:       #251d19
+*.color9:       #a8b070
+
+! green
+*.color2:       #392d28
+*.color10:      #f085c5
+
+! yellow
+*.color3:       #55443d
+*.color11:      #51bcd1
+
+! blue
+*.color4:       #776057
+*.color12:      #e8a789
+
+! magenta
+*.color5:       #a18377
+*.color13:      #48abbe
+
+! cyan
+*.color6:       #caada1
+*.color14:      #64abbb
+
+! white
+*.color7:       #eae1dd
+*.color15:      #84c6d6
