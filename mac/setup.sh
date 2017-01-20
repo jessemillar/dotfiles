@@ -7,3 +7,4 @@ ln -s ~/.dotfiles/.vimrc ~/.config/nvim/init.vim
 ln -s ~/.dotfiles/.purerc ~/.purerc
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/mac/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/.oh-my-zsh/custom/mister-michael.zsh-theme ~/.oh-my-zsh/custom/mister-michael.zsh-theme

@@ -8,7 +8,7 @@ export ZSH=/Users/jessemillar/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME=""
+ZSH_THEME="mister-michael"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -37,10 +37,3 @@ source $ZSH/oh-my-zsh.sh
 
 # Load custom aliases
 [ -f .aliasrc ] && source .aliasrc
-
-autoload -U promptinit; promptinit
-
-# Load prompt configuration
-[ -f .purerc ] && source .purerc
-
-prompt pure
