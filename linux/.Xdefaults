@@ -18,8 +18,8 @@ URxvt*font: xft:Roboto Mono-8
 URxvt.internalBorder: 9
 
 ! Theme
-URxvt.foreground: #111111
-URxvt.background: #eeeeee
+URxvt.foreground: #eeeeee
+URxvt.background: #111111
 
 *color0:  #2e3436
 *color1:  #a40000
