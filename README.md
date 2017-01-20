@@ -1,13 +1,12 @@
 ## Setup
-### Mac
+See [the wiki](https://github.com/jessemillar/dotfiles/wiki) for progam setup. Use the following commands to configure dotfiles.
+
+### macOS
 ```
 ./mac/setup.sh
 ```
 
-### Linux
+### Linux (Ubuntu)
 ```
 ./linux/setup.sh
 ```
-
-## Notes
-For a fresh machine, follow the [instructions in the wiki](https://github.com/jessemillar/dotfiles/wiki/Fresh-Setup).
