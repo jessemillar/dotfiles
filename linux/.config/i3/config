@@ -167,6 +167,9 @@ for_window [title="Google Hangouts"] floating disabled
 # launch polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
+# launch dropbox
+exec_always --no-startup-id dropbox start
+
 # configure touchpad
 exec_always --no-startup-id $HOME/.dotfiles/linux/touchpad.sh
 

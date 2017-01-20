@@ -13,6 +13,7 @@ Plug 'mhinz/vim-startify'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-repeat'
 Plug 'othree/eregex.vim'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 

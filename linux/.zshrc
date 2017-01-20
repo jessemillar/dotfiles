@@ -22,7 +22,7 @@ plugins=(wd)
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
-export GOPATH=/usr/local/go
+export GOPATH=/home/jessemillar/.go
 export PATH=$PATH:$GOPATH/bin
 
 source $ZSH/oh-my-zsh.sh
