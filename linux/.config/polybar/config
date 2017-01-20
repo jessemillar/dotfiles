@@ -58,16 +58,16 @@ type = internal/network
 interface = wlp3s0
 interval = 3.0
 
-format-connected = <ramp-signal> <label-connected>
+format-connected = <ramp-signal> <label-connected> 
 format-padding = 1
 label-connected = 
-label-disconnected =  
+label-disconnected =   
 ramp-signal-0 = 
 
 [module/date]
 type = internal/date
 date =  %A, %b. %d  %I:%M
-interval = 5
+interval = 10
 format-padding = 1
 
 [module/battery]

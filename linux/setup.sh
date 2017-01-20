@@ -9,3 +9,4 @@ ln -s ~/.dotfiles/linux/.config/gtk-3.0/gtk.css ~/.config/gtk-3.0/gtk.css
 ln -s ~/.dotfiles/.purerc ~/.purerc
 ln -s ~/.dotfiles/linux/.config/polybar ~/.config/polybar
 ln -s ~/.dotfiles/linux/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/linux/mister-michael.zsh-theme ~/.oh-my-zsh/custom/mister-michael.zsh-theme
