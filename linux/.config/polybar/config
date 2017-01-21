@@ -2,7 +2,7 @@
 bar 			= #788871
 active 			= #292929
 text 			= #ffffff
-text_active 	= #ffffff
+text_active		= #ffffff
 warning 		= #ce8451
 error 			= #894f3b
 
