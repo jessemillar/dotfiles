@@ -1,13 +1,13 @@
 # variables
-set $colors_bar_inactive 	#dcdcdc
-set $colors_bar_active 		#eeeeee
-set $colors_text_inactive	#666666
-set $colors_text_active 	#111111
-set $colors_warning 		#ce5c00
-set $colors_error 			#ef2929
+set $colors_bar_active 		#788871
+set $colors_bar_inactive 	#1e2a2b
+set $colors_text_active 	#ffffff
+set $colors_text_inactive	#ffffff
+set $colors_warning 		#ce8451
+set $colors_error 			#894f3b
 
 # set the titlebar font size to a large size to get padding then use pango markup to force i3 to print with the desired font and size
-font pango:Roboto Mono 10
+font pango:Roboto Mono 9
 for_window [class=".*"] title_format "<span font='Roboto Mono 8'> %title</span>"
 
 # 						border 					background 				text 						indicator

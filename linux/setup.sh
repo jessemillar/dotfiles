@@ -10,3 +10,4 @@ ln -s ~/.dotfiles/.purerc ~/.purerc
 ln -s ~/.dotfiles/linux/.config/polybar ~/.config/polybar
 ln -s ~/.dotfiles/linux/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/.oh-my-zsh/custom/mister-michael.zsh-theme ~/.oh-my-zsh/custom/mister-michael.zsh-theme
+ln -s ~/.dotfiles/.vim/colors ~/.vim/colors

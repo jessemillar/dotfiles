@@ -17,6 +17,9 @@ Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
+" Change the color scheme
+colorscheme smyck
+
 " Enable JavaScript syntax highlighting
 let g:javascript_plugin_jsdoc = 1
 
@@ -54,9 +57,6 @@ command! AF Autoformat
 " Show hybrid line numbers by default 
 set number
 set relativenumber
-
-" Change the color of line numbers
-highlight LineNr ctermfg=DarkGrey
 
 " Go syntax highlighting
 let g:go_highlight_functions = 1

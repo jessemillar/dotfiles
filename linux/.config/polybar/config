@@ -1,14 +1,14 @@
 [colors]
-bar 			= #110b09
-active 			= #dccbc5
-text 			= #dccbc5
-text_active 	= #110b09
-warning 		= #51bcd1
-error 			= #a8b070
+bar 			= #788871
+active 			= #1e2a2b
+text 			= #ffffff
+text_active 	= #ffffff
+warning 		= #ce8451
+error 			= #894f3b
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+margin-top = 4
+margin-bottom = 4
 
 [bar/bottom-bar]
 width = 100%
@@ -61,6 +61,7 @@ interval = 3.0
 format-connected = <ramp-signal> <label-connected> 
 format-padding = 1
 label-connected = 
+label-disconnected =
 ramp-signal-0 = 
 
 [module/date]
