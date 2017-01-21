@@ -1,5 +1,5 @@
 # variables
-set $colors_bar_active 		#788871
+set $colors_bar_active 		#6f7d68
 set $colors_bar_inactive 	#292929
 set $colors_text_active 	#ffffff
 set $colors_text_inactive	#ffffff
@@ -28,7 +28,7 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -nb "#788871" -nf "#ffffff" -sb "#292929" -sf "#ffffff" -fn "Roboto Mono-8" -l 5
+bindsym $mod+d exec dmenu_run -nb "#6f7d68" -nf "#ffffff" -sb "#292929" -sf "#ffffff" -fn "Roboto Mono-8" -l 5
 
 # change focus
 bindsym $mod+h focus left
