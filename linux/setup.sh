@@ -1,13 +1,13 @@
 #!/bin/bash
 
-ln -s ~/.dotfiles/linux/.aliasrc ~/.aliasrc
-ln -s ~/.dotfiles/.vimrc ~/.vimrc
-ln -s ~/.dotfiles/linux/.Xdefaults ~/.Xdefaults
-ln -s ~/.dotfiles/linux/.config/i3 ~/.config/i3
-ln -s ~/.dotfiles/linux/.gitconfig ~/.gitconfig
-ln -s ~/.dotfiles/linux/.config/gtk-3.0/gtk.css ~/.config/gtk-3.0/gtk.css
-ln -s ~/.dotfiles/.purerc ~/.purerc
-ln -s ~/.dotfiles/linux/.config/polybar ~/.config/polybar
-ln -s ~/.dotfiles/linux/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/.oh-my-zsh/custom/mister-michael.zsh-theme ~/.oh-my-zsh/custom/mister-michael.zsh-theme
-ln -s ~/.dotfiles/.vim/colors ~/.vim/colors
+ln -sfn ~/.dotfiles/linux/.aliasrc ~/.aliasrc
+ln -sfn ~/.dotfiles/.vimrc ~/.vimrc
+ln -sfn ~/.dotfiles/linux/.Xdefaults ~/.Xdefaults
+ln -sfn ~/.dotfiles/linux/.config/i3 ~/.config/i3
+ln -sfn ~/.dotfiles/linux/.gitconfig ~/.gitconfig
+ln -sfn ~/.dotfiles/linux/.config/gtk-3.0/gtk.css ~/.config/gtk-3.0/gtk.css
+ln -sfn ~/.dotfiles/.purerc ~/.purerc
+ln -sfn ~/.dotfiles/linux/.config/polybar ~/.config/polybar
+ln -sfn ~/.dotfiles/linux/.zshrc ~/.zshrc
+ln -sfn ~/.dotfiles/.oh-my-zsh/custom/mister-michael.zsh-theme ~/.oh-my-zsh/custom/mister-michael.zsh-theme
+ln -sfn ~/.dotfiles/.vim/colors ~/.vim/colors
