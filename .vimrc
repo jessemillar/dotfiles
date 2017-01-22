@@ -14,11 +14,15 @@ Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-repeat'
 Plug 'othree/eregex.vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'roxma/vim-paste-easy'
 
 call plug#end()
 
 " Change the color scheme
 colorscheme smyck
+
+" Enable easier pasting
+autocmd VimEnter * PasteEasyEnable
 
 " Enable JavaScript syntax highlighting
 let g:javascript_plugin_jsdoc = 1
