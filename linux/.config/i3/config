@@ -175,8 +175,11 @@ exec_always --no-startup-id $HOME/.dotfiles/linux/touchpad.sh
 # configure keyboard
 exec_always --no-startup-id $HOME/.dotfiles/linux/keyboard.sh
 
-# set backlight strength
+# set backlight strength on i3 start
 exec_always --no-startup-id xbacklight -set 25
+
+# set volume and mute on i3 start
+exec_always --no-startup-id pactl set-sink-volume 1 25%
 
 # set wallpaper
 exec --no-startup-id feh --bg-fill $HOME/Dropbox/Wallpaper/Desktop/cups.jpg
