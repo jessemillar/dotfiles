@@ -11,4 +11,4 @@ ln -sfn ~/.dotfiles/linux/.config/polybar ~/.config/polybar
 ln -sfn ~/.dotfiles/linux/.zshrc ~/.zshrc
 ln -sfn ~/.dotfiles/.oh-my-zsh/custom/mister-michael.zsh-theme ~/.oh-my-zsh/custom/mister-michael.zsh-theme
 ln -sfn ~/.dotfiles/.vim/colors ~/.vim/colors
-ln -sfn ~/.dotfiles/linux/.functionsrc ~/.functionsrc
+ln -sfn ~/.dotfiles/.functionsrc ~/.functionsrc
