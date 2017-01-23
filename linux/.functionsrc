@@ -1,0 +1,12 @@
+function search() {
+	grep -rin . -e $1
+}
+
+function scuttle() {
+	docker kill $(docker ps -a -q)
+	docker rm $(docker ps -a -q)
+}
+
+function sink() {
+	docker rmi $(docker images -q)
+}

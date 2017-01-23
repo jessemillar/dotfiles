@@ -35,3 +35,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Load custom aliases
 [ -f .aliasrc ] && source .aliasrc
+
+# Load custom functions
+[ -f .functionsrc ] && source .functionsrc

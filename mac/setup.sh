@@ -9,3 +9,4 @@ ln -sfn ~/.dotfiles/.vimrc ~/.vimrc
 ln -sfn ~/.dotfiles/mac/.zshrc ~/.zshrc
 ln -sfn ~/.dotfiles/.oh-my-zsh/custom/mister-michael.zsh-theme ~/.oh-my-zsh/custom/mister-michael.zsh-theme
 ln -sfn ~/.dotfiles/.vim/colors ~/.vim/colors
+ln -sfn ~/.dotfiles/mac/.functionsrc ~/.functionsrc
