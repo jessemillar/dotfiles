@@ -16,3 +16,14 @@ function gitt() {
 	git commit -m $1
 	git push
 }
+
+function gitt() {
+	if [ -z "$1" ]
+	then
+		echo "No commit message supplied"
+	else
+		git add -A
+		git commit -m $1
+		git push
+	fi
+}

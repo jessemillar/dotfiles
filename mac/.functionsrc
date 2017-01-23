@@ -12,7 +12,12 @@ function sink() {
 }
 
 function gitt() {
-	git add -A
-	git commit -m $1
-	git push
+	if [ -z "$1" ]
+	then
+		echo "No commit message supplied"
+	else
+		git add -A
+		git commit -m $1
+		git push
+	fi
 }
