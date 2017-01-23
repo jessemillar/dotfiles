@@ -10,3 +10,9 @@ function scuttle() {
 function sink() {
 	docker rmi $(docker images -q)
 }
+
+function gitt() {
+	git add -A
+	git commit -m $1
+	git push
+}
