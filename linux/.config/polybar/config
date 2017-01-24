@@ -62,7 +62,7 @@ ramp-signal-0 = 
 
 [module/date]
 type = internal/date
-date =  %A, %b. %d  %I:%M
+date =  %A, %b. %d  %I:%M %p
 interval = 10
 format-padding = 1
 
