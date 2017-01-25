@@ -154,6 +154,9 @@ bindsym $mod+c exec chromium-browser
 # open spotify with a shortcut
 bindsym $mod+p exec spotify
 
+# open 1password with a shortcut
+bindsym $mod+backslash exec xdg-open https://my.1password.com/signin
+
 # turn the screen off with a shortcut
 bindsym $mod+q exec xset dpms force off
 
