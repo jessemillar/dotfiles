@@ -3,8 +3,8 @@ set $colors_bar_active 		#544538
 set $colors_bar_inactive 	#292929
 set $colors_text_active 	#ffffff
 set $colors_text_inactive	#ffffff
-set $colors_warning 		#ce8451
-set $colors_error 			#894f3b
+set $colors_warning 		#ff851b
+set $colors_error 			#ff4136
 
 font pango:Roboto Mono 8
 for_window [class=".*"] title_format "<span> %title</span>"
