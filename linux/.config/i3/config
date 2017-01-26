@@ -155,7 +155,7 @@ bindsym $mod+c exec chromium-browser
 bindsym $mod+p exec spotify
 
 # open 1password with a shortcut
-bindsym $mod+backslash exec xdg-open https://my.1password.com/signin
+bindsym $mod+backslash exec xdg-open https://my.1password.com/vaults/njiq52aommtohcbbpixlkvmbd4/allitems
 
 # turn the screen off with a shortcut
 bindsym $mod+q exec xset dpms force off
@@ -179,10 +179,10 @@ exec_always --no-startup-id $HOME/.dotfiles/linux/touchpad.sh
 exec_always --no-startup-id $HOME/.dotfiles/linux/keyboard.sh
 
 # set backlight strength on i3 start
-exec_always --no-startup-id xbacklight -set 26
+exec_always --no-startup-id xbacklight -set 31
 
 # set volume and mute on i3 start
-exec_always --no-startup-id pactl set-sink-volume 1 25%
+exec_always --no-startup-id pactl set-sink-volume 1 31%
 
 # set wallpaper
 exec --no-startup-id feh --bg-fill $HOME/Dropbox/Wallpaper/Desktop/cups.jpg
