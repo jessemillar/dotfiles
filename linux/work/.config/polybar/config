@@ -6,7 +6,8 @@ text_active		= #ffffff
 warning 		= #ff851b
 error 			= #ff4136
 
-[bar/bottom-bar]
+[bar/main-bar]
+monitor = DVI-I-1
 width = 100%
 bottom = true
 height = 20
@@ -20,6 +21,21 @@ font-1 = Material Design Icons:size=10;0
 
 modules-left = i3
 modules-right = volume backlight battery date wlan
+
+[bar/secondary-bar]
+monitor = DP-1
+width = 100%
+bottom = true
+height = 20
+offset-x = 0
+offset-y = 0
+background = ${colors.bar}
+foreground = ${colors.text}
+
+font-0 = Roboto Mono:size=8;0
+font-1 = Material Design Icons:size=10;0
+
+modules-left = i3
 
 [module/i3]
 type = internal/i3
