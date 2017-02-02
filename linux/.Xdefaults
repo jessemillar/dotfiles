@@ -1,14 +1,3 @@
-! Enable copy/paste in the way I'm used to
-URxvt.perl-ext-common: clipboard
-URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
-URxvt.keysym.Shift-Control-V:   perl:clipboard:paste
-URxvt.keysym.Shift-Control-M-V: perl:clipboard:paste_escaped
-URxvt.clipboard.autocopy: true
-
-! Disable unicode entry mode so Shift-Control can be used for copy and paste
-URxvt.iso14755_52: false
-URxvt.iso14755: false
-
 ! General settings
 URxvt*scrollBar_right: true
 URxvt*scrollBar: false
