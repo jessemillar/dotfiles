@@ -8,5 +8,5 @@ synclient HorizTwoFingerScroll=1
 
 # Invert touchpad scrolling
 # Higher values equal slower scrolling
-synclient VertScrollDelta=-250
-synclient HorizScrollDelta=-350
+synclient VertScrollDelta=-350
+synclient HorizScrollDelta=-450
