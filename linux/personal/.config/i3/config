@@ -158,7 +158,7 @@ bindsym $mod+p exec spotify
 bindsym $mod+backslash exec xdg-open https://my.1password.com/vaults/njiq52aommtohcbbpixlkvmbd4/allitems
 
 # hide window borders
-for_window [class="^.*"] border normal 0
+for_window [class="^.*"] border pixel 0
 
 # make google hangouts behave
 for_window [title="Google Hangouts"] floating disabled
