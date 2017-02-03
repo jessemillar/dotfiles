@@ -1,14 +1,35 @@
 #!/bin/bash
 
-ln -sfn ~/.dotfiles/linux/.aliasrc ~/.aliasrc
-ln -sfn ~/.dotfiles/.vimrc ~/.vimrc
-ln -sfn ~/.dotfiles/linux/.Xdefaults ~/.Xdefaults
-ln -sfn ~/.dotfiles/linux/.config/i3 ~/.config/i3
-ln -sfn ~/.dotfiles/linux/.gitconfig ~/.gitconfig
-ln -sfn ~/.dotfiles/linux/.config/gtk-3.0/gtk.css ~/.config/gtk-3.0/gtk.css
-ln -sfn ~/.dotfiles/.purerc ~/.purerc
-ln -sfn ~/.dotfiles/linux/.config/polybar ~/.config/polybar
-ln -sfn ~/.dotfiles/linux/.zshrc ~/.zshrc
-ln -sfn ~/.dotfiles/.oh-my-zsh/custom/mister-michael.zsh-theme ~/.oh-my-zsh/custom/mister-michael.zsh-theme
-ln -sfn ~/.dotfiles/.vim/colors ~/.vim/colors
-ln -sfn ~/.dotfiles/.functionsrc ~/.functionsrc
+rm ~/.aliasrc
+ln -s ~/.dotfiles/linux/personal/.aliasrc ~/.aliasrc
+
+rm ~/.vimrc
+ln -s ~/.dotfiles/.vimrc ~/.vimrc
+
+rm ~/.Xdefaults
+ln -s ~/.dotfiles/linux/.Xdefaults ~/.Xdefaults
+
+rm -rf ~/.config/i3
+ln -s ~/.dotfiles/linux/personal/.config/i3 ~/.config/i3
+
+rm ~/.gitconfig
+ln -s ~/.dotfiles/linux/.gitconfig ~/.gitconfig
+
+rm ~/.config/gtk-3.0/gtk.css
+mkdir -p ~/.config/gtk-3.0
+ln -s ~/.dotfiles/linux/.config/gtk-3.0/gtk.css ~/.config/gtk-3.0/gtk.css
+
+rm -rf ~/.config/polybar
+ln -s ~/.dotfiles/linux/personal/.config/polybar ~/.config/polybar
+
+rm ~/.zshrc
+ln -s ~/.dotfiles/linux/personal/.zshrc ~/.zshrc
+
+rm ~/.oh-my-zsh/custom/mister-michael.zsh-theme
+ln -s ~/.dotfiles/.oh-my-zsh/custom/mister-michael.zsh-theme ~/.oh-my-zsh/custom/mister-michael.zsh-theme
+
+rm -rf ~/.vim/colors
+ln -s ~/.dotfiles/.vim/colors ~/.vim/colors
+
+rm ~/.functionsrc
+ln -s ~/.dotfiles/.functionsrc ~/.functionsrc
