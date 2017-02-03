@@ -157,9 +157,6 @@ bindsym $mod+p exec spotify
 # open 1password with a shortcut
 bindsym $mod+backslash exec xdg-open https://my.1password.com/vaults/njiq52aommtohcbbpixlkvmbd4/allitems
 
-# turn the screen off with a shortcut
-bindsym $mod+q exec xset dpms force off
-
 # hide window borders
 for_window [class="^.*"] border normal 0
 
@@ -173,7 +170,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id dropbox start
 
 # configure touchpad
-exec_always --no-startup-id $HOME/.dotfiles/linux/touchpad.sh
+exec_always --no-startup-id $HOME/.dotfiles/linux/personal/touchpad.sh
 
 # configure keyboard
 exec_always --no-startup-id $HOME/.dotfiles/linux/keyboard.sh
