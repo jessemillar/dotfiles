@@ -28,7 +28,7 @@ rm ~/.compton.conf
 ln -s ~/.dotfiles/linux/.compton.conf ~/.compton.conf
 
 rm -rf ~/.config/bspwm
-ln -s ~/.dotfiles/linux/personal/.config/bspwm
+ln -s ~/.dotfiles/linux/personal/.config/bspwm ~/.config
 
 rm -rf ~/.config/sxhkd
-ln -s ~/.dotfiles/linux/personal/.config/sxhkd
+ln -s ~/.dotfiles/linux/personal/.config/sxhkd ~/.config
