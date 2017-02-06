@@ -14,6 +14,10 @@ super + d
 super + shift + r
 	pkill -USR1 -x sxhkd && $HOME/.config/bspwm/bspwmrc
 
+# open 1password
+super + backslash
+	xdg-open https://my.1password.com/vaults/njiq52aommtohcbbpixlkvmbd4/allitems
+
 #
 # bspwm hotkeys
 #
