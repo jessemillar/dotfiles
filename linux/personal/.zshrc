@@ -20,7 +20,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(wd)
 
 # User configuration
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl"
 
 export GOPATH=/home/jessemillar/.go
 export PATH=$PATH:$GOPATH/bin
