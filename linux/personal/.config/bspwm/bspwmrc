@@ -10,6 +10,8 @@ $HOME/.dotfiles/linux/keyboard.sh
 
 setxkbmap -option caps:escape
 
+xbacklight -set 41
+
 feh --bg-fill ~/Dropbox/Wallpaper/Desktop/foggy-trees.jpg
 
 bspc monitor -d I II III IV V VI VII VIII IX X

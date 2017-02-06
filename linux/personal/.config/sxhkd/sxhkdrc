@@ -18,6 +18,14 @@ super + shift + r
 super + backslash
 	xdg-open https://my.1password.com/vaults/njiq52aommtohcbbpixlkvmbd4/allitems
 
+# open chrome
+super + c
+	google-chrome-stable
+
+# open spotify
+super + p
+	spotify
+
 #
 # bspwm hotkeys
 #
