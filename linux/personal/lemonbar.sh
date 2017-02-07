@@ -3,15 +3,15 @@
 BACKGROUND="#80ffffff"
 
 clock() {
-	date +%H:%M:%S
+	date +%a,\ %h%e%l:%M\ %p
 }
 
 battery() {
-	cat /sys/class/power_supply/BAT0/capacity
+	acpi
 }
 
 while true
 do
-	echo "%{l}%{B$BACKGROUND} LIFE : $(battery)% %{r}%{B$BACKGROUND}TIME : $(clock) "
+	echo "%{l}%{B$BACKGROUND} $(battery)% %{r}%{B$BACKGROUND}$(clock) "
 	sleep 1
 done

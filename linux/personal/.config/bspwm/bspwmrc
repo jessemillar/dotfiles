@@ -15,9 +15,9 @@ $HOME/.dotfiles/linux/keyboard.sh
 setxkbmap -option caps:escape
 
 killall -9 lemonbar
-$HOME/.dotfiles/linux/personal/lemonbar.sh | lemonbar -p -f "Roboto Mono:size=8" -g $[$SCREEN_WIDTH-$GAP_SIZE*2]x$BAR_HEIGHT+$GAP_SIZE+$GAP_SIZE
+$HOME/.dotfiles/linux/personal/lemonbar.sh | lemonbar -f "Roboto Mono:size=8" -g $[$SCREEN_WIDTH-$GAP_SIZE*2]x$BAR_HEIGHT+$GAP_SIZE+$GAP_SIZE
 
-xbacklight -set 41
+xbacklight -set 31
 
 feh --bg-fill ~/Dropbox/Wallpaper/Desktop/foggy-trees.jpg
 
