@@ -4,7 +4,7 @@ URxvt*scrollBar: false
 
 URxvt*font: xft:Roboto Mono-8
 
-URxvt.internalBorder: 20
+URxvt.internalBorder: 25
 
 ! Theme
 *.foreground:   #f7f7f7

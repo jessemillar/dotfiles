@@ -19,7 +19,7 @@ client.urgent 			$colors_warning 		$colors_warning 		$colors_text_inactive 		$co
 set $mod Mod4
 
 # set gaps
-gaps inner 70
+gaps inner 25
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -149,7 +149,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 3%-
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
 
 # lock the screen for safety
-bindsym XF86Sleep exec i3lock
+bindsym XF86Sleep exec i3lock-fancy -f Adobe-Blank
 
 # open chrome with a shortcut
 bindsym $mod+c exec google-chrome-stable
