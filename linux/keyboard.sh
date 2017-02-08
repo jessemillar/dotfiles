@@ -6,3 +6,6 @@ xset r rate 250 30
 
 # Make caps lock escape
 setxkbmap -option caps:escape
+
+# Turn on numlock
+numlockx &

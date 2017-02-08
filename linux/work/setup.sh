@@ -15,10 +15,6 @@ ln -s ~/.dotfiles/linux/work/.config/i3 ~/.config/i3
 rm ~/.gitconfig
 ln -s ~/.dotfiles/linux/.gitconfig ~/.gitconfig
 
-rm ~/.config/gtk-3.0/gtk.css
-mkdir -p ~/.config/gtk-3.0
-ln -s ~/.dotfiles/linux/.config/gtk-3.0/gtk.css ~/.config/gtk-3.0/gtk.css
-
 rm -rf ~/.config/polybar
 ln -s ~/.dotfiles/linux/work/.config/polybar ~/.config/polybar
 
@@ -33,3 +29,12 @@ ln -s ~/.dotfiles/.vim/colors ~/.vim/colors
 
 rm ~/.functionsrc
 ln -s ~/.dotfiles/.functionsrc ~/.functionsrc
+
+rm ~/.compton.conf
+ln -s ~/.dotfiles/linux/.compton.conf ~/.compton.conf
+
+rm -rf ~/.config/bspwm
+ln -s ~/.dotfiles/linux/work/.config/bspwm ~/.config
+
+rm -rf ~/.config/sxhkd
+ln -s ~/.dotfiles/linux/work/.config/sxhkd ~/.config

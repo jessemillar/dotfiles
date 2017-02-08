@@ -19,7 +19,7 @@ client.urgent 			$colors_warning 		$colors_warning 		$colors_text_inactive 		$co
 set $mod Mod4
 
 # set gaps
-gaps inner 10
+gaps inner 70
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -138,24 +138,20 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# pulse audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% # increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% # decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 2 toggle # mute sound
+# use audio controls
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 
-# sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5
-
-# keyboard brightness controls
-bindsym XF86KbdBrightnessUp exec --no-startup-id sudo $HOME/.dotfiles/linux/keyboard-brightness.sh up
-bindsym XF86KbdBrightnessDown exec --no-startup-id sudo $HOME/.dotfiles/linux/keyboard-brightness.sh down
+# enable volume control
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 3%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 3%-
 
 # open chrome with a shortcut
-bindsym $mod+c exec chromium
+bindsym $mod+c exec google-chrome-stable
 
-# open spotify with a shortcut
-bindsym $mod+p exec spotify
+# open spotify with a shortcut in offline mode
+bindsym $mod+p exec spotify --ap=127.0.0.1
 
 # open 1password with a shortcut
 bindsym $mod+backslash exec xdg-open https://my.1password.com/vaults/njiq52aommtohcbbpixlkvmbd4/allitems
