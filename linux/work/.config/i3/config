@@ -18,6 +18,9 @@ client.urgent 			$colors_warning 		$colors_warning 		$colors_text_inactive 		$co
 # use the Windows/Command key as mod
 set $mod Mod4
 
+# set gaps
+gaps inner 10
+
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -149,7 +152,7 @@ bindsym XF86KbdBrightnessUp exec --no-startup-id sudo $HOME/.dotfiles/linux/keyb
 bindsym XF86KbdBrightnessDown exec --no-startup-id sudo $HOME/.dotfiles/linux/keyboard-brightness.sh down
 
 # open chrome with a shortcut
-bindsym $mod+c exec chromium-browser
+bindsym $mod+c exec chromium
 
 # open spotify with a shortcut
 bindsym $mod+p exec spotify
@@ -157,11 +160,8 @@ bindsym $mod+p exec spotify
 # open 1password with a shortcut
 bindsym $mod+backslash exec xdg-open https://my.1password.com/vaults/njiq52aommtohcbbpixlkvmbd4/allitems
 
-# turn the screen off with a shortcut
-bindsym $mod+q exec xset dpms force off
-
-# hide window borders
-for_window [class="^.*"] border normal 0
+# hide window titlebars
+for_window [class="^.*"] border pixel 0
 
 # make google hangouts behave
 for_window [title="Google Hangouts"] floating disabled
@@ -172,17 +172,8 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # launch dropbox
 exec_always --no-startup-id dropbox start
 
-# configure touchpad
-exec_always --no-startup-id $HOME/.dotfiles/linux/touchpad.sh
-
 # configure keyboard
 exec_always --no-startup-id $HOME/.dotfiles/linux/keyboard.sh
-
-# set backlight strength on i3 start
-exec_always --no-startup-id xbacklight -set 31
-
-# set volume and mute on i3 start
-exec_always --no-startup-id pactl set-sink-volume 1 31%
 
 # set wallpaper
 exec --no-startup-id feh --bg-fill $HOME/Dropbox/Wallpaper/Desktop/cups.jpg
