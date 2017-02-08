@@ -1,10 +1,9 @@
 ! General settings
-URxvt*scrollBar_right: true
 URxvt*scrollBar: false
 
-URxvt*font: xft:Roboto Mono-8
+URxvt*font: xft:Roboto Mono:size=8
 
-URxvt.internalBorder: 9
+URxvt.internalBorder: 10
 
 ! Theme
 *.foreground:   #f7f7f7
