@@ -30,9 +30,6 @@ ln -s ~/.dotfiles/.vim/colors ~/.vim/colors
 rm ~/.functionsrc
 ln -s ~/.dotfiles/.functionsrc ~/.functionsrc
 
-rm ~/.compton.conf
-ln -s ~/.dotfiles/linux/.compton.conf ~/.compton.conf
-
 rm -rf ~/.config/bspwm
 ln -s ~/.dotfiles/linux/work/.config/bspwm ~/.config
 

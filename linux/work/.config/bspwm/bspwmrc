@@ -6,8 +6,6 @@ BAR_HEIGHT=25
 
 sxhkd &
 
-compton -b
-
 dropbox-cli start
 
 $HOME/.dotfiles/linux/keyboard.sh
