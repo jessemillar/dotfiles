@@ -3,3 +3,5 @@
 	name = Jesse Millar
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[http "https://gopkg.in"]
+	followRedirects = true

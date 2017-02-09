@@ -16,8 +16,8 @@ offset-y = 0
 background = ${colors.bar}
 foreground = ${colors.text}
 
-font-0 = Roboto Mono:size=8;0
-font-1 = Material Design Icons:size=10;0
+font-0 = Roboto Mono:size=8;2
+font-1 = Material Design Icons:size=10;2
 
 modules-left = i3
 modules-right = volume backlight battery date wlan
@@ -32,15 +32,16 @@ offset-y = 0
 background = ${colors.bar}
 foreground = ${colors.text}
 
-font-0 = Roboto Mono:size=8;0
-font-1 = Material Design Icons:size=10;0
+font-0 = Roboto Mono:size=8;2
+font-1 = Material Design Icons:size=10;2
 
 modules-left = i3
 
 [module/i3]
 type = internal/i3
-format = <label-state> <label-mode>
+pin-workspaces = true
 index-sort = true
+format = <label-state> <label-mode>
 
 ws-icon-0 = 1;
 ws-icon-1 = 2; 
