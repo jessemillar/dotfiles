@@ -35,10 +35,10 @@ super + Escape
 #
 
 XF86MonBrightnessUp
-	xbacklight -inc 3
+	light -s mba6x_backlight -A 3.0
 
 XF86MonBrightnessDown
-	xbacklight -dec 3
+	light -s mba6x_backlight -U 3.0
 
 #
 # keyboard brightness

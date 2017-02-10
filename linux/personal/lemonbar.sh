@@ -18,6 +18,11 @@ clock() {
 	echo "$date "
 }
 
+# get current backlight info
+backlight() {
+	light -s mba6x_backlight
+}
+
 # grab battery information
 battery() {
 	# grab current battery status from acpi using cut and sed
@@ -83,6 +88,7 @@ do
 	echo "${fg_white1}$(workspace)$SPACING\
 		$(music)$SPACING\
 		%{r}${fg_white1}\
+		$(backlight)$SPACING\
 		$(volume)$SPACING\
 		$(wifi)$SPACING\
 		$(battery)$SPACING\
