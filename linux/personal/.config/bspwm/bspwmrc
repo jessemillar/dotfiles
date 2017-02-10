@@ -16,8 +16,6 @@ killall -9 lemonbar
 killall -9 lemonbar.sh
 $HOME/.dotfiles/linux/personal/lemonbar.sh | lemonbar -b -f "Roboto Mono:size=8" -g $[$SCREEN_WIDTH-$GAP_SIZE*2]x$BAR_HEIGHT+$GAP_SIZE+0 &
 
-xbacklight -set 31
-
 feh --bg-fill ~/Dropbox/Wallpaper/Desktop/leaves.jpg
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10

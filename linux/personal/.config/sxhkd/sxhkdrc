@@ -31,6 +31,26 @@ super + Escape
 	i3lock-fancy -pgf Adobe-Blank
 
 #
+# screen brightness
+#
+
+XF86MonBrightnessUp
+	xbacklight -inc 3
+
+XF86MonBrightnessDown
+	xbacklight -dec 3
+
+#
+# keyboard brightness
+#
+
+XF86KbdBrightnessUp
+	kbdlight up
+
+XF86KbdBrightnessDown
+	kbdlight down
+
+#
 # volume control
 #
 
