@@ -47,23 +47,13 @@ battery() {
 }
 
 # grab volume information
-Volume() {
-	# grab volume and strip of [%]
-	vol=$(amixer sget Master | grep 'Front Left:' | awk '{print $5}' | \
-		sed 's/\[//g;s/\]//g;s/\%//g')
+volume() {
+	echo $(amixer get Master | awk '$0~/%/{print $4}' | tr -d '[]')
+}
 
-	# grab mute status and strip of []
-	state=$(amixer sget Master | grep 'Front Left:' | awk '{print $6}' | \
-		sed 's/[^a-z]//g')
-
-	# check for mute
-	if [[ $state == "on" ]]; then
-		output="  ${vol} "
-	else
-		output="  mute "
-	fi
-
-	echo "$output"
+# grab music information
+music() {
+	echo $(spotify-now -i "%title")
 }
 
 # grab wifi info
@@ -82,7 +72,7 @@ wifi() {
 }
 
 # set current workspace
-Workspace() {
+workspace() {
 	echo " "$(bspc query -D -d --names)
 }
 
@@ -90,8 +80,10 @@ Workspace() {
 while true
 do
 	# output to lemonbar
-	echo "${fg_white1}$(Workspace)%{l}\
+	echo "${fg_white1}$(workspace)$SPACING\
+		$(music)$SPACING\
 		%{r}${fg_white1}\
+		$(volume)$SPACING\
 		$(wifi)$SPACING\
 		$(battery)$SPACING\
 		$(clock)\

@@ -31,6 +31,32 @@ super + Escape
 	i3lock-fancy -pgf Adobe-Blank
 
 #
+# volume control
+#
+
+XF86AudioRaiseVolume
+	amixer -q sset Master 3%+
+
+XF86AudioLowerVolume
+	amixer -q sset Master 3%-
+
+XF86AudioMute
+	amixer set Master toggle
+
+#
+# music control
+#
+
+XF86AudioNext 
+	playerctl next
+
+XF86AudioPrev 
+	playerctl previous
+
+XF86AudioPlay
+	playerctl play-pause
+
+#
 # bspwm hotkeys
 #
 
