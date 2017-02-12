@@ -32,3 +32,6 @@ ln -s ~/.dotfiles/linux/personal/.config/sxhkd ~/.config
 
 sudo rm /etc/X11/xorg.conf.d/10-mtrack.conf
 sudo ln -s ~/.dotfiles/linux/personal/etc/X11/xorg.conf.d/10-mtrack.conf /etc/X11/xorg.conf.d/10-mtrack.conf
+
+sudo rm /etc/systemd/system/sedate.service
+sudo ln -s ~/.dotfiles/linux/personal/etc/systemd/system/sedate.service /etc/systemd/system/sedate.service
