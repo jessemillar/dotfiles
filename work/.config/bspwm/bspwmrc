@@ -2,23 +2,25 @@
 
 GAP_SIZE=5
 SCREEN_WIDTH=1440
-BAR_HEIGHT=20
+BAR_HEIGHT=25
 
 sxhkd &
 
 dropbox-cli start
 
-$HOME/.dotfiles/linux/keyboard.sh
+$HOME/.dotfiles/keyboard.sh
 
 setxkbmap -option caps:escape
 
 killall -9 lemonbar
 killall -9 lemonbar.sh
-$HOME/.dotfiles/linux/personal/lemonbar.sh | lemonbar -b -f "Roboto Mono:size=8" -g $[$SCREEN_WIDTH-$GAP_SIZE*2]x$BAR_HEIGHT+$GAP_SIZE+0 &
+$HOME/.dotfiles/work/lemonbar.sh | lemonbar -f "Roboto Mono:size=8" -g $[$SCREEN_WIDTH-$GAP_SIZE*2]x$BAR_HEIGHT+$GAP_SIZE+$GAP_SIZE
 
-feh --bg-fill ~/Dropbox/Wallpaper/Desktop/leaves.jpg
+xbacklight -set 31
 
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+feh --bg-fill ~/Dropbox/Wallpaper/Desktop/foggy-trees.jpg
+
+bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc config border_width 1
 bspc config window_gap $GAP_SIZE
