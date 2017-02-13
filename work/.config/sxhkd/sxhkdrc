@@ -86,7 +86,7 @@ XF86AudioPlay
 
 # quit bspwm normally
 super + shift + q
-	bspc quit
+	pkill -x panel; bspc quit
 
 # close and kill
 super + {_,shift + }w
