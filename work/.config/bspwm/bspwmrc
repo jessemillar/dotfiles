@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 GAP_SIZE=20
 SCREEN_WIDTH=2560
@@ -16,8 +16,8 @@ $HOME/.dotfiles/work/panel &
 
 feh --bg-fill ~/Dropbox/Wallpaper/Desktop/cups.jpg
 
-bspc monitor -n L -d 1 2 3 4 5
-bspc monitor -n R -d 6 7 8 9 10
+bspc monitor DP-1 -n L -d 1 2 3 4 5
+bspc monitor DVI-I-1 -n R -d 6 7 8 9 10
 
 bspc config border_width 1
 bspc config window_gap $GAP_SIZE

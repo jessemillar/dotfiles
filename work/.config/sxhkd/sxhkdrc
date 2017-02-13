@@ -12,7 +12,7 @@ super + d
 
 # make sxhkd and bspwm reload their configuration files
 super + shift + r
-	pkill -USR1 -x sxhkd && $HOME/.config/bspwm/bspwmrc
+	$HOME/.config/bspwm/bspwmrc
 
 # open 1password
 super + backslash
