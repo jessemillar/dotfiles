@@ -1,7 +1,7 @@
 #!/bin/bash
 
 rm ~/.aliasrc
-ln -s ~/.dotfiles/work/.aliasrc ~/.aliasrc
+ln -s ~/.dotfiles/.aliasrc ~/.aliasrc
 
 rm ~/.vimrc
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
@@ -19,7 +19,7 @@ rm -rf ~/.config/polybar
 ln -s ~/.dotfiles/work/.config/polybar ~/.config/polybar
 
 rm ~/.zshrc
-ln -s ~/.dotfiles/work/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
 rm ~/.oh-my-zsh/custom/mister-michael.zsh-theme
 ln -s ~/.dotfiles/.oh-my-zsh/custom/mister-michael.zsh-theme ~/.oh-my-zsh/custom/mister-michael.zsh-theme

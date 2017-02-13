@@ -1,7 +1,7 @@
 #!/bin/bash
 
 rm ~/.aliasrc
-ln -s ~/.dotfiles/personal/.aliasrc ~/.aliasrc
+ln -s ~/.dotfiles/.aliasrc ~/.aliasrc
 
 rm ~/.vimrc
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
@@ -13,7 +13,7 @@ rm ~/.gitconfig
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 
 rm ~/.zshrc
-ln -s ~/.dotfiles/personal/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
 rm ~/.oh-my-zsh/custom/mister-michael.zsh-theme
 ln -s ~/.dotfiles/.oh-my-zsh/custom/mister-michael.zsh-theme ~/.oh-my-zsh/custom/mister-michael.zsh-theme
