@@ -1,0 +1,30 @@
+#! /bin/sh
+
+GAP_SIZE=5
+SCREEN_WIDTH=1440
+BAR_HEIGHT=20
+
+sxhkd &
+
+dropbox-cli start
+
+$HOME/.dotfiles/scripts/keyboard
+
+setxkbmap -option caps:escape
+
+killall -9 lemonbar
+killall -9 lemonbar.sh
+$HOME/.dotfiles/personal/lemonbar.sh | lemonbar -b -f "Roboto Mono:size=8" -g $[$SCREEN_WIDTH-$GAP_SIZE*2]x$BAR_HEIGHT+$GAP_SIZE+0 &
+
+feh --bg-fill ~/Dropbox/Wallpaper/Desktop/leaves.jpg
+
+bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+
+bspc config border_width 1
+bspc config window_gap $GAP_SIZE
+
+bspc config split_ratio 0.52
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+
+bspc config focus_follows_pointer true

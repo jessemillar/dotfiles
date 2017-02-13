@@ -25,10 +25,10 @@ rm ~/.functionsrc
 ln -s ~/.dotfiles/.functionsrc ~/.functionsrc
 
 rm -rf ~/.config/bspwm
-ln -s ~/.dotfiles/.config/bspwm ~/.config
+ln -s ~/.dotfiles/personal/.config/bspwm ~/.config
 
 rm -rf ~/.config/sxhkd
-ln -s ~/.dotfiles/.config/sxhkd ~/.config
+ln -s ~/.dotfiles/personal/.config/sxhkd ~/.config
 
 sudo rm /etc/X11/xorg.conf.d/10-mtrack.conf
 sudo ln -s ~/.dotfiles/etc/X11/xorg.conf.d/10-mtrack.conf /etc/X11/xorg.conf.d/10-mtrack.conf

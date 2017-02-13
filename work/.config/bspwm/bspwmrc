@@ -1,14 +1,14 @@
 #! /bin/sh
 
-GAP_SIZE=5
-SCREEN_WIDTH=1440
+GAP_SIZE=20
+SCREEN_WIDTH=2560
 BAR_HEIGHT=20
 
 sxhkd &
 
 dropbox-cli start
 
-$HOME/.dotfiles/scripts/keyboard.sh
+$HOME/.dotfiles/scripts/keyboard
 
 setxkbmap -option caps:escape
 
@@ -18,7 +18,8 @@ $HOME/.dotfiles/personal/lemonbar.sh | lemonbar -b -f "Roboto Mono:size=8" -g $[
 
 feh --bg-fill ~/Dropbox/Wallpaper/Desktop/leaves.jpg
 
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor DP-1 -n 0 -d I II III IV V
+bspc monitor DVI-I-1 -n 1 -d VI VII VIII IX X
 
 bspc config border_width 1
 bspc config window_gap $GAP_SIZE
