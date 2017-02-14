@@ -25,16 +25,10 @@ rm ~/.functionsrc
 ln -s ~/.dotfiles/.functionsrc ~/.functionsrc
 
 rm -rf ~/.config/bspwm
-ln -s ~/.dotfiles/personal/.config/bspwm ~/.config
+ln -s ~/.dotfiles/dual-monitor/.config/bspwm ~/.config
 
 rm -rf ~/.config/sxhkd
-ln -s ~/.dotfiles/personal/.config/sxhkd ~/.config
-
-sudo rm /etc/X11/xorg.conf.d/10-mtrack.conf
-sudo ln -s ~/.dotfiles/etc/X11/xorg.conf.d/10-mtrack.conf /etc/X11/xorg.conf.d/10-mtrack.conf
+ln -s ~/.dotfiles/.config/sxhkd ~/.config
 
 sudo rm /etc/X11/xorg.conf.d/10-mouse.conf
 sudo ln -s ~/.dotfiles/etc/X11/xorg.conf.d/10-mouse.conf /etc/X11/xorg.conf.d/10-mouse.conf
-
-sudo rm /etc/systemd/system/sedate.service
-sudo ln -s ~/.dotfiles/etc/systemd/system/sedate.service /etc/systemd/system/sedate.service

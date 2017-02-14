@@ -1,20 +1,16 @@
 #! /bin/sh
 
 GAP_SIZE=5
-SCREEN_WIDTH=1440
-BAR_HEIGHT=20
 
+pkill -x sxhkd
 sxhkd &
 
 dropbox-cli start
 
 $HOME/.dotfiles/scripts/keyboard
 
-setxkbmap -option caps:escape
-
-killall -9 lemonbar
-killall -9 lemonbar.sh
-$HOME/.dotfiles/personal/lemonbar.sh | lemonbar -b -f "Roboto Mono:size=8" -g $[$SCREEN_WIDTH-$GAP_SIZE*2]x$BAR_HEIGHT+$GAP_SIZE+0 &
+pkill -x panel
+$HOME/.dotfiles/scripts/panel &
 
 feh --bg-fill ~/Dropbox/Wallpaper/Desktop/leaves.jpg
 

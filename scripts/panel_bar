@@ -2,7 +2,7 @@
 #
 # Example panel for lemonbar
 
-. $HOME/.dotfiles/work/panel_colors
+. $HOME/.dotfiles/scripts/panel_colors
 
 num_mon=$(bspc query -M | wc -l)
 

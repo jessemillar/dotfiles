@@ -9,14 +9,8 @@ ln -s ~/.dotfiles/.vimrc ~/.vimrc
 rm ~/.Xdefaults
 ln -s ~/.dotfiles/.Xdefaults ~/.Xdefaults
 
-rm -rf ~/.config/i3
-ln -s ~/.dotfiles/work/.config/i3 ~/.config/i3
-
 rm ~/.gitconfig
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
-
-rm -rf ~/.config/polybar
-ln -s ~/.dotfiles/work/.config/polybar ~/.config/polybar
 
 rm ~/.zshrc
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
@@ -31,10 +25,16 @@ rm ~/.functionsrc
 ln -s ~/.dotfiles/.functionsrc ~/.functionsrc
 
 rm -rf ~/.config/bspwm
-ln -s ~/.dotfiles/work/.config/bspwm ~/.config
+ln -s ~/.dotfiles/laptop/.config/bspwm ~/.config
 
 rm -rf ~/.config/sxhkd
-ln -s ~/.dotfiles/work/.config/sxhkd ~/.config
+ln -s ~/.dotfiles/.config/sxhkd ~/.config
+
+sudo rm /etc/X11/xorg.conf.d/10-mtrack.conf
+sudo ln -s ~/.dotfiles/etc/X11/xorg.conf.d/10-mtrack.conf /etc/X11/xorg.conf.d/10-mtrack.conf
 
 sudo rm /etc/X11/xorg.conf.d/10-mouse.conf
 sudo ln -s ~/.dotfiles/etc/X11/xorg.conf.d/10-mouse.conf /etc/X11/xorg.conf.d/10-mouse.conf
+
+sudo rm /etc/systemd/system/sedate.service
+sudo ln -s ~/.dotfiles/etc/systemd/system/sedate.service /etc/systemd/system/sedate.service
