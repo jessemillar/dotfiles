@@ -15,6 +15,7 @@ Plug 'tpope/vim-repeat'
 Plug 'othree/eregex.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'roxma/vim-paste-easy'
+Plug 'justinj/vim-pico8-syntax'
 
 call plug#end()
 
@@ -26,9 +27,6 @@ autocmd VimEnter * PasteEasyEnable
 
 " Enable JavaScript syntax highlighting
 let g:javascript_plugin_jsdoc = 1
-
-" PICO-8 syntax highlighting
-au BufNewFile,BufRead *.p8 set filetype=lua
 
 " Change location of saved swap files
 set directory=/tmp
