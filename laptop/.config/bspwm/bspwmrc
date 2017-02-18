@@ -12,9 +12,9 @@ $HOME/.dotfiles/scripts/keyboard
 pkill -x panel
 $HOME/.dotfiles/scripts/panel &
 
-feh --bg-fill ~/Dropbox/Wallpaper/Desktop/leaves.jpg
+feh --bg-fill ~/Dropbox/Wallpaper/Desktop/octane.png
 
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 
 bspc config border_width 1
 bspc config window_gap $GAP_SIZE

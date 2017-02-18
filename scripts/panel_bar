@@ -1,6 +1,4 @@
 #!/bin/sh
-#
-# Example panel for lemonbar
 
 . $HOME/.dotfiles/scripts/panel_colors
 
@@ -75,10 +73,6 @@ while read -r line ; do
 								;;
 						esac
 						wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc desktop -f ${name}:} ${name} %{A}%{B-}%{F-}"
-						;;
-					[LTG]*)
-						# layout, state and flags
-						wm="${wm}%{F$COLOR_STATE_FG}%{B$COLOR_STATE_BG} ${name} %{B-}%{F-}"
 						;;
 				esac
 				shift
