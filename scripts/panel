@@ -16,7 +16,7 @@ mkfifo "$PANEL_FIFO"
 bspc config bottom_padding $PANEL_HEIGHT
 bspc subscribe report > "$PANEL_FIFO" &
 xtitle -sf 'T%s\n' > "$PANEL_FIFO" &
-$HOME/.dotfiles/scripts/clock > "$PANEL_FIFO" &
+clock -sf 'S%b %d %l:%M %p' > "$PANEL_FIFO" &
 
 . $HOME/.dotfiles/scripts/panel_colors
 

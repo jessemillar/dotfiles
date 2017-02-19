@@ -1,6 +1,0 @@
-#!/bin/bash
-
-while sleep 30
-do
-	date +"S%b %d %l:%M %p"
-done
