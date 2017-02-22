@@ -26,6 +26,7 @@ export GOPATH=/home/jessemillar/.go
 export PATH=$PATH:$GOPATH/bin
 
 source $ZSH/oh-my-zsh.sh
+source <(gopass completion zsh)
 
 # Load environment variables
 [ -f .envrc ] && source .envrc
