@@ -10,6 +10,10 @@ super + Return
 super + d
 	rofi -show run
 
+# simple calculator
+super + equal
+	= -v rofi -dmenu
+
 # make sxhkd and bspwm reload their configuration files
 super + shift + r
 	$HOME/.config/bspwm/bspwmrc
