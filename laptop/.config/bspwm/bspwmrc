@@ -12,7 +12,7 @@ $HOME/.dotfiles/scripts/keyboard
 pkill -x panel
 $HOME/.dotfiles/scripts/panel &
 
-feh --bg-fill ~/Dropbox/Wallpaper/Desktop/octane.png
+feh --bg-fill ~/Dropbox/Wallpaper/Desktop/pitch.jpg
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 
