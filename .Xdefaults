@@ -5,6 +5,8 @@ URxvt*font: xft:Roboto Mono:size=8
 
 URxvt*internalBorder: 20
 
+URxvt*iso14755: false
+
 ! Theme
 *.foreground:   #f7f7f7
 *.background:   #292929

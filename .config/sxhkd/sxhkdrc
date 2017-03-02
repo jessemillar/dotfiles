@@ -34,6 +34,14 @@ super + p
 super + shift + p
 	spotify --ap=127.0.0.1
 
+# desktop screenshot
+control + alt + s
+	maim ~/Screenshots/$(date +%s).png
+
+# desktop screenshot
+control + alt + shift + s
+	maim -s ~/Screenshots/$(date +%s).png
+
 # lock the screen
 super + Escape
 	i3lock-fancy -pgf Adobe-Blank
