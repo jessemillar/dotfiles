@@ -36,11 +36,11 @@ super + shift + p
 
 # desktop screenshot
 control + alt + s
-	maim ~/Screenshots/$(date +"%b %d %r").png
+	maim "$(echo $HOME)/Screenshots/$(date +'%b %d %r').png"
 
 # desktop screenshot
 control + alt + shift + s
-	maim -s ~/Screenshots/$(date +"%b %d %r").png
+	maim -s "$(echo $HOME)/Screenshots/$(date +'%b %d %r').png"
 
 # lock the screen
 super + Escape
