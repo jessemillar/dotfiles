@@ -1,6 +1,9 @@
 ! General settings
 URxvt*scrollBar: false
 
+URxvt*transparent: true
+URxvt*shading: 1
+
 URxvt*font: xft:Roboto Mono:size=8
 
 URxvt*internalBorder: 20
