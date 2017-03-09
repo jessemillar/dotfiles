@@ -9,7 +9,7 @@ URxvt*iso14755: false
 
 ! Theme
 *.foreground:   #f7f7f7
-*.background:   #292929
+*.background:   #111111
 *.cursorColor:  #f7f7f7
 
 ! black

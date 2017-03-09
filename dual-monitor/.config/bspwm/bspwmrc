@@ -12,10 +12,10 @@ $HOME/.dotfiles/scripts/keyboard
 pkill -x panel
 $HOME/.dotfiles/scripts/panel &
 
-feh --bg-fill ~/Dropbox/Wallpaper/Desktop/pitch-panorama-0.jpg --bg-fill ~/Dropbox/Wallpaper/Desktop/pitch-panorama-1.jpg
+feh --bg-fill ~/Dropbox/Wallpaper/Desktop/octane-gold.jpg --bg-fill ~/Dropbox/Wallpaper/Desktop/breakout-red-flipped.jpg
 
 bspc monitor DP-1 -n L -d 1 2 3 4 5
-bspc monitor DVI-I-1 -n R -d 6 7 8 9 10
+bspc monitor DVI-I-1 -n R -d 6 7 8 9 0
 
 bspc config border_width 1
 bspc config window_gap $GAP_SIZE
