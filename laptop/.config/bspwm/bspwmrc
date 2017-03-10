@@ -12,11 +12,14 @@ $HOME/.dotfiles/scripts/keyboard
 pkill -x panel
 $HOME/.dotfiles/scripts/panel &
 
-feh --bg-fill ~/Dropbox/Wallpaper/Desktop/pitch.jpg
+feh --bg-fill ~/Dropbox/Wallpaper/Desktop/octane-gold.jpg
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 
 bspc config border_width 1
+bspc config normal_border_color "#111111"
+bspc config active_border_color "#111111"
+bspc config focused_border_color "#7fdbff"
 bspc config window_gap $GAP_SIZE
 
 bspc config split_ratio 0.52
