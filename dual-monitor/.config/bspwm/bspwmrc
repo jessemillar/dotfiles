@@ -12,7 +12,7 @@ $HOME/.dotfiles/scripts/keyboard
 pkill -x panel
 $HOME/.dotfiles/scripts/panel &
 
-feh --bg-fill ~/Dropbox/Wallpaper/Desktop/octane-gold.jpg --bg-fill ~/Dropbox/Wallpaper/Desktop/breakout-red-flipped.jpg
+feh --randomize --bg-fill ~/Dropbox/Wallpaper/Desktop/Rocket\ League/* --randomize --bg-fill ~/Dropbox/Wallpaper/Desktop/Rocket\ League/*
 
 bspc monitor DP-1 -n L -d 1 2 3 4 5
 bspc monitor DVI-I-1 -n R -d 6 7 8 9 0
