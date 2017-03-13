@@ -25,7 +25,7 @@ rm ~/.functionsrc
 ln -s ~/.dotfiles/.functionsrc ~/.functionsrc
 
 rm -rf ~/.config/bspwm
-ln -s ~/.dotfiles/dual-monitor/.config/bspwm ~/.config
+ln -s ~/.dotfiles/.config/bspwm ~/.config
 
 rm -rf ~/.config/sxhkd
 ln -s ~/.dotfiles/.config/sxhkd ~/.config

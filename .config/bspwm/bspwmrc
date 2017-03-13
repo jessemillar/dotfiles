@@ -1,0 +1,49 @@
+#! /bin/sh
+
+# Detect the number of monitors
+MONITOR_COUNT=$(bspc query -M | wc -l)
+
+# Set the window manager gap size arbitrarily based on monitor count
+if [ $MONITOR_COUNT -eq 2 ]; then
+	GAP_SIZE=10
+else
+	GAP_SIZE=5
+fi
+
+# Start/restart the keyboard shortcut manager
+pkill -x sxhkd
+sxhkd &
+
+# Start/restart lemonbar
+pkill -x panel
+$HOME/.dotfiles/scripts/panel &
+
+# Start Dropbox
+dropbox-cli start
+
+# Setup the keyboard
+$HOME/.dotfiles/scripts/keyboard
+
+if [ $MONITOR_COUNT -eq 2 ]; then
+	feh --randomize --bg-fill ~/Dropbox/Wallpaper/Desktop/Rocket\ League/* --randomize --bg-fill ~/Dropbox/Wallpaper/Desktop/Rocket\ League/*
+
+	bspc monitor ^1 -n L -d 1 2 3 4 5
+	bspc monitor ^2 -n R -d 6 7 8 9 0
+else
+	feh --randomize --bg-fill ~/Dropbox/Wallpaper/Desktop/Rocket\ League/*
+
+	bspc monitor -d 1 2 3 4 5 6 7 8 9 0
+fi
+
+# Further window manager configuration
+bspc config border_width 1
+bspc config normal_border_color "#111111"
+bspc config active_border_color "#111111"
+bspc config focused_border_color "#7fdbff"
+bspc config window_gap $GAP_SIZE
+
+bspc config split_ratio 0.52
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+
+bspc config focus_follows_pointer true
