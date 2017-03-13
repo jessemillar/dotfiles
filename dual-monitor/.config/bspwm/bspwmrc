@@ -1,6 +1,6 @@
 #!/bin/sh
 
-GAP_SIZE=20
+GAP_SIZE=10
 
 pkill -x sxhkd
 sxhkd &

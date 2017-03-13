@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. $HOME/.dotfiles/scripts/panel_colors
+. $HOME/.dotfiles/scripts/panel_config
 
 num_mon=$(bspc query -M | wc -l)
 

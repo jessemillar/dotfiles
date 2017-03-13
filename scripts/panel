@@ -17,7 +17,7 @@ bspc config bottom_padding $PANEL_HEIGHT
 bspc subscribe report > "$PANEL_FIFO" &
 clock -sf 'S%b %d %l:%M %p' > "$PANEL_FIFO" &
 
-. $HOME/.dotfiles/scripts/panel_colors
+. $HOME/.dotfiles/scripts/panel_config
 
 $HOME/.dotfiles/scripts/panel_bar < "$PANEL_FIFO" | lemonbar -a 32 -b -n "$PANEL_WM_NAME" -g x$PANEL_HEIGHT -o $PANEL_FONT_OFFSET -f "$PANEL_FONT" -F "$COLOR_DEFAULT_FG" -B "$COLOR_DEFAULT_BG" | sh &
 
