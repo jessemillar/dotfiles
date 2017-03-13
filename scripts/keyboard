@@ -8,4 +8,4 @@ xset r rate 250 30
 setxkbmap -option caps:escape
 
 # Turn on numlock
-numlockx &
+numlockx & || true
