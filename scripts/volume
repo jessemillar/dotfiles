@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Get panel variables
+. $HOME/.dotfiles/scripts/panel_config
+
+AMASTER=`amixer get Master | awk 'END{gsub(/\[|\]|%/,""); print $4}'`
+ASTAT=`amixer get Master | awk 'END{gsub(/\[|\]|%/,""); print $6}'`
+
+echo "V$AMASTER $ASTAT" > $PANEL_FIFO

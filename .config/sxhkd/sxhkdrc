@@ -71,13 +71,13 @@ XF86KbdBrightnessDown
 #
 
 XF86AudioRaiseVolume
-	amixer -q sset Master 3%+
+	amixer -q sset Master 3%+ && $HOME/.dotfiles/scripts/volume
 
 XF86AudioLowerVolume
-	amixer -q sset Master 3%-
+	amixer -q sset Master 3%- && $HOME/.dotfiles/scripts/volume
 
 XF86AudioMute
-	amixer set Master toggle
+	amixer set Master toggle && $HOME/.dotfiles/scripts/volume
 
 #
 # music control
