@@ -51,10 +51,10 @@ super + Escape
 #
 
 XF86MonBrightnessUp
-	light -s mba6x_backlight -A 3.0
+	light -s mba6x_backlight -A 3.0 && $HOME/.dotfiles/scripts/brightness
 
 XF86MonBrightnessDown
-	light -s mba6x_backlight -U 3.0
+	light -s mba6x_backlight -U 3.0 && $HOME/.dotfiles/scripts/brightness
 
 #
 # keyboard brightness

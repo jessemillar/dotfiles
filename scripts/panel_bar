@@ -16,6 +16,10 @@ while read -r line ; do
 			# volume output
 			volume="%{F$COLOR_FOCUSED_FREE_FG}%{B$COLOR_FOCUSED_FREE_BG} ${line#?} %{B-}%{F-}"
 			;;
+		B*)
+			# volume output
+			brightness="%{F$COLOR_FOCUSED_FREE_FG}%{B$COLOR_FOCUSED_FREE_BG} ${line#?} %{B-}%{F-}"
+			;;
 		W*)
 			# bspwm's state
 			wm=""
@@ -85,6 +89,6 @@ while read -r line ; do
 	if [ $MONITOR_COUNT -eq 2 ]; then
 		printf "%s\n" "%{Sf}%{l}${wm}%{Sl}%{r}${volume}${clock}"
 	else
-		printf "%s\n" "%{l}${wm}%{r}${volume}${clock}"
+		printf "%s\n" "%{l}${wm}%{r}${brightness}${volume}${clock}"
 	fi
 done
