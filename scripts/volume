@@ -6,7 +6,7 @@
 MUTE_STATUS=`amixer get Master | awk 'END{gsub(/\[|\]|%/,""); print $6}'`
 VOLUME_PERCENT=`amixer get Master | awk 'END{gsub(/\[|\]|%/,""); print $4}'`
 
-if [ $MUTE_STATUS = "on" ]; then
+if [ $MUTE_STATUS = "off" ]; then
 	echo -e "V\uE04f" > $PANEL_FIFO
 else
 	if [ $VOLUME_PERCENT -gt 66 ]; then
