@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Get panel variables
+. $HOME/.dotfiles/scripts/panel_config
+
+BATTERY_STATE=$(cat /sys/class/power_supply/BAT0/status)
+ACTUAL_CHARGE=$(cat /sys/class/power_supply/BAT0/charge_now)
+MAX_CHARGE=$(cat /sys/class/power_supply/BAT0/charge_full)
+CHARGE=$(echo "$ACTUAL_CHARGE/$MAX_CHARGE*100" | bc -l)
+CHARGE_PERCENT=${CHARGE%.*}
+
+if [ $BATTERY_STATE = "Charging" ]; then
+	ICON="\uE3E7"
+else
+	ICON="\uE1A4"
+fi
+
+echo -e "C$ICON $CHARGE_PERCENT%" > $PANEL_FIFO

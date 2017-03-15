@@ -8,8 +8,6 @@ MAX_BRIGHTNESS=$(cat /sys/class/backlight/mba6x_backlight/max_brightness)
 BRIGHTNESS=$(echo "$ACTUAL_BRIGHTNESS/$MAX_BRIGHTNESS*100" | bc -l)
 BRIGHTNESS_PERCENT=${BRIGHTNESS%.*}
 
-echo $BRIGHTNESS_PERCENT
-
 if [ $BRIGHTNESS_PERCENT -gt 66 ]; then
 	ICON="\uE1AC"
 elif [ $BRIGHTNESS_PERCENT -gt 33 ]; then
@@ -18,4 +16,4 @@ else
 	ICON="\uE1AD"
 fi
 
-echo -e "B$ICON $BRIGHTNESS_PERCENT" > $PANEL_FIFO
+echo -e "B$ICON $BRIGHTNESS_PERCENT%" > $PANEL_FIFO
