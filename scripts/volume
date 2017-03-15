@@ -9,5 +9,13 @@ VOLUME_PERCENT=`amixer get Master | awk 'END{gsub(/\[|\]|%/,""); print $4}'`
 if [ $MUTE_STATUS = "on" ]; then
 	echo -e "V\uE04f" > $PANEL_FIFO
 else
-	echo -e "V\uE050 $VOLUME_PERCENT" > $PANEL_FIFO
+	if [ $VOLUME_PERCENT -gt 66 ]; then
+		ICON="\uE050"
+	elif [ $VOLUME_PERCENT -gt 33 ]; then
+		ICON="\uE04D"
+	else
+		ICON="\uE04E"
+	fi
+
+	echo -e "V$ICON $VOLUME_PERCENT%" > $PANEL_FIFO
 fi
