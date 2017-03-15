@@ -15,6 +15,9 @@ ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 rm ~/.zshrc
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
+rm ~/.compton.conf
+ln -s ~/.dotfiles/.compton.conf ~/.compton.conf
+
 rm ~/.oh-my-zsh/custom/mister-michael.zsh-theme
 ln -s ~/.dotfiles/.oh-my-zsh/custom/mister-michael.zsh-theme ~/.oh-my-zsh/custom/mister-michael.zsh-theme
 

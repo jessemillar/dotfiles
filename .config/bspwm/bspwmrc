@@ -18,6 +18,10 @@ sxhkd &
 pkill -x panel
 $HOME/.dotfiles/scripts/panel &
 
+if [ which compton > /dev/null ]; then
+	compton -b
+fi
+
 # Start Dropbox
 dropbox-cli start
 
