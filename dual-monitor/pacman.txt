@@ -106,9 +106,9 @@ groff 1.22.3-7
 grub 1:2.02.rc1-1
 gsettings-desktop-schemas 3.22.0+1+g6f52ab5-1
 gsm 1.0.16-1
-gtk-update-icon-cache 3.22.9+2+gaebe3a74ec-1
+gtk-update-icon-cache 3.22.10-1
 gtk2 2.24.31-1
-gtk3 3.22.9+2+gaebe3a74ec-1
+gtk3 3.22.10-1
 guile 2.0.14-1
 gvfs 1.30.3-1
 gzip 1.8-2
@@ -136,14 +136,14 @@ iptables 1.6.0-1
 iputils 20161105.1f2bb12-1
 iso-codes 3.74-1
 jack 0.125.0-3
-jasper 2.0.10-1
+jasper 2.0.12-1
 java-runtime-common 2-2
 jemalloc 4.5.0-1
 jfsutils 1.1.15-4
 jre8-openjdk 8.u121-1
 jre8-openjdk-headless 8.u121-1
 js 24.2.0-4
-json-glib 1.2.2+4+gd725fb5-1
+json-glib 1.2.6+7+gf98d547-1
 kbd 2.0.4-1
 kbproto 1.0.7-1
 keyutils 1.5.9-1
@@ -282,10 +282,10 @@ libyaml 0.1.7-1
 licenses 20140629-1
 lightdm 1:1.20.0-2
 lightdm-gtk-greeter 1:2.0.2-1
-linux 4.10.1-1
+linux 4.10.2-1
 linux-api-headers 4.10.1-1
 linux-firmware 20170227.5abb924-1
-linux-headers 4.10.1-1
+linux-headers 4.10.2-1
 llvm-libs 3.9.1-2
 logrotate 3.11.0-1
 lua52 5.2.4-2
@@ -303,7 +303,7 @@ mdadm 3.4-1
 menu-calc-git 1.0.0-1
 mesa 17.0.1-2
 minizip 1:1.2.11-1
-mkinitcpio 22-1
+mkinitcpio 23-1
 mkinitcpio-busybox 1.25.1-1
 mpfr 3.1.5.p2-1
 mtdev 1.1.5-1
@@ -315,7 +315,7 @@ netcdf 4.4.1-2
 netctl 1.12-2
 nettle 3.3-1
 nmap 7.40-1
-nodejs 7.7.2-1
+nodejs 7.7.3-1
 npm 4.4.1-1
 npth 1.3-1
 nspr 4.13.1-1
@@ -418,6 +418,7 @@ systemd-sysvcompat 232-8
 tar 1.29-2
 texinfo 6.3-1
 thin-provisioning-tools 0.6.3-1
+traceroute 2.1.0-1
 transmission-gtk 2.92-5
 ttf-bitstream-vera 1.10-11
 ttf-dejavu 2.37-1
@@ -453,7 +454,7 @@ xdg-utils 1.1.1-5
 xdo-git 0.r48.020e055-1
 xextproto 7.3.0-1
 xf86-input-libinput 0.25.0-1
-xf86-video-nouveau 1.0.13-3
+xf86-video-nouveau 1.0.14-1
 xf86vidmodeproto 2.3.1-3
 xfsprogs 4.9.0-1
 xineramaproto 1.2.1-3
