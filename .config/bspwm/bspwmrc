@@ -1,5 +1,7 @@
 #! /bin/sh
 
+urxvt &
+
 # Detect the number of monitors
 MONITOR_COUNT=$(bspc query -M | wc -l)
 
@@ -13,19 +15,6 @@ fi
 # Start/restart the keyboard shortcut manager
 pkill -x sxhkd
 sxhkd &
-
-# Start/restart lemonbar
-pkill -x panel
-$HOME/.dotfiles/scripts/panel &
-
-# Start the compositor
-compton --vsync opengl -b
-
-# Start Dropbox
-dropbox-cli start
-
-# Setup the keyboard
-$HOME/.dotfiles/scripts/keyboard
 
 if [ $MONITOR_COUNT -eq 2 ]; then
 	feh --randomize --bg-fill ~/Dropbox/Wallpaper/Desktop/Rocket\ League/* --randomize --bg-fill ~/Dropbox/Wallpaper/Desktop/Rocket\ League/*
@@ -50,3 +39,16 @@ bspc config borderless_monocle true
 bspc config gapless_monocle true
 
 bspc config focus_follows_pointer true
+
+# Start the compositor
+compton --vsync opengl -b
+
+# Start Dropbox
+dropbox-cli start
+
+# Setup the keyboard
+$HOME/.dotfiles/scripts/keyboard
+
+# Start/restart lemonbar
+pkill -x panel
+$HOME/.dotfiles/scripts/panel &

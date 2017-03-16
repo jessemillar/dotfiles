@@ -4,8 +4,9 @@ Requires=lemonbattery.service
 
 [Timer]
 # Time between running
-OnUnitActiveSec=30
+OnBootSec=30
+OnUnitActiveSec=1min
 Unit=lemonbattery.service
 
 [Install]
-WantedBy=default.target
+WantedBy=timers.target

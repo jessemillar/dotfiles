@@ -14,3 +14,5 @@ sudo ln -s ~/.dotfiles/etc/systemd/system/lemonbattery.service /etc/systemd/syst
 
 sudo rm /etc/systemd/system/lemonbattery.timer
 sudo ln -s ~/.dotfiles/etc/systemd/system/lemonbattery.timer /etc/systemd/system/lemonbattery.timer
+
+systemctl daemon-reload
