@@ -5,3 +5,12 @@ sudo ln -s ~/.dotfiles/etc/X11/xorg.conf.d/10-mtrack.conf /etc/X11/xorg.conf.d/1
 
 sudo rm /etc/systemd/system/sedate.service
 sudo ln -s ~/.dotfiles/etc/systemd/system/sedate.service /etc/systemd/system/sedate.service
+
+sudo rm /etc/acpi/handler.sh
+sudo ln -s ~/.dotfiles/etc/acpi/handler.sh /etc/acpi/handler.sh
+
+sudo rm /etc/systemd/system/lemonbattery.service
+sudo ln -s ~/.dotfiles/etc/systemd/system/lemonbattery.service /etc/systemd/system/lemonbattery.service
+
+sudo rm /etc/systemd/system/lemonbattery.timer
+sudo ln -s ~/.dotfiles/etc/systemd/system/lemonbattery.timer /etc/systemd/system/lemonbattery.timer

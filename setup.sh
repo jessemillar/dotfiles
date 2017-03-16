@@ -35,6 +35,3 @@ ln -s ~/.dotfiles/.config/sxhkd ~/.config
 
 sudo rm /etc/X11/xorg.conf.d/10-mouse.conf
 sudo ln -s ~/.dotfiles/etc/X11/xorg.conf.d/10-mouse.conf /etc/X11/xorg.conf.d/10-mouse.conf
-
-sudo rm /etc/acpi/handler.sh
-sudo ln -s ~/.dotfiles/etc/acpi/handler.sh /etc/acpi/handler.sh

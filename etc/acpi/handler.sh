@@ -23,7 +23,6 @@ case "$1" in
         esac
         ;;
     ac_adapter)
-		/home/jessemillar/.dotfiles/scripts/battery
         case "$2" in
             AC|ACAD|ADP0)
                 case "$4" in
@@ -39,7 +38,6 @@ case "$1" in
                 ;;
             *)
                 logger "ACPI action undefined: $2"
-                /home/jessemillar/.dotfiles/scripts/battery
                 ;;
         esac
         ;;
