@@ -23,6 +23,7 @@ case "$1" in
         esac
         ;;
     ac_adapter)
+		/home/jessemillar/.dotfiles/scripts/battery
         case "$2" in
             AC|ACAD|ADP0)
                 case "$4" in
@@ -76,5 +77,3 @@ case "$1" in
         logger "ACPI group/action undefined: $1 / $2"
         ;;
 esac
-
-# vim:set ts=4 sw=4 ft=sh et:
