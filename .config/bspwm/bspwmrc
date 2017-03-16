@@ -1,6 +1,7 @@
 #! /bin/sh
 
-urxvt &
+# Uncomment for debugging
+# urxvt
 
 # Detect the number of monitors
 MONITOR_COUNT=$(bspc query -M | wc -l)

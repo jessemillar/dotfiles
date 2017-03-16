@@ -1,12 +1,10 @@
 [Unit]
 Description=Get battery percentage for lemonbar
-Requires=lemonbattery.service
 
 [Timer]
 # Time between running
-OnBootSec=30
+OnBootSec=3min
 OnUnitActiveSec=1min
-Unit=lemonbattery.service
 
 [Install]
 WantedBy=timers.target
