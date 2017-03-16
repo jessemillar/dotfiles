@@ -27,6 +27,9 @@ ln -s ~/.dotfiles/.vim/colors ~/.vim/colors
 rm ~/.functionsrc
 ln -s ~/.dotfiles/.functionsrc ~/.functionsrc
 
+rm ~/.face
+ln -s ~/.dotfiles/.face ~/.face
+
 rm -rf ~/.config/bspwm
 ln -s ~/.dotfiles/.config/bspwm ~/.config
 

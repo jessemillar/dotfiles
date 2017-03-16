@@ -48,7 +48,7 @@ control + alt + shift + s
 
 # lock the screen
 super + Escape
-	i3lock-fancy -pgf Adobe-Blank
+	dm-tool switch-to-greeter
 
 #
 # screen brightness
