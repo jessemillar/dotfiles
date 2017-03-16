@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get panel variables
-. $HOME/.dotfiles/scripts/panel_config
+. /home/jessemillar/.dotfiles/scripts/panel_config
 
 BATTERY_STATE=$(cat /sys/class/power_supply/BAT0/status)
 ACTUAL_CHARGE=$(cat /sys/class/power_supply/BAT0/charge_now)

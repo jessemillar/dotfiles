@@ -20,7 +20,11 @@ super + shift + r
 
 # open 1password
 super + backslash
-	xdg-open https://my.1password.com/vaults/njiq52aommtohcbbpixlkvmbd4/allitems
+	xdg-open https://my.1password.com/vaults/njiq52aommtohcbbpixlkvmbd4/allitems/2fblewi4s5anhbcfbrdj6h5s2y
+
+# open verizon texting
+super + v
+	xdg-open https://web.vma.vzw.com/vma/webs2/Message.do
 
 # open chrome
 super + c

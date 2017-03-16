@@ -7,4 +7,4 @@ OnUnitActiveSec=30
 Unit=lemonbattery.service
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=basic.target
