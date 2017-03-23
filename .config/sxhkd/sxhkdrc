@@ -18,6 +18,14 @@ super + equal
 super + shift + r
 	$HOME/.config/bspwm/bspwmrc
 
+# open google keep
+super + r
+	xdg-open https://keep.google.com
+
+# open verizon texting
+super + i
+	xdg-open https://inbox.google.com
+
 # open 1password
 super + backslash
 	xdg-open https://my.1password.com/vaults/njiq52aommtohcbbpixlkvmbd4/allitems/2fblewi4s5anhbcfbrdj6h5s2y

@@ -53,3 +53,6 @@ $HOME/.dotfiles/scripts/keyboard
 # Start/restart lemonbar
 pkill -x panel
 $HOME/.dotfiles/scripts/panel &
+
+# Tune power usage
+powertop --auto-tune
