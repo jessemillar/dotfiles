@@ -1,5 +1,5 @@
 function search() {
-	grep -rin . -e $1
+	grep -rin --exclude-dir="vendor" . -e $1
 }
 
 function scuttle() {
