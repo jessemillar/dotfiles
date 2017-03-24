@@ -23,7 +23,7 @@ super + r
 	xdg-open https://keep.google.com
 
 # open verizon texting
-super + i
+super + e
 	xdg-open https://inbox.google.com
 
 # open 1password
@@ -42,7 +42,7 @@ super + c
 super + p
 	spotify
 
-# open spotify
+# open spotify in offline mode
 super + shift + p
 	spotify --ap=127.0.0.1
 

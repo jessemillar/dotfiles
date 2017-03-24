@@ -2,8 +2,8 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'valloric/youcompleteme', { 'do': './install.py' }
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'valloric/youcompleteme', { 'do': './install.py --tern-completer --gocode-completer' }
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
@@ -19,11 +19,12 @@ Plug 'justinj/vim-pico8-syntax'
 
 call plug#end()
 
-" Change the color scheme
-colorscheme smyck
-
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
+
+" Autocompletion for strings, comments, and text files
+let g:ycm_filetype_blacklist = {}
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 " Enable JavaScript syntax highlighting
 let g:javascript_plugin_jsdoc = 1
@@ -46,9 +47,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
-" Smaller command for pastetoggle
-set pastetoggle=<F12>
 
 " Custom mapping for NERDTree
 command! NT NERDTreeToggle
