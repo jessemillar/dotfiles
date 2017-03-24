@@ -2,11 +2,11 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'ervandew/supertab'
+Plug 'valloric/youcompleteme', { 'do': './install.py' }
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
-Plug 'fatih/vim-go'
 Plug 'chiel92/vim-autoformat'
 Plug 'tpope/vim-sensible'
 Plug 'mhinz/vim-startify'
