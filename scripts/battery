@@ -10,6 +10,11 @@ MAX_CHARGE=$(cat /sys/class/power_supply/BAT0/charge_full)
 CHARGE=$(echo "$ACTUAL_CHARGE/$MAX_CHARGE*100" | bc -l)
 CHARGE_PERCENT=${CHARGE%.*}
 
+if [ "$CHARGE_PERCENT" -gt "100" ]; then
+	CHARGE_PERCENT="100"
+fi
+
+
 if [ $BATTERY_STATE = "Charging" ]; then
 	ICON="\uE3E7"
 else
