@@ -46,3 +46,17 @@ URxvt*iso14755: false
 ! white
 *.color7:       #b0b0b0
 *.color15:      #f7f7f7
+
+! ROFI Color theme
+! Use extended color scheme
+rofi.color-enabled:                  true
+! Color scheme for normal row
+rofi.color-normal:                   #00111111, #7FDBFF, #00111111, #7FDBFF, #111111
+! Color scheme for urgent row
+rofi.color-urgent:                   #00111111, #7FDBFF, #00111111, #FF4136, #111111
+! Color scheme for active row
+rofi.color-active:                   #00111111, #7FDBFF, #00111111, #7FDBFF, #111111
+! Color scheme window
+rofi.color-window:                   #111111, #00111111, #00111111
+! Separator style (none, dash, solid)
+rofi.separator-style:                solid
