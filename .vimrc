@@ -51,6 +51,9 @@ let g:syntastic_check_on_wq = 0
 " Custom mapping for NERDTree
 command! NT NERDTreeToggle
 
+" Custom mapping for Go definition finding
+command! GD GoDef
+
 " Custom mapping for Autoformat
 command! AF Autoformat
 
