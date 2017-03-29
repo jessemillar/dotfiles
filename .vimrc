@@ -38,6 +38,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" More readable YouCompleteMe popup with my current theme
+highlight Pmenu ctermfg=0 ctermbg=243
+highlight PmenuSel ctermfg=0 ctermbg=255
+
 " Custom tab widths
 set tabstop=4
 set shiftwidth=4
