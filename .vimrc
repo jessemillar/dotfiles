@@ -2,8 +2,8 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'valloric/youcompleteme', { 'do': './install.py --tern-completer --gocode-completer' }
+Plug 'fatih/vim-go'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
