@@ -22,6 +22,10 @@ call plug#end()
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
 
+" Non-arrow arrows for NERDTree because I use a custom font
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="~"
+
 " Autocompletion for strings, comments, and text files
 let g:ycm_filetype_blacklist = {}
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
