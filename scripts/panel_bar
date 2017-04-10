@@ -27,6 +27,8 @@ while read -r line ; do
 		W*)
 			# bspwm's state
 			wm=""
+			wml=""
+			wmr=""
 			IFS=':'
 			set -- ${line#?}
 			while [ $# -gt 0 ] ; do
@@ -69,7 +71,16 @@ while read -r line ; do
 								CHAR=$'\uE318'
 								;;
 						esac
-						wm="${wm}%{F${FG}}%{A:bspc desktop -f ${name}:}  ${CHAR}  %{A}%{F-}"
+
+						if [ $MONITOR_COUNT -eq 2 ]; then
+							if [ $name -lt 6 ]; then
+								wml="${wml}%{F${FG}}%{A:bspc desktop -f ${name}:}  ${CHAR}  %{A}%{F-}"
+							else
+								wmr="${wmr}%{F${FG}}%{A:bspc desktop -f ${name}:}  ${CHAR}  %{A}%{F-}"
+							fi
+						else
+							wm="${wm}%{F${FG}}%{A:bspc desktop -f ${name}:}  ${CHAR}  %{A}%{F-}"
+						fi
 						;;
 				esac
 				shift
@@ -78,7 +89,7 @@ while read -r line ; do
 	esac
 
 	if [ $MONITOR_COUNT -eq 2 ]; then
-		printf "%s\n" "%{Sf}%{c}${wm}%{Sl}%{r}${volume}${clock}"
+		printf "%s\n" "%{Sf}%{c}${wml}%{Sl}%{c}${wmr}%{r}${volume}${clock}"
 	else
 		printf "%s\n" "%{l}${wm}%{r}${volume}${brightness}${charge}${clock}"
 	fi
