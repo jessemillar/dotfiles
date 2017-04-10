@@ -22,7 +22,7 @@ super + shift + r
 super + r
 	xdg-open https://keep.google.com
 
-# open verizon texting
+# open google inbox
 super + e
 	xdg-open https://inbox.google.com
 
@@ -32,7 +32,7 @@ super + backslash
 
 # open verizon texting
 super + v
-	xdg-open https://web.vma.vzw.com/vma/webs2/Message.do
+	google-chrome-stable --new-window https://web.vma.vzw.com/vma/webs2/Message.do
 
 # open chrome
 super + c
