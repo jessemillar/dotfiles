@@ -10,19 +10,19 @@ while read -r line ; do
 	case $line in
 		S*)
 			# clock output
-			clock="%{F$COLOR_DEFAULT} ${line#?} %{B-}%{F-}"
+			clock="%{F$COLOR_DEFAULT}  ${line#?}  %{B-}%{F-}"
 			;;
 		V*)
 			# volume output
-			volume="%{F$COLOR_DEFAULT} ${line#?} %{B-}%{F-}"
+			volume="%{F$COLOR_DEFAULT}  ${line#?}  %{B-}%{F-}"
 			;;
 		B*)
 			# brightness output
-			brightness="%{F$COLOR_DEFAULT} ${line#?} %{B-}%{F-}"
+			brightness="%{F$COLOR_DEFAULT}  ${line#?}  %{B-}%{F-}"
 			;;
 		C*)
 			# charge output
-			charge="%{F$COLOR_DEFAULT} ${line#?} %{B-}%{F-}"
+			charge="%{F$COLOR_DEFAULT}  ${line#?}  %{B-}%{F-}"
 			;;
 		W*)
 			# bspwm's state
