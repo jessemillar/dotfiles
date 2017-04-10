@@ -10,19 +10,19 @@ while read -r line ; do
 	case $line in
 		S*)
 			# clock output
-			clock="%{F$COLOR_SYS_FG} ${line#?} %{B-}%{F-}"
+			clock="%{F$COLOR_DEFAULT} ${line#?} %{B-}%{F-}"
 			;;
 		V*)
 			# volume output
-			volume="%{F$COLOR_FOCUSED_FREE_FG} ${line#?} %{B-}%{F-}"
+			volume="%{F$COLOR_DEFAULT} ${line#?} %{B-}%{F-}"
 			;;
 		B*)
 			# brightness output
-			brightness="%{F$COLOR_FOCUSED_FREE_FG} ${line#?} %{B-}%{F-}"
+			brightness="%{F$COLOR_DEFAULT} ${line#?} %{B-}%{F-}"
 			;;
 		C*)
 			# charge output
-			charge="%{F$COLOR_FOCUSED_FREE_FG} ${line#?} %{B-}%{F-}"
+			charge="%{F$COLOR_DEFAULT} ${line#?} %{B-}%{F-}"
 			;;
 		W*)
 			# bspwm's state
@@ -42,33 +42,33 @@ while read -r line ; do
 						case $item in
 							f*)
 								# free desktop
-								FG=$COLOR_FREE_FG
-								CHAR=$'\uE313'
+								FG=$COLOR_FREE
+								CHAR=$CHAR_FREE
 								;;
 							F*)
 								# focused free desktop
-								FG=$COLOR_FOCUSED_FREE_FG
-								CHAR=$'\uE25D'
+								FG=$COLOR_FOCUSED_FREE
+								CHAR=$CHAR_FOCUSED_FREE
 								;;
 							o*)
 								# occupied desktop
-								FG=$COLOR_OCCUPIED_FG
-								CHAR=$'\uE316'
+								FG=$COLOR_OCCUPIED
+								CHAR=$CHAR_OCCUPIED
 								;;
 							O*)
 								# focused occupied desktop
-								FG=$COLOR_FOCUSED_OCCUPIED_FG
-								CHAR=$'\uE318'
+								FG=$COLOR_FOCUSED_OCCUPIED
+								CHAR=$CHAR_FOCUSED_OCCUPIED
 								;;
 							u*)
 								# urgent desktop
-								FG=$COLOR_URGENT_FG
-								CHAR=$'\uE313'
+								FG=$COLOR_URGENT
+								CHAR=$CHAR_URGENT
 								;;
 							U*)
 								# focused urgent desktop
-								FG=$COLOR_FOCUSED_URGENT_FG
-								CHAR=$'\uE318'
+								FG=$COLOR_FOCUSED_URGENT
+								CHAR=$CHAR_FOCUSED_URGENT
 								;;
 						esac
 
