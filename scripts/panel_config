@@ -2,7 +2,7 @@ PANEL_FIFO=/tmp/panel-fifo
 PANEL_HEIGHT=20
 PANEL_FONT="Roboto Mono:size=8"
 PANEL_ICON_FONT="Material Icons:size=10"
-PANEL_FONT_OFFSET=1
+PANEL_FONT_OFFSET=2
 PANEL_WM_NAME=bspwm_panel
 
 COLOR_DEFAULT="#ffffff"
