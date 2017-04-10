@@ -10,19 +10,19 @@ while read -r line ; do
 	case $line in
 		S*)
 			# clock output
-			clock="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${line#?} %{B-}%{F-}"
+			clock="%{F$COLOR_SYS_FG} ${line#?} %{B-}%{F-}"
 			;;
 		V*)
 			# volume output
-			volume="%{F$COLOR_FOCUSED_FREE_FG}%{B$COLOR_FOCUSED_FREE_BG} ${line#?} %{B-}%{F-}"
+			volume="%{F$COLOR_FOCUSED_FREE_FG} ${line#?} %{B-}%{F-}"
 			;;
 		B*)
 			# brightness output
-			brightness="%{F$COLOR_FOCUSED_FREE_FG}%{B$COLOR_FOCUSED_FREE_BG} ${line#?} %{B-}%{F-}"
+			brightness="%{F$COLOR_FOCUSED_FREE_FG} ${line#?} %{B-}%{F-}"
 			;;
 		C*)
 			# charge output
-			charge="%{F$COLOR_FOCUSED_FREE_FG}%{B$COLOR_FOCUSED_FREE_BG} ${line#?} %{B-}%{F-}"
+			charge="%{F$COLOR_FOCUSED_FREE_FG} ${line#?} %{B-}%{F-}"
 			;;
 		W*)
 			# bspwm's state
@@ -35,54 +35,41 @@ while read -r line ; do
 				case $item in
 					[mM]*)
 						[ $MONITOR_COUNT -lt 2 ] && shift && continue
-						case $item in
-							m*)
-								# monitor
-								FG=$COLOR_MONITOR_FG
-								BG=$COLOR_MONITOR_BG
-								;;
-							M*)
-								# focused monitor
-								FG=$COLOR_FOCUSED_MONITOR_FG
-								BG=$COLOR_FOCUSED_MONITOR_BG
-								;;
-						esac
-						wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc monitor -f ${name}:} ${name} %{A}%{B-}%{F-}"
 						;;
 					[fFoOuU]*)
 						case $item in
 							f*)
 								# free desktop
 								FG=$COLOR_FREE_FG
-								BG=$COLOR_FREE_BG
+								CHAR=$'\uE313'
 								;;
 							F*)
 								# focused free desktop
 								FG=$COLOR_FOCUSED_FREE_FG
-								BG=$COLOR_FOCUSED_FREE_BG
+								CHAR=$'\uE25D'
 								;;
 							o*)
 								# occupied desktop
 								FG=$COLOR_OCCUPIED_FG
-								BG=$COLOR_OCCUPIED_BG
+								CHAR=$'\uE316'
 								;;
 							O*)
 								# focused occupied desktop
 								FG=$COLOR_FOCUSED_OCCUPIED_FG
-								BG=$COLOR_FOCUSED_OCCUPIED_BG
+								CHAR=$'\uE318'
 								;;
 							u*)
 								# urgent desktop
 								FG=$COLOR_URGENT_FG
-								BG=$COLOR_URGENT_BG
+								CHAR=$'\uE313'
 								;;
 							U*)
 								# focused urgent desktop
 								FG=$COLOR_FOCUSED_URGENT_FG
-								BG=$COLOR_FOCUSED_URGENT_BG
+								CHAR=$'\uE318'
 								;;
 						esac
-						wm="${wm}%{F${FG}}%{B${BG}}%{A:bspc desktop -f ${name}:} ${name} %{A}%{B-}%{F-}"
+						wm="${wm}%{F${FG}}%{A:bspc desktop -f ${name}:}  ${CHAR}  %{A}%{F-}"
 						;;
 				esac
 				shift
@@ -91,7 +78,7 @@ while read -r line ; do
 	esac
 
 	if [ $MONITOR_COUNT -eq 2 ]; then
-		printf "%s\n" "%{Sf}%{l}${wm}%{Sl}%{r}${volume}${clock}"
+		printf "%s\n" "%{Sf}%{c}${wm}%{Sl}%{r}${volume}${clock}"
 	else
 		printf "%s\n" "%{l}${wm}%{r}${volume}${brightness}${charge}${clock}"
 	fi

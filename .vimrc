@@ -26,6 +26,9 @@ autocmd VimEnter * PasteEasyEnable
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
 
+" Show hidden files in NERDTree
+let NERDTreeShowHidden=1
+
 " Autocompletion for strings, comments, and text files
 let g:ycm_filetype_blacklist = {}
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
