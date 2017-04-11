@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + d
-	rofi -show run -hide-scrollbar -fullscreen -padding 100
+	rofi -show run -hide-scrollbar -fullscreen
 
 # simple calculator
 super + equal
