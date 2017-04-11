@@ -8,17 +8,15 @@ MAX_BRIGHTNESS=$(cat /sys/class/backlight/mba6x_backlight/max_brightness)
 BRIGHTNESS=$(echo "$ACTUAL_BRIGHTNESS/$MAX_BRIGHTNESS*100" | bc -l)
 BRIGHTNESS_PERCENT=${BRIGHTNESS%.*}
 
-if [ $BRIGHTNESS_PERCENT -gt 84 ]; then
+if [ $BRIGHTNESS_PERCENT -gt 80 ]; then
 	ICON="\uE3AC"
-elif [ $BRIGHTNESS_PERCENT -gt 70 ]; then
+elif [ $BRIGHTNESS_PERCENT -gt 64 ]; then
 	ICON="\uE3AB"
-elif [ $BRIGHTNESS_PERCENT -gt 56 ]; then
+elif [ $BRIGHTNESS_PERCENT -gt 48 ]; then
 	ICON="\uE3AA"
-elif [ $BRIGHTNESS_PERCENT -gt 42 ]; then
-	ICON="\uE3A9"
-elif [ $BRIGHTNESS_PERCENT -gt 28 ]; then
+elif [ $BRIGHTNESS_PERCENT -gt 32 ]; then
 	ICON="\uE3A8"
-elif [ $BRIGHTNESS_PERCENT -gt 14 ]; then
+elif [ $BRIGHTNESS_PERCENT -gt 16 ]; then
 	ICON="\uE3A7"
 else
 	ICON="\uE3A6"
