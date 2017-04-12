@@ -198,6 +198,10 @@ super + ctrl + shift + space
 # move/resize
 #
 
+# rotate the windows in the current node clockwise
+super + alt + r
+	bspc node @focused:/ --rotate 90
+
 # expand a window by moving one of its side outward
 super + alt + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
