@@ -12,12 +12,6 @@ function sink() {
 }
 
 function gitt() {
-	git add -A
-	git commit -m $1
-	git push
-}
-
-function gitt() {
 	if [ -z "$1" ]
 	then
 		echo "No commit message supplied"
@@ -25,17 +19,5 @@ function gitt() {
 		git add -A
 		git commit -m $1
 		git push
-	fi
-}
-
-function branch() {
-	if [ -z "$1" ]
-	then
-		echo "No repo supplied"
-	else
-		cd $GOPATH/src/github.com/byuoitav/$1
-		pwd
-		git branch | grep \*
-		cd -
 	fi
 }
