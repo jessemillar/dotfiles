@@ -1,14 +1,14 @@
 function search() {
-	grep -rin --exclude-dir="vendor" . -e $1
+	grep -rin --exclude-dir={vendor,node_modules,bower_components} . -e $1
 }
 
 function scuttle() {
-	docker kill $(docker ps -a -q)
-	docker rm $(docker ps -a -q)
+	docker kill $(docker ps -a -q) || true
+	docker rm $(docker ps -a -q) || true
 }
 
 function sink() {
-	docker rmi $(docker images -q)
+	docker rmi $(docker images -q) || true
 }
 
 function gitt() {
