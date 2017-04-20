@@ -15,11 +15,11 @@ elif [ $BRIGHTNESS_PERCENT -gt 64 ]; then
 elif [ $BRIGHTNESS_PERCENT -gt 48 ]; then
 	ICON="\uE3AA"
 elif [ $BRIGHTNESS_PERCENT -gt 32 ]; then
-	ICON="\uE3A8"
+	ICON="\uE3A6"
 elif [ $BRIGHTNESS_PERCENT -gt 16 ]; then
 	ICON="\uE3A7"
 else
-	ICON="\uE3A6"
+	ICON="\uE3A8"
 fi
 
 echo -e "B$ICON $BRIGHTNESS_PERCENT%" > $PANEL_FIFO
