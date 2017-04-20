@@ -25,9 +25,9 @@ else
 fi
 
 # Further window manager configuration
-bspc config border_width 1
-bspc config normal_border_color "#111111"
-bspc config active_border_color "#111111"
+bspc config border_width 0
+bspc config normal_border_color "#dddddd"
+bspc config active_border_color "#dddddd"
 bspc config focused_border_color "#7fdbff"
 bspc config window_gap 0
 
