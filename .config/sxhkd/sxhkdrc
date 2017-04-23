@@ -20,11 +20,11 @@ super + shift + r
 
 # open google keep
 super + r
-	xdg-open https://keep.google.com
+	google-chrome-stable --new-window https://keep.google.com
 
 # open google inbox
 super + e
-	xdg-open https://inbox.google.com
+	google-chrome-stable --new-window https://inbox.google.com
 
 # open 1password
 super + backslash
