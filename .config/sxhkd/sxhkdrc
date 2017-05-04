@@ -18,21 +18,37 @@ super + equal
 super + shift + r
 	$HOME/.config/bspwm/bspwmrc
 
+# open google keep in a new window
+super + shift + r
+	google-chrome-stable --new-window https://keep.google.com
+
 # open google keep
 super + r
-	google-chrome-stable --new-window https://keep.google.com
+	xdg-open https://keep.google.com
+
+# open google inbox in a new window
+super + shift + e
+	google-chrome-stable --new-window https://inbox.google.com
 
 # open google inbox
 super + e
-	google-chrome-stable --new-window https://inbox.google.com
+	xdg-open https://inbox.google.com
+
+# open 1password in a new window
+super + shift + backslash
+	google-chrome-stable --new-window https://my.1password.com/vaults/njiq52aommtohcbbpixlkvmbd4/allitems/2fblewi4s5anhbcfbrdj6h5s2y
 
 # open 1password
 super + backslash
 	xdg-open https://my.1password.com/vaults/njiq52aommtohcbbpixlkvmbd4/allitems/2fblewi4s5anhbcfbrdj6h5s2y
 
+# open verizon texting in a new window
+super + shift + v
+	google-chrome-stable --new-window https://web.vma.vzw.com/vma/webs2/Message.do
+
 # open verizon texting
 super + v
-	google-chrome-stable --new-window https://web.vma.vzw.com/vma/webs2/Message.do
+	xdg-open https://web.vma.vzw.com/vma/webs2/Message.do
 
 # open chrome
 super + c
