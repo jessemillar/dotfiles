@@ -18,13 +18,13 @@ super + equal
 super + shift + r
 	$HOME/.config/bspwm/bspwmrc
 
-# open google keep in a new window
+# open trello in a new window
 super + shift + r
-	google-chrome-stable --new-window https://keep.google.com
+	google-chrome-stable --new-window https://trello.com
 
-# open google keep
+# open trello
 super + r
-	xdg-open https://keep.google.com
+	xdg-open https://trello.com
 
 # open google inbox in a new window
 super + shift + e
