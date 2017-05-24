@@ -6,9 +6,6 @@ ln -s ~/.dotfiles/.aliasrc ~/.aliasrc
 rm ~/.vimrc
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
 
-rm ~/.gitconfig
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
-
 rm ~/.zshrc
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 

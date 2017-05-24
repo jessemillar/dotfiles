@@ -9,9 +9,6 @@ ln -s ~/.dotfiles/.vimrc ~/.vimrc
 rm ~/.Xdefaults
 ln -s ~/.dotfiles/.Xdefaults ~/.Xdefaults
 
-rm ~/.gitconfig
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
-
 rm ~/.zshrc
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
