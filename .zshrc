@@ -1,8 +1,5 @@
-# https://github.com/sindresorhus/pure
-# https://hyper.is/
-
 # Path to your oh-my-zsh installation.
-export ZSH=/home/jessemillar/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -22,11 +19,10 @@ plugins=(wd)
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl"
 
-export GOPATH=/home/jessemillar/.go
+export GOPATH=~/.go
 export PATH=$PATH:$GOPATH/bin
 
 source $ZSH/oh-my-zsh.sh
-source <(gopass completion zsh)
 
 # Load environment variables
 [ -f .envrc ] && source .envrc
