@@ -21,5 +21,8 @@ ln -s ~/.dotfiles/.oh-my-zsh/custom/mister-michael.zsh-theme ~/.oh-my-zsh/custom
 rm -rf ~/.vim/colors
 ln -s ~/.dotfiles/.vim/colors ~/.vim/colors
 
+rm -rf ~/.hammerspoon
+ln -s ~/.dotfiles/mac/.hammerspoon ~/.hammerspoon
+
 rm ~/.functionsrc
 ln -s ~/.dotfiles/.functionsrc ~/.functionsrc
