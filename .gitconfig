@@ -5,3 +5,5 @@
 	insteadOf = https://github.com/
 [http "https://gopkg.in"]
 	followRedirects = true
+[http]
+	proxy = http://gec-proxy-svr.homeoffice.wal-mart.com:8080
