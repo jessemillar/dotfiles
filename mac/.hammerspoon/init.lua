@@ -68,3 +68,21 @@ end
 
 wifiWatcher = hs.wifi.watcher.new(ssidChangedCallback)
 wifiWatcher:start()
+
+-- watch for unplugged headphones
+headphonesWatcher = nil
+
+function audioCallback(uid, event)
+	if event=="jack" then
+		device = hs.audiodevice.findDeviceByUID(uid)
+
+		if device:jackConnected() then
+			hs.audiodevice.defaultOutputDevice():setMuted(false)
+		else
+			hs.audiodevice.defaultOutputDevice():setMuted(true)
+		end
+	end
+end
+
+headphonesWatcher = hs.audiodevice.defaultOutputDevice():watcherCallback(audioCallback)
+headphonesWatcher:watcherStart()
