@@ -24,6 +24,9 @@ export PATH=$PATH:$GOPATH/bin
 
 source $ZSH/oh-my-zsh.sh
 
+# Load proxy information
+[ -f .proxyrc ] && source .proxyrc
+
 # Load environment variables
 [ -f .envrc ] && source .envrc
 

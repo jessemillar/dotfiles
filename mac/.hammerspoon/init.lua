@@ -23,6 +23,11 @@ hs.hotkey.bind({"ctrl", "shift", "alt"}, "C", function()
 	hs.execute("open -na 'Google Chrome' --args --disable-web-security --allow-file-access-from-files --user-data-dir")
 end)
 
+-- open intellij idea
+hs.hotkey.bind({"ctrl", "shift"}, "I", function()
+	hs.execute("launchctl setenv JAVA_HOME `/usr/libexec/java_home -v 1.8` && open -na 'IntelliJ IDEA'")
+end)
+
 -- open verizon texting in a new window
 hs.hotkey.bind({"ctrl", "shift"}, "V", function()
 	hs.execute("open -na 'Google Chrome' --args --new-window 'https://web.vma.vzw.com/vma/webs2/Message.do'")
@@ -60,11 +65,11 @@ function ssidChangedCallback()
 
 	if newSSID == workSSID and lastSSID ~= workSSID then
 		-- we just joined work wifi
-		hs.execute("mv ~/.envrcbak ~/.envrc")
+		hs.execute("mv ~/.proxyrcbak ~/.proxyrc")
 		network:setLocation("Work")
 	elseif newSSID ~= workSSID and lastSSID == workSSID then
 		-- we just left work wifi
-		hs.execute("mv ~/.envrc ~/.envrcbak")
+		hs.execute("mv ~/.proxyrc ~/.proxyrcbak")
 		network:setLocation("Home/Other")
 	end
 
