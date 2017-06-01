@@ -4,7 +4,7 @@ hs.hotkey.bind({"ctrl"}, "return", function()
 end)
 
 -- open slack
-hs.hotkey.bind({"ctrl", "shift"}, "S", function()
+hs.hotkey.bind({"ctrl", "shift"}, "L", function()
 	hs.execute("open -na Slack")
 end)
 
@@ -61,21 +61,26 @@ lastSSID = hs.wifi.currentNetwork()
 
 function ssidChangedCallback()
 	network = hs.network.configuration.open()
-	newSSID = hs.wifi.currentNetwork()
+	currentSSID = hs.wifi.currentNetwork()
 
-	if newSSID == workSSID and lastSSID ~= workSSID then
+	-- show the current network in a notification
+	if currentSSID then
+		hs.notify.new({title=currentSSID, informativeText="Connected to WiFi network"}):send()
+	end
+
+	if currentSSID == workSSID and lastSSID ~= workSSID then
 		-- we just joined work wifi
 		hs.execute("mv ~/.proxyrcbak ~/.proxyrc")
 		hs.execute("rm ~/.gitconfig && ln -s ~/Dropbox/Work/Dotfiles/gitconfig ~/.gitconfig")
 		network:setLocation("Work")
-	elseif newSSID ~= workSSID and lastSSID == workSSID then
+	elseif currentSSID ~= workSSID and lastSSID == workSSID then
 		-- we just left work wifi
 		hs.execute("mv ~/.proxyrc ~/.proxyrcbak")
 		hs.execute("rm ~/.gitconfig && ln -s ~/.dotfiles/.gitconfig ~/.gitconfig")
 		network:setLocation("Home/Other")
 	end
 
-	lastSSID = newSSID
+	lastSSID = currentSSID
 end
 
 wifiWatcher = hs.wifi.watcher.new(ssidChangedCallback)
