@@ -18,6 +18,11 @@ hs.hotkey.bind({"ctrl", "shift"}, "C", function()
 	hs.execute("open -na 'Google Chrome'")
 end)
 
+-- open google chrome without security
+hs.hotkey.bind({"ctrl", "shift", "alt"}, "C", function()
+	hs.execute("open -na 'Google Chrome' --args --disable-web-security --allow-file-access-from-files --user-data-dir")
+end)
+
 -- open verizon texting in a new window
 hs.hotkey.bind({"ctrl", "shift"}, "V", function()
 	hs.execute("open -na 'Google Chrome' --args --new-window 'https://web.vma.vzw.com/vma/webs2/Message.do'")
