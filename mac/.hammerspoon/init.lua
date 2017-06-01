@@ -3,11 +3,6 @@ hs.hotkey.bind({"ctrl"}, "return", function()
 	hs.execute("open -na Hyper")
 end)
 
--- open slack
-hs.hotkey.bind({"ctrl", "shift"}, "L", function()
-	hs.execute("open -na Slack")
-end)
-
 -- open spotify
 hs.hotkey.bind({"ctrl", "shift"}, "P", function()
 	hs.execute("open -na Spotify")
