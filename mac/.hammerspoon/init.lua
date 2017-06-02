@@ -60,7 +60,7 @@ function ssidChangedCallback()
 
 	-- show the current network in a notification
 	if currentSSID then
-		hs.notify.new({title=currentSSID, informativeText="Connected to WiFi network"}):send()
+		hs.alert(currentSSID)
 	end
 
 	if currentSSID == workSSID and lastSSID ~= workSSID then
