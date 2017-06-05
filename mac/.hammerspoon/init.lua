@@ -20,7 +20,7 @@ end)
 
 -- open intellij idea
 hs.hotkey.bind({"ctrl", "shift"}, "I", function()
-	hs.execute("launchctl setenv JAVA_HOME `/usr/libexec/java_home -v 1.8` && open -na 'IntelliJ IDEA'")
+	hs.execute("open -na 'IntelliJ IDEA'")
 end)
 
 -- open verizon texting in a new window

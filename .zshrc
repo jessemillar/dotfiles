@@ -25,16 +25,16 @@ export PATH=$PATH:$GOPATH/bin
 source $ZSH/oh-my-zsh.sh
 
 # Load proxy information
-[ -f .proxyrc ] && source .proxyrc
+[ -f ~/.proxyrc ] && source ~/.proxyrc
 
 # Load environment variables
-[ -f .envrc ] && source .envrc
+[ -f ~/.envrc ] && source ~/.envrc
 
 # Load Docker environment variables
-[ -f .dockerrc ] && source .dockerrc
+[ -f ~/.dockerrc ] && source ~/.dockerrc
 
 # Load custom aliases
-[ -f .aliasrc ] && source .aliasrc
+[ -f ~/.aliasrc ] && source ~/.aliasrc
 
 # Load custom functions
-[ -f .functionsrc ] && source .functionsrc
+[ -f ~/.functionsrc ] && source ~/.functionsrc
