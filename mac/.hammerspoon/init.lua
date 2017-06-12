@@ -28,11 +28,6 @@ hs.hotkey.bind({"ctrl", "shift"}, "V", function()
 	hs.execute("open -na 'Google Chrome' --args --new-window 'https://web.vma.vzw.com/vma/webs2/Message.do'")
 end)
 
--- open verizon texting
-hs.hotkey.bind({"ctrl"}, "V", function()
-	hs.execute("open -a 'Google Chrome' 'https://web.vma.vzw.com/vma/webs2/Message.do'")
-end)
-
 -- reload config files
 function reloadConfig(files)
 	doReload = false

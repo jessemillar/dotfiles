@@ -23,3 +23,7 @@ ln -s ~/.dotfiles/mac/.hammerspoon ~/.hammerspoon
 
 rm ~/.functionsrc
 ln -s ~/.dotfiles/.functionsrc ~/.functionsrc
+
+rm ~/.gitignore_global
+ln -s ~/.dotfiles/.gitignore_global ~/.gitignore_global
+git config --global core.excludesfile ~/.gitignore_global
