@@ -5,3 +5,6 @@
 	insteadOf = https://github.com/
 [http "https://gopkg.in"]
 	followRedirects = true
+[core]
+	excludesfile = /Users/j0m01o9/.gitignore_global
+	editor = vim
