@@ -23,6 +23,11 @@ hs.hotkey.bind({"ctrl", "shift"}, "I", function()
 	hs.execute("open -na 'IntelliJ IDEA'")
 end)
 
+-- open 1password
+hs.hotkey.bind({"ctrl"}, "\\", function()
+	hs.execute("open -a 'Google Chrome' 'https://my.1password.com/vaults/njiq52aommtohcbbpixlkvmbd4/allitems/2fblewi4s5anhbcfbrdj6h5s2y'")
+end)
+
 -- open verizon texting in a new window
 hs.hotkey.bind({"ctrl", "shift"}, "V", function()
 	hs.execute("open -na 'Google Chrome' --args --new-window 'https://web.vma.vzw.com/vma/webs2/Message.do'")
