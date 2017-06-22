@@ -23,11 +23,6 @@ hs.hotkey.bind({"ctrl", "shift"}, "I", function()
 	hs.execute("open -na 'IntelliJ IDEA'")
 end)
 
--- open 1password
-hs.hotkey.bind({"ctrl"}, "\\", function()
-	hs.execute("open -a 'Google Chrome' 'https://my.1password.com/vaults/njiq52aommtohcbbpixlkvmbd4/allitems/2fblewi4s5anhbcfbrdj6h5s2y'")
-end)
-
 -- open verizon texting in a new window
 hs.hotkey.bind({"ctrl", "shift"}, "V", function()
 	hs.execute("open -na 'Google Chrome' --args --new-window 'https://web.vma.vzw.com/vma/webs2/Message.do'")
@@ -65,12 +60,12 @@ function ssidChangedCallback()
 
 	if currentSSID == workSSID and lastSSID ~= workSSID then
 		-- we just joined work wifi
-		hs.execute("mv ~/.proxyrcbak ~/.proxyrc")
+		hs.execute("ln -s ~/Dropbox/Work/Dotfiles/proxyrc ~/.proxyrc")
 		hs.execute("rm ~/.gitconfig && ln -s ~/Dropbox/Work/Dotfiles/gitconfig ~/.gitconfig")
 		network:setLocation("Work")
 	elseif currentSSID ~= workSSID and lastSSID == workSSID then
 		-- we just left work wifi
-		hs.execute("mv ~/.proxyrc ~/.proxyrcbak")
+		hs.execute("rm ~/.proxyrc")
 		hs.execute("rm ~/.gitconfig && ln -s ~/.dotfiles/.gitconfig ~/.gitconfig")
 		network:setLocation("Home/Other")
 	end
