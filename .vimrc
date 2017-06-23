@@ -86,7 +86,7 @@ let g:go_fmt_command = "goimports"
 " Keep the cursor in the center of the screen
 set scrolloff=999
 
-" WALMART
+" Walmart
 let g:startify_custom_header = [
 			\"          '###'          ",
 			\"          '###'          ",
