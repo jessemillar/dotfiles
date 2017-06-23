@@ -39,22 +39,5 @@ source $ZSH/oh-my-zsh.sh
 # Load custom functions
 [ -f ~/.functionsrc ] && source ~/.functionsrc
 
-echo $fg[yellow] "
-       :########:       
-       ###: ####        
-      :### .###:        
-      ###: ####         
-     :### .###:         
-    .###: ####          
-    #### .##########*.  
-   :###: #############. 
-   ####.,,,,,,,,,,####  
-   :################:   
-    \`*:############     
-           ######:      
-          :#####        
-          ####:         
-         :###           
-         ##:            
-         *              
-"
+# Print a Walmart Labs ASCII logo
+labs
