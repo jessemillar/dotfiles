@@ -7,6 +7,8 @@ alias deflate="docker-compose down"
 alias pun="cd ..; pico-build run; cd src"
 alias ped="cd ..; pico-build edit; cd src"
 alias brup="brew -v update && brew upgrade && brew cleanup && brew doctor"
+alias h="history"
+alias g="grep"
 alias labs='echo $fg[cyan] "
        :########:       
        ###'\'' ####        

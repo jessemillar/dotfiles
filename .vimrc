@@ -83,9 +83,6 @@ let g:go_highlight_build_constraints = 1
 " Run goimports instead of gofmt
 let g:go_fmt_command = "goimports"
 
-" Keep the cursor in the center of the screen
-set scrolloff=999
-
 " Walmart
 let g:startify_custom_header = [
 			\"          '###'          ",
