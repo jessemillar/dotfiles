@@ -1,6 +1,11 @@
 -- open a terminal
-hs.hotkey.bind({"ctrl"}, "return", function()
+hs.hotkey.bind({"ctrl", "shift"}, "return", function()
 	hs.execute("open -na Hyper")
+end)
+
+-- open a finder window
+hs.hotkey.bind({"ctrl", "shift"}, "F", function()
+	hs.execute("open -na Finder")
 end)
 
 -- open spotify
