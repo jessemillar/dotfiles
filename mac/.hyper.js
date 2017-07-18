@@ -25,6 +25,12 @@ module.exports = {
 
 		// if true, selected text will automatically be copied to the clipboard
 		copyOnSelect: false,
+
+		termCSS: `
+			x-screen a {
+				color: #ff79c6;
+			}
+		`
 	},
 
 	// a list of plugins to fetch and install from npm
@@ -33,7 +39,7 @@ module.exports = {
 	//   `hyperpower`
 	//   `@company/project`
 	//   `project#1.0.1`
-	plugins: ['hyperterm-themed-scrollbar', 'hyperterm-cursor', 'hyperminimal', 'hyper-dracula'],
+	plugins: ['hyperterm-themed-scrollbar', 'hyperterm-cursor', 'hyperterm-paste', 'hyperlinks', 'hyperminimal', 'hyper-dracula'],
 
 	// in development, you can create a directory under
 	// `~/.hyperterm_plugins/local/` and include it here
