@@ -24,7 +24,7 @@ module.exports = {
 		bell: false,
 
 		// if true, selected text will automatically be copied to the clipboard
-		copyOnSelect: false,
+		copyOnSelect: true,
 
 		termCSS: `
 			x-screen a {
