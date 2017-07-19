@@ -8,3 +8,7 @@
 [core]
 	excludesfile = /Users/j0m01o9/.gitignore_global
 	editor = vim
+[merge]
+	tool = opendiff
+[mergetool]
+	keepBackup = false
