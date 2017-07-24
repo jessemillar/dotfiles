@@ -25,12 +25,6 @@ module.exports = {
 
 		// if true, selected text will automatically be copied to the clipboard
 		copyOnSelect: true,
-
-		termCSS: `
-			x-screen a {
-				color: #ff79c6;
-			}
-		`
 	},
 
 	// a list of plugins to fetch and install from npm
