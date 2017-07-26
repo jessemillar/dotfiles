@@ -66,11 +66,13 @@ function ssidChangedCallback()
 	if currentSSID == workSSID and lastSSID ~= workSSID then
 		-- we just joined work wifi
 		hs.execute("ln -s ~/Dropbox/Work/Dotfiles/proxyrc ~/.proxyrc")
+		hs.execute("ln -s ~/Dropbox/Work/Dotfiles/npmrc ~/.npmrc")
 		hs.execute("rm ~/.gitconfig && ln -s ~/Dropbox/Work/Dotfiles/gitconfig ~/.gitconfig")
 		network:setLocation("Work")
 	elseif currentSSID ~= workSSID and lastSSID == workSSID then
 		-- we just left work wifi
 		hs.execute("rm ~/.proxyrc")
+		hs.execute("rm ~/.npmrc")
 		hs.execute("rm ~/.gitconfig && ln -s ~/.dotfiles/.gitconfig ~/.gitconfig")
 		network:setLocation("Home/Other")
 	end
