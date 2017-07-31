@@ -1,28 +1,3 @@
--- open a finder window
-hs.hotkey.bind({"ctrl", "shift"}, "F", function()
-	hs.execute("open -na Finder")
-end)
-
--- open spotify
-hs.hotkey.bind({"ctrl", "shift"}, "P", function()
-	hs.execute("open -na Spotify")
-end)
-
--- open google chrome
-hs.hotkey.bind({"ctrl", "shift"}, "C", function()
-	hs.execute("open -na 'Google Chrome'")
-end)
-
--- open google chrome without security
-hs.hotkey.bind({"ctrl", "shift", "alt"}, "C", function()
-	hs.execute("open -na 'Google Chrome' --args --disable-web-security --allow-file-access-from-files --user-data-dir")
-end)
-
--- open intellij idea
-hs.hotkey.bind({"ctrl", "shift"}, "I", function()
-	hs.execute("open -na 'IntelliJ IDEA'")
-end)
-
 -- reload config files
 function reloadConfig(files)
 	doReload = false

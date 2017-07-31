@@ -2,7 +2,22 @@
 cmd + alt + ctrl - r : khd -e "reload"
 
 # open terminal
-ctrl - shift - return : open -na Hyper
+ctrl + shift + return : open -na Hyper
+
+# open finder
+ctrl + shift - f : open -na Finder
+
+# open spotify
+ctrl + shift - p : open -na Spotify
+
+# open intellij idea
+ctrl + shift - i : open -na "IntelliJ IDEA"
+
+# open google chrome
+ctrl + shift - c : open -na "Google Chrome"
+
+# open google chrome without security
+ctrl + alt + shift - c : open -na "Google Chrome" --args --disable-web-security --allow-file-access-from-files --user-data-dir
 
 # focus window
 alt - h : chunkc tiling::window --focus west
