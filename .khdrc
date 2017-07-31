@@ -77,7 +77,7 @@ shift + ctrl - 3 : chunkc tiling::window -d 3; khd -p "ctrl - 3"
 shift + ctrl - 4 : chunkc tiling::window -d 4; khd -p "ctrl - 4"
 shift + ctrl - 5 : chunkc tiling::window -d 5; khd -p "ctrl - 5"
 shift + ctrl - 6 : chunkc tiling::window -d 6; khd -p "ctrl - 6"
-shift + ctrl - 7 : chunkc tiling::window -d 7; khd -p "cmd - 7"
+shift + ctrl - 7 : chunkc tiling::window -d 7; khd -p "ctrl - 7"
 shift + ctrl - 8 : chunkc tiling::window -d 8; khd -p "ctrl - 8"
 shift + ctrl - 9 : chunkc tiling::window -d 9; khd -p "ctrl - 9"
 shift + ctrl - 0 : chunkc tiling::window -d 10; khd -p "ctrl - 0"
@@ -93,11 +93,11 @@ ctrl + alt - 2  : chunkc tiling::monitor -f 2
 ctrl + alt - 3  : chunkc tiling::monitor -f 3
 
 # send window to monitor and follow focus
-ctrl + cmd - z  : chunkc tiling::window --send-to-monitor prev; chunkc tiling::monitor -f prev
-ctrl + cmd - c  : chunkc tiling::window --send-to-monitor next; chunkc tiling::monitor -f next
-ctrl + cmd - 1  : chunkc tiling::window --send-to-monitor 1; chunkc tiling::monitor -f 1
-ctrl + cmd - 2  : chunkc tiling::window --send-to-monitor 2; chunkc tiling::monitor -f 2
-ctrl + cmd - 3  : chunkc tiling::window --send-to-monitor 3; chunkc tiling::monitor -f 3
+ctrl + alt + shift - z  : chunkc tiling::window --send-to-monitor prev; chunkc tiling::monitor -f prev
+ctrl + alt + shift - c  : chunkc tiling::window --send-to-monitor next; chunkc tiling::monitor -f next
+ctrl + alt + shift - 1  : chunkc tiling::window --send-to-monitor 1; chunkc tiling::monitor -f 1
+ctrl + alt + shift - 2  : chunkc tiling::window --send-to-monitor 2; chunkc tiling::monitor -f 2
+ctrl + alt + shift - 3  : chunkc tiling::window --send-to-monitor 3; chunkc tiling::monitor -f 3
 
 # increase region size
 shift + alt - a : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge west
@@ -158,6 +158,9 @@ ctrl + alt - s : chunkc tiling::desktop --layout monocle
 ctrl + alt - d : chunkc tiling::desktop --layout float
 
 ctrl + alt - w : chunkc tiling::desktop --deserialize ~/.chunkwm_layouts/dev_1
+
+# enable "app mode" screenshots
+cmd + shift - 4 -> : chunkc border::clear
 
 # key remap for norwegian layout \ { }
 cmd - 7 : khd -p "shift + alt - 7"
