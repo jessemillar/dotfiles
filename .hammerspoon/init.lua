@@ -1,8 +1,3 @@
--- open a terminal
-hs.hotkey.bind({"ctrl", "shift"}, "return", function()
-	hs.execute("open -na Hyper")
-end)
-
 -- open a finder window
 hs.hotkey.bind({"ctrl", "shift"}, "F", function()
 	hs.execute("open -na Finder")
@@ -26,11 +21,6 @@ end)
 -- open intellij idea
 hs.hotkey.bind({"ctrl", "shift"}, "I", function()
 	hs.execute("open -na 'IntelliJ IDEA'")
-end)
-
--- open verizon texting in a new window
-hs.hotkey.bind({"ctrl", "shift"}, "V", function()
-	hs.execute("open -na 'Google Chrome' --args --new-window 'https://web.vma.vzw.com/vma/webs2/Message.do'")
 end)
 
 -- reload config files
