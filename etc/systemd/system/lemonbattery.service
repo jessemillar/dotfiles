@@ -1,6 +1,0 @@
-[Unit]
-Description=Show battery percentage in lemonbar
-
-[Service]
-Type=simple
-ExecStart=/home/jessemillar/.dotfiles/scripts/battery

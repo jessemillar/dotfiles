@@ -6,14 +6,11 @@ ln -s ~/.dotfiles/.aliasrc ~/.aliasrc
 rm ~/.vimrc
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
 
-rm ~/.Xdefaults
-ln -s ~/.dotfiles/.Xdefaults ~/.Xdefaults
-
 rm ~/.zshrc
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
-rm ~/.compton.conf
-ln -s ~/.dotfiles/.compton.conf ~/.compton.conf
+rm ~/.hyper.js
+ln -s ~/.dotfiles/.hyper.js ~/.hyper.js
 
 rm ~/.oh-my-zsh/custom/mister-michael.zsh-theme
 ln -s ~/.dotfiles/.oh-my-zsh/custom/mister-michael.zsh-theme ~/.oh-my-zsh/custom/mister-michael.zsh-theme
@@ -21,17 +18,21 @@ ln -s ~/.dotfiles/.oh-my-zsh/custom/mister-michael.zsh-theme ~/.oh-my-zsh/custom
 rm -rf ~/.vim/colors
 ln -s ~/.dotfiles/.vim/colors ~/.vim/colors
 
+rm -rf ~/.hammerspoon
+ln -s ~/.dotfiles/.hammerspoon ~/.hammerspoon
+
+rm -rf ~/.hammerspoon
+ln -s ~/.dotfiles/.hammerspoon ~/.hammerspoon
+
 rm ~/.functionsrc
 ln -s ~/.dotfiles/.functionsrc ~/.functionsrc
 
-rm ~/.face
-ln -s ~/.dotfiles/.face ~/.face
+rm -rf ~/.khdrc
+ln -s ~/.dotfiles/.khdrc ~/.khdrc
 
-rm -rf ~/.config/bspwm
-ln -s ~/.dotfiles/.config/bspwm ~/.config
+rm ~/.chunkwmrc
+ln -s ~/.dotfiles/.chunkwmrc ~/.chunkwmrc
 
-rm -rf ~/.config/sxhkd
-ln -s ~/.dotfiles/.config/sxhkd ~/.config
-
-sudo rm /etc/X11/xorg.conf.d/10-mouse.conf
-sudo ln -s ~/.dotfiles/etc/X11/xorg.conf.d/10-mouse.conf /etc/X11/xorg.conf.d/10-mouse.conf
+rm ~/.gitignore_global
+ln -s ~/.dotfiles/.gitignore_global ~/.gitignore_global
+git config --global core.excludesfile ~/.gitignore_global
