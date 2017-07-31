@@ -20,28 +20,28 @@ ctrl + shift - c : open -na "Google Chrome"
 ctrl + alt + shift - c : open -na "Google Chrome" --args --disable-web-security --allow-file-access-from-files --user-data-dir
 
 # focus window
-alt - h : chunkc tiling::window --focus west
-alt - j : chunkc tiling::window --focus south
-alt - k : chunkc tiling::window --focus north
-alt - l : chunkc tiling::window --focus east
+ctrl - h : chunkc tiling::window --focus west
+ctrl - j : chunkc tiling::window --focus south
+ctrl - k : chunkc tiling::window --focus north
+ctrl - l : chunkc tiling::window --focus east
 
-cmd - j : chunkc tiling::window --focus prev
-cmd - k : chunkc tiling::window --focus next
+ctrl + alt - j : chunkc tiling::window --focus prev
+ctrl + alt - k : chunkc tiling::window --focus next
 
 # equalize size of windows
 shift + alt - 0 : chunkc tiling::desktop --equalize
 
 # swap window
-shift + alt - h : chunkc tiling::window --swap west
-shift + alt - j : chunkc tiling::window --swap south
-shift + alt - k : chunkc tiling::window --swap north
-shift + alt - l : chunkc tiling::window --swap east
+ctrl + alt + shift - h : chunkc tiling::window --swap west
+ctrl + alt + shift - j : chunkc tiling::window --swap south
+ctrl + alt + shift - k : chunkc tiling::window --swap north
+ctrl + alt + shift - l : chunkc tiling::window --swap east
 
 # move window
-shift + cmd - h : chunkc tiling::window --warp west
-shift + cmd - j : chunkc tiling::window --warp south
-shift + cmd - k : chunkc tiling::window --warp north
-shift + cmd - l : chunkc tiling::window --warp east
+ctrl + shift - h : chunkc tiling::window --warp west
+ctrl + shift - j : chunkc tiling::window --warp south
+ctrl + shift - k : chunkc tiling::window --warp north
+ctrl + shift - l : chunkc tiling::window --warp east
 
 # move floating windows / windows on a floating space
 shift + alt - up     : chunkc tiling::window --warp-floating fullscreen
