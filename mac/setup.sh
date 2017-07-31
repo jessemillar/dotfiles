@@ -21,8 +21,17 @@ ln -s ~/.dotfiles/.vim/colors ~/.vim/colors
 rm -rf ~/.hammerspoon
 ln -s ~/.dotfiles/mac/.hammerspoon ~/.hammerspoon
 
+rm -rf ~/.hammerspoon
+ln -s ~/.dotfiles/mac/.hammerspoon ~/.hammerspoon
+
 rm ~/.functionsrc
 ln -s ~/.dotfiles/.functionsrc ~/.functionsrc
+
+rm -rf ~/.khdrc
+ln -s ~/.dotfiles/mac/.khdrc ~/.khdrc
+
+rm ~/.chunkwmrc
+ln -s ~/.dotfiles/mac/.chunkwmrc ~/.chunkwmrc
 
 rm ~/.gitignore_global
 ln -s ~/.dotfiles/.gitignore_global ~/.gitignore_global
