@@ -12,12 +12,6 @@ ln -s ~/.dotfiles/.zshrc ~/.zshrc
 rm ~/.hyper.js
 ln -s ~/.dotfiles/.hyper.js ~/.hyper.js
 
-rm ~/.oh-my-zsh/custom/mister-michael.zsh-theme
-ln -s ~/.dotfiles/.oh-my-zsh/custom/mister-michael.zsh-theme ~/.oh-my-zsh/custom/mister-michael.zsh-theme
-
-rm -rf ~/.vim/colors
-ln -s ~/.dotfiles/.vim/colors ~/.vim/colors
-
 rm -rf ~/.hammerspoon
 ln -s ~/.dotfiles/.hammerspoon ~/.hammerspoon
 
@@ -36,3 +30,7 @@ ln -s ~/.dotfiles/.chunkwmrc ~/.chunkwmrc
 rm ~/.gitignore_global
 ln -s ~/.dotfiles/.gitignore_global ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
+
+rm ~/.oh-my-zsh/custom/mister-michael.zsh-theme
+mkdir -p ~/.oh-my-zsh/custom
+ln -s ~/.dotfiles/.oh-my-zsh/custom/mister-michael.zsh-theme ~/.oh-my-zsh/custom/mister-michael.zsh-theme

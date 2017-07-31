@@ -16,6 +16,7 @@ Plug 'othree/eregex.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'roxma/vim-paste-easy'
 Plug 'justinj/vim-pico8-syntax'
+Plug 'dracula/vim'
 
 call plug#end()
 
