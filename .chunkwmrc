@@ -73,5 +73,5 @@ chunkc core::load border.so
 #
 
 chunkc tiling::rule --owner \"System Preferences\" --subrole AXStandardWindow --state float
-chunkc tiling::rule --owner \"Microsoft Outlook\" --name \d+\sReminder.? --state float
+chunkc tiling::rule --owner \"Microsoft Outlook\" --name \"Reminder\" --state float
 chunkc tiling::rule --owner \"DBeaver EE\" --except \".+\" --state float
