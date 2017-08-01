@@ -1,0 +1,131 @@
+# reload config
+shift + ctrl - r : khd -e "reload"; brew services restart chunkwm
+
+# open terminal
+ctrl + shift + return : open -na Hyper
+
+# open finder
+ctrl + shift - f : open -na Finder
+
+# open spotify
+ctrl + shift - p : open -na Spotify
+
+# open intellij idea
+ctrl + shift - i : open -na "IntelliJ IDEA"
+
+# open google chrome
+ctrl + shift - c : open -na "Google Chrome"
+
+# open google chrome without security
+ctrl + alt + shift - c : open -na "Google Chrome" --args --disable-web-security --allow-file-access-from-files --user-data-dir
+
+# enable "app mode" screenshots
+cmd + shift - 4 -> : chunkc border::clear
+
+# focus window
+ctrl - h : chunkc tiling::window --focus west
+ctrl - j : chunkc tiling::window --focus south
+ctrl - k : chunkc tiling::window --focus north
+ctrl - l : chunkc tiling::window --focus east
+
+ctrl + alt - j : chunkc tiling::window --focus prev
+ctrl + alt - k : chunkc tiling::window --focus next
+
+# equalize size of windows
+shift + alt - 0 : chunkc tiling::desktop --equalize
+
+# swap window
+ctrl + alt + shift - h : chunkc tiling::window --swap west
+ctrl + alt + shift - j : chunkc tiling::window --swap south
+ctrl + alt + shift - k : chunkc tiling::window --swap north
+ctrl + alt + shift - l : chunkc tiling::window --swap east
+
+# move window
+ctrl + shift - h : chunkc tiling::window --warp west
+ctrl + shift - j : chunkc tiling::window --warp south
+ctrl + shift - k : chunkc tiling::window --warp north
+ctrl + shift - l : chunkc tiling::window --warp east
+
+# send window to desktop
+shift + ctrl + cmd - x : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop)
+shift + ctrl + cmd - z : chunkc tiling::window --send-to-desktop prev
+shift + ctrl + cmd - c : chunkc tiling::window --send-to-desktop next
+shift + ctrl + cmd - 1 : chunkc tiling::window --send-to-desktop 1
+shift + ctrl + cmd - 2 : chunkc tiling::window --send-to-desktop 2
+shift + ctrl + cmd - 3 : chunkc tiling::window --send-to-desktop 3
+shift + ctrl + cmd - 4 : chunkc tiling::window --send-to-desktop 4
+shift + ctrl + cmd - 5 : chunkc tiling::window --send-to-desktop 5
+shift + ctrl + cmd - 6 : chunkc tiling::window --send-to-desktop 6
+shift + ctrl + cmd - 7 : chunkc tiling::window --send-to-desktop 7
+shift + ctrl + cmd - 8 : chunkc tiling::window --send-to-desktop 8
+shift + ctrl + cmd - 9 : chunkc tiling::window --send-to-desktop 9
+shift + ctrl + cmd - 0 : chunkc tiling::window --send-to-desktop 10
+
+# send window to desktop and switch desktop
+shift + ctrl - x : `id=$(chunkc get _last_active_desktop); chunkc tiling::window -d $id; khd -p "cmd + alt - $id" &> /dev/null`
+shift + ctrl - z : chunkc tiling::window -d prev; khd -p "cmd + alt - z"
+shift + ctrl - c : chunkc tiling::window -d next; khd -p "cmd + alt - c"
+shift + ctrl - 1 : chunkc tiling::window -d 1; khd -p "ctrl - 1"
+shift + ctrl - 2 : chunkc tiling::window -d 2; khd -p "ctrl - 2"
+shift + ctrl - 3 : chunkc tiling::window -d 3; khd -p "ctrl - 3"
+shift + ctrl - 4 : chunkc tiling::window -d 4; khd -p "ctrl - 4"
+shift + ctrl - 5 : chunkc tiling::window -d 5; khd -p "ctrl - 5"
+shift + ctrl - 6 : chunkc tiling::window -d 6; khd -p "ctrl - 6"
+shift + ctrl - 7 : chunkc tiling::window -d 7; khd -p "ctrl - 7"
+shift + ctrl - 8 : chunkc tiling::window -d 8; khd -p "ctrl - 8"
+shift + ctrl - 9 : chunkc tiling::window -d 9; khd -p "ctrl - 9"
+shift + ctrl - 0 : chunkc tiling::window -d 10; khd -p "ctrl - 0"
+
+# switch to last active desktop
+cmd + alt - x : `id=$(chunkc get _last_active_desktop); khd -p "cmd + alt - $id" &> /dev/null`
+
+# focus monitor
+ctrl + alt - z : chunkc tiling::monitor -f prev
+ctrl + alt - c : chunkc tiling::monitor -f next
+ctrl + alt - 1 : chunkc tiling::monitor -f 1
+ctrl + alt - 2 : chunkc tiling::monitor -f 2
+ctrl + alt - 3 : chunkc tiling::monitor -f 3
+
+# send window to monitor and follow focus
+shift + ctrl + alt - z : chunkc tiling::window --send-to-monitor prev; chunkc tiling::monitor -f prev
+shift + ctrl + alt - c : chunkc tiling::window --send-to-monitor next; chunkc tiling::monitor -f next
+shift + ctrl + alt - 1 : chunkc tiling::window --send-to-monitor 1; chunkc tiling::monitor -f 1
+shift + ctrl + alt - 2 : chunkc tiling::window --send-to-monitor 2; chunkc tiling::monitor -f 2
+shift + ctrl + alt - 3 : chunkc tiling::window --send-to-monitor 3; chunkc tiling::monitor -f 3
+
+# increase region size
+shift + alt - a : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge west
+shift + alt - s : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge south
+shift + alt - w : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge north
+shift + alt - d : chunkc tiling::window --use-temporary-ratio 0.1 --adjust-window-edge east
+
+# decrease region size
+shift + cmd - a : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge west
+shift + cmd - s : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge south
+shift + cmd - w : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge north
+shift + cmd - d : chunkc tiling::window --use-temporary-ratio -0.1 --adjust-window-edge east
+
+# rotate tree
+alt - r : chunkc tiling::desktop --rotate 90
+
+# mirror tree y-axis
+alt - y : chunkc tiling::desktop --mirror vertical
+
+# mirror tree x-axis
+alt - x : chunkc tiling::desktop --mirror horizontal
+
+# toggle window fullscreen
+alt - f : chunkc tiling::window --toggle fullscreen
+
+# toggle window native fullscreen
+shift + alt - f : chunkc tiling::window --toggle native-fullscreen
+
+# float / unfloat window
+alt - t : chunkc tiling::window --toggle float
+
+# toggle sticky, float and resize to picture-in-picture size
+alt - s : chunkc tiling::window --toggle sticky;\
+          chunkc tiling::window --warp-floating pip-right
+
+# float next window to be tiled
+shift + alt - t : chunkc set window_float_next 1

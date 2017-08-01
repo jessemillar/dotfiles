@@ -1,8 +1,0 @@
-[Unit]
-Description=Keep my MacBook from being woken up randomly by "USB" devides when the lid is closed
-
-[Service]
-ExecStart=/bin/bash -c "echo XHC1 >> /proc/acpi/wakeup"
-
-[Install]
-WantedBy=multi-user.target
