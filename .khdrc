@@ -2,7 +2,7 @@
 shift + ctrl - r : khd -e "reload"; brew services restart chunkwm
 
 # open terminal
-ctrl + shift + return : open -na Hyper
+ctrl + shift - return : open -na Hyper
 
 # open finder
 ctrl + shift - f : open -na Finder
