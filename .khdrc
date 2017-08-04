@@ -23,13 +23,10 @@ ctrl + alt + shift - c : open -na "Google Chrome" --args --disable-web-security 
 cmd + shift - 4 -> : chunkc border::clear
 
 # focus window
-ctrl - h : chunkc tiling::window --focus west
-ctrl - j : chunkc tiling::window --focus south
-ctrl - k : chunkc tiling::window --focus north
-ctrl - l : chunkc tiling::window --focus east
-
-ctrl + alt - j : chunkc tiling::window --focus prev
-ctrl + alt - k : chunkc tiling::window --focus next
+ctrl + alt - h : chunkc tiling::window --focus west
+ctrl + alt - j : chunkc tiling::window --focus south
+ctrl + alt - k : chunkc tiling::window --focus north
+ctrl + alt - l : chunkc tiling::window --focus east
 
 # equalize size of windows
 shift + alt - 0 : chunkc tiling::desktop --equalize
