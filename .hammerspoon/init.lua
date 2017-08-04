@@ -39,6 +39,16 @@ end
 -- watch for unlock events to start the eye timer
 hs.caffeinate.watcher.new(startEyeTimer):start()
 
+-- restart my window manager
+function restartChunkwm(eventType)
+	if not eventType then
+		hs.execute("brew services restart chumkwm")
+	end
+end
+
+-- watch for monitors being (un)plugged
+hs.screen.watcher.new(restartChunkwm):start()
+
 -- watch for work wifi
 wifiWatcher = nil
 workSSID = "Eagle"
