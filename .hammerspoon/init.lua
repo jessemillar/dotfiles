@@ -20,6 +20,7 @@ hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 eyeTimer = nil
 
 -- remind me to look away from the computer
+-- set the notification type for hammerspoon in system preferences to "alerts" to have a close button
 function startEyeTimer(eventType)
 	if eventType == hs.caffeinate.watcher.sessionDidBecomeActive then
 		eyeTimer = hs.timer.doAfter(20 * 60, function()
