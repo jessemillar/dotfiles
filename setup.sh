@@ -15,9 +15,6 @@ ln -s ~/.dotfiles/.hyper.js ~/.hyper.js
 rm -rf ~/.hammerspoon
 ln -s ~/.dotfiles/.hammerspoon ~/.hammerspoon
 
-rm -rf ~/.hammerspoon
-ln -s ~/.dotfiles/.hammerspoon ~/.hammerspoon
-
 rm ~/.functionsrc
 ln -s ~/.dotfiles/.functionsrc ~/.functionsrc
 
@@ -26,6 +23,9 @@ ln -s ~/.dotfiles/.khdrc ~/.khdrc
 
 rm ~/.chunkwmrc
 ln -s ~/.dotfiles/.chunkwmrc ~/.chunkwmrc
+
+rm -rf ~/.config/karabiner
+ln -s ~/.dotfiles/.config/karabiner ~/.config/karabiner
 
 rm ~/.gitignore_global
 ln -s ~/.dotfiles/.gitignore_global ~/.gitignore_global

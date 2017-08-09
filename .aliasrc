@@ -20,6 +20,7 @@ alias h="history"
 alias v="vim"
 alias g="grep"
 alias pb="pbcopy"
+alias o="open ."
 alias labs='echo $fg[cyan] "
        :########:       
        ###'\'' ####        

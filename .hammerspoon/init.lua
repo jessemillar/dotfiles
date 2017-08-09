@@ -31,7 +31,7 @@ function startEyeTimer(eventType)
 				callback=startEyeTimer(hs.caffeinate.watcher.sessionDidBecomeActive)
 			}):send()
 		end)
-	elseif eventType == hs.caffeinate.watcher.sessionDidResignActive and eyeTimer then
+	elseif eventType == hs.caffeinate.watcher.sessionDidResignActive then
 		eyeTimer:stop()
 	end
 end
