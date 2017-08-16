@@ -77,6 +77,8 @@ shift + ctrl - 0 : chunkc tiling::window -d 10; khd -p "ctrl - 0"
 cmd + alt - x : `id=$(chunkc get _last_active_desktop); khd -p "cmd + alt - $id" &> /dev/null`
 
 # focus monitor
+- button3 : chunkc tiling::monitor -f prev
+- button4 : chunkc tiling::monitor -f next
 ctrl + alt - z : chunkc tiling::monitor -f prev
 ctrl + alt - c : chunkc tiling::monitor -f next
 ctrl + alt - 1 : chunkc tiling::monitor -f 1
