@@ -60,6 +60,8 @@ shift + ctrl + cmd - 0 : chunkc tiling::window --send-to-desktop 10
 
 # send window to desktop and switch desktop
 shift + ctrl - x : `id=$(chunkc get _last_active_desktop); chunkc tiling::window -d $id; khd -p "cmd + alt - $id" &> /dev/null`
+shift + ctrl - button3 : chunkc tiling::window -d prev; khd -p "cmd + alt - z"
+shift + ctrl - button4 : chunkc tiling::window -d next; khd -p "cmd + alt - c"
 shift + ctrl - z : chunkc tiling::window -d prev; khd -p "cmd + alt - z"
 shift + ctrl - c : chunkc tiling::window -d next; khd -p "cmd + alt - c"
 shift + ctrl - 1 : chunkc tiling::window -d 1; khd -p "ctrl - 1"
@@ -86,6 +88,8 @@ ctrl + alt - 2 : chunkc tiling::monitor -f 2
 ctrl + alt - 3 : chunkc tiling::monitor -f 3
 
 # send window to monitor and follow focus
+shift - button3 : chunkc tiling::window --send-to-monitor prev; chunkc tiling::monitor -f prev
+shift - button4 : chunkc tiling::window --send-to-monitor next; chunkc tiling::monitor -f next
 shift + ctrl + alt - z : chunkc tiling::window --send-to-monitor prev; chunkc tiling::monitor -f prev
 shift + ctrl + alt - c : chunkc tiling::window --send-to-monitor next; chunkc tiling::monitor -f next
 shift + ctrl + alt - 1 : chunkc tiling::window --send-to-monitor 1; chunkc tiling::monitor -f 1
