@@ -73,7 +73,9 @@ chunkc core::load border.so
 #
 
 chunkc tiling::rule --owner \"System Preferences\" --subrole AXStandardWindow --state float
-chunkc tiling::rule --owner \"Microsoft Outlook\" --name \"Reminder\" --state float
+chunkc tiling::rule --owner \"Microsoft Outlook\" --name Reminder --state float
+chunkc tiling::rule --owner Finder --except \".+\" --state float
+chunkc tiling::rule --owner Finder --name Copy --state float
 chunkc tiling::rule --owner \"DBeaver EE\" --except \".+\" --state float
 chunkc tiling::rule --owner \"DBeaver EE\" --name Error --state float
 chunkc tiling::rule --owner \"Cisco AnyConnect Secure Mobility Client\" --state float
