@@ -7,7 +7,7 @@ _michael_collapsed_wd() {
 	')
 }
 
-local user_color='green'; [ $UID -eq 0 ] && user_color='red'
+local user_color='magenta'; [ $UID -eq 0 ] && user_color='red'
 PROMPT='%{$fg[$user_color]%}$(_michael_collapsed_wd)%{$reset_color%} %(!.#.>) '
 PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
 

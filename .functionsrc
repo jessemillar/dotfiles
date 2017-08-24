@@ -1,6 +1,6 @@
 function search() {
-	find . -name "*$1*" -ls | awk '{ print $NF }' | grep --color -e $1
-	grep -rin --exclude-dir={vendor,node_modules,bower_components} . -e $1
+	find . -name "*$1*" | ack --passthru $1
+	ack $1
 }
 
 function scuttle() {
