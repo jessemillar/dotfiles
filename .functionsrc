@@ -24,5 +24,20 @@ function gitt() {
 }
 
 function gi() {
-	curl -L -s https://www.gitignore.io/api/"$1"
+	if [ -z "$1" ]
+	then
+		curl -L -s https://www.gitignore.io/api/linux,macos,windows | sed '1d'
+	else
+		if [ "$1" == "list" ]
+		then
+			if [ -z "$2" ]
+			then
+				curl -L -s https://www.gitignore.io/api/list?format=lines
+			else
+				curl -L -s https://www.gitignore.io/api/list?format=lines | ack $2
+			fi
+		else
+			curl -L -s https://www.gitignore.io/api/"$1" | sed '1d'
+		fi
+	fi
 }
