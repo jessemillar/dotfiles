@@ -1,30 +1,19 @@
 #!/bin/bash
 
-#
-# NOTE: specify the absolutepath to the directory to use when
-#       loading a plugin. '~' expansion is supported.
-#
-
+# specify the absolutepath to the directory to use when loading a plugin. '~' expansion is supported.
 chunkc core::plugin_dir ~/.chunkwm_plugins
 
-#
-# NOTE: if enabled, chunkwm will monitor the specified plugin_dir
-#       and automatically reload any '.so' file that is changed.
-#
-
+# if the following is enabled, chunkwm will monitor the specified plugin_dir and automatically reload '.so' plugin files
 chunkc core::hotload 1
 
-#
-# NOTE: the following are config variables for the chunkwm-tiling plugin.
-#
-
+# the following are config variables for the chunkwm-tiling plugin
 chunkc set global_desktop_mode           bsp
 
-chunkc set global_desktop_offset_top     0
-chunkc set global_desktop_offset_bottom  0
-chunkc set global_desktop_offset_left    0
-chunkc set global_desktop_offset_right   0
-chunkc set global_desktop_offset_gap     0
+chunkc set global_desktop_offset_top     30
+chunkc set global_desktop_offset_bottom  30
+chunkc set global_desktop_offset_left    30
+chunkc set global_desktop_offset_right   30
+chunkc set global_desktop_offset_gap     10
 
 chunkc set desktop_padding_step_size     10.0
 chunkc set desktop_gap_step_size         5.0
@@ -40,38 +29,22 @@ chunkc set window_float_next             0
 chunkc set window_float_center           1
 chunkc set window_region_locked          1
 
-#
-# NOTE: shell commands require escaped quotes
-#       to pass value containing a whitespace.
-#
-
 chunkc set mouse_modifier                fn
 chunkc set preselect_border_color        0xfff8f8f2
 chunkc set preselect_border_width        4
-chunkc set preselect_border_radius       5
+chunkc set preselect_border_radius       4
 
-#
-# NOTE: the following are config variables for the chunkwm-border plugin.
-#
-
+# the following are config variables for the chunkwm-border plugin
 chunkc set focused_border_color          0xffff79c6
 chunkc set focused_border_width          4
 chunkc set focused_border_radius         5
 chunkc set focused_border_skip_floating  1
 
-#
-# NOTE: specify plugins to load when chunkwm starts.
-#       if chunkc plugin_dir is not set, the absolutepath is necessary.
-#
-
+# specify plugins to load when chunkwm starts
 chunkc core::load tiling.so
 chunkc core::load border.so
 
-#
-# NOTE: shell commands require escaped quotes
-#       to pass value containing a whitespace.
-#
-
+# shell commands require escaped quotes to pass value containing a whitespace
 chunkc tiling::rule --owner \"System Preferences\" --subrole AXStandardWindow --state float
 chunkc tiling::rule --owner \"Microsoft Outlook\" --name Reminder --state float
 chunkc tiling::rule --owner Finder --except \".+\" --state float
