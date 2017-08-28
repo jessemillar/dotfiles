@@ -1,4 +1,4 @@
-" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" Plugins managed by vim-plug (https://github.com/junegunn/vim-plug#installation)
 
 call plug#begin('~/.vim/plugged')
 
@@ -19,6 +19,9 @@ Plug 'justinj/vim-pico8-syntax'
 Plug 'dracula/vim'
 
 call plug#end()
+
+" Fix a Vim rendering bug (https://github.com/zeit/hyper/issues/1037#issuecomment-269848444)
+set t_RV=
 
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
