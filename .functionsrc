@@ -52,6 +52,7 @@ function cells() {
 			gautomata -w 576 -h 360 -b true -a random
 		done
 
+		echo "Scaling images"
 		mogrify -scale 1000% *.png
 	fi
 }
