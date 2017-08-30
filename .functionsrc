@@ -53,6 +53,6 @@ function cells() {
 		done
 
 		echo "Scaling images"
-		mogrify -scale 1000% *.png
+		mogrify -scale 5760x3600+0+0 *.png
 	fi
 }
