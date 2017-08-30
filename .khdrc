@@ -17,7 +17,7 @@ ctrl + shift - i : open -na "IntelliJ IDEA"
 ctrl + shift - c : open -na "Google Chrome"
 
 # open google chrome without security
-ctrl + alt + shift - c : open -na "Google Chrome" --args --disable-web-security --allow-file-access-from-files --user-data-dir
+ctrl + alt + shift - c : open -na "Google Chrome" --args --disable-web-security --allow-file-access-from-files --user-data-dir="/tmp/chrome-dev-session"
 
 # enable "app mode" screenshots
 cmd + shift - 4 -> : chunkc border::clear

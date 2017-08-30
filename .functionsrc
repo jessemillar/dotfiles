@@ -41,3 +41,17 @@ function gi() {
 		fi
 	fi
 }
+
+function cells() {
+	if [ -z $1 ]
+	then
+		echo "No iteration count supplied"
+	else
+		for i in {1..$1}
+		do
+			gautomata -w 576 -h 576 -b true -a random
+		done
+
+		mogrify -scale 500% *.png
+	fi
+}

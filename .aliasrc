@@ -1,4 +1,5 @@
-alias gin="go run server.go"
+alias gun="go run server.go"
+alias gin="go install && go run server.go"
 alias gest="go test -v -race ./..."
 alias ode="npm install && node main.js"
 alias inflate="scuttle && docker-compose build && docker-compose up"

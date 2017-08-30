@@ -5,7 +5,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'valloric/youcompleteme', { 'do': './install.py --tern-completer --gocode-completer' }
 Plug 'fatih/vim-go'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 Plug 'chiel92/vim-autoformat'
 Plug 'tpope/vim-sensible'
@@ -22,6 +21,9 @@ call plug#end()
 
 " Fix a Vim rendering bug (https://github.com/zeit/hyper/issues/1037#issuecomment-269848444)
 set t_RV=
+
+" Make scrolling faster when viewing large files in split mode
+set lazyredraw
 
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
