@@ -9,7 +9,7 @@ alias pew="cp ~/Library/Application\ Support/pico-8/carts/blank.p8"
 alias pest="/Applications/PICO-8.app/Contents/MacOS/pico8 -run"
 alias pun="cd ..; pico-build run; cd src"
 alias ped="cd ..; pico-build edit; cd src"
-alias brup="brew -v update && brew upgrade && brew cleanup && brew doctor"
+alias brup="brew -v update && brew upgrade && brew cleanup && brew doctor && brew cask reinstall `brew cask outdated` && brew cask cleanup --outdated"
 alias cookie='for file in *; do TIME=$(date +%s) && ~/Documents/Projects/cookie-cutter/cookie-cutter.sh ~/Dropbox/Work/Branding/bolt_pixel@2x.png "$file" ~/Dropbox/Wallpaper/Randomized/$TIME.png 5760 3600; done'
 alias chunki='chunkc tiling::query --desktop windows'
 alias chunkid='chunkc tiling::query --window'
