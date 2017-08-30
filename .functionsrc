@@ -49,9 +49,9 @@ function cells() {
 	else
 		for i in {1..$1}
 		do
-			gautomata -w 576 -h 576 -b true -a random
+			gautomata -w 576 -h 360 -b true -a random
 		done
 
-		mogrify -scale 500% *.png
+		mogrify -scale 1000% *.png
 	fi
 }
