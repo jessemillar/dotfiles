@@ -49,7 +49,12 @@ function cells() {
 	else
 		for i in {1..$1}
 		do
-			gautomata -w 576 -h 360 -b true -a random
+			if [ -z $2 ]
+			then
+				gautomata -w 576 -h 360 -b -a random
+			else
+				gautomata -w 576 -h 360 -b -a $2
+			fi
 		done
 
 		echo "Scaling images"
