@@ -31,7 +31,7 @@ function jitt() {
 		BRANCH="$(git rev-parse --abbrev-ref HEAD | awk 'match($0, /[A-Z]+-[[:digit:]]+/) { print substr($0, RSTART, RLENGTH) }')"
 
 		git add -A
-		git commit -m $BRANCH $1
+		git commit -m "$BRANCH $1"
 		git push
 	fi
 }
