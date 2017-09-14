@@ -32,7 +32,7 @@ chunkc set window_region_locked          1
 chunkc set mouse_modifier                fn
 chunkc set preselect_border_color        0xfff8f8f2
 chunkc set preselect_border_width        4
-chunkc set preselect_border_radius       4
+chunkc set preselect_border_radius       5
 
 # the following are config variables for the chunkwm-border plugin
 chunkc set focused_border_color          0xffff79c6
