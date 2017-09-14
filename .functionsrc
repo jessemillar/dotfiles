@@ -17,21 +17,17 @@ function gitt() {
 	then
 		echo "No commit message supplied"
 	else
-		git add -A
-		git commit -m $1
-		git push
-	fi
-}
-
-function jitt() {
-	if [ -z "$1" ]
-	then
-		echo "No commit message supplied"
-	else
 		BRANCH="$(git rev-parse --abbrev-ref HEAD | awk 'match($0, /[A-Z]+-[[:digit:]]+/) { print substr($0, RSTART, RLENGTH) }')"
 
 		git add -A
-		git commit -m "$BRANCH $1"
+
+		if [ -z "$BRANCH" ]
+		then
+			git commit -m $1
+		else
+			git commit -m "$BRANCH $1"
+		fi
+
 		git push
 	fi
 }
