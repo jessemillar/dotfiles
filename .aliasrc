@@ -24,6 +24,7 @@ alias v="vim"
 alias a="ack"
 alias pb="pbcopy"
 alias o="open ."
+alias tmp="mkdir tmp || true && cd tmp"
 alias labs='echo $fg[cyan] "
        :########:       
        ###'\'' ####        

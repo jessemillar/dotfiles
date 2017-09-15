@@ -9,11 +9,11 @@ chunkc core::hotload 1
 # the following are config variables for the chunkwm-tiling plugin
 chunkc set global_desktop_mode           bsp
 
-chunkc set global_desktop_offset_top     30
-chunkc set global_desktop_offset_bottom  30
-chunkc set global_desktop_offset_left    30
-chunkc set global_desktop_offset_right   30
-chunkc set global_desktop_offset_gap     15
+chunkc set global_desktop_offset_top     20
+chunkc set global_desktop_offset_bottom  20
+chunkc set global_desktop_offset_left    20
+chunkc set global_desktop_offset_right   20
+chunkc set global_desktop_offset_gap     12
 
 chunkc set desktop_padding_step_size     10.0
 chunkc set desktop_gap_step_size         5.0
