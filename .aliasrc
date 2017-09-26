@@ -6,6 +6,7 @@ alias a="ack"
 alias pb="pbcopy"
 alias o="open ."
 alias tmp="mkdir tmp || true && cd tmp"
+alias q='qlmanage -p "$@" > /dev/null 2>&1'
 
 # Go
 alias gun="go run server.go"
@@ -24,6 +25,7 @@ alias deflate="docker-compose down"
 alias pew="cp ~/Library/Application\ Support/pico-8/carts/blank.p8"
 alias pest="/Applications/PICO-8.app/Contents/MacOS/pico8 -run"
 alias pun="cd ..; pico-build run; cd src"
+alias pud="mv ~/Library/Application\ Support/pico-8/carts/new.p8 _assets.p8"
 alias ped="cd ..; pico-build edit; cd src"
 
 # Homebrew
@@ -35,7 +37,7 @@ alias chunkid='chunkc tiling::query --window'
 
 # git
 alias gs="git status"
-alias gd="git diff"
+alias gd="git diff --ignore-all-space"
 alias gl="git log"
 alias grm="git ls-files -i --exclude-from=.gitignore | xargs git rm --cached"
 alias gpersonal='git config user.email "hellojessemillar@gmail.com"'

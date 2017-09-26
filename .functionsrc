@@ -3,6 +3,11 @@ function search() {
 	ack $1
 }
 
+function crup() {
+	brew cask reinstall `brew cask outdated` || true
+	brew cask cleanup
+}
+
 function scuttle() {
 	docker kill $(docker ps -a -q) || true
 	docker rm $(docker ps -a -q) || true
