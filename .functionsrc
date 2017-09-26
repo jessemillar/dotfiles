@@ -1,6 +1,11 @@
 function search() {
-	find . -name "*$@*" | ack --passthru "$@"
-	ack "$@"
+	if [ $1 = "-f" ]
+	then
+		find . -name "*$2*" | ack --passthru "$2"
+	else
+		find . -name "*$1*" | ack --passthru "$1"
+		ack "$1"
+	fi
 }
 
 function crup() {
