@@ -1,10 +1,10 @@
 function search() {
-	find . -name "*$1*" | ack --passthru $1
-	ack $1
+	find . -name "*$@*" | ack --passthru "$@"
+	ack "$@"
 }
 
 function crup() {
-	brew cask reinstall `brew cask outdated` || true
+	brew cask reinstall $(brew cask outdated) || true
 	brew cask cleanup
 }
 
