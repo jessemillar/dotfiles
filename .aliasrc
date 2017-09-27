@@ -36,10 +36,12 @@ alias chunki='chunkc tiling::query --desktop windows'
 alias chunkid='chunkc tiling::query --window'
 
 # git
-alias gs="git status"
 alias gd="git diff --ignore-all-space"
 alias gl="git log"
+alias gp="git pull"
 alias grm="git ls-files -i --exclude-from=.gitignore | xargs git rm --cached"
+alias gs="git status"
+
 alias gpersonal='git config user.email "hellojessemillar@gmail.com"'
 alias gwork='git config user.email "jesse.millar@walmartlabs.com"'
 
