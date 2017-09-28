@@ -37,6 +37,7 @@ alias chunkid='chunkc tiling::query --window'
 
 # git
 alias gb="git branch -a"
+alias gc='git checkout "$@"'
 alias gd="git diff --ignore-all-space"
 alias gl="git log"
 alias gp="git pull"
