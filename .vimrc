@@ -74,6 +74,8 @@ command! GD GoDef
 " Custom mapping for Autoformat
 command! AF Autoformat
 
+command! SP :set spell!
+
 " Show hybrid line numbers by default 
 set number
 set relativenumber
