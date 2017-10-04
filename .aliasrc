@@ -1,12 +1,11 @@
 # General
-alias a='ack "$@"'
+alias a="ack"
 alias h="history"
-alias ha='history | ack "$@"'
+alias ha="history | ack"
 alias o="open ."
 alias pb="pbcopy"
-alias q='qlmanage -p "$@" > /dev/null 2>&1'
 alias tmp="mkdir tmp || true && cd tmp"
-alias v='vim "$@"'
+alias v="vim"
 
 # Go
 alias gun="go run server.go"
@@ -37,7 +36,7 @@ alias chunkid='chunkc tiling::query --window'
 
 # git
 alias gb="git branch -a"
-alias gc='git checkout "$@"'
+alias gc="git checkout"
 alias gd="git diff --ignore-all-space"
 alias gl="git log"
 alias gp="git pull"

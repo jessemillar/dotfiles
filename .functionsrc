@@ -1,3 +1,7 @@
+function q() {
+	qlmanage -p "$@" > /dev/null 2>&1
+}
+
 function search() {
 	if [ $1 = "-f" ]
 	then
