@@ -1,6 +1,7 @@
 [user]
 	email = hellojessemillar@gmail.com
 	name = Jesse Millar
+	username = jessemillar
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [http "https://gopkg.in"]
