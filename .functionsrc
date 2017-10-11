@@ -12,6 +12,13 @@ function search() {
 	fi
 }
 
+function mssh() {
+	for HOST in $(cat $1)
+	do 
+		ssh "$HOST" "${@:2}" > "output.$HOST.txt"
+	done
+}
+
 function crup() {
 	brew cask reinstall $(brew cask outdated) || true
 	brew cask cleanup
