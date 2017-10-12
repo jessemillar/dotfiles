@@ -1,5 +1,5 @@
 function q() {
-	qlmanage -p "$@" > /dev/null 2>&1
+	qlmanage -p "$@" >/dev/null 2>&1
 }
 
 function search() {
@@ -13,9 +13,9 @@ function search() {
 }
 
 function mssh() {
-	for HOST in $(cat $1)
+	for HOST in $(cat $2)
 	do 
-		ssh "$HOST" "${@:2}" > "output.$HOST.txt"
+		ssh "$1@$HOST" "$3" >"output.$HOST" 2>"output.$HOST.err"
 	done
 }
 
