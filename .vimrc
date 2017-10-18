@@ -28,6 +28,9 @@ set lazyredraw
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
 
+" Deal with Arduino files properly
+autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
+
 " Non-arrow arrows for NERDTree because I use a custom font
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
