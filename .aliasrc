@@ -2,6 +2,7 @@
 alias a="ack"
 alias h="history"
 alias ha="history | ack"
+alias lines="wc -l **/* 2>/dev/null"
 alias o="open ."
 alias pb="pbcopy"
 alias s="search"
