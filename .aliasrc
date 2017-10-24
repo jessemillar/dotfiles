@@ -4,6 +4,7 @@ alias h="history"
 alias ha="history | ack"
 alias o="open ."
 alias pb="pbcopy"
+alias s="search"
 alias tmp="mkdir tmp || true && cd tmp"
 alias v="vim"
 
