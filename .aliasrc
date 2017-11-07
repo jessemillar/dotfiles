@@ -1,5 +1,6 @@
 # General
 alias a="ack"
+alias day="date +%m-%d-%Y"
 alias h="history"
 alias ha="history | ack"
 alias lines="wc -l **/* 2>/dev/null"

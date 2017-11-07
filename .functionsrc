@@ -15,8 +15,19 @@ function search() {
 function mssh() {
 	for HOST in $(cat $2)
 	do 
-		ssh "$1@$HOST" "$3" >"output.$HOST" 2>"output.$HOST.err"
+		ssh -o StrictHostKeyChecking=no "$1@$HOST" "$3" >"output.$HOST" 2>"output.$HOST.err" &
 	done
+	wait
+}
+
+function msshp() {
+	read -s "PASS?Password: "
+
+	for HOST in $(cat $2)
+	do 
+		sshpass -p "$PASS" ssh -o StrictHostKeyChecking=no "$1@$HOST" "$3" >"output.$HOST" 2>"output.$HOST.err" &
+	done
+	wait
 }
 
 function crup() {
