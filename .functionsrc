@@ -83,6 +83,16 @@ function gi() {
 	fi
 }
 
+function includes() {
+	while read LINE
+	do
+		if ! grep -qr "\b$LINE\b" "$2"
+		then
+			echo $LINE # The line was not found
+		fi
+	done <$1
+}
+
 function cells() {
 	if [ -z $1 ]
 	then
