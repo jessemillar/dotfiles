@@ -8,7 +8,7 @@ function search() {
 		find . -name "*$2*" | ack --passthru "$2"
 	else
 		find . -name "*$1*" | ack --passthru "$1"
-		ack "$1" *
+		ack "$1" **
 	fi
 }
 
