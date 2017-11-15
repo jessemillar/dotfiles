@@ -6,7 +6,10 @@ alias ha="history | ack"
 alias lines="wc -l **/* 2>/dev/null"
 alias o="open ."
 alias pb="pbcopy"
+alias pu="" # I'm tired of accidentally typing this
+alias research="cd ~/Documents/Projects/todo/research && vim README.md && git add -A && git commit -m 'Automatic research update' && git push && cd -"
 alias s="search"
+alias todo="cd ~/Documents/Projects/todo && vim README.md && git add -A && git commit -m 'Automatic todo update' && git push && cd -"
 alias tmp="mkdir tmp || true && cd tmp"
 alias v="vim"
 
