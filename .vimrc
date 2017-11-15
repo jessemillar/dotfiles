@@ -79,6 +79,7 @@ command! GD GoDef
 command! AF Autoformat
 
 command! SP :set spell!
+autocmd BufRead,BufNewFile *.md setlocal spell
 
 " Show hybrid line numbers by default 
 set number
