@@ -7,11 +7,12 @@ alias lines="wc -l **/* 2>/dev/null"
 alias o="open ."
 alias pb="pbcopy"
 alias pu="" # I'm tired of accidentally typing this
-alias research="cd ~/Documents/Projects/todo/research && vim README.md && git add -A && git commit -m 'Automatic research update' && git push && cd -"
+alias research="cd ~/Documents/Projects/todo/research && vim README.md && git add -A && git commit -m 'Automatic research update' && git push && cd - >/dev/null"
 alias s="search"
-alias todo="cd ~/Documents/Projects/todo && vim README.md && git add -A && git commit -m 'Automatic todo update' && git push && cd -"
+alias todo="cd ~/Documents/Projects/todo && vim README.md && git add -A && git commit -m 'Automatic todo update' && git push && cd - >/dev/null"
 alias tmp="mkdir tmp || true && cd tmp"
 alias v="vim"
+alias watch='watch '
 
 # Go
 alias gun="go run server.go"
