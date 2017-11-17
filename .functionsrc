@@ -35,13 +35,17 @@ function crup() {
 	brew cask cleanup
 }
 
+function drydock() {
+	docker kill $(docker ps -a -q) 2>/dev/null || true
+}
+
 function scuttle() {
-	docker kill $(docker ps -a -q) || true
-	docker rm $(docker ps -a -q) || true
+	docker kill $(docker ps -a -q) 2>/dev/null || true
+	docker rm $(docker ps -a -q) 2>/dev/null || true
 }
 
 function sink() {
-	docker rmi $(docker images -q) || true
+	docker rmi $(docker images -q) 2>/dev/null || true
 }
 
 function gitt() {
