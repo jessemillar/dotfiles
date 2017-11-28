@@ -1,5 +1,4 @@
 " Plugins managed by vim-plug (https://github.com/junegunn/vim-plug#installation)
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'valloric/youcompleteme', { 'do': './install.py --tern-completer --gocode-completer' }
@@ -8,23 +7,20 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'chiel92/vim-autoformat'
 Plug 'tpope/vim-sensible'
-Plug 'mhinz/vim-startify'
-Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-repeat'
 Plug 'othree/eregex.vim'
-Plug 'leafgarland/typescript-vim'
 Plug 'roxma/vim-paste-easy'
 Plug 'justinj/vim-pico8-syntax'
 Plug 'dracula/vim'
-Plug 'reedes/vim-pencil'
+Plug 'neomake/neomake'
 
 call plug#end()
 
 " Fix a Vim rendering bug (https://github.com/zeit/hyper/issues/1037#issuecomment-269848444)
 set t_RV=
 
-" Make scrolling faster when viewing large files in split mode
-set lazyredraw
+" When reading a buffer (after 1s), and when writing
+call neomake#configure#automake('rw', 1000)
 
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
@@ -63,12 +59,6 @@ highlight PmenuSel ctermfg=0 ctermbg=255
 set tabstop=4
 set shiftwidth=4
 
-" Syntastic settings
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 " Custom mapping for NERDTree
 command! NT NERDTreeToggle
 
@@ -96,20 +86,3 @@ let g:go_highlight_build_constraints = 1
 
 " Run goimports instead of gofmt
 let g:go_fmt_command = "goimports"
-
-" Walmart
-let g:startify_custom_header = [
-			\"          '###'          ",
-			\"          '###'          ",
-			\"  .#.      ###      .#.  ",
-			\" '####,    ###    ,####' ",
-			\"   '####,  '-'  ,####'   ",
-			\"      '##'     '##'      ",
-			\"                         ",
-			\"      .##.     .##.      ",
-			\"   .####'  .-.  '####.   ",
-			\" .####'    ###    '####. ",
-			\"  '#'      ###      '#'  ",
-			\"          .###.          ",
-			\"          .###.          ",
-			\]
