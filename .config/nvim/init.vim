@@ -18,7 +18,9 @@ Plug 'brooth/far.vim'
 call plug#end()
 
 " Enable autocompletion
-call deoplete#enable()
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+inoremap <expr><tab> pumvisible() ? '\<c-n>' : '\<tab>'
 
 " When reading a buffer (after 1s), and when writing
 call neomake#configure#automake('rw', 1000)
@@ -27,11 +29,14 @@ call neomake#configure#automake('rw', 1000)
 autocmd VimEnter * PasteEasyEnable
 
 " Deal with Arduino files properly
-autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
+" autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
+
+" Custom mapping for NERDTree
+command! NT NERDTreeToggle
 
 " Non-arrow arrows for NERDTree because I use a custom font
-let g:NERDTreeDirArrowExpandable="+"
-let g:NERDTreeDirArrowCollapsible="~"
+let g:NERDTreeDirArrowExpandable='+'
+let g:NERDTreeDirArrowCollapsible='~'
 
 " Show hidden files in NERDTree
 let NERDTreeShowHidden=1
@@ -56,12 +61,6 @@ highlight PmenuSel ctermfg=0 ctermbg=255
 set tabstop=4
 set shiftwidth=4
 
-" Custom mapping for NERDTree
-command! NT NERDTreeToggle
-
-" Custom mapping for Go definition finding
-command! GD GoDef
-
 " Custom mapping for Autoformat
 command! AF Autoformat
 
@@ -73,6 +72,9 @@ autocmd BufRead,BufNewFile *.md setlocal spell | syn match UrlNoSpell '\w\+:\/\/
 set number
 set relativenumber
 
+" Custom mapping for Go definition finding
+command! GD GoDef
+
 " Go syntax highlighting
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -82,4 +84,4 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 " Run goimports instead of gofmt
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = 'goimports'
