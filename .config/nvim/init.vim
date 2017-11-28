@@ -1,7 +1,7 @@
 " Plugins managed by vim-plug (https://github.com/junegunn/vim-plug#installation)
 call plug#begin('~/.vim/plugged')
 
-Plug 'valloric/youcompleteme', { 'do': './install.py --tern-completer --gocode-completer' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'fatih/vim-go'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
@@ -13,11 +13,12 @@ Plug 'roxma/vim-paste-easy'
 Plug 'justinj/vim-pico8-syntax'
 Plug 'dracula/vim'
 Plug 'neomake/neomake'
+Plug 'brooth/far.vim'
 
 call plug#end()
 
-" Fix a Vim rendering bug (https://github.com/zeit/hyper/issues/1037#issuecomment-269848444)
-set t_RV=
+" Enable autocompletion
+call deoplete#enable()
 
 " When reading a buffer (after 1s), and when writing
 call neomake#configure#automake('rw', 1000)
@@ -34,10 +35,6 @@ let g:NERDTreeDirArrowCollapsible="~"
 
 " Show hidden files in NERDTree
 let NERDTreeShowHidden=1
-
-" Autocompletion for strings, comments, and text files
-let g:ycm_filetype_blacklist = {}
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 " Enable JavaScript syntax highlighting
 let g:javascript_plugin_jsdoc = 1

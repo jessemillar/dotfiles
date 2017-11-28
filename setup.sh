@@ -3,12 +3,6 @@
 rm ~/.aliasrc
 ln -s ~/.dotfiles/.aliasrc ~/.aliasrc
 
-rm ~/.vimrc
-ln -s ~/.dotfiles/.vimrc ~/.vimrc
-
-rm -rf ~/.vim/spell
-ln -s ~/.dotfiles/.vim/spell ~/.vim/spell
-
 rm ~/.zshrc
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
