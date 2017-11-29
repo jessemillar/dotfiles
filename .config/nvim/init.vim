@@ -20,7 +20,7 @@ call plug#end()
 " Enable autocompletion
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-inoremap <expr><tab> pumvisible() ? '\<c-n>' : '\<tab>'
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
 
 " When reading a buffer (after 1s), and when writing
 call neomake#configure#automake('rw', 1000)
