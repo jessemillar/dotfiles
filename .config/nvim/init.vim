@@ -35,9 +35,6 @@ call neomake#configure#automake('rw', 1000)
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
 
-" Deal with Arduino files properly
-" autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
-
 " Custom mapping for NERDTree
 command! NT NERDTreeToggle
 
