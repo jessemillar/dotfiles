@@ -12,7 +12,6 @@ Plug 'othree/eregex.vim'
 Plug 'roxma/vim-paste-easy'
 Plug 'justinj/vim-pico8-syntax'
 Plug 'dracula/vim'
-Plug 'neomake/neomake'
 Plug 'brooth/far.vim'
 
 call plug#end()
@@ -28,9 +27,6 @@ function! s:check_back_space() abort "{{{
     let col = col('.') - 1
     return !col || getline('.')[col - 1] =~ '\s'
 endfunction"}}}
-
-" When reading a buffer (after 1s), and when writing
-call neomake#configure#automake('rw', 1000)
 
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
@@ -68,9 +64,15 @@ set shiftwidth=4
 " Custom mapping for Autoformat
 command! AF Autoformat
 
+" Quick spellcheck toggle
 command! SP :set spell!
+
 " Automatically enable spellcheck for .md files and don't mark URL-like things as spelling errors
 autocmd BufRead,BufNewFile *.md setlocal spell | syn match UrlNoSpell '\w\+:\/\/[^[:space:]]\+' contains=@NoSpell
+hi SpellBad ctermfg=236
+
+" Search color
+hi Search ctermfg=236
 
 " Show hybrid line numbers by default 
 set number
