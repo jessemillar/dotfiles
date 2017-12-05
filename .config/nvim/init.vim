@@ -17,6 +17,8 @@ Plug 'brooth/far.vim'
 call plug#end()
 
 " Enable autocompletion with tab support
+highlight Pmenu ctermfg=236 ctermbg=243
+highlight PmenuSel ctermfg=236 ctermbg=255
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 inoremap <silent><expr> <TAB>
@@ -27,6 +29,11 @@ function! s:check_back_space() abort "{{{
     let col = col('.') - 1
     return !col || getline('.')[col - 1] =~ '\s'
 endfunction"}}}
+
+" Code folding
+set foldmethod=syntax
+autocmd BufRead * normal zR
+highlight Folded ctermbg=233
 
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
@@ -53,9 +60,8 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" More readable YouCompleteMe popup with my current theme
-highlight Pmenu ctermfg=0 ctermbg=243
-highlight PmenuSel ctermfg=0 ctermbg=255
+" Select on jumping to a matching tag
+noremap % v%
 
 " Custom tab widths
 set tabstop=4
