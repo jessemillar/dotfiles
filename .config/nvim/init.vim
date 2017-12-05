@@ -63,9 +63,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Select on jumping to a matching tag
-nnoremap % v%
-
 " Custom tab widths
 set tabstop=4
 set shiftwidth=4
@@ -79,6 +76,10 @@ command! SP :set spell!
 " Automatically enable spellcheck for .md files and don't mark URL-like things as spelling errors
 autocmd BufRead,BufNewFile *.md setlocal spell | syn match UrlNoSpell '\w\+:\/\/[^[:space:]]\+' contains=@NoSpell
 hi SpellBad ctermfg=236
+
+" Easier find and replace
+command! -nargs=1 FR Far <q-args>
+command! FRD Fardo
 
 " Search color
 hi Search ctermfg=236
