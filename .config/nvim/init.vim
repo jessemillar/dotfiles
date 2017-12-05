@@ -16,6 +16,12 @@ Plug 'brooth/far.vim'
 
 call plug#end()
 
+" Load vim-sensible first so we can override defaults
+runtime! plugin/sensible.vim
+
+" Disable machit that's loaded by vim-sensible
+let g:loaded_matchit = 1
+
 " Enable autocompletion with tab support
 highlight Pmenu ctermfg=236 ctermbg=243
 highlight PmenuSel ctermfg=236 ctermbg=255
@@ -61,7 +67,7 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Select on jumping to a matching tag
-noremap % v%
+nnoremap % v%
 
 " Custom tab widths
 set tabstop=4
