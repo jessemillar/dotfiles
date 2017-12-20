@@ -3,9 +3,6 @@
 rm ~/.aliasrc
 ln -s ~/.dotfiles/.aliasrc ~/.aliasrc
 
-rm ~/.vimrc
-ln -s ~/.dotfiles/.vimrc ~/.vimrc
-
 rm ~/.zshrc
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
@@ -26,6 +23,9 @@ ln -s ~/.dotfiles/.chunkwmrc ~/.chunkwmrc
 
 rm -rf ~/.config/karabiner
 ln -s ~/.dotfiles/.config/karabiner ~/.config/karabiner
+
+rm -rf ~/.config/nvim
+ln -s ~/.dotfiles/.config/nvim ~/.config/nvim
 
 rm ~/.gitignore_global
 ln -s ~/.dotfiles/.gitignore_global ~/.gitignore_global

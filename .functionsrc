@@ -15,8 +15,19 @@ function search() {
 function mssh() {
 	for HOST in $(cat $2)
 	do 
-		ssh "$1@$HOST" "$3" >"output.$HOST" 2>"output.$HOST.err"
+		ssh -o StrictHostKeyChecking=no "$1@$HOST" "$3" >"output.$HOST" 2>"output.$HOST.err" &
 	done
+	wait
+}
+
+function msshp() {
+	read -s "PASS?Password: "
+
+	for HOST in $(cat $2)
+	do 
+		sshpass -p "$PASS" ssh -o StrictHostKeyChecking=no "$1@$HOST" "$3" >"output.$HOST" 2>"output.$HOST.err" &
+	done
+	wait
 }
 
 function crup() {
@@ -24,13 +35,17 @@ function crup() {
 	brew cask cleanup
 }
 
+function drydock() {
+	docker kill $(docker ps -a -q) 2>/dev/null || true
+}
+
 function scuttle() {
-	docker kill $(docker ps -a -q) || true
-	docker rm $(docker ps -a -q) || true
+	docker kill $(docker ps -a -q) 2>/dev/null || true
+	docker rm $(docker ps -a -q) 2>/dev/null || true
 }
 
 function sink() {
-	docker rmi $(docker images -q) || true
+	docker rmi $(docker images -q) 2>/dev/null || true
 }
 
 function gitt() {
@@ -70,6 +85,16 @@ function gi() {
 			curl -L -s https://www.gitignore.io/api/"$1" | sed '1d'
 		fi
 	fi
+}
+
+function includes() {
+	while read LINE
+	do
+		if ! grep -qr "\b$LINE\b" "$2"
+		then
+			echo $LINE # The line was not found
+		fi
+	done <$1
 }
 
 function cells() {
