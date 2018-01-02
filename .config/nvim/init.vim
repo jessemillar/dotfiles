@@ -33,11 +33,6 @@ function! s:check_back_space() abort "{{{
     return !col || getline('.')[col - 1] =~ '\s'
 endfunction"}}}
 
-" Code folding
-set foldmethod=syntax
-autocmd BufRead * normal zR
-highlight Folded ctermbg=233
-
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
 

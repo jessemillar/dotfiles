@@ -119,3 +119,28 @@ function cells() {
 		mogrify -scale 5760x3600+0+0 *.png
 	fi
 }
+
+function bitify() {
+	if [[ -z $1 || -z $2 || -z $3 ]]
+	then
+		echo "One or more arguments are missing"
+	elif (( $3 % 8 != 0 ))
+	then
+		echo "Image height must be a multiple of 8"
+	else
+		# make an animation
+		convert -monochrome -scale 500% -delay 15 -dispose previous -loop 0 *.png ../$1.gif
+		# make the individual frames
+		convert *.png -gravity center -crop $2x$3+0+0 -set filename:f '%t-cropped.%e' +adjoin '%[filename:f]'
+		# make an opacity mask sprite sheet
+		convert *-cropped.png -append -fill white -colorize 100% -background black -alpha remove mask.png
+		# combine and dither frames into a sprite sheet
+		convert *-cropped.png -append -monochrome sheet.png
+		# copy opacity into the dithered sprite sheet
+		convert sheet.png mask.png -alpha off -compose CopyOpacity -composite ../$1_$2x$3.png
+		# clean up
+		rm *-cropped.png
+		rm mask.png
+		rm sheet.png
+	fi
+}
