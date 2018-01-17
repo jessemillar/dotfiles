@@ -72,10 +72,6 @@ command! SP :set spell!
 autocmd BufRead,BufNewFile *.md setlocal spell | syn match UrlNoSpell '\w\+:\/\/[^[:space:]]\+' contains=@NoSpell
 hi SpellBad ctermfg=236
 
-" Easier find and replace
-command! -nargs=1 FR Far <q-args>
-command! FRD Fardo
-
 " Search color
 hi Search ctermfg=236
 

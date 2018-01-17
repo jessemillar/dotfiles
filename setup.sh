@@ -21,6 +21,9 @@ ln -s ~/.dotfiles/.khdrc ~/.khdrc
 rm ~/.chunkwmrc
 ln -s ~/.dotfiles/.chunkwmrc ~/.chunkwmrc
 
+rm ~/.ideavimrc
+ln -s ~/.dotfiles/.ideavimrc ~/.ideavimrc
+
 rm -rf ~/.config/karabiner
 ln -s ~/.dotfiles/.config/karabiner ~/.config/karabiner
 
