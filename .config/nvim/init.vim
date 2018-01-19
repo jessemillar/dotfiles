@@ -2,6 +2,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'fatih/vim-go'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
@@ -32,6 +33,9 @@ function! s:check_back_space() abort "{{{
     let col = col('.') - 1
     return !col || getline('.')[col - 1] =~ '\s'
 endfunction"}}}
+
+" Don't open scratch windows
+set completeopt-=preview
 
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
@@ -81,6 +85,9 @@ set relativenumber
 
 " Custom mapping for Go definition finding
 command! GD GoDef
+
+" Custom mapping for Go definition finding
+command! GR GoRun
 
 " Go syntax highlighting
 let g:go_highlight_functions = 1
