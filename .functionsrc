@@ -20,6 +20,10 @@ function mssh() {
 	wait
 }
 
+function qr() {
+	qrencode -s 10 -o - $1 | open -f -a preview
+}
+
 function msshp() {
 	read -s "PASS?Password: "
 
