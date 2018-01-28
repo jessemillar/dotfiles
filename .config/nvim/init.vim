@@ -12,6 +12,7 @@ Plug 'tpope/vim-repeat'
 Plug 'othree/eregex.vim'
 Plug 'roxma/vim-paste-easy'
 Plug 'justinj/vim-pico8-syntax'
+Plug 'leafgarland/typescript-vim'
 Plug 'dracula/vim'
 Plug 'brooth/far.vim'
 

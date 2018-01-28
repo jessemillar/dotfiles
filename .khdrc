@@ -22,6 +22,11 @@ cmd + shift - d : open -a "Google Chrome" "http://glintful-init.wal-mart.com/ord
 # enable "app mode" screenshots
 cmd + shift - 4 -> : chunkc border::clear
 
+# custom copy/paste buffer
+cmd + ctrl + c : pbpaste >> ~/.pbbuffer && echo ", " >> ~/.pbbuffer
+cmd + ctrl + v : cat ~/.pbbuffer | pbcopy
+cmd + ctrl + d : rm ~/.pbbuffer
+
 # focus window
 ctrl + alt - h : chunkc tiling::window --focus west
 ctrl + alt - j : chunkc tiling::window --focus south
