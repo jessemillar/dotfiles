@@ -3,7 +3,6 @@ set noautofocus
 set nocncpcompletion
 set smoothscroll
 set hud
-set noregex
 set noinsertmappings
 set typelinkhints
 set defaultnewtabpage
@@ -33,31 +32,18 @@ map i goToInput
 map u lastClosedTab
 map <C-z> toggleCvim
 
-map <Leader>cl :tabopen chrome://chrome/settings/clearBrowserData<CR>
 map <Leader>ex :tabopen chrome://extensions<CR>
 
-map <Leader>gh :tabopen https://github.com/marcusramberg<CR>
-map <Leader>Gh :open https://github.com/marcusramberg<CR>
-map <Leader>gi :tabopen https://gist.github.com/marcusramberg<CR>
-map <Leader>Gi :open https://gist.github.com/marcusramberg<CR>
+map <Leader>gh :tabopen https://github.com/jessemillar<CR>
+map <Leader>Gh :open https://github.com/jessemillar<CR>
 map <Leader>tw :tabopen http://twitter.com<CR>
 map <Leader>Tw :open http://twitter<CR>
 map <Leader>gm :tabopen https://mail.google.com/mail/#index<CR>
 map <Leader>Gm :open https://mail.google.com/mail/#index<CR>
 map <Leader>so :tabopen http://stackoverflow.com<CR>
 map <Leader>So :open http://stackoverflow.com<CR>
-map <Leader>pi :tabopen http://pinboard.in/<CR>
-map <Leader>Pi :open http://pinboard.in<CR>
-map <Leader>fb :tabopen http://www.facebook.com<CR>
-map <Leader>Fb :open http://www.facebook.com<CR>
 map <Leader>hn :tabopen http://news.ycombinator.com/<CR>
 map <Leader>Hn :open http://news.ycombinator.com/<CR>
-map <Leader>pl :tabopen http://plex.tv/web/app/<CR>
-map <Leader>Pl :open http://plex.tv/web/app/<CR>
-map <Leader>co :tabopen http://demo.convos.by/<CR>
-map <Leader>Co :open http://demo.convos.by/<CR>
-map <Leader>mc :tabopen http://chat.meatspac.es/*<CR>
-map <Leader>Mc :open http://chat.meatspac.es<CR>
 
 site "https://mail.google.com/*" {
     unmapAll
