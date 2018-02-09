@@ -6,11 +6,8 @@ set nosmoothscroll
 set typelinkhints
 set defaultnewtabpage
 
-let scrollstep = 50
-let searchlimit = 40
 let searchalias g = "google"
 let mapleader = "\\"
-let barposition = "bottom"
 let typelinkhintsdelay = "0"
 let hintcharacters = "fdsawerjkiop"
 
@@ -28,6 +25,7 @@ map i goToInput
 map u lastClosedTab
 map <C-z> toggleCvim
 
+map <Leader>b :tabopen bookmarks<Space>
 map <Leader>ex :tabopen chrome://extensions<CR>
 map <Leader>rm :tabopen google remind me<Space>
 map <Leader>Rm :open google remind me<Space>
