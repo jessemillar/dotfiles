@@ -1,29 +1,22 @@
-let configpath = "~/.cvimrc"
+let configpath = "/Users/jessemillar/.cvimrc"
 set localconfig
 
-set autoupdategist
 set noautofocus
-set nocncpcompletion
-set smoothscroll
-set hud
-set noinsertmappings
+set nosmoothscroll
 set typelinkhints
 set defaultnewtabpage
-let scrollduration = 10
+
+let scrollstep = 50
 let searchlimit = 40
 let searchalias g = "google"
-let mapleader = "\\"
+let mapleader = ","
 let barposition = "bottom"
 let typelinkhintsdelay = "0"
 let hintcharacters = "fdsawerjkiop"
 
 map : openCommandBar
-map l nextTab
-map h previousTab
-map <C-l> nextTab
-map <C-h> previousTab
-map <C-f> scrollFullPageDown
 map <C-b> scrollFullPageUp
+map <C-f> scrollFullPageDown
 map F createActiveTabbedHint
 map f createHint
 map p openPasteTab
@@ -37,17 +30,26 @@ map <C-z> toggleCvim
 
 map <Leader>ex :tabopen chrome://extensions<CR>
 
+map <Leader>sx :tabopen https://player.siriusxm.com/#/player/live<CR>
+map <Leader>Sx :open https://player.siriusxm.com/#/player/live<CR>
 map <Leader>gh :tabopen https://github.com/jessemillar<CR>
 map <Leader>Gh :open https://github.com/jessemillar<CR>
-map <Leader>tw :tabopen http://twitter.com<CR>
-map <Leader>Tw :open http://twitter<CR>
-map <Leader>gm :tabopen https://mail.google.com/mail/#index<CR>
-map <Leader>Gm :open https://mail.google.com/mail/#index<CR>
-map <Leader>so :tabopen http://stackoverflow.com<CR>
-map <Leader>So :open http://stackoverflow.com<CR>
-map <Leader>hn :tabopen http://news.ycombinator.com/<CR>
-map <Leader>Hn :open http://news.ycombinator.com/<CR>
+map <Leader>td :tabopen http://tweetdeck.twitter.com<CR>
+map <Leader>Td :open http://tweetdeck.twitter<CR>
+map <Leader>tw :tabopen http://twitter.com/jessemillar<CR>
+map <Leader>Tw :open http://twitter/jessemillar<CR>
+map <Leader>in :tabopen https://inbox.google.com<CR>
+map <Leader>In :open https://inbox.google.com<CR>
+map <Leader>hn :tabopen http://news.ycombinator.com<CR>
+map <Leader>Hn :open http://news.ycombinator.com<CR>
 
 site "https://mail.google.com/*" {
     unmapAll
 }
+
+copyCurrentTabAddress -> {{
+	Status.setMessage(document.location.href,3);
+	Clipboard.copy(document.location.href);
+}}
+
+map yt :call copyCurrentTabAddress<CR>
