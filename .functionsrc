@@ -133,7 +133,7 @@ function bitify() {
 		echo "Image height must be a multiple of 8"
 	else
 		# make an animation
-		convert -monochrome -scale 500% -delay 15 -dispose previous -loop 0 *.png ../$1.gif
+		convert -monochrome -scale 500% -delay 10 -dispose previous -loop 0 *.png ../$1.gif
 		# make the individual frames
 		convert *.png -gravity center -crop $2x$3+0+0 -set filename:f '%t-cropped.%e' +adjoin '%[filename:f]'
 		# make an opacity mask sprite sheet
