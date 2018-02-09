@@ -8,9 +8,6 @@ let searchlimit = 30
 let scrollstep = 70
 let barposition = "bottom"
 
-let locale = "uk" " Current choices are 'jp' and 'uk'. This allows cVim to use sites like google.co.uk
-                  " or google.co.jp to search rather than google.com. Support is currently limited.
-                  " Let me know if you need a different locale for one of the completion/search engines
 let hintcharacters = "abc123"
 
 let searchengine dogpile = "http://www.dogpile.com/search/web?q=%s" " If you leave out the '%s' at the end of the URL,
@@ -37,6 +34,9 @@ let blacklists = ["https://mail.google.com/*", "*://mail.google.com/*", "@https:
 " blacklists prefixed by '@' act as a whitelist
 
 let mapleader = ","
+
+" Automatically update with my GitHub synced configuration
+let autoupdategist = true
 
 " Mappings
 
