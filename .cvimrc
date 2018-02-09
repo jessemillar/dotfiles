@@ -1,3 +1,6 @@
+let configpath = "~/.cvimrc"
+set localconfig
+
 set autoupdategist
 set noautofocus
 set nocncpcompletion
