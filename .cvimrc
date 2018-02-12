@@ -4,7 +4,6 @@ set localconfig
 set noautofocus
 set nosmoothscroll
 set typelinkhints
-set defaultnewtabpage
 
 let searchalias g = "google"
 let mapleader = "\\"
@@ -42,8 +41,14 @@ map <Leader>in :tabopen https://inbox.google.com<CR>
 map <Leader>In :open https://inbox.google.com<CR>
 map <Leader>hn :tabopen http://news.ycombinator.com<CR>
 map <Leader>Hn :open http://news.ycombinator.com<CR>
+map <Leader>dc :tabopen https://discordapp.com/channels/@me<CR>
+map <Leader>Dc :open https://discordapp.com/channels/@me<CR>
 
 site "https://mail.google.com/*" {
+    unmapAll
+}
+
+site "https://www.piskelapp.com/*" {
     unmapAll
 }
 

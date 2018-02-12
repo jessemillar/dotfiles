@@ -12,16 +12,16 @@ function search() {
 	fi
 }
 
+function qr() {
+	qrencode -s 10 -o - $1 | open -f -a preview
+}
+
 function mssh() {
 	for HOST in $(cat $2)
 	do 
 		ssh -o StrictHostKeyChecking=no "$1@$HOST" "$3" >"output.$HOST" 2>"output.$HOST.err" &
 	done
 	wait
-}
-
-function qr() {
-	qrencode -s 10 -o - $1 | open -f -a preview
 }
 
 function msshp() {
@@ -146,5 +146,23 @@ function bitify() {
 		rm *-cropped.png
 		rm mask.png
 		rm sheet.png
+	fi
+}
+
+# used for taking notes from the command line
+function n() {
+	local fpath=$HOME/Desktop/notes.md
+
+	if [ "$1" == "v" ]; then
+		nvim + $fpath
+	elif [ "$1" == "date" ]; then
+		echo '' >> $fpath
+		echo '# '`date +"%m-%d-%Y-%T"` >> $fpath
+		echo '---------------------' >> $fpath
+	elif [ "$1" == "" ]; then
+		less +G $fpath
+	else
+		echo '' >> $fpath
+		echo $@ >> $fpath
 	fi
 }
