@@ -22,6 +22,7 @@ npmm:~/Documents/Projects/fulfillment-node-pick-messaging-manager
 projects:~/Documents/Projects
 pta:~/Documents/Projects/pta
 quack:~/.go/src/github.com/jessemillar/quack
+sandbox:~/scm/sandbox
 serenity:~/.go/src/github.com/jessemillar/serenity
 staff:~/Documents/Projects/the-staff-of-lewis/src
 todo:~/Documents/Projects/todo

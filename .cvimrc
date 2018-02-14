@@ -52,6 +52,10 @@ site "https://www.piskelapp.com/*" {
     unmapAll
 }
 
+site "file://*" {
+    unmapAll
+}
+
 copyCurrentTabAddress -> {{
 	Status.setMessage(document.location.href,3);
 	Clipboard.copy(document.location.href);
