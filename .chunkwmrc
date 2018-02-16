@@ -54,3 +54,4 @@ chunkc tiling::rule --owner \"DBeaver\" --name Error --state float
 chunkc tiling::rule --owner \"Cisco AnyConnect Secure Mobility Client\" --state float
 chunkc tiling::rule --owner Jabber --name \"Cisco Jabber\" --state float
 chunkc tiling::rule --owner Alacritty --state tile
+chunkc tiling::rule --owner \"Cisco WebEx Meeting Center\" --subrole AXStandardWindow --state tile
