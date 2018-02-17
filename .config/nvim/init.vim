@@ -2,6 +2,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'fatih/vim-go'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-surround'
@@ -11,6 +12,7 @@ Plug 'tpope/vim-repeat'
 Plug 'othree/eregex.vim'
 Plug 'roxma/vim-paste-easy'
 Plug 'justinj/vim-pico8-syntax'
+Plug 'leafgarland/typescript-vim'
 Plug 'dracula/vim'
 Plug 'brooth/far.vim'
 
@@ -32,6 +34,9 @@ function! s:check_back_space() abort "{{{
     let col = col('.') - 1
     return !col || getline('.')[col - 1] =~ '\s'
 endfunction"}}}
+
+" Don't open scratch windows
+set completeopt-=preview
 
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
@@ -72,10 +77,6 @@ command! SP :set spell!
 autocmd BufRead,BufNewFile *.md setlocal spell | syn match UrlNoSpell '\w\+:\/\/[^[:space:]]\+' contains=@NoSpell
 hi SpellBad ctermfg=236
 
-" Easier find and replace
-command! -nargs=1 FR Far <q-args>
-command! FRD Fardo
-
 " Search color
 hi Search ctermfg=236
 
@@ -86,6 +87,9 @@ set relativenumber
 " Custom mapping for Go definition finding
 command! GD GoDef
 
+" Custom mapping for Go definition finding
+command! GR GoRun
+
 " Go syntax highlighting
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -93,6 +97,16 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_auto_sameids = 1
+
+" Make building and running Go files easier
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+
+" Make debugging Go programs easier
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
 
 " Run goimports instead of gofmt
 let g:go_fmt_command = 'goimports'
