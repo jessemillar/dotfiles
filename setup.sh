@@ -3,9 +3,6 @@
 rm ~/.ackrc
 ln -s ~/.dotfiles/.ackrc ~/.ackrc
 
-rm ~/.alacritty.yml
-ln -s ~/.dotfiles/.alacritty.yml ~/.alacritty.yml
-
 rm ~/.aliasrc
 ln -s ~/.dotfiles/.aliasrc ~/.aliasrc
 
