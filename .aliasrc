@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # General
 alias a="ack"
 alias day="date +%m-%d-%Y"
@@ -33,11 +35,11 @@ alias inflated="scuttle && docker-compose build && docker-compose up -d"
 alias deflate="docker-compose down"
 
 # Pico-8
-alias pew="cp ~/Library/Application\ Support/pico-8/carts/blank.p8"
+alias pew="cp ~/Library/Application\\ Support/pico-8/carts/blank.p8"
 alias pest="/Applications/PICO-8.app/Contents/MacOS/pico8 -run"
 alias pu="" # I'm tired of accidentally typing this
 alias pun="cd ..; pico-build run; cd src"
-alias pud="mv ~/Library/Application\ Support/pico-8/carts/new.p8 _assets.p8"
+alias pud="mv ~/Library/Application\\ Support/pico-8/carts/new.p8 _assets.p8"
 alias ped="cd ..; pico-build edit; cd src"
 
 # Homebrew

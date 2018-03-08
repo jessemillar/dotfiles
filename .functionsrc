@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 function q() {
 	qlmanage -p "$@" >/dev/null 2>&1
 }
