@@ -2,7 +2,7 @@
 
 # General
 alias a="ack"
-alias cas="cqlsh -u $CASSANDRA_USER -p $CASSANDRA_PASSWORD $CASSANDRA_ADDRESS"
+alias cas="cqlsh -u $CASSANDRA_USER -p $CASSANDRA_PASSWORD $CASSANDRA_ADDRESS -k gif_picking"
 alias day="date +%m-%d-%Y"
 alias h="history"
 alias ha="history | ack"

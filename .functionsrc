@@ -79,7 +79,7 @@ function gi() {
 	then
 		curl -L -s https://www.gitignore.io/api/linux,macos,windows | sed '1d'
 	else
-		if [ "$1" == "list" ]
+		if [ "$1" = "list" ]
 		then
 			if [ -z "$2" ]
 			then
@@ -155,13 +155,13 @@ function bitify() {
 function n() {
 	local fpath=$HOME/Desktop/notes.md
 
-	if [ "$1" == "v" ]; then
+	if [ "$1" = "v" ]; then
 		nvim + $fpath
-	elif [ "$1" == "date" ]; then
+	elif [ "$1" = "date" ]; then
 		echo '' >> $fpath
 		echo '# '`date +"%m-%d-%Y-%T"` >> $fpath
 		echo '---------------------' >> $fpath
-	elif [ "$1" == "" ]; then
+	elif [ "$1" = "" ]; then
 		less +G $fpath
 	else
 		echo '' >> $fpath
@@ -172,6 +172,41 @@ function n() {
 # Make a reminder in Reminders.app
 # TODO Implement relative date parsing (e.g. "in 5 minutes", "at 5pm", "on Tuesday", and "on Tuesday at 3pm") and accept only one parameter
 function remind() {
+	KEYWORD="$(echo $1 | awk '{print $1;}')"
+
+	if [ $KEYWORD = "in" ]
+	then
+		# This will be an integer representing how far in the future in minutes, hours, etc. we want
+		AMOUNT="$(echo $1 | awk '{print $2;}')"
+		# This will be minutes, hours, etc.
+		PERIOD="$(echo $1 | awk '{print $3;}')"
+		echo $PERIOD
+
+		if [[ $PERIOD = "minutes" || $PERIOD = "minute" || $PERIOD = "mins" || $PERIOD = "min" ]]
+		then
+			PERIOD="M"
+		elif [[ $PERIOD = "hours" || $PERIOD = "hour" || $PERIOD = "hrs" || $PERIOD = "hr" ]]
+		then
+			PERIOD="H"
+		elif [[ $PERIOD = "days" || $PERIOD = "day" || $PERIOD = "ds" || $PERIOD = "d" ]]
+		then
+			PERIOD="d"
+		elif [[ $PERIOD = "weeks" || $PERIOD = "week" || $PERIOD = "wks" || $PERIOD = "wk" ]]
+		then
+			PERIOD="w"
+		elif [[ $PERIOD = "months" || $PERIOD = "month" || $PERIOD = "m" ]]
+		then
+			PERIOD="m"
+		elif [[ $PERIOD = "years" || $PERIOD = "year" || $PERIOD = "yrs" || $PERIOD = "yr" || $PERIOD = "y" ]]
+		then
+			PERIOD="y"
+		fi
+
+		DATE="$(date -v +$AMOUNT$PERIOD)"
+		echo $(date)
+		echo $DATE
+	fi
+
 	if [[ -z $1 || -z $2 || -z $3 ]]
 	then
 		echo "One or more arguments are missing"
