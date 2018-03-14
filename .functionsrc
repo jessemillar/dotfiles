@@ -20,7 +20,7 @@ function qr() {
 
 function mssh() {
 	for HOST in $(cat $2)
-	do 
+	do
 		ssh -o StrictHostKeyChecking=no "$1@$HOST" "$3" >"output.$HOST" 2>"output.$HOST.err" &
 	done
 	wait
@@ -30,7 +30,7 @@ function msshp() {
 	read -s "PASS?Password: "
 
 	for HOST in $(cat $2)
-	do 
+	do
 		sshpass -p "$PASS" ssh -o StrictHostKeyChecking=no "$1@$HOST" "$3" >"output.$HOST" 2>"output.$HOST.err" &
 	done
 	wait
@@ -134,24 +134,24 @@ function bitify() {
 	then
 		echo "Image height must be a multiple of 8"
 	else
-		# make an animation
+		# Make an animation
 		convert -monochrome -scale 500% -delay 10 -dispose previous -loop 0 *.png ../$1.gif
-		# make the individual frames
+		# Make the individual frames
 		convert *.png -gravity center -crop $2x$3+0+0 -set filename:f '%t-cropped.%e' +adjoin '%[filename:f]'
-		# make an opacity mask sprite sheet
+		# Make an opacity mask sprite sheet
 		convert *-cropped.png -append -fill white -colorize 100% -background black -alpha remove mask.png
-		# combine and dither frames into a sprite sheet
+		# Combine and dither frames into a sprite sheet
 		convert *-cropped.png -append -monochrome sheet.png
-		# copy opacity into the dithered sprite sheet
+		# Copy opacity into the dithered sprite sheet
 		convert sheet.png mask.png -alpha off -compose CopyOpacity -composite ../$1_$2x$3.png
-		# clean up
+		# Clean up
 		rm *-cropped.png
 		rm mask.png
 		rm sheet.png
 	fi
 }
 
-# used for taking notes from the command line
+# Used for taking notes from the command line
 function n() {
 	local fpath=$HOME/Desktop/notes.md
 
@@ -166,5 +166,19 @@ function n() {
 	else
 		echo '' >> $fpath
 		echo $@ >> $fpath
+	fi
+}
+
+# Make a reminder in Reminders.app
+# TODO Implement relative date parsing (e.g. "in 5 minutes", "at 5pm", "on Tuesday", and "on Tuesday at 3pm") and accept only one parameter
+function re() {
+	if [[ -z $1 || -z $2 || -z $3 ]]
+	then
+		echo "One or more arguments are missing"
+	else
+		osascript - <<EOD
+			set stringedAll to date ("$2" & " " & "$3")
+			tell application "Reminders" to tell list "Reminders" to make new reminder with properties {name:"$1", remind me date:stringedAll, due date:stringedAll}
+EOD
 	fi
 }

@@ -35,6 +35,9 @@ function! s:check_back_space() abort "{{{
     return !col || getline('.')[col - 1] =~ '\s'
 endfunction"}}}
 
+" Trim trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
+
 " Don't open scratch windows
 set completeopt-=preview
 
