@@ -9,6 +9,7 @@ alias ha="history | ack"
 alias lines="wc -l **/* 2>/dev/null"
 alias o="open ."
 alias pb="pbcopy"
+alias re="remind"
 alias research="cd ~/Documents/Projects/todo/research && nvim README.md && git add -A && git commit -m 'Automatic research update' && git push ; cd - >/dev/null"
 alias s="search"
 alias todo="cd ~/Documents/Projects/todo && nvim README.md && git add -A && git commit -m 'Automatic todo update' && git push ; cd - >/dev/null"
@@ -67,23 +68,23 @@ alias cookie='for file in *; do TIME=$(date +%s) && ~/Documents/Projects/cookie-
 
 # Ascii art
 alias labs='echo $fg[cyan] "
-       :########:       
-       ###'\'' ####        
-      :### .###:        
-      ###'\'' ####         
-     :### .###:         
-    .###'\'' ####          
+       :########:
+       ###'\'' ####
+      :### .###:
+      ###'\'' ####
+     :### .###:
+    .###'\'' ####
     #### .##############
-   :###'\'' #############: 
-   ####.,,,,,,,,,,####  
-   :################:   
-    '\''*:############     
-           ######:      
-          :#####        
-          ####:         
-         :###           
-         ##:            
-         %              
+   :###'\'' #############:
+   ####.,,,,,,,,,,####
+   :################:
+    '\''*:############
+           ######:
+          :#####
+          ####:
+         :###
+         ##:
+         %
 "'
 alias sombra='echo $fg[magenta] "
                       :PB@Bk:

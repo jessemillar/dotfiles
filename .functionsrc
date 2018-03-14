@@ -171,7 +171,7 @@ function n() {
 
 # Make a reminder in Reminders.app
 # TODO Implement relative date parsing (e.g. "in 5 minutes", "at 5pm", "on Tuesday", and "on Tuesday at 3pm") and accept only one parameter
-function re() {
+function remind() {
 	if [[ -z $1 || -z $2 || -z $3 ]]
 	then
 		echo "One or more arguments are missing"
