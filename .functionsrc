@@ -172,48 +172,52 @@ function n() {
 # Make a reminder in Reminders.app
 # TODO Implement relative date parsing (e.g. "in 5 minutes", "at 5pm", "on Tuesday", and "on Tuesday at 3pm") and accept only one parameter
 function remind() {
-	KEYWORD="$(echo $1 | awk '{print $1;}')"
-
-	if [ $KEYWORD = "in" ]
-	then
-		# This will be an integer representing how far in the future in minutes, hours, etc. we want
-		AMOUNT="$(echo $1 | awk '{print $2;}')"
-		# This will be minutes, hours, etc.
-		PERIOD="$(echo $1 | awk '{print $3;}')"
-		echo $PERIOD
-
-		if [[ $PERIOD = "minutes" || $PERIOD = "minute" || $PERIOD = "mins" || $PERIOD = "min" ]]
-		then
-			PERIOD="M"
-		elif [[ $PERIOD = "hours" || $PERIOD = "hour" || $PERIOD = "hrs" || $PERIOD = "hr" ]]
-		then
-			PERIOD="H"
-		elif [[ $PERIOD = "days" || $PERIOD = "day" || $PERIOD = "ds" || $PERIOD = "d" ]]
-		then
-			PERIOD="d"
-		elif [[ $PERIOD = "weeks" || $PERIOD = "week" || $PERIOD = "wks" || $PERIOD = "wk" ]]
-		then
-			PERIOD="w"
-		elif [[ $PERIOD = "months" || $PERIOD = "month" || $PERIOD = "m" ]]
-		then
-			PERIOD="m"
-		elif [[ $PERIOD = "years" || $PERIOD = "year" || $PERIOD = "yrs" || $PERIOD = "yr" || $PERIOD = "y" ]]
-		then
-			PERIOD="y"
-		fi
-
-		DATE="$(date -v +$AMOUNT$PERIOD)"
-		echo $(date)
-		echo $DATE
-	fi
-
 	if [[ -z $1 || -z $2 || -z $3 ]]
 	then
 		echo "One or more arguments are missing"
 	else
+		# Get the message without the time fields
+		# TODO Make this cleaner
+		CONTENT="$(echo $1 | awk '{ $1=""; $2=""; $3=""; print}')"
+		# This will be "in", "at", or "on"
+		KEYWORD="$(echo $1 | awk '{print $1;}')"
+
+		if [ $KEYWORD = "in" ]
+		then
+			# This will be an integer representing how far in the future in minutes, hours, etc. we want
+			AMOUNT="$(echo $1 | awk '{print $2;}')"
+			# This will be minutes, hours, etc.
+			PERIOD="$(echo $1 | awk '{print $3;}')"
+			echo $PERIOD
+
+			if [[ $PERIOD = "minutes" || $PERIOD = "minute" || $PERIOD = "mins" || $PERIOD = "min" ]]
+			then
+				PERIOD="M"
+			elif [[ $PERIOD = "hours" || $PERIOD = "hour" || $PERIOD = "hrs" || $PERIOD = "hr" ]]
+			then
+				PERIOD="H"
+			elif [[ $PERIOD = "days" || $PERIOD = "day" || $PERIOD = "ds" || $PERIOD = "d" ]]
+			then
+				PERIOD="d"
+			elif [[ $PERIOD = "weeks" || $PERIOD = "week" || $PERIOD = "wks" || $PERIOD = "wk" ]]
+			then
+				PERIOD="w"
+			elif [[ $PERIOD = "months" || $PERIOD = "month" || $PERIOD = "m" ]]
+			then
+				PERIOD="m"
+			elif [[ $PERIOD = "years" || $PERIOD = "year" || $PERIOD = "yrs" || $PERIOD = "yr" || $PERIOD = "y" ]]
+			then
+				PERIOD="y"
+			fi
+
+			DATE="$(date -v +$AMOUNT$PERIOD)"
+			echo $(date)
+			echo $DATE
+		fi
+
 		osascript - <<EOD
-			set stringedAll to date ("$2" & " " & "$3")
-			tell application "Reminders" to tell list "Reminders" to make new reminder with properties {name:"$1", remind me date:stringedAll, due date:stringedAll}
+			set stringDate to date ("$DATE")
+			tell application "Reminders" to tell list "Reminders" to make new reminder with properties {name:"$CONTENT", remind me date:stringDate, due date:stringDate}
 EOD
 	fi
 }
