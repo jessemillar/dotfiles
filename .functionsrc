@@ -172,50 +172,53 @@ function n() {
 # Make a reminder in Reminders.app
 # TODO Implement relative date parsing (e.g. "in 5 minutes", "at 5pm", "on Tuesday", and "on Tuesday at 3pm") and accept only one parameter
 function remind() {
+	DATEFORMAT='+%A, %B %-d, %Y %r'
+
 	if [[ -z $1 ]]
 	then
 		echo "You must pass a message (e.g. 'in 20 minutes test the remind() function')"
 	else
-		# Get the message without the time fields
-		CONTENT="$(echo $1 | cut -d ' ' -f4-)"
-		# Make sure the first character of the messsage is capitalized
-		CONTENT="$(tr '[:lower:]' '[:upper:]' <<< ${CONTENT:0:1})${CONTENT:1}"
 		# This will be "in", "at", or "on"
 		KEYWORD="$(echo $1 | awk '{print $1;}')"
 
 		if [ $KEYWORD = "in" ]
 		then
+			# Get the message without the time fields
+			CONTENT="$(echo $1 | cut -d ' ' -f4-)"
 			# This will be an integer representing how far in the future in minutes, hours, etc. we want
 			AMOUNT="$(echo $1 | awk '{print $2;}')"
 			# This will be minutes, hours, etc.
 			PERIOD="$(echo $1 | awk '{print $3;}')"
-
-			if [[ $PERIOD = "minutes" || $PERIOD = "minute" || $PERIOD = "mins" || $PERIOD = "min" ]]
-			then
-				PERIOD="M"
-			elif [[ $PERIOD = "hours" || $PERIOD = "hour" || $PERIOD = "hrs" || $PERIOD = "hr" ]]
-			then
-				PERIOD="H"
-			elif [[ $PERIOD = "days" || $PERIOD = "day" || $PERIOD = "ds" || $PERIOD = "d" ]]
-			then
-				PERIOD="d"
-			elif [[ $PERIOD = "weeks" || $PERIOD = "week" || $PERIOD = "wks" || $PERIOD = "wk" ]]
-			then
-				PERIOD="w"
-			elif [[ $PERIOD = "months" || $PERIOD = "month" || $PERIOD = "m" ]]
-			then
-				PERIOD="m"
-			elif [[ $PERIOD = "years" || $PERIOD = "year" || $PERIOD = "yrs" || $PERIOD = "yr" || $PERIOD = "y" ]]
-			then
-				PERIOD="y"
-			fi
-
-			DATE="$(date -v +$AMOUNT$PERIOD '+%m/%d/%Y %H:%M:%S%p')"
+			DATE="$(gdate -d 'now + '"$AMOUNT"' '"$PERIOD" $DATEFORMAT)"
+			echo $DATE
+		elif [ $KEYWORD = "at" ]
+		then
+			# Get the message without the time
+			CONTENT="$(echo $1 | cut -d ' ' -f3-)"
+			# This is the time (in the current day) the reminder will go off
+			TIME="$(echo $1 | awk '{print $2;}')"
+			# TIME="$(echo $1 | awk '{print $2;}')"
+			DATE="$(gdate -d $TIME $DATEFORMAT)"
+			echo $DATE
+		elif [ $KEYWORD = "on" ]
+		then
+			# Get the message without the time
+			CONTENT="$(echo $1 | cut -d ' ' -f3-)"
 		fi
 
-		osascript - <<EOD
-			set stringDate to date ("$DATE")
-			tell application "Reminders" to tell list "Reminders" to make new reminder with properties {name:"$CONTENT", remind me date:stringDate, due date:stringDate}
+		# Make sure the first character of the messsage is capitalized
+		CONTENT="$(tr '[:lower:]' '[:upper:]' <<< ${CONTENT:0:1})${CONTENT:1}"
+
+		if [[ -z $DATE ]]
+		then
+			osascript - <<EOD
+				tell application "Reminders" to tell list "Reminders" to make new reminder with properties {name:"$CONTENT"}
 EOD
+		else
+			osascript - <<EOD
+				set stringDate to date ("$DATE")
+				tell application "Reminders" to tell list "Reminders" to make new reminder with properties {name:"$CONTENT", remind me date:stringDate, due date:stringDate}
+EOD
+		fi
 	fi
 }
