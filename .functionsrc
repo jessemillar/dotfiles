@@ -172,13 +172,14 @@ function n() {
 # Make a reminder in Reminders.app
 # TODO Implement relative date parsing (e.g. "in 5 minutes", "at 5pm", "on Tuesday", and "on Tuesday at 3pm") and accept only one parameter
 function remind() {
-	if [[ -z $1 || -z $2 || -z $3 ]]
+	if [[ -z $1 ]]
 	then
-		echo "One or more arguments are missing"
+		echo "You must pass a message (e.g. 'in 20 minutes test the remind() function')"
 	else
 		# Get the message without the time fields
-		# TODO Make this cleaner
-		CONTENT="$(echo $1 | awk '{ $1=""; $2=""; $3=""; print}')"
+		CONTENT="$(echo $1 | cut -d ' ' -f4-)"
+		# Make sure the first character of the messsage is capitalized
+		CONTENT="$(tr '[:lower:]' '[:upper:]' <<< ${CONTENT:0:1})${CONTENT:1}"
 		# This will be "in", "at", or "on"
 		KEYWORD="$(echo $1 | awk '{print $1;}')"
 
@@ -188,7 +189,6 @@ function remind() {
 			AMOUNT="$(echo $1 | awk '{print $2;}')"
 			# This will be minutes, hours, etc.
 			PERIOD="$(echo $1 | awk '{print $3;}')"
-			echo $PERIOD
 
 			if [[ $PERIOD = "minutes" || $PERIOD = "minute" || $PERIOD = "mins" || $PERIOD = "min" ]]
 			then
@@ -210,9 +210,7 @@ function remind() {
 				PERIOD="y"
 			fi
 
-			DATE="$(date -v +$AMOUNT$PERIOD)"
-			echo $(date)
-			echo $DATE
+			DATE="$(date -v +$AMOUNT$PERIOD '+%m/%d/%Y %H:%M:%S%p')"
 		fi
 
 		osascript - <<EOD
