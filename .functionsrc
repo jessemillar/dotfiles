@@ -190,7 +190,6 @@ function remind() {
 			# This will be minutes, hours, etc.
 			PERIOD="$(echo $1 | awk '{print $3;}')"
 			DATE="$(gdate -d 'now + '"$AMOUNT"' '"$PERIOD" $DATEFORMAT)"
-			echo $DATE
 		elif [ $KEYWORD = "at" ]
 		then
 			# Get the message without the time
@@ -199,7 +198,6 @@ function remind() {
 			TIME="$(echo $1 | awk '{print $2;}')"
 			# TIME="$(echo $1 | awk '{print $2;}')"
 			DATE="$(gdate -d $TIME $DATEFORMAT)"
-			echo $DATE
 		elif [ $KEYWORD = "on" ]
 		then
 			# Get the message without the time
