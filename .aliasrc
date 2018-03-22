@@ -45,7 +45,7 @@ alias pud="mv ~/Library/Application\\ Support/pico-8/carts/new.p8 _assets.p8"
 alias ped="cd ..; pico-build edit; cd src"
 
 # Homebrew
-alias brup="brew -v update && brew upgrade && brew cleanup && brew doctor && nvim +GoUpdateBinaries +PlugUpdate +PlugUpgrade +qall"
+alias brup="brew -v update && brew upgrade && brew cleanup && brew doctor && nvim +GoUpdateBinaries +PlugUpdate +PlugUpgrade +qall && pip3 install pip --upgrade && pip3 install neovim --upgrade"
 
 # chunkwm
 alias chunki="chunkc tiling::query --desktop windows"
