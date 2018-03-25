@@ -14,6 +14,39 @@ function search() {
 	fi
 }
 
+function bitify() {
+	if [[ -z $1 || -z $2 || -z $3 ]]
+	then
+		echo "One or more arguments are missing"
+	elif (( $3 % 8 != 0 ))
+	then
+		echo "Image height must be a multiple of 8"
+	else
+		for IMAGE in *
+		do
+			# Get just the filename (no extension)
+			FILENAME="${IMAGE%.*}"
+			# Make the individual frames
+			convert $IMAGE -gravity center -crop $2x$3+0+0 -set filename:f '%t-cropped.%e' +adjoin '%[filename:f]'
+			# Make an opacity mask sprite sheet
+			convert $FILENAME-cropped.png -fill white -colorize 100% -background black -alpha remove -set filename:f '%t-mask.%e' +adjoin '%[filename:f]'
+			# Make the cropped frames monochrome
+			convert $FILENAME-cropped.png -monochrome -set filename:f '%t-monochrome.%e' +adjoin '%[filename:f]'
+			# Copy opacity into the dithered sprite sheet
+			convert $FILENAME-cropped-monochrome.png $FILENAME-cropped-mask.png -alpha off -compose CopyOpacity -composite $FILENAME-final.png
+		done
+
+		# Make an animation
+		convert -delay 10 -dispose previous -loop 0 *-final.png ../$1_$2x$3.gif
+
+		# Clean up
+		rm *-cropped.png
+		rm *-cropped-monochrome.png
+		rm *-cropped-mask.png
+		rm *-final.png
+	fi
+}
+
 function qr() {
 	qrencode -s 10 -o - $1 | open -f -a preview
 }
@@ -123,33 +156,6 @@ function cells() {
 
 		echo "Scaling images"
 		mogrify -scale 5760x3600+0+0 *.png
-	fi
-}
-
-function bitify() {
-	if [[ -z $1 || -z $2 || -z $3 ]]
-	then
-		echo "One or more arguments are missing"
-	elif (( $3 % 8 != 0 ))
-	then
-		echo "Image height must be a multiple of 8"
-	else
-		# Make the individual frames
-		convert *.png -gravity center -crop $2x$3+0+0 -set filename:f '%t-cropped.%e' +adjoin '%[filename:f]'
-		# Make an opacity mask sprite sheet
-		convert *-cropped.png -fill white -colorize 100% -background black -alpha remove -set filename:f '%t-mask.%e' +adjoin '%[filename:f]'
-		# Make the cropped frames monochrome
-		convert *-cropped.png -monochrome -set filename:f '%t-monochrome.%e' +adjoin '%[filename:f]'
-		# Copy opacity into the dithered sprite sheet
-		convert *-cropped-monochrome.png *-cropped-mask.png -alpha off -compose CopyOpacity -composite *-final.png
-		# Make an animation
-		convert -delay 10 -dispose previous -loop 0 *-final.png ../$1_$2x$3.gif
-		# Clean up
-		# rm *-cropped.png
-		# rm *-cropped-monochrome.png
-		# rm *-cropped-mask.png
-		# rm *-final.png
-
 	fi
 }
 
