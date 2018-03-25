@@ -2,6 +2,7 @@
 
 # General
 alias a="ack"
+alias ardbitmap="java -jar ~/.ardbitmap/compressor.jar"
 alias cas="cqlsh -u $CASSANDRA_USER -p $CASSANDRA_PASSWORD $CASSANDRA_ADDRESS -k gif_picking"
 alias day="date +%m-%d-%Y"
 alias h="history"
@@ -14,6 +15,7 @@ alias re="remind"
 alias s="search"
 alias todo="cd ~/Documents/Projects/todo && nvim README.md && git add -A && git commit -m 'Automatic todo update' && git push ; cd - >/dev/null"
 alias tmp="mkdir tmp || true && cd tmp"
+alias tute="toot post"
 alias v="nvim"
 alias watch="watch " # This is so aliases get expanded when passed to `watch`
 
