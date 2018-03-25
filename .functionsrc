@@ -134,20 +134,22 @@ function bitify() {
 	then
 		echo "Image height must be a multiple of 8"
 	else
-		# Make an animation
-		convert -monochrome -scale 500% -delay 10 -dispose previous -loop 0 *.png ../$1.gif
 		# Make the individual frames
 		convert *.png -gravity center -crop $2x$3+0+0 -set filename:f '%t-cropped.%e' +adjoin '%[filename:f]'
 		# Make an opacity mask sprite sheet
-		convert *-cropped.png -append -fill white -colorize 100% -background black -alpha remove mask.png
-		# Combine and dither frames into a sprite sheet
-		convert *-cropped.png -append -monochrome sheet.png
+		convert *-cropped.png -fill white -colorize 100% -background black -alpha remove -set filename:f '%t-mask.%e' +adjoin '%[filename:f]'
+		# Make the cropped frames monochrome
+		convert *-cropped.png -monochrome -set filename:f '%t-monochrome.%e' +adjoin '%[filename:f]'
 		# Copy opacity into the dithered sprite sheet
-		convert sheet.png mask.png -alpha off -compose CopyOpacity -composite ../$1_$2x$3.png
+		convert *-cropped-monochrome.png *-cropped-mask.png -alpha off -compose CopyOpacity -composite *-final.png
+		# Make an animation
+		convert -delay 10 -dispose previous -loop 0 *-final.png ../$1_$2x$3.gif
 		# Clean up
-		rm *-cropped.png
-		rm mask.png
-		rm sheet.png
+		# rm *-cropped.png
+		# rm *-cropped-monochrome.png
+		# rm *-cropped-mask.png
+		# rm *-final.png
+
 	fi
 }
 
