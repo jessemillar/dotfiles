@@ -25,7 +25,7 @@ function maskify() {
 		mkdir -p maskify/white
 
 		# Split the animation
-		convert $1 maskify/frame.png
+		convert $1 maskify/frame%03d.png
 
 		# Make the masks
 		cd maskify/black
