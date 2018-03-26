@@ -14,6 +14,11 @@ function search() {
 	fi
 }
 
+function maskify() {
+	convert $1 -transparent white -set filename:f '%t-mask-black.%e' +adjoin '%[filename:f]'
+	convert $1 -transparent black -set filename:f '%t-mask-white.%e' +adjoin '%[filename:f]'
+}
+
 function bitify() {
 	if [[ -z $1 || -z $2 || -z $3 ]]
 	then
@@ -27,7 +32,7 @@ function bitify() {
 			# Get just the filename (no extension)
 			FILENAME="${IMAGE%.*}"
 			# Make the individual frames
-			convert $IMAGE -gravity center -crop $2x$3+0+0 -set filename:f '%t-cropped.%e' +adjoin '%[filename:f]'
+			convert $IMAGE -gravity center -crop $2x$3+0+0 +repage -set filename:f '%t-cropped.%e' +adjoin '%[filename:f]'
 			# Make an opacity mask sprite sheet
 			convert $FILENAME-cropped.png -fill white -colorize 100% -background black -alpha remove -set filename:f '%t-mask.%e' +adjoin '%[filename:f]'
 			# Make the cropped frames monochrome
@@ -37,7 +42,7 @@ function bitify() {
 		done
 
 		# Make an animation
-		convert -delay 10 -dispose previous -loop 0 *-final.png ../$1_$2x$3.gif
+		convert -delay 10 -dispose previous -loop 0 *-final.png -extent $2x$3 ../$1.gif
 
 		# Clean up
 		rm *-cropped.png
