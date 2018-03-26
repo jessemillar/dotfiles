@@ -29,7 +29,7 @@ function maskify() {
 
 		# Make the masks
 		cd maskify/black
-		convert ../*.png -transparent white -set filename:f '%t-mask-black.%e' +adjoin '%[filename:f]'
+		convert ../*.png -transparent white -opaque black -fill white -set filename:f '%t-mask-black.%e' +adjoin '%[filename:f]'
 		# Make an animation
 		convert -delay 10 -dispose previous -loop 0 *.png ../../$FILENAME-mask-black.gif
 		cd ../..
@@ -43,7 +43,7 @@ function maskify() {
 		# Cleanup
 		rm -rf maskify
 	else
-		convert $1 -transparent white -set filename:f '%t-mask-black.%e' +adjoin '%[filename:f]'
+		convert $1 -transparent white -opaque black -fill white -set filename:f '%t-mask-black.%e' +adjoin '%[filename:f]'
 		convert $1 -transparent black -set filename:f '%t-mask-white.%e' +adjoin '%[filename:f]'
 	fi
 }
