@@ -15,8 +15,38 @@ function search() {
 }
 
 function maskify() {
-	convert $1 -transparent white -set filename:f '%t-mask-black.%e' +adjoin '%[filename:f]'
-	convert $1 -transparent black -set filename:f '%t-mask-white.%e' +adjoin '%[filename:f]'
+	if [[ $1 == *.gif ]]
+	then
+		# Get just the filename
+		FILENAME="${1%.*}"
+
+		# Make directories for organization
+		mkdir maskify
+		mkdir maskify/black
+		mkdir maskify/white
+
+		# Split the animation
+		convert $1 maskify/frame.png
+
+		# Make the masks
+		cd maskify/black
+		convert ../*.png -transparent white -set filename:f '%t-mask-black.%e' +adjoin '%[filename:f]'
+		# Make an animation
+		convert -delay 10 -dispose previous -loop 0 *.png ../../$FILENAME-mask-black.gif
+		cd ../..
+
+		cd maskify/white
+		convert ../*.png -transparent black -set filename:f '%t-mask-black.%e' +adjoin '%[filename:f]'
+		# Make an animation
+		convert -delay 10 -dispose previous -loop 0 *.png ../../$FILENAME-mask-white.gif
+		cd ../..
+
+		# Cleanup
+		rm -rf maskify
+	else
+		convert $1 -transparent white -set filename:f '%t-mask-black.%e' +adjoin '%[filename:f]'
+		convert $1 -transparent black -set filename:f '%t-mask-white.%e' +adjoin '%[filename:f]'
+	fi
 }
 
 function bitify() {
@@ -42,7 +72,7 @@ function bitify() {
 		done
 
 		# Make an animation
-		convert -delay 10 -dispose previous -loop 0 *-final.png -extent $2x$3 ../$1.gif
+		convert -delay 10 -dispose previous -loop 0 *-final.png ../$1.gif
 
 		# Clean up
 		rm *-cropped.png
