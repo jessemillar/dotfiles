@@ -21,9 +21,8 @@ function maskify() {
 		FILENAME="${1%.*}"
 
 		# Make directories for organization
-		mkdir maskify
-		mkdir maskify/black
-		mkdir maskify/white
+		mkdir -p maskify/black
+		mkdir -p maskify/white
 
 		# Split the animation
 		convert $1 maskify/frame.png
@@ -36,7 +35,7 @@ function maskify() {
 		cd ../..
 
 		cd maskify/white
-		convert ../*.png -transparent black -set filename:f '%t-mask-black.%e' +adjoin '%[filename:f]'
+		convert ../*.png -transparent black -set filename:f '%t-mask-white.%e' +adjoin '%[filename:f]'
 		# Make an animation
 		convert -delay 10 -dispose previous -loop 0 *.png ../../$FILENAME-mask-white.gif
 		cd ../..
