@@ -15,9 +15,22 @@ function search() {
 }
 
 function ardbitmap() {
+	# TODO Make this work for a single images and GIFs (rip the GIFs apart first)
+	# The image we're currently on
+	COUNTER=0
+
+	# Loop through the frames
 	for IMAGE in *
 	do
+		# Run the compressor on the single frame
 		java -jar ~/.ardbitmap/compressor.jar $IMAGE >> $1
+		# Number the frame in the output file using the counter
+		sed -i '' -e 's/OUT\[\]/OUT_'$COUNTER'\[\]/g' $1
+		# Add a couple newlines to the output file
+		echo >> $1
+		echo >> $1
+		# Increment the counter
+		COUNTER=$((COUNTER+1))
 	done
 }
 
