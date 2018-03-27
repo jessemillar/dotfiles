@@ -14,6 +14,13 @@ function search() {
 	fi
 }
 
+function ardbitmap() {
+	for IMAGE in *
+	do
+		java -jar ~/.ardbitmap/compressor.jar $IMAGE >> $1
+	done
+}
+
 function maskify() {
 	if [[ $1 == *.gif ]]
 	then
