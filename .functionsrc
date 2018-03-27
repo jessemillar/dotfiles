@@ -15,23 +15,52 @@ function search() {
 }
 
 function ardbitmap() {
-	# TODO Make this work for a single images and GIFs (rip the GIFs apart first)
-	# The image we're currently on
-	COUNTER=0
+	# Deal with GIFs
+	if [[ $1 == *.gif ]]
+	then
+		# The image we're currently on
+		COUNTER=0
 
-	# Loop through the frames
-	for IMAGE in *
-	do
+		# Create a directory to put the frames into
+		mkdir ardbitmap
+		# Rip the GIF into frames
+		convert $1 ardbitmap/frame%03d.png
+
+		# Loop through the frames
+		for IMAGE in ardbitmap/*
+		do
+			# Run the compressor on the single frame
+			java -jar ~/.ardbitmap/compressor.jar $IMAGE >> $2
+
+			# Number the frame in the output file using the counter
+			sed -i '' -e 's/OUT\[\]/OUT_'$COUNTER'\[\]/g' $2
+
+			# Add a couple newlines to the output file
+			echo >> $2
+			echo >> $2
+
+			# Increment the counter
+			COUNTER=$((COUNTER+1))
+
+			# Preview the image if we passed a third argument
+			if [[ $3 ]]
+			then
+				java -jar ~/.ardbitmap/compressor.jar $IMAGE -v
+			fi
+		done
+
+		# Cleanup
+		rm -rf ardbitmap
+	else
 		# Run the compressor on the single frame
-		java -jar ~/.ardbitmap/compressor.jar $IMAGE >> $1
-		# Number the frame in the output file using the counter
-		sed -i '' -e 's/OUT\[\]/OUT_'$COUNTER'\[\]/g' $1
-		# Add a couple newlines to the output file
-		echo >> $1
-		echo >> $1
-		# Increment the counter
-		COUNTER=$((COUNTER+1))
-	done
+		java -jar ~/.ardbitmap/compressor.jar $1 >> $2
+
+		# Preview the image if we passed a third argument
+		if [[ $3 ]]
+		then
+			java -jar ~/.ardbitmap/compressor.jar $1 -v
+		fi
+	fi
 }
 
 function maskify() {
