@@ -50,6 +50,10 @@ site "https://www.piskelapp.com/*" {
     unmapAll
 }
 
+site "https://felipemanga.github.io/ProjectABE/*" {
+    unmapAll
+}
+
 site "file://*" {
     unmapAll
 }
