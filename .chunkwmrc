@@ -45,6 +45,7 @@ chunkc core::load tiling.so
 chunkc core::load border.so
 
 # shell commands require escaped quotes to pass value containing a whitespace
+chunkc tiling::rule --owner Duck --name Duck --state float
 chunkc tiling::rule --owner Finder --except \".+\" --state float
 chunkc tiling::rule --owner Finder --subrole AXProgressIndicator --state float
 chunkc tiling::rule --owner Jabber --name \"Cisco Jabber\" --state float
