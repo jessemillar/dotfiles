@@ -50,6 +50,7 @@ chunkc tiling::rule --owner DBeaver --name Error --state float
 chunkc tiling::rule --owner Duck --name Duck --state float
 chunkc tiling::rule --owner Finder --name Copy --state float
 chunkc tiling::rule --owner Jabber --name \"Cisco Jabber\" --state float
+chunkc tiling::rule --owner \"Archive Utility\" --state float
 chunkc tiling::rule --owner \"Cisco AnyConnect Secure Mobility Client\" --state float
 chunkc tiling::rule --owner \"Cisco WebEx Meeting Center\" --subrole AXStandardWindow --state tile
 chunkc tiling::rule --owner \"GIPHY CAPTURE\" --state float
