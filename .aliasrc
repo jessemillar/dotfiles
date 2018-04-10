@@ -16,6 +16,7 @@ alias s="search"
 alias todo="cd ~/Documents/Projects/todo && nvim README.md && git add -A && git commit -m 'Automatic todo update' && git push ; cd - >/dev/null"
 alias tmp="mkdir tmp || true && cd tmp"
 alias toot="madonctl toot"
+alias tweet="twty"
 alias v="nvim"
 alias watch="watch " # This is so aliases get expanded when passed to `watch`
 
