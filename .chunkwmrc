@@ -45,14 +45,13 @@ chunkc core::load tiling.so
 chunkc core::load border.so
 
 # shell commands require escaped quotes to pass value containing a whitespace
+chunkc tiling::rule --owner DBeaver --except \".+\" --state float
+chunkc tiling::rule --owner DBeaver --name Error --state float
 chunkc tiling::rule --owner Duck --name Duck --state float
-chunkc tiling::rule --owner Finder --except \".+\" --state float
-chunkc tiling::rule --owner Finder --subrole AXProgressIndicator --state float
+chunkc tiling::rule --owner Finder --name Copy --state float
 chunkc tiling::rule --owner Jabber --name \"Cisco Jabber\" --state float
 chunkc tiling::rule --owner \"Cisco AnyConnect Secure Mobility Client\" --state float
 chunkc tiling::rule --owner \"Cisco WebEx Meeting Center\" --subrole AXStandardWindow --state tile
-chunkc tiling::rule --owner \"DBeaver\" --except \".+\" --state float
-chunkc tiling::rule --owner \"DBeaver\" --name Error --state float
 chunkc tiling::rule --owner \"GIPHY CAPTURE\" --state float
 chunkc tiling::rule --owner \"Microsoft Outlook\" --name Reminder --state float
 chunkc tiling::rule --owner \"System Preferences\" --state float
