@@ -2,10 +2,10 @@
 shift + ctrl - r : khd -e "reload"; brew services restart chunkwm
 
 # open terminal
-ctrl + shift - return : open -na Alacritty
+ctrl + shift - return : open -na Hyper
 
 # open a backup terminal
-ctrl + alt + shift - return : open -na Hyper
+ctrl + alt + shift - return : open -na Alacritty
 
 # open finder
 ctrl + shift - f : open -na Finder
