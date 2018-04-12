@@ -28,6 +28,10 @@ ctrl + shift - d : osascript -e 'quit app "Duck"' && open -na Duck
 # enable "app mode" screenshots
 cmd + shift - 4 -> : chunkc border::clear
 
+# spotify mouse controls
+alt - button3 : spotify prev
+alt - button4 : spotify next
+
 # focus window
 ctrl + alt - h : chunkc tiling::window --focus west
 ctrl + alt - j : chunkc tiling::window --focus south
