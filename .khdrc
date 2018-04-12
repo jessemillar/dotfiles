@@ -7,12 +7,6 @@ ctrl + shift - return : open -na Hyper
 # open a backup terminal
 ctrl + alt + shift - return : open -na Alacritty
 
-# open finder
-ctrl + shift - f : open -na Finder
-
-# open intellij idea
-ctrl + shift - i : open -na "IntelliJ IDEA"
-
 # open google chrome
 ctrl + shift - c : open -na "Google Chrome"
 
