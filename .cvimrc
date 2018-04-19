@@ -54,6 +54,10 @@ site "https://felipemanga.github.io/ProjectABE/*" {
     unmapAll
 }
 
+site "http://jessemillar.com/the-staff-of-lewis/*" {
+    unmapAll
+}
+
 site "file://*" {
     unmapAll
 }

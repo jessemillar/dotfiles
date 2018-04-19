@@ -27,6 +27,7 @@ read:~/Documents/Projects/gif-picking-read-service
 serenity:~/.go/src/github.com/jessemillar/serenity
 shopper:~/Documents/Projects/gif-picking-shopper-service
 staff:~/Documents/Projects/the-staff-of-lewis/src
+tally:~/Documents/Projects/metrics-aggregator
 todo:~/Documents/Projects/todo
 ui:~/Documents/Projects/gif-ui/www
 validator:~/.go/src/gecgithub01.walmart.com/RT-Integrated-Fulfillment/gif-validator-service.git
