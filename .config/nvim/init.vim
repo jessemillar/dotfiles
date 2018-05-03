@@ -66,6 +66,12 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Don't complain when I type too fast
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
 " Custom tab widths
 set tabstop=2
 set shiftwidth=2
@@ -83,7 +89,7 @@ hi SpellBad ctermfg=236
 " Search color
 hi Search ctermfg=236
 
-" Show hybrid line numbers by default 
+" Show hybrid line numbers by default
 set number
 set relativenumber
 
