@@ -24,8 +24,8 @@ window:
   # Units are physical pixels; this is not DPI aware.
   # (change requires restart)
   padding:
-    x: 24
-    y: 24
+    x: 12
+    y: 12
 
   # Window decorations
   # Setting this to false will result in window without borders and title bar.

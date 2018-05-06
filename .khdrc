@@ -4,11 +4,8 @@ shift + ctrl - r : khd -e "reload"; brew services restart chunkwm
 # open terminal
 ctrl + shift - return : open -na Hyper
 
-# open finder
-ctrl + shift - f : open -na Finder
-
-# open intellij idea
-ctrl + shift - i : open -na "IntelliJ IDEA"
+# open a backup terminal
+ctrl + alt + shift - return : open -na Alacritty
 
 # open google chrome
 ctrl + shift - c : open -na "Google Chrome"
@@ -17,10 +14,17 @@ ctrl + shift - c : open -na "Google Chrome"
 ctrl + alt + shift - c : open -na "Google Chrome" --args --disable-web-security --allow-file-access-from-files --user-data-dir="/tmp/chrome-dev-session"
 
 # open google chrome to view walmart order details
-cmd + shift - d : open -a "Google Chrome" "http://glintful-init.wal-mart.com/order-initiator-services/orderDetails.html?order=$(pbpaste)"
+cmd + shift - d : open -a "Google Chrome" "http://prod-self-help-tool.cloud.walmart.com/gif-store-self-help-tool/od/orderDetails.html?order=$(pbpaste)"
+
+# bring up a rubber duck friend
+ctrl + shift - d : osascript -e 'quit app "Duck"' && open -na Duck
 
 # enable "app mode" screenshots
 cmd + shift - 4 -> : chunkc border::clear
+
+# spotify mouse controls
+alt - button3 : spotify prev
+alt - button4 : spotify next
 
 # focus window
 ctrl + alt - h : chunkc tiling::window --focus west

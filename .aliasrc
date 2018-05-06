@@ -1,15 +1,23 @@
+#!/usr/bin/env bash
+
 # General
 alias a="ack"
+alias cas="cqlsh -u $CASSANDRA_USER -p $CASSANDRA_PASSWORD $CASSANDRA_ADDRESS -k gif_picking"
+alias crates="sim_arduboy -p 3 ~/Documents/Projects/crates/crates.ino.leonardo.hex"
 alias day="date +%m-%d-%Y"
-alias h="history"
+alias h="history | tail -n 100"
 alias ha="history | ack"
 alias lines="wc -l **/* 2>/dev/null"
 alias o="open ."
 alias pb="pbcopy"
+alias poc="nvim ~/Desktop/$(day).md"
 alias research="cd ~/Documents/Projects/todo/research && nvim README.md && git add -A && git commit -m 'Automatic research update' && git push ; cd - >/dev/null"
+alias re="remind"
 alias s="search"
 alias todo="cd ~/Documents/Projects/todo && nvim README.md && git add -A && git commit -m 'Automatic todo update' && git push ; cd - >/dev/null"
 alias tmp="mkdir tmp || true && cd tmp"
+alias toot="madonctl toot"
+alias tweet="twty"
 alias v="nvim"
 alias watch="watch " # This is so aliases get expanded when passed to `watch`
 
@@ -33,15 +41,15 @@ alias inflated="scuttle && docker-compose build && docker-compose up -d"
 alias deflate="docker-compose down"
 
 # Pico-8
-alias pew="cp ~/Library/Application\ Support/pico-8/carts/blank.p8"
+alias pew="cp ~/Library/Application\\ Support/pico-8/carts/blank.p8"
 alias pest="/Applications/PICO-8.app/Contents/MacOS/pico8 -run"
 alias pu="" # I'm tired of accidentally typing this
 alias pun="cd ..; pico-build run; cd src"
-alias pud="mv ~/Library/Application\ Support/pico-8/carts/new.p8 _assets.p8"
+alias pud="mv ~/Library/Application\\ Support/pico-8/carts/new.p8 _assets.p8"
 alias ped="cd ..; pico-build edit; cd src"
 
 # Homebrew
-alias brup="brew -v update && brew upgrade && brew cleanup && brew doctor && nvim +GoUpdateBinaries +PlugUpdate +PlugUpgrade +qall"
+alias brup="brew -v update && brew upgrade && brew cleanup && brew doctor && nvim +GoUpdateBinaries +PlugUpdate +PlugUpgrade +qall && pip3 install pip --upgrade && pip3 install neovim --upgrade"
 
 # chunkwm
 alias chunki="chunkc tiling::query --desktop windows"
@@ -55,6 +63,7 @@ alias gl="git log"
 alias gp="git pull"
 alias grm="git ls-files -i --exclude-from=.gitignore | xargs git rm --cached"
 alias gs="git status"
+alias gst="git stash -u"
 
 alias gpersonal='git config user.email "hellojessemillar@gmail.com"'
 alias gwork='git config user.email "jesse.millar@walmartlabs.com"'
@@ -64,23 +73,23 @@ alias cookie='for file in *; do TIME=$(date +%s) && ~/Documents/Projects/cookie-
 
 # Ascii art
 alias labs='echo $fg[cyan] "
-       :########:       
-       ###'\'' ####        
-      :### .###:        
-      ###'\'' ####         
-     :### .###:         
-    .###'\'' ####          
+       :########:
+       ###'\'' ####
+      :### .###:
+      ###'\'' ####
+     :### .###:
+    .###'\'' ####
     #### .##############
-   :###'\'' #############: 
-   ####.,,,,,,,,,,####  
-   :################:   
-    '\''*:############     
-           ######:      
-          :#####        
-          ####:         
-         :###           
-         ##:            
-         %              
+   :###'\'' #############:
+   ####.,,,,,,,,,,####
+   :################:
+    '\''*:############
+           ######:
+          :#####
+          ####:
+         :###
+         ##:
+         %
 "'
 alias sombra='echo $fg[magenta] "
                       :PB@Bk:

@@ -29,8 +29,6 @@ map <Leader>ex :tabopen chrome://extensions<CR>
 map <Leader>rm :tabopen google remind me<Space>
 map <Leader>Rm :open google remind me<Space>
 
-map <Leader>sx :tabopen https://player.siriusxm.com/#/player/live<CR>
-map <Leader>Sx :open https://player.siriusxm.com/#/player/live<CR>
 map <Leader>gh :tabopen https://github.com/jessemillar<CR>
 map <Leader>Gh :open https://github.com/jessemillar<CR>
 map <Leader>td :tabopen http://tweetdeck.twitter.com<CR>
@@ -49,6 +47,14 @@ site "https://mail.google.com/*" {
 }
 
 site "https://www.piskelapp.com/*" {
+    unmapAll
+}
+
+site "https://felipemanga.github.io/ProjectABE/*" {
+    unmapAll
+}
+
+site "http://jessemillar.com/the-staff-of-lewis/*" {
     unmapAll
 }
 

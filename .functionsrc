@@ -1,14 +1,162 @@
+#!/usr/bin/env bash
+
 function q() {
 	qlmanage -p "$@" >/dev/null 2>&1
+}
+
+function twoot() {
+	madonctl toot $1
+	twty $1
 }
 
 function search() {
 	if [ $1 = "-f" ]
 	then
-		find . -name "*$2*" | ack --passthru "$2"
+		find . -name "*$2*" | ack -i --passthru "$2"
 	else
-		find . -name "*$1*" | ack --passthru "$1"
-		ack "$1"
+		find . -name "*$1*" | ack -i --passthru "$1"
+		ack -i "$1"
+	fi
+}
+
+function ardbitmap() {
+	# Deal with GIFs
+	if [[ $1 == *.gif ]]
+	then
+		# The image we're currently on
+		COUNTER=0
+
+		# Create a directory to put the frames into
+		mkdir ardbitmap
+		# Rip the GIF into frames
+		convert $1 ardbitmap/frame%03d.png
+
+		# Loop through the frames
+		for IMAGE in ardbitmap/*
+		do
+			# Run the compressor on the single frame
+			java -jar ~/.ardbitmap/compressor.jar $IMAGE >> $2
+
+			# Number the frame in the output file using the counter
+			sed -i '' -e 's/OUT\[\]/OUT_'$COUNTER'\[\]/g' $2
+
+			# Add a couple newlines to the output file
+			echo >> $2
+			echo >> $2
+
+			# Increment the counter
+			COUNTER=$((COUNTER+1))
+
+			# Preview the image if we passed a third argument
+			if [[ $3 ]]
+			then
+				java -jar ~/.ardbitmap/compressor.jar $IMAGE -v
+			fi
+		done
+
+		# Cleanup
+		rm -rf ardbitmap
+	else
+		# Run the compressor on the single frame
+		java -jar ~/.ardbitmap/compressor.jar $1 >> $2
+
+		# Preview the image if we passed a third argument
+		if [[ $3 ]]
+		then
+			java -jar ~/.ardbitmap/compressor.jar $1 -v
+		fi
+	fi
+}
+
+function maskify() {
+	if [[ $1 == *.gif ]]
+	then
+		# Get just the filename
+		FILENAME="${1%.*}"
+
+		# Make directories for organization
+		mkdir -p maskify/black
+		mkdir -p maskify/white
+
+		# Split the animation
+		convert $1 maskify/frame%03d.png
+
+		# Make the masks
+		cd maskify/black
+		convert ../*.png -transparent white -opaque black -fill white -set filename:f '%t-mask-black.%e' +adjoin '%[filename:f]'
+		# Make an animation
+		convert -delay 10 -dispose previous -loop 0 *.png ../../$FILENAME-mask-black.gif
+		cd ../..
+
+		cd maskify/white
+		convert ../*.png -transparent black -set filename:f '%t-mask-white.%e' +adjoin '%[filename:f]'
+		# Make an animation
+		convert -delay 10 -dispose previous -loop 0 *.png ../../$FILENAME-mask-white.gif
+		cd ../..
+
+		# Cleanup
+		rm -rf maskify
+	else
+		convert $1 -transparent white -opaque black -fill white -set filename:f '%t-mask-black.%e' +adjoin '%[filename:f]'
+		convert $1 -transparent black -set filename:f '%t-mask-white.%e' +adjoin '%[filename:f]'
+	fi
+}
+
+function bitify() {
+	if [[ -z $1 || -z $2 || -z $3 ]]
+	then
+		echo "One or more arguments are missing"
+	elif (( $3 % 8 != 0 ))
+	then
+		echo "Image height must be a multiple of 8"
+	else
+		# Make an animation
+		convert -monochrome -scale 500% -delay 10 -dispose previous -loop 0 *.png ../$1.gif
+		# Make the individual frames
+		convert *.png -gravity center -crop $2x$3+0+0 -set filename:f '%t-cropped.%e' +adjoin '%[filename:f]'
+		# Make an opacity mask sprite sheet
+		convert *-cropped.png -append -fill white -colorize 100% -background black -alpha remove mask.png
+		# Combine and dither frames into a sprite sheet
+		convert *-cropped.png -append -monochrome sheet.png
+		# Copy opacity into the dithered sprite sheet
+		convert sheet.png mask.png -alpha off -compose CopyOpacity -composite ../$1_$2x$3.png
+		# Clean up
+		rm *-cropped.png
+		rm mask.png
+		rm sheet.png
+	fi
+}
+
+function gifify() {
+	if [[ -z $1 || -z $2 || -z $3 ]]
+	then
+		echo "One or more arguments are missing"
+	elif (( $3 % 8 != 0 ))
+	then
+		echo "Image height must be a multiple of 8"
+	else
+		for IMAGE in *
+		do
+			# Get just the filename (no extension)
+			FILENAME="${IMAGE%.*}"
+			# Make the individual frames
+			convert $IMAGE -gravity center -crop $2x$3+0+0 +repage -set filename:f '%t-cropped.%e' +adjoin '%[filename:f]'
+			# Make an opacity mask sprite sheet
+			convert $FILENAME-cropped.png -fill white -colorize 100% -background black -alpha remove -set filename:f '%t-mask.%e' +adjoin '%[filename:f]'
+			# Make the cropped frames monochrome
+			convert $FILENAME-cropped.png -monochrome -set filename:f '%t-monochrome.%e' +adjoin '%[filename:f]'
+			# Copy opacity into the dithered sprite sheet
+			convert $FILENAME-cropped-monochrome.png $FILENAME-cropped-mask.png -alpha off -compose CopyOpacity -composite $FILENAME-final.png
+		done
+
+		# Make an animation
+		convert -delay 10 -dispose previous -loop 0 *-final.png ../$1.gif
+
+		# Clean up
+		rm *-cropped.png
+		rm *-cropped-monochrome.png
+		rm *-cropped-mask.png
+		rm *-final.png
 	fi
 }
 
@@ -18,7 +166,7 @@ function qr() {
 
 function mssh() {
 	for HOST in $(cat $2)
-	do 
+	do
 		ssh -o StrictHostKeyChecking=no "$1@$HOST" "$3" >"output.$HOST" 2>"output.$HOST.err" &
 	done
 	wait
@@ -28,7 +176,7 @@ function msshp() {
 	read -s "PASS?Password: "
 
 	for HOST in $(cat $2)
-	do 
+	do
 		sshpass -p "$PASS" ssh -o StrictHostKeyChecking=no "$1@$HOST" "$3" >"output.$HOST" 2>"output.$HOST.err" &
 	done
 	wait
@@ -75,9 +223,9 @@ function gitt() {
 function gi() {
 	if [ -z "$1" ]
 	then
-		curl -L -s https://www.gitignore.io/api/linux,macos,windows | sed '1d'
+		curl -L -s https://www.gitignore.io/api/linux,macos,windows
 	else
-		if [ "$1" == "list" ]
+		if [ "$1" = "list" ]
 		then
 			if [ -z "$2" ]
 			then
@@ -86,7 +234,7 @@ function gi() {
 				curl -L -s https://www.gitignore.io/api/list?format=lines | ack $2
 			fi
 		else
-			curl -L -s https://www.gitignore.io/api/"$1" | sed '1d'
+			curl -L -s https://www.gitignore.io/api/"$1"
 		fi
 	fi
 }
@@ -124,42 +272,17 @@ function cells() {
 	fi
 }
 
-function bitify() {
-	if [[ -z $1 || -z $2 || -z $3 ]]
-	then
-		echo "One or more arguments are missing"
-	elif (( $3 % 8 != 0 ))
-	then
-		echo "Image height must be a multiple of 8"
-	else
-		# make an animation
-		convert -monochrome -scale 500% -delay 10 -dispose previous -loop 0 *.png ../$1.gif
-		# make the individual frames
-		convert *.png -gravity center -crop $2x$3+0+0 -set filename:f '%t-cropped.%e' +adjoin '%[filename:f]'
-		# make an opacity mask sprite sheet
-		convert *-cropped.png -append -fill white -colorize 100% -background black -alpha remove mask.png
-		# combine and dither frames into a sprite sheet
-		convert *-cropped.png -append -monochrome sheet.png
-		# copy opacity into the dithered sprite sheet
-		convert sheet.png mask.png -alpha off -compose CopyOpacity -composite ../$1_$2x$3.png
-		# clean up
-		rm *-cropped.png
-		rm mask.png
-		rm sheet.png
-	fi
-}
-
-# used for taking notes from the command line
+# Used for taking notes from the command line
 function n() {
 	local fpath=$HOME/Desktop/notes.md
 
-	if [ "$1" == "v" ]; then
+	if [ "$1" = "v" ]; then
 		nvim + $fpath
-	elif [ "$1" == "date" ]; then
+	elif [ "$1" = "date" ]; then
 		echo '' >> $fpath
 		echo '# '`date +"%m-%d-%Y-%T"` >> $fpath
 		echo '---------------------' >> $fpath
-	elif [ "$1" == "" ]; then
+	elif [ "$1" = "" ]; then
 		less +G $fpath
 	else
 		echo '' >> $fpath
