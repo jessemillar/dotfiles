@@ -14,7 +14,7 @@ ctrl + shift - c : open -na "Google Chrome"
 ctrl + alt + shift - c : open -na "Google Chrome" --args --disable-web-security --allow-file-access-from-files --user-data-dir="/tmp/chrome-dev-session"
 
 # open google chrome to view walmart order details
-cmd + shift - d : open -a "Google Chrome" "http://prod-self-help-tool.cloud.walmart.com/gif-store-self-help-tool/od/orderDetails.html?order=$(pbpaste)"
+cmd + shift - d : open -a "Google Chrome" "http://prod-self-help-tool.cloud.walmart.com/gif-store-self-help-tool/od/orderDetails.html?order=$(pbpaste)&country=us"
 
 # bring up a rubber duck friend
 ctrl + shift - d : osascript -e 'quit app "Duck"' && open -na Duck

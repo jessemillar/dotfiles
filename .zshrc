@@ -48,3 +48,4 @@ source $ZSH/oh-my-zsh.sh
 
 # Print an Overwatch Sombra logo
 sombra
+
