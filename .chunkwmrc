@@ -54,5 +54,6 @@ chunkc tiling::rule --owner \"Archive Utility\" --state float &
 chunkc tiling::rule --owner \"Cisco AnyConnect Secure Mobility Client\" --state float &
 chunkc tiling::rule --owner \"Cisco WebEx Meeting Center\" --subrole AXStandardWindow --state tile &
 chunkc tiling::rule --owner \"GIPHY CAPTURE\" --state float &
+chunkc tiling::rule --owner \"OBS\" --state float &
 chunkc tiling::rule --owner \"Microsoft Outlook\" --name Reminder --state float &
 chunkc tiling::rule --owner \"System Preferences\" --state float &
