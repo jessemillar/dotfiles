@@ -11,6 +11,7 @@ dracula:~/.dracula
 dropbox:~/Dropbox
 duck:~/Documents/Projects/duck
 eem:~/Documents/Projects/gif-picking-external-event-manager
+functional-tests:~/Documents/Projects/picking_2_0_functional_tests
 gautomata:~/.go/src/github.com/jessemillar/gautomata
 go:~/.go
 hammerspoon:~/.hammerspoon
@@ -22,7 +23,7 @@ npdm:~/Documents/Projects/fulfillment-node-picking-details-manager
 npm:~/Documents/Projects/fulfillment-node-picking-manager
 npmm:~/Documents/Projects/fulfillment-node-pick-messaging-manager
 pixel:~/Documents/Projects/pixel-art
-praveen:~/Documents/Projects/fulfillment-common-x-manager-framework
+pixel:~/Documents/Projects/pixel-art
 projects:~/Documents/Projects
 pta:~/Documents/Projects/pta
 quack:~/.go/src/github.com/jessemillar/quack
