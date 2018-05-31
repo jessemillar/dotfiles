@@ -44,10 +44,10 @@ chunkc set focused_border_skip_floating  1
 chunkc core::load tiling.so
 chunkc core::load border.so
 
-chunkc tiling::rule --owner Spotify --desktop 7 &
-chunkc tiling::rule --owner Message --desktop 8 &
-chunkc tiling::rule --owner Slack --desktop 9 &
-chunkc tiling::rule --owner \"Microsoft Outlook\" --desktop 10 &
+chunkc tiling::rule --owner Spotify --desktop 7 --follow-desktop &
+chunkc tiling::rule --owner Message --desktop 8 --follow-desktop &
+chunkc tiling::rule --owner Slack --desktop 9 --follow-desktop &
+chunkc tiling::rule --owner \"Microsoft Outlook\" --desktop 10 --follow-desktop &
 
 # shell commands require escaped quotes to pass value containing a whitespace
 chunkc tiling::rule --owner DBeaver --except \".+\" --state float &
