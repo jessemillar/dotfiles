@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+function gdm() {
+	git diff master...$(git rev-parse --abbrev-ref HEAD)
+}
+
 function q() {
 	qlmanage -p "$@" >/dev/null 2>&1
 }
