@@ -46,6 +46,12 @@ source $ZSH/oh-my-zsh.sh
 # Load NVM
 [ -f /usr/local/opt/nvm/nvm.sh ] && source /usr/local/opt/nvm/nvm.sh
 
-# Print an Overwatch Sombra logo
-sombra
-
+# Print a logo
+if [ $(($RANDOM % 2)) -eq 1 ]
+then
+	# Print an Overwatch Sombra logo
+	sombra
+else
+	# Print a Walmart Labs logo
+	labs
+fi
