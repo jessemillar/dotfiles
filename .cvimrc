@@ -12,7 +12,7 @@ let searchalias g = "google"
 
 map : openCommandBar
 
-map a :tabattach<Space>
+map a :tabattach 1
 map d :tabdetach<CR>
 map i goToInput
 map F createActiveTabbedHint
