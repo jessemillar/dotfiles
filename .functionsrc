@@ -4,8 +4,14 @@ function gdm() {
 	git diff master...$(git rev-parse --abbrev-ref HEAD)
 }
 
+function gmm() {
+	BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+	git checkout master && git pull && git checkout $BRANCH && git merge master
+}
+
 function gpr() {
-	git pull origin pull/$1/head:pr/$1 && git checkout pr/$1
+	git checkout master && git pull && git pull origin pull/$1/head:pr/$1 && git checkout pr/$1
 }
 
 function q() {
