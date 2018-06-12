@@ -13,6 +13,7 @@ let searchalias g = "google"
 map : openCommandBar
 
 map a :tabattach<Space>
+map d :tabdetach<CR>
 map i goToInput
 map F createActiveTabbedHint
 map f createHint
@@ -26,7 +27,6 @@ map <C-b> scrollFullPageUp
 map <C-f> scrollFullPageDown
 map <C-z> toggleCvim
 
-map <Leader>d :tabdetach<CR>
 map <Leader>ex :tabopen chrome://extensions<CR>
 
 copyCurrentTabAddress -> {{
