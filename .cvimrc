@@ -5,28 +5,36 @@ set noautofocus
 set nosmoothscroll
 set typelinkhints
 
-let searchalias g = "google"
 let mapleader = "\\"
-let typelinkhintsdelay = "0"
 let hintcharacters = "fdsawerjkiop"
+let typelinkhintsdelay = "0"
+let searchalias g = "google"
 
 map : openCommandBar
-map <C-b> scrollFullPageUp
-map <C-f> scrollFullPageDown
+
+map a :tabattach<Space>
+map i goToInput
 map F createActiveTabbedHint
 map f createHint
-map p openPasteTab
 map P openPaste
-
+map p openPasteTab
 map S :open google<Space>
 map s :tabopen google<Space>
-map i goToInput
 map u lastClosedTab
+
+map <C-b> scrollFullPageUp
+map <C-f> scrollFullPageDown
 map <C-z> toggleCvim
 
-map <Leader>b :tabopen bookmarks<Space>
-map <Leader>ex :tabopen chrome://extensions<CR>
 map <Leader>d :tabdetach<CR>
+map <Leader>ex :tabopen chrome://extensions<CR>
+
+copyCurrentTabAddress -> {{
+	Status.setMessage(document.location.href,3);
+	Clipboard.copy(document.location.href);
+}}
+
+map yt :call copyCurrentTabAddress<CR>
 
 site "https://mail.google.com/*" {
     unmapAll
@@ -47,10 +55,3 @@ site "http://jessemillar.com/the-staff-of-lewis/*" {
 site "file://*" {
     unmapAll
 }
-
-copyCurrentTabAddress -> {{
-	Status.setMessage(document.location.href,3);
-	Clipboard.copy(document.location.href);
-}}
-
-map yt :call copyCurrentTabAddress<CR>
