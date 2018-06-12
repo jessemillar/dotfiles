@@ -26,21 +26,7 @@ map <C-z> toggleCvim
 
 map <Leader>b :tabopen bookmarks<Space>
 map <Leader>ex :tabopen chrome://extensions<CR>
-map <Leader>rm :tabopen google remind me<Space>
-map <Leader>Rm :open google remind me<Space>
-
-map <Leader>gh :tabopen https://github.com/jessemillar<CR>
-map <Leader>Gh :open https://github.com/jessemillar<CR>
-map <Leader>td :tabopen http://tweetdeck.twitter.com<CR>
-map <Leader>Td :open http://tweetdeck.twitter<CR>
-map <Leader>tw :tabopen http://twitter.com/jessemillar<CR>
-map <Leader>Tw :open http://twitter/jessemillar<CR>
-map <Leader>in :tabopen https://inbox.google.com<CR>
-map <Leader>In :open https://inbox.google.com<CR>
-map <Leader>hn :tabopen http://news.ycombinator.com<CR>
-map <Leader>Hn :open http://news.ycombinator.com<CR>
-map <Leader>dc :tabopen https://discordapp.com/channels/@me<CR>
-map <Leader>Dc :open https://discordapp.com/channels/@me<CR>
+map <Leader>d :tabdetach<CR>
 
 site "https://mail.google.com/*" {
     unmapAll
