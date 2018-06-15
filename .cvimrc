@@ -36,10 +36,6 @@ copyCurrentTabAddress -> {{
 
 map yt :call copyCurrentTabAddress<CR>
 
-site "https://mail.google.com/*" {
-    unmapAll
-}
-
 site "https://www.piskelapp.com/*" {
     unmapAll
 }
