@@ -30,7 +30,7 @@ function wip() {
 		# Use a subshell to avoid having to cd out of the directory)
 		(
 		cd $file && cd ..
-		if [[ ! -z $(git --no-pager diff HEAD) || ! -z $(git status --short) ]]
+		if [[ ! -z $(git --no-pager diff HEAD) || ! -z $(git status --short) || ! -z $(git cherry -v 2>&1) ]]
 		then
 			echo $file
 		fi
