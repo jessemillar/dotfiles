@@ -23,6 +23,21 @@ function twoot() {
 	twty $1
 }
 
+# Find local git repositories that have unpushed commits or uncommitted files
+function wip() {
+	for file in `find . -name .git -type d -prune`
+	do
+		# Use a subshell to avoid having to cd out of the directory)
+		(
+		cd $file && cd ..
+		if [[ ! -z $(git --no-pager diff HEAD) || ! -z $(git status --short) ]]
+		then
+			echo $file
+		fi
+		)
+	done
+}
+
 function search() {
 	if [ $1 = "-f" ]
 	then
