@@ -4,6 +4,9 @@ shift + ctrl - r : khd -e "reload"; brew services restart chunkwm
 # open terminal
 ctrl + shift - return : open -na Hyper
 
+# open a finder window
+ctrl + shift - f : open ~/Documents
+
 # open a backup terminal
 ctrl + alt + shift - return : open -na Alacritty
 
