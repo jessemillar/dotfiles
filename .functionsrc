@@ -32,7 +32,7 @@ function wip() {
 		cd $repo && cd ..
 		if [[ ! -z $(git --no-pager diff HEAD) || ! -z $(git status --short) || ! -z $(git cherry -v 2>&1) || ! -z $(git --no-pager log --branches --not --remotes --no-walk --pretty=tformat:"%d") ]]
 		then
-			echo $file
+			echo $repo
 
 			for line in `git --no-pager log --branches --not --remotes --no-walk --pretty=tformat:"%d"`
 			do
