@@ -67,6 +67,7 @@ alias gp="git pull"
 alias grm="git ls-files -i --exclude-from=.gitignore | xargs git rm --cached"
 alias gs="git status"
 alias gst="git stash -u"
+alias gun="git diff origin/master..HEAD"
 
 alias gpersonal='git config user.email "hellojessemillar@gmail.com"'
 alias gwork='git config user.email "jesse.millar@walmartlabs.com"'
