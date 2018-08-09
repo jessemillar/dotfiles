@@ -2,19 +2,19 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'brooth/far.vim'
+Plug 'dracula/vim'
 Plug 'fatih/vim-go'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-surround'
-Plug 'chiel92/vim-autoformat'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-repeat'
-Plug 'othree/eregex.vim'
-Plug 'roxma/vim-paste-easy'
 Plug 'justinj/vim-pico8-syntax'
 Plug 'leafgarland/typescript-vim'
-Plug 'dracula/vim'
-Plug 'brooth/far.vim'
+Plug 'othree/eregex.vim'
+Plug 'roxma/vim-paste-easy'
+Plug 'sbdchd/neoformat'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 call plug#end()
 
@@ -77,7 +77,10 @@ set tabstop=2
 set shiftwidth=2
 
 " Custom mapping for Autoformat
-command! AF Autoformat
+command! AF Neoformat
+
+" Define which beautifiers to use for certain filetypes
+let g:neoformat_enabled_html = ['prettydiff']
 
 " Quick spellcheck toggle
 command! SP :set spell!
