@@ -10,7 +10,6 @@ Plug 'leafgarland/typescript-vim'
 Plug 'othree/eregex.vim'
 Plug 'roxma/vim-paste-easy'
 Plug 'sbdchd/neoformat'
-Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
@@ -43,16 +42,6 @@ set completeopt-=preview
 
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
-
-" Custom mapping for NERDTree
-command! NT NERDTreeToggle
-
-" Non-arrow arrows for NERDTree because I use a custom font
-let g:NERDTreeDirArrowExpandable='+'
-let g:NERDTreeDirArrowCollapsible='~'
-
-" Show hidden files in NERDTree
-let NERDTreeShowHidden=1
 
 " Enable JavaScript syntax highlighting
 let g:javascript_plugin_jsdoc = 1

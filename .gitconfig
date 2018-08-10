@@ -9,3 +9,5 @@
 	tool = opendiff
 [mergetool]
 	keepBackup = false
+[hub]
+	host = gecgithub01.walmart.com
