@@ -24,6 +24,7 @@ npm:~/Documents/Projects/fulfillment-node-picking-manager
 npmm:~/Documents/Projects/fulfillment-node-pick-messaging-manager
 pixel:~/Documents/Projects/pixel-art
 pixel:~/Documents/Projects/pixel-art
+pongs:~/Documents/Projects/the-pongs
 projects:~/Documents/Projects
 pta:~/Documents/Projects/pta
 quack:~/.go/src/github.com/jessemillar/quack
@@ -35,6 +36,5 @@ steppin:~/Documents/Projects/steppin
 tally:~/Documents/Projects/metrics-aggregator
 todo:~/Documents/Projects/todo
 ui:~/Documents/Projects/gif-ui/www
-validator:~/.go/src/gecgithub01.walmart.com/RT-Integrated-Fulfillment/gif-validator-service.git
+validator:~/.go/src/gecgithub01.walmart.com/RT-Integrated-Fulfillment/gif-validator-service
 wallpaper:~/Dropbox/Wallpaper/Randomized
-pongs:~/Documents/Projects/the-pongs
