@@ -12,9 +12,12 @@ ZSH_THEME="mister-michael"
 # much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+# Make NVM load in a way that doesn't slow down terminal startup
+NVM_LAZY_LOAD=true
+
 # Which plugins would you like to load?
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(wd vi-mode)
+plugins=(wd vi-mode zsh-nvm)
 
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl"
