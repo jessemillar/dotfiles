@@ -43,9 +43,6 @@ source $ZSH/oh-my-zsh.sh
 # Load custom functions
 [ -f ~/.functionsrc ] && source ~/.functionsrc
 
-# Load NVM
-[ -f /usr/local/opt/nvm/nvm.sh ] && source /usr/local/opt/nvm/nvm.sh
-
 # Print a logo
 if [ $(($RANDOM % 2)) -eq 1 ]
 then

@@ -35,6 +35,7 @@ alias gest="go test -v -race ./..."
 
 # Node
 alias ode="npm install && node main.js"
+alias loadnvm="source /usr/local/opt/nvm/nvm.sh"
 
 # Docker
 alias dr="docker run"
