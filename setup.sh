@@ -15,6 +15,9 @@ ln -s ~/.dotfiles/.chunkwmrc ~/.chunkwmrc
 rm -rf ~/.config/karabiner
 ln -s ~/.dotfiles/.config/karabiner ~/.config/karabiner
 
+rm -rf ~/.config/kitty
+ln -s ~/.dotfiles/.config/kitty ~/.config/kitty
+
 rm -rf ~/.config/nvim
 ln -s ~/.dotfiles/.config/nvim ~/.config/nvim
 
@@ -30,9 +33,6 @@ git config --global core.excludesfile ~/.gitignore_global
 
 rm -rf ~/.hammerspoon
 ln -s ~/.dotfiles/.hammerspoon ~/.hammerspoon
-
-rm ~/.hyper.js
-ln -s ~/.dotfiles/.hyper.js ~/.hyper.js
 
 rm ~/.ideavimrc
 ln -s ~/.dotfiles/.ideavimrc ~/.ideavimrc

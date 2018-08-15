@@ -10,7 +10,7 @@ function gmm() {
 	git checkout master && git pull && git checkout $BRANCH && git merge master
 }
 
-function gpr() {
+function gcpr() {
 	git checkout master && git pull && git pull origin pull/$1/head:pr/$1 && git checkout pr/$1
 }
 
@@ -56,7 +56,7 @@ function wip() {
 
 			for line in `git --no-pager log --branches --not --remotes --no-walk --pretty=tformat:"%d%n"`
 			do
-				echo "  Unpushed: "$line
+				echo "  Unpushed/outdated: "$line
 			done
 		fi
 		)
