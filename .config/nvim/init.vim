@@ -70,6 +70,7 @@ command! AF Neoformat
 
 " Define which beautifiers to use for certain filetypes
 let g:neoformat_enabled_html = ['prettydiff']
+let g:neoformat_enabled_json = ['prettydiff']
 
 " Quick spellcheck toggle
 command! SP :set spell!

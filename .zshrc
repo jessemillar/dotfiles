@@ -15,10 +15,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Make NVM load in a way that doesn't slow down terminal startup
 NVM_LAZY_LOAD=true
 
-# Which plugins would you like to load?
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(wd vi-mode zsh-nvm)
-
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl"
 
@@ -28,8 +24,6 @@ export PATH=$PATH:$GOPATH/bin
 
 # Put Rust in my path
 export PATH=$PATH:$HOME/.cargo/bin
-
-source $ZSH/oh-my-zsh.sh
 
 # Load proxy information
 [ -f ~/.proxyrc ] && source ~/.proxyrc
@@ -45,6 +39,12 @@ source $ZSH/oh-my-zsh.sh
 
 # Load custom functions
 [ -f ~/.functionsrc ] && source ~/.functionsrc
+
+# Which plugins would you like to load?
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(zsh-nvm wd vi-mode)
+
+source $ZSH/oh-my-zsh.sh
 
 # Print a logo
 if [ $(($RANDOM % 2)) -eq 1 ]
