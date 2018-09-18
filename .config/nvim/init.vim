@@ -20,6 +20,9 @@ call plug#end()
 " Load vim-sensible first so we can override defaults
 runtime! plugin/sensible.vim
 
+" Define which beautifiers to use for certain filetypes
+let g:neoformat_enabled_html = ['prettydiff']
+
 " Enable autocompletion with tab support
 highlight Pmenu ctermfg=236 ctermbg=243
 highlight PmenuSel ctermfg=236 ctermbg=255
@@ -67,9 +70,6 @@ set shiftwidth=2
 
 " Custom mapping for Autoformat
 command! AF Neoformat
-
-" Define which beautifiers to use for certain filetypes
-let g:neoformat_enabled_html = ['prettydiff']
 
 " Quick spellcheck toggle
 command! SP :set spell!
