@@ -28,6 +28,7 @@ projects:~/Documents/Projects
 pta:~/Documents/Projects/pta
 quack:~/.go/src/github.com/jessemillar/quack
 read:~/Documents/Projects/gif-picking-read-service
+schemas:~/Documents/Projects/fulfillment-schemas
 serenity:~/.go/src/github.com/jessemillar/serenity
 shopper:~/Documents/Projects/gif-picking-shopper-service
 staff:~/Documents/Projects/the-staff-of-lewis/src
