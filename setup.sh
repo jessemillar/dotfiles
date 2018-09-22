@@ -41,6 +41,9 @@ rm ~/.oh-my-zsh/custom/mister-michael.zsh-theme
 mkdir -p ~/.oh-my-zsh/custom
 ln -s ~/.dotfiles/.oh-my-zsh/custom/mister-michael.zsh-theme ~/.oh-my-zsh/custom/mister-michael.zsh-theme
 
+rm ~/.uncrustify
+ln -s ~/.dotfiles/.uncrustify ~/.uncrustify
+
 rm ~/.warprc
 ln -s ~/.dotfiles/.warprc ~/.warprc
 
