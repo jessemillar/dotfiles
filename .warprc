@@ -4,6 +4,7 @@ commons:~/Documents/Projects/gif-picking-commons
 crates:~/Documents/Projects/crates
 data:~/Data
 desktop:~/Desktop
+docker:~/Documents/Projects/gif-picking-internal-event-manager/docker
 documents:~/Documents
 dotfiles:~/.dotfiles
 downloads:~/Downloads

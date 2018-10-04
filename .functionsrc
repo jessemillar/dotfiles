@@ -4,10 +4,15 @@ function gdm() {
 	git diff master...$(git rev-parse --abbrev-ref HEAD)
 }
 
-function gmm() {
+function gm() {
 	BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
-	git checkout master && git pull && git checkout $BRANCH && git merge master
+	if [[ -z $1 ]]
+	then
+		git checkout master && git pull && git checkout $BRANCH && git merge master
+	else
+		git checkout $1 && git pull && git checkout $BRANCH && git merge $1
+	fi
 }
 
 function gcpr() {
