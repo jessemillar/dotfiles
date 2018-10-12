@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+function luv() {
+	love $(pwd)
+}
+
 function gdm() {
 	git diff master...$(git rev-parse --abbrev-ref HEAD)
 }
