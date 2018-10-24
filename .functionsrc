@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+function f() {
+	nnn "$@"
+
+	if [ -f $NNN_TMPFILE ]; then
+		. $NNN_TMPFILE
+		rm $NNN_TMPFILE
+	fi
+}
+
 function luv() {
 	love $(pwd)
 }
