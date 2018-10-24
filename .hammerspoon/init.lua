@@ -32,9 +32,9 @@ function ssidChangedCallback()
 
 	if currentSSID == workSSID and lastSSID ~= workSSID then
 		-- we just joined work wifi
-		hs.execute("ln -s ~/Dropbox/Work/Dotfiles/proxyrc ~/.proxyrc")
-		hs.execute("ln -s ~/Dropbox/Work/Dotfiles/npmrc ~/.npmrc")
-		hs.execute("rm ~/.gitconfig && ln -s ~/Dropbox/Work/Dotfiles/gitconfig ~/.gitconfig")
+		hs.execute("ln -s ~/Documents/Projects/dropbox/dotfiles/proxyrc ~/.proxyrc")
+		hs.execute("ln -s ~/Documents/Projects/dropbox/dotfiles/npmrc ~/.npmrc")
+		hs.execute("rm ~/.gitconfig && ln -s ~/Documents/Projects/dropbox/dotfiles/gitconfig ~/.gitconfig")
 	elseif currentSSID ~= workSSID and lastSSID == workSSID then
 		-- we just left work wifi
 		hs.execute("rm ~/.proxyrc")
