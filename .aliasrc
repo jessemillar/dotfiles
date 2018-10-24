@@ -78,7 +78,7 @@ alias gpersonal='hub config user.email "hellojessemillar@gmail.com"'
 alias gwork='hub config user.email "jesse.millar@walmartlabs.com"'
 
 # Generate Walmart Labs wallpapers
-alias cookie='for file in *; do TIME=$(date +%s) && ~/Documents/Projects/cookie-cutter/cookie-cutter.sh ~/Dropbox/Work/Branding/bolt_pixel@2x.png "$file" ~/Dropbox/Wallpaper/Randomized/$TIME.png 5760 3600; done'
+alias cookie='for file in *; do TIME=$(date +%s) && ~/Documents/Projects/cookie-cutter/cookie-cutter.sh ~/Documents/Projects/dropbox/branding/bolt_pixel@2x.png "$file" ~/Documents/Projects/trunk/wallpaper/randomized/$TIME.png 5760 3600; done'
 
 # ASCII art
 alias labs='echo $fg[cyan] "

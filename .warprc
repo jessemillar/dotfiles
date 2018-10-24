@@ -4,12 +4,12 @@ commons:~/Documents/Projects/gif-picking-commons
 crates:~/Documents/Projects/crates
 data:~/Data
 desktop:~/Desktop
-docker:~/Documents/Projects/gif-picking-internal-event-manager/docker
+docker:~/Documents/Projects/gif-picking-data/docker
 documents:~/Documents
 dotfiles:~/.dotfiles
 downloads:~/Downloads
 dracula:~/.dracula
-dropbox:~/Dropbox
+dropbox:~/Documents/Projects/dropbox
 duck:~/Documents/Projects/duck
 eem:~/Documents/Projects/gif-picking-external-event-manager
 functional-tests:~/Documents/Projects/picking_2_0_functional_tests
@@ -38,6 +38,7 @@ staff:~/Documents/Projects/the-staff-of-lewis/src
 steppin:~/Documents/Projects/steppin
 tally:~/Documents/Projects/metrics-aggregator
 todo:~/Documents/Projects/todo
+trunk:~/Documents/Projects/trunk
 ui:~/Documents/Projects/gif-ui/www
 validator:~/.go/src/gecgithub01.walmart.com/RT-Integrated-Fulfillment/gif-validator-service
-wallpaper:~/Dropbox/Wallpaper/Randomized
+wallpaper:~/Dobuments/Projects/dropbox/wallpaper/randomized
