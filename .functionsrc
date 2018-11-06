@@ -239,7 +239,7 @@ function qr() {
 function mssh() {
 	for HOST in $(cat $2)
 	do
-		ssh -o StrictHostKeyChecking=no "$1@$HOST" "$3" >"output.$HOST" 2>"output.$HOST.err" &
+		ssh -o StrictHostKeyChecking=no "$1@$HOST" "$3" >"output.$HOST.txt" 2>"output.$HOST.err.txt" &
 	done
 	wait
 }
@@ -249,7 +249,7 @@ function msshp() {
 
 	for HOST in $(cat $2)
 	do
-		sshpass -p "$PASS" ssh -o StrictHostKeyChecking=no "$1@$HOST" "$3" >"output.$HOST" 2>"output.$HOST.err" &
+		sshpass -p "$PASS" ssh -o StrictHostKeyChecking=no "$1@$HOST" "$3" >"output.$HOST.txt" 2>"output.$HOST.err.txt" &
 	done
 	wait
 }
