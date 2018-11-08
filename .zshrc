@@ -18,6 +18,9 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/b
 export GOPATH=~/.go
 export PATH=$PATH:$GOPATH/bin
 
+# Enable the itch.io butler
+export PATH=$PATH:~/Library/Application\ Support/itch/apps/butler
+
 # Load proxy information
 [ -f ~/.proxyrc ] && source ~/.proxyrc
 
