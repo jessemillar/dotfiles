@@ -48,6 +48,10 @@ site "http://jessemillar.com/the-staff-of-lewis/*" {
     unmapAll
 }
 
+site "https://*itch.io/*" {
+    unmapAll
+}
+
 site "file://*" {
     unmapAll
 }
