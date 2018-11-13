@@ -2,6 +2,7 @@ arduino:~/Documents/Arduino
 ccm:~/Documents/Projects/gif-picking-ccm
 commons:~/Documents/Projects/gif-picking-commons
 crates:~/Documents/Projects/crates
+darkest:~/Documents/Projects/darkest-moon/src
 data:~/Data
 desktop:~/Desktop
 docker:~/Documents/Projects/gif-picking-data/docker
@@ -23,6 +24,7 @@ notes:~/Documents/Projects/notes
 npdm:~/Documents/Projects/fulfillment-node-picking-details-manager
 npm:~/Documents/Projects/fulfillment-node-picking-manager
 npmm:~/Documents/Projects/fulfillment-node-pick-messaging-manager
+pac:~/Documents/Projects/pac
 pem:~/Documents/Projects/gif-picking-event-manager
 pixel:~/Documents/Projects/pixel-art
 pongs:~/Documents/Projects/the-pongs
@@ -42,3 +44,4 @@ trunk:~/Documents/Projects/trunk
 ui:~/Documents/Projects/gif-ui/www
 validator:~/.go/src/gecgithub01.walmart.com/RT-Integrated-Fulfillment/gif-validator-service
 wallpaper:~/Dobuments/Projects/dropbox/wallpaper/randomized
+ztools:~/Documents/Projects/z-tools
