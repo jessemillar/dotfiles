@@ -5,6 +5,7 @@ crates:~/Documents/Projects/crates
 darkest:~/Documents/Projects/darkest-moon/src
 data:~/Data
 desktop:~/Desktop
+devlog:~/Documents/Projects/devlog/_posts
 docker:~/Documents/Projects/gif-picking-data/docker
 documents:~/Documents
 dotfiles:~/.dotfiles
@@ -13,7 +14,7 @@ dracula:~/.dracula
 dropbox:~/Documents/Projects/dropbox
 duck:~/Documents/Projects/duck
 eem:~/Documents/Projects/gif-picking-external-event-manager
-functional-tests:~/Documents/Projects/picking_2_0_functional_tests
+functional:~/Documents/Projects/picking_2_0_functional_tests
 gautomata:~/.go/src/github.com/jessemillar/gautomata
 go:~/.go
 hammerspoon:~/.hammerspoon
@@ -45,4 +46,3 @@ ui:~/Documents/Projects/gif-ui/www
 validator:~/.go/src/gecgithub01.walmart.com/RT-Integrated-Fulfillment/gif-validator-service
 wallpaper:~/Dobuments/Projects/dropbox/wallpaper/randomized
 ztools:~/Documents/Projects/z-tools
-devlog:~/Documents/Projects/devlog
