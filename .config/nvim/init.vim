@@ -37,6 +37,10 @@ function! s:check_back_space() abort "{{{
     return !col || getline('.')[col - 1] =~ '\s'
 endfunction"}}}
 
+" Shortcuts for talking to myself
+:inoremap <C-F> <C-R>="\n\nFriend - " . strftime("%a, %d %b %Y %H:%M:%S %z") . "\n"<CR>
+:inoremap <C-S> <C-R>="\n\nSelf - " . strftime("%a, %d %b %Y %H:%M:%S %z") . "\n"<CR>
+
 " Trim trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
