@@ -22,6 +22,8 @@ function brup() {
 	pip3 install neovim --upgrade &&\
 
 	nvim +GoUpdateBinaries +PlugUpdate +PlugUpgrade +qall
+
+	echo "brup() finished successfully"
 }
 
 function luv() {

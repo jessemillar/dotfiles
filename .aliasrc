@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 
 # General
+# day is listed first because it's needed in a couple aliases below
+alias day="date +%m-%d-%Y"
+
 alias a="ack"
 alias cas="cqlsh -u $CASSANDRA_USER -p $CASSANDRA_PASSWORD $CASSANDRA_DEV_ADDRESS -k gif_picking"
 alias casq="cqlsh -u $CASSANDRA_USER -p $CASSANDRA_PASSWORD $CASSANDRA_QA_INT_ADDRESS -k gif_picking"
 alias conversation="nvim ~/Documents/Projects/conversations/$(day).md"
 alias crates="sim_arduboy -p 3 ~/Documents/Projects/crates/crates.ino.leonardo.hex"
-alias day="date +%m-%d-%Y"
 alias h="history | tail -n 100"
 alias ha="history | ack"
+alias journal="nvim ~/Documents/Projects/resolutions/$(day).md"
 alias lines="wc -l **/* 2>/dev/null"
 alias o="open ."
 alias pb="pbcopy"
