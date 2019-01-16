@@ -23,7 +23,7 @@ function brup() {
 
 	nvim +GoUpdateBinaries +PlugUpdate +PlugUpgrade +qall
 
-	echo "brup() finished successfully"
+	echo "brup() finished"
 }
 
 function luv() {
