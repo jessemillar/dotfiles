@@ -13,7 +13,6 @@ function brup() {
 	brew -v update &&\
 	brew -v upgrade &&\
 	brew -v cleanup &&\
-	brew -v prune &&\
 	brew -v doctor &&\
 
 	brew -v cask upgrade --greedy &&\
@@ -21,7 +20,7 @@ function brup() {
 	pip3 install pip --upgrade &&\
 	pip3 install neovim --upgrade &&\
 
-	nvim +GoUpdateBinaries +PlugUpdate +PlugUpgrade +qall
+	nvim +GoUpdateBinaries +PlugUpdate +PlugUpgrade +qall &&\
 
 	echo "brup() finished"
 }
