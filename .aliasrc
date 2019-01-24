@@ -69,11 +69,11 @@ alias gl="hub log"
 alias gla="hub log | ack"
 alias gp="hub pull"
 alias gpr="hub pull-request"
+alias gpri="hub diff origin/master..HEAD"
 alias gr="hub remote -v"
 alias grm="hub ls-files -i --exclude-from=.gitignore | xargs hub rm --cached"
 alias gs="hub status"
 alias gsu="hub stash -u"
-alias gun="hub diff origin/master..HEAD"
 
 alias gpersonal='hub config user.email "hellojessemillar@gmail.com"'
 alias gwork='hub config user.email "jesse.millar@walmartlabs.com"'
