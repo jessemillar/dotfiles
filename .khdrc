@@ -1,21 +1,21 @@
 # reload config
-shift + cmd - r : khd -e "reload"; brew services restart chunkwm
+cmd + shift - r : khd -e "reload"; brew services restart chunkwm
 
 # open terminal
 cmd + shift - return : open -na Kitty
 
 # open a browser
-cmd + shift - f : open -a "Firefox"
+cmd + shift - b : open -a "Firefox"
 
 # open google chrome to view walmart order details
-cntrl + shift - d : open -a "Google Chrome" "http://prod-self-help-tool.cloud.walmart.com/gif-store-self-help-tool/od/orderDetails.html?order=$(pbpaste)&country=us"
+cmd + shift - d : open -a "Google Chrome" "http://prod-self-help-tool.cloud.walmart.com/gif-store-self-help-tool/od/orderDetails.html?order=$(pbpaste)&country=us"
 
 # bring up a rubber duck friend
 cmd + shift - d : osascript -e 'quit app "Duck"' && open -na Duck
 
 # enable "app mode" screenshots
-cntrl + shift - 4 -> : chunkc border::clear
-cntrl + shift - 6 -> : chunkc border::clear
+cmd + shift - 4 -> : chunkc border::clear
+cmd + shift - 6 -> : chunkc border::clear
 
 # spotify mouse controls
 alt - button3 : spotify prev
@@ -43,26 +43,26 @@ cmd + shift - k : chunkc tiling::window --warp north
 cmd + shift - l : chunkc tiling::window --warp east
 
 # send window to desktop
-shift + cmd + cntrl - x : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop)
-shift + cmd + cntrl - z : chunkc tiling::window --send-to-desktop prev
-shift + cmd + cntrl - c : chunkc tiling::window --send-to-desktop next
-shift + cmd + cntrl - 1 : chunkc tiling::window --send-to-desktop 1
-shift + cmd + cntrl - 2 : chunkc tiling::window --send-to-desktop 2
-shift + cmd + cntrl - 3 : chunkc tiling::window --send-to-desktop 3
-shift + cmd + cntrl - 4 : chunkc tiling::window --send-to-desktop 4
-shift + cmd + cntrl - 5 : chunkc tiling::window --send-to-desktop 5
-shift + cmd + cntrl - 6 : chunkc tiling::window --send-to-desktop 6
-shift + cmd + cntrl - 7 : chunkc tiling::window --send-to-desktop 7
-shift + cmd + cntrl - 8 : chunkc tiling::window --send-to-desktop 8
-shift + cmd + cntrl - 9 : chunkc tiling::window --send-to-desktop 9
-shift + cmd + cntrl - 0 : chunkc tiling::window --send-to-desktop 10
+shift + cmd + ctrl - x : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop)
+shift + cmd + ctrl - z : chunkc tiling::window --send-to-desktop prev
+shift + cmd + ctrl - c : chunkc tiling::window --send-to-desktop next
+shift + cmd + ctrl - 1 : chunkc tiling::window --send-to-desktop 1
+shift + cmd + ctrl - 2 : chunkc tiling::window --send-to-desktop 2
+shift + cmd + ctrl - 3 : chunkc tiling::window --send-to-desktop 3
+shift + cmd + ctrl - 4 : chunkc tiling::window --send-to-desktop 4
+shift + cmd + ctrl - 5 : chunkc tiling::window --send-to-desktop 5
+shift + cmd + ctrl - 6 : chunkc tiling::window --send-to-desktop 6
+shift + cmd + ctrl - 7 : chunkc tiling::window --send-to-desktop 7
+shift + cmd + ctrl - 8 : chunkc tiling::window --send-to-desktop 8
+shift + cmd + ctrl - 9 : chunkc tiling::window --send-to-desktop 9
+shift + cmd + ctrl - 0 : chunkc tiling::window --send-to-desktop 10
 
 # send window to desktop and switch desktop
-shift + cmd - x : `id=$(chunkc get _last_active_desktop); chunkc tiling::window -d $id; khd -p "cntrl + alt - $id" &> /dev/null`
-shift + cmd - button3 : chunkc tiling::window -d prev; khd -p "cntrl + alt - z"
-shift + cmd - button4 : chunkc tiling::window -d next; khd -p "cntrl + alt - c"
-shift + cmd - z : chunkc tiling::window -d prev; khd -p "cntrl + alt - z"
-shift + cmd - c : chunkc tiling::window -d next; khd -p "cntrl + alt - c"
+shift + cmd - x : `id=$(chunkc get _last_active_desktop); chunkc tiling::window -d $id; khd -p "ctrl + alt - $id" &> /dev/null`
+shift + cmd - button3 : chunkc tiling::window -d prev; khd -p "ctrl + alt - z"
+shift + cmd - button4 : chunkc tiling::window -d next; khd -p "ctrl + alt - c"
+shift + cmd - z : chunkc tiling::window -d prev; khd -p "ctrl + alt - z"
+shift + cmd - c : chunkc tiling::window -d next; khd -p "ctrl + alt - c"
 shift + cmd - 1 : chunkc tiling::window -d 1; khd -p "cmd - 1"
 shift + cmd - 2 : chunkc tiling::window -d 2; khd -p "cmd - 2"
 shift + cmd - 3 : chunkc tiling::window -d 3; khd -p "cmd - 3"
@@ -75,7 +75,7 @@ shift + cmd - 9 : chunkc tiling::window -d 9; khd -p "cmd - 9"
 shift + cmd - 0 : chunkc tiling::window -d 10; khd -p "cmd - 0"
 
 # switch to last active desktop
-cntrl + alt - x : `id=$(chunkc get _last_active_desktop); khd -p "cntrl + alt - $id" &> /dev/null`
+ctrl + alt - x : `id=$(chunkc get _last_active_desktop); khd -p "ctrl + alt - $id" &> /dev/null`
 
 # focus monitor
 - button3 : chunkc tiling::monitor -f prev
