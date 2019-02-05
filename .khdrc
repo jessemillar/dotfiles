@@ -44,8 +44,6 @@ cmd + shift - l : chunkc tiling::window --warp east
 
 # send window to desktop
 shift + cmd + ctrl - x : chunkc tiling::window --send-to-desktop $(chunkc get _last_active_desktop)
-shift + cmd + ctrl - z : chunkc tiling::window --send-to-desktop prev
-shift + cmd + ctrl - c : chunkc tiling::window --send-to-desktop next
 shift + cmd + ctrl - 1 : chunkc tiling::window --send-to-desktop 1
 shift + cmd + ctrl - 2 : chunkc tiling::window --send-to-desktop 2
 shift + cmd + ctrl - 3 : chunkc tiling::window --send-to-desktop 3
@@ -61,8 +59,6 @@ shift + cmd + ctrl - 0 : chunkc tiling::window --send-to-desktop 10
 shift + cmd - x : `id=$(chunkc get _last_active_desktop); chunkc tiling::window -d $id; khd -p "ctrl + alt - $id" &> /dev/null`
 shift + cmd - button3 : chunkc tiling::window -d prev; khd -p "ctrl + alt - z"
 shift + cmd - button4 : chunkc tiling::window -d next; khd -p "ctrl + alt - c"
-shift + cmd - z : chunkc tiling::window -d prev; khd -p "ctrl + alt - z"
-shift + cmd - c : chunkc tiling::window -d next; khd -p "ctrl + alt - c"
 shift + cmd - 1 : chunkc tiling::window -d 1; khd -p "cmd - 1"
 shift + cmd - 2 : chunkc tiling::window -d 2; khd -p "cmd - 2"
 shift + cmd - 3 : chunkc tiling::window -d 3; khd -p "cmd - 3"
