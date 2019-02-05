@@ -14,8 +14,8 @@ cmd + shift - d : open -a "Google Chrome" "http://prod-self-help-tool.cloud.walm
 cmd + shift - d : osascript -e 'quit app "Duck"' && open -na Duck
 
 # enable "app mode" screenshots
-cmd + shift - 4 -> : chunkc border::clear
-cmd + shift - 6 -> : chunkc border::clear
+ctrl + shift - 4 -> : chunkc border::clear
+ctrl + shift - 6 -> : chunkc border::clear
 
 # spotify mouse controls
 alt - button3 : spotify prev
@@ -57,8 +57,6 @@ shift + cmd + ctrl - 0 : chunkc tiling::window --send-to-desktop 10
 
 # send window to desktop and switch desktop
 shift + cmd - x : `id=$(chunkc get _last_active_desktop); chunkc tiling::window -d $id; khd -p "ctrl + alt - $id" &> /dev/null`
-shift + cmd - button3 : chunkc tiling::window -d prev; khd -p "ctrl + alt - z"
-shift + cmd - button4 : chunkc tiling::window -d next; khd -p "ctrl + alt - c"
 shift + cmd - 1 : chunkc tiling::window -d 1; khd -p "cmd - 1"
 shift + cmd - 2 : chunkc tiling::window -d 2; khd -p "cmd - 2"
 shift + cmd - 3 : chunkc tiling::window -d 3; khd -p "cmd - 3"
@@ -76,17 +74,11 @@ ctrl + alt - x : `id=$(chunkc get _last_active_desktop); khd -p "ctrl + alt - $i
 # focus monitor
 - button3 : chunkc tiling::monitor -f prev
 - button4 : chunkc tiling::monitor -f next
-cmd + alt - z : chunkc tiling::monitor -f prev
-cmd + alt - c : chunkc tiling::monitor -f next
 cmd + alt - 1 : chunkc tiling::monitor -f 1
 cmd + alt - 2 : chunkc tiling::monitor -f 2
 cmd + alt - 3 : chunkc tiling::monitor -f 3
 
 # send window to monitor and follow focus
-shift - button3 : chunkc tiling::window --send-to-monitor prev; chunkc tiling::monitor -f prev
-shift - button4 : chunkc tiling::window --send-to-monitor next; chunkc tiling::monitor -f next
-shift + cmd + alt - z : chunkc tiling::window --send-to-monitor prev; chunkc tiling::monitor -f prev
-shift + cmd + alt - c : chunkc tiling::window --send-to-monitor next; chunkc tiling::monitor -f next
 shift + cmd + alt - 1 : chunkc tiling::window --send-to-monitor 1; chunkc tiling::monitor -f 1
 shift + cmd + alt - 2 : chunkc tiling::window --send-to-monitor 2; chunkc tiling::monitor -f 2
 shift + cmd + alt - 3 : chunkc tiling::window --send-to-monitor 3; chunkc tiling::monitor -f 3
