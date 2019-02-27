@@ -11,15 +11,15 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Make NVM load in a way that doesn't slow down terminal startup
 NVM_LAZY_LOAD=true
 
-# User configuration
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl"
-
 # Put Go in my path
-export GOPATH=~/.go
-export PATH=$PATH:$GOPATH/bin
+export GOPATH="~/.go"
+export PATH="$GOPATH/bin:$PATH"
 
 # Enable the itch.io butler
-export PATH=$PATH:~/Library/Application\ Support/itch/apps/butler
+export PATH="~/Library/Application\ Support/itch/apps/butler:$PATH"
+
+# Add RVM to PATH for scripting (make sure this is the last PATH variable change)
+export PATH="$PATH:$HOME/.rvm/bin"
 
 # Load proxy information
 [ -f ~/.proxyrc ] && source ~/.proxyrc
@@ -51,6 +51,3 @@ else
 	# Print a Walmart Labs logo
 	labs
 fi
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
