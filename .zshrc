@@ -18,8 +18,8 @@ export PATH="$GOPATH/bin:$PATH"
 # Enable the itch.io butler
 export PATH="~/Library/Application\ Support/itch/apps/butler:$PATH"
 
-# Add RVM to PATH for scripting (make sure this is the last PATH variable change)
-export PATH="$PATH:$HOME/.rvm/bin"
+# Remove duplicates from $PATH
+typeset -aU path
 
 # Load proxy information
 [ -f ~/.proxyrc ] && source ~/.proxyrc
