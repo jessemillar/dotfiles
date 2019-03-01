@@ -18,9 +18,6 @@ ln -s ~/.dotfiles/.config/kitty ~/.config/kitty
 rm -rf ~/.config/nvim
 ln -s ~/.dotfiles/.config/nvim ~/.config/nvim
 
-rm ~/.cvimrc
-ln -s ~/.dotfiles/.cvimrc ~/.cvimrc
-
 rm ~/.functionsrc
 ln -s ~/.dotfiles/.functionsrc ~/.functionsrc
 
