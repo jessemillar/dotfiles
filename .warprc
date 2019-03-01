@@ -8,7 +8,6 @@ devlog:~/Documents/Projects/devlog/_posts
 documents:~/Documents
 dotfiles:~/.dotfiles
 downloads:~/Downloads
-dracula:~/.dracula
 dropbox:~/Documents/Projects/dropbox
 duck:~/Documents/Projects/duck
 eem:~/Documents/Projects/gif-picking-external-event-manager
@@ -38,7 +37,6 @@ shopper:~/Documents/Projects/gif-picking-shopper-service
 steppin:~/Documents/Projects/steppin
 tally:~/Documents/Projects/metrics-aggregator
 todo:~/Documents/Projects/todo
-trunk:~/Documents/Projects/trunk
 ui:~/Documents/Projects/gif-ui/www
 validator:~/.go/src/gecgithub01.walmart.com/RT-Integrated-Fulfillment/gif-validator-service
 wallpaper:~/Dobuments/Projects/dropbox/wallpaper/randomized
@@ -51,3 +49,5 @@ data:~/Documents/Projects/gif-picking-commons/gif-picking-data
 compycore:~/Documents/Projects/compycore.github.io
 dirt-manual:~/Documents/Projects/dirt-manual
 staff:~/Documents/Projects/the-staff-of-lewis
+trunk:~/.trunk
+dracula:~/Documents/Projects/dracula

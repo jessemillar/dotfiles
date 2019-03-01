@@ -68,5 +68,4 @@ chunkc tiling::rule --owner \"IntelliJ IDEA\" --name Delete --state float &
 chunkc tiling::rule --owner \"IntelliJ IDEA\" --name \"Generate equals\(\) and hashCode\(\)\" --state float &
 chunkc tiling::rule --owner \"IntelliJ IDEA\" --name Rename --state float &
 chunkc tiling::rule --owner \"Microsoft Outlook\" --name Reminder --state float &
-chunkc tiling::rule --owner \"OBS\" --state float &
 chunkc tiling::rule --owner \"System Preferences\" --state float &
