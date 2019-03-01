@@ -48,15 +48,6 @@ function gcpr() {
 	git checkout master && git pull && git pull origin pull/$1/head:pr/$1 && git checkout pr/$1
 }
 
-function q() {
-	qlmanage -p "$@" >/dev/null 2>&1
-}
-
-function twoot() {
-	madonctl toot $1
-	twty $1
-}
-
 function gclean() {
 	git remote prune origin >/dev/null 2>&1
 
@@ -248,10 +239,6 @@ function gifify() {
 	fi
 }
 
-function qr() {
-	qrencode -s 10 -o - $1 | open -f -a preview
-}
-
 function mssh() {
 	for HOST in $(cat $2)
 	do
@@ -358,6 +345,15 @@ function cells() {
 		echo "Scaling images"
 		mogrify -scale 5760x3600+0+0 *.png
 	fi
+}
+
+function q() {
+	qlmanage -p "$@" >/dev/null 2>&1
+}
+
+function twoot() {
+	madonctl toot $1
+	twty $1
 }
 
 # Used for taking notes from the command line

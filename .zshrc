@@ -11,6 +11,9 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Make NVM load in a way that doesn't slow down terminal startup
 NVM_LAZY_LOAD=true
 
+# Put Homebrew's sbin in my path
+export PATH="/usr/local/sbin:$PATH"
+
 # Put Go in my path
 export GOPATH="~/.go"
 export PATH="$GOPATH/bin:$PATH"
