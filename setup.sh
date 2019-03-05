@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Copy the warprc file because it sometimes stops being a symlink
+[[ -f ~/.warprc && ! -L ~/.warprc ]] && cp ~/.warprc ~/.dotfiles
+
+# Make symlinks
 rm ~/.ackrc
 ln -s ~/.dotfiles/.ackrc ~/.ackrc
 
