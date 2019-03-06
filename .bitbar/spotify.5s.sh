@@ -19,13 +19,20 @@ fi
 
 ## Get Spotify info
 
+icon="♪"
+state=$(tellspotify 'player state as string');
 track=$(tellspotify 'name of current track as string');
 artist=$(tellspotify 'artist of current track as string');
 album=$(tellspotify 'album of current track as string');
 
 ## Print the display
 
-echo "$track - $artist"
+if [ "$state" = "playing" ]; then
+	echo "$track - $artist $icon"
+else
+  echo "♪"
+fi
+
 echo "---"
 
 echo -e "Track:\\t$track"
