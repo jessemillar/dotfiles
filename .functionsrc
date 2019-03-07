@@ -377,7 +377,7 @@ function n() {
 
 # ASCII art
 function labs() {
-	echo $fg[cyan] "
+	echo $fg[yellow] "
        :########:
        ###' ####
       :### .###:
