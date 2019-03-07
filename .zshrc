@@ -45,12 +45,6 @@ antibody bundle lukechilds/zsh-nvm
 
 source $ZSH/oh-my-zsh.sh
 
-# Print a logo
-if [ $(($RANDOM % 2)) -eq 1 ]
-then
-	# Print an Overwatch Sombra logo
-	sombra
-else
-	# Print a Walmart Labs logo
-	labs
-fi
+# Print a random logo
+LOGOS=("sombra" "compycore" "labs")
+$(shuf -n1 -e "${LOGOS[@]}")

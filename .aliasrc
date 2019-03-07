@@ -5,10 +5,12 @@
 alias day="date +%m-%d-%Y"
 
 alias a="ack"
+alias cat="bat"
 alias cas="cqlsh -u $CASSANDRA_USER -p $CASSANDRA_PASSWORD $CASSANDRA_DEV_ADDRESS -k gif_picking"
 alias casq="cqlsh -u $CASSANDRA_USER -p $CASSANDRA_PASSWORD $CASSANDRA_QA_INT_ADDRESS -k gif_picking"
 alias conversation="nvim ~/Documents/Projects/conversations/$(day).md"
 alias crates="sim_arduboy -p 3 ~/Documents/Projects/crates/crates.ino.leonardo.hex"
+alias fu="fuck"
 alias h="history | tail -n 100"
 alias ha="history | ack"
 alias journal="nvim ~/Documents/Projects/resolutions/$(day).md"
@@ -81,50 +83,3 @@ alias gwork='hub config user.email "jesse.millar@walmartlabs.com"'
 # Generate Walmart Labs wallpapers
 alias cookie='for file in *; do TIME=$(date +%s) && ~/Documents/Projects/cookie-cutter/cookie-cutter.sh ~/Documents/Projects/dropbox/branding/bolt_pixel@2x.png "$file" ~/Documents/Projects/trunk/wallpaper/randomized/$TIME.png 5760 3600; done'
 
-# ASCII art
-alias labs='echo $fg[cyan] "
-       :########:
-       ###'\'' ####
-      :### .###:
-      ###'\'' ####
-     :### .###:
-    .###'\'' ####
-    #### .##############
-   :###'\'' #############:
-   ####.,,,,,,,,,,####
-   :################:
-    '\''*:############
-           ######:
-          :#####
-          ####:
-         :###
-         ##:
-         %
-"'
-alias sombra='echo $fg[magenta] "
-                      :PB@Bk:
-                  ,jB@@B@B@B@BBL.
-               7G@B@B@BMMMMMB@B@B@Nr
-           :kB@B@@@MMOMOMOMOMMMM@B@B@B1,
-       :5@B@B@B@BBMMOMOMOMOMOMOMM@@@B@B@BBu.
-    70@@@B@B@B@BXBBOMOMOMOMOMOMMBMPB@B@B@B@B@Nr
-  G@@@BJ iB@B@@  OBMOMOMOMOMOMOM@2  B@B@B. EB@B@S
-  @@BM@GJBU.  iSuB@OMOMOMOMOMOMM@OU1:  .kBLM@M@B@
-  B@MMB@B       7@BBMMOMOMOMOMOBB@:       B@BMM@B
-  @@@B@B         7@@@MMOMOMOMM@B@:         @@B@B@
-  @@OLB.          BNB@MMOMOMM@BEB          rBjM@B
-  @@  @           M  OBOMOMM@q  M          .@  @@
-  @@OvB           B:u@MMOMOMMBJiB          .BvM@B
-  @B@B@J         0@B@MMOMOMOMB@B@u         q@@@B@
-  B@MBB@v       G@@BMMMMMMMMMMMBB@5       F@BMM@B
-  @BBM@BPNi   LMEB@OMMMM@B@MMOMM@BZM7   rEqB@MBB@
-  B@@@BM  B@B@B  qBMOMB@B@B@BMOMBL  B@B@B  @B@B@M
-   J@@@@PB@B@B@B7G@OMBB.   ,@MMM@qLB@B@@@BqB@BBv
-      iGB@,i0@M@B@MMO@E  :  M@OMM@@@B@Pii@@N:
-         .   B@M@B@MMM@B@B@B@MMM@@@M@B
-             @B@B.i@MBB@B@B@@BM@::B@B@
-             B@@@ .B@B.:@B@ :B@B  @B@O
-               :0 r@B@  B@@ .@B@: P:
-                   vMB :@B@ :BO7
-                       ,B@B
-"'
