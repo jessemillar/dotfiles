@@ -2,36 +2,47 @@
 
 ####################
 # git functions
+# Note: The below functions use hub (https://github.com/github/hub) instead of git
 ####################
 
-function gdm() {
-	git diff master...$(git rev-parse --abbrev-ref HEAD)
+# Compare the current branch to a supplied branch (or master if no branch is supplied) and view the diff (similar to creating a GitHub PR)
+function gdpr() {
+	if [[ -z $1 ]]
+	then
+		hub diff master...$(hub rev-parse --abbrev-ref HEAD)
+	else
+		hub diff $1...$(hub rev-parse --abbrev-ref HEAD)
+	fi
 }
 
 # Quickly merge the current branch with a supplied branch (or master if no branch is supplied)
 function gm() {
-	BRANCH=$(git rev-parse --abbrev-ref HEAD)
+	BRANCH=$(hub rev-parse --abbrev-ref HEAD)
 
 	if [[ -z $1 ]]
 	then
-		git checkout master && git pull && git checkout $BRANCH && git merge master
+		hub checkout master && hub pull && hub checkout $BRANCH && hub merge master
 	else
-		git checkout $1 && git pull && git checkout $BRANCH && git merge $1
+		hub checkout $1 && hub pull && hub checkout $BRANCH && hub merge $1
 	fi
 }
 
+# Checkout a PR by PR number (useful if someone created a PR from a fork)
+# Note: 'hub pr checkout $1' should work in place of this function but receives "x509: certificate signed by unknown authority" because of Walmart security settings
 function gcpr() {
-	git checkout master && git pull && git pull origin pull/$1/head:pr/$1 && git checkout pr/$1
+	hub checkout master && hub pull && hub pull origin pull/$1/head:pr/$1 && hub checkout pr/$1
 }
 
+# Delete local git branches that are not present on the remote
 function gclean() {
-	git remote prune origin >/dev/null 2>&1
+	hub remote prune origin >/dev/null 2>&1
 
-	if [ "$1" == "-f" ]
+	# Force delete of stubborn branches if -f is passed
+	if [ "$1" = "-f" ]
 	then
-		git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -D
+		hub branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs hub branch -D
 	else
-		git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d
+		hub branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs hub branch -d
 	fi
 }
 
@@ -41,7 +52,7 @@ function gitt() {
 	then
 		echo "No commit message supplied"
 	else
-		BRANCH="$(git rev-parse --abbrev-ref HEAD | awk 'match($0, /[A-Z]+-[[:digit:]]+/) { print substr($0, RSTART, RLENGTH) }')"
+		BRANCH="$(hub rev-parse --abbrev-ref HEAD | awk 'match($0, /[A-Z]+-[[:digit:]]+/) { print substr($0, RSTART, RLENGTH) }')"
 
 		hub add -A
 
@@ -84,19 +95,19 @@ function wip() {
 		(
 		cd $repo && cd ..
 
-		if [[ ! -z $(git --no-pager diff HEAD) || ! -z $(git status --short) || ! -z $(git cherry -v 2>&1) || ! -z $(git --no-pager log --branches --not --remotes --no-walk --pretty=tformat:"%d%n") || ! -z $(git branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }') ]]
+		if [[ ! -z $(hub --no-pager diff HEAD) || ! -z $(hub status --short) || ! -z $(hub cherry -v 2>&1) || ! -z $(hub --no-pager log --branches --not --remotes --no-walk --pretty=tformat:"%d%n") || ! -z $(hub branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }') ]]
 		then
 			echo $repo
 
 			# Make newlines the only split character
 			IFS=$'\n'
 
-			for line in `git branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }'`
+			for line in `hub branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }'`
 			do
 				echo "  No remote: "$line
 			done
 
-			for line in `git --no-pager log --branches --not --remotes --no-walk --pretty=tformat:"%d%n"`
+			for line in `hub --no-pager log --branches --not --remotes --no-walk --pretty=tformat:"%d%n"`
 			do
 				echo "  Unpushed/outdated: "$line
 			done
@@ -107,6 +118,7 @@ function wip() {
 
 ####################
 # Arduboy functions
+# Note: These functions were created and used during visual asset development of Crates (https://github.com/compycore/crates)
 ####################
 
 function ardbitmap() {
