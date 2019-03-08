@@ -11,3 +11,5 @@
 	keepBackup = false
 [hub]
 	host = gecgithub01.walmart.com
+[push]
+	default = current

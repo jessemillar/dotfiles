@@ -53,9 +53,6 @@ alias ped="cd ..; pico-build edit; cd src"
 alias chunki="chunkc tiling::query --desktop windows"
 alias chunkid="chunkc tiling::query --window"
 
-# Hub (GitHub CLI wrapper on top of `git`)
-eval "$(hub alias -s)"
-
 # git
 alias gb="hub branch -a"
 alias gc="hub checkout"

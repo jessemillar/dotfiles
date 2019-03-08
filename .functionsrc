@@ -282,16 +282,16 @@ function gitt() {
 	else
 		BRANCH="$(git rev-parse --abbrev-ref HEAD | awk 'match($0, /[A-Z]+-[[:digit:]]+/) { print substr($0, RSTART, RLENGTH) }')"
 
-		git add -A
+		hub add -A
 
 		if [ -z "$BRANCH" ]
 		then
-			git commit -m $1
+			hub commit -m $1
 		else
-			git commit -m "$BRANCH $1"
+			hub commit -m "$BRANCH $1"
 		fi
 
-		git push
+		hub push
 	fi
 }
 

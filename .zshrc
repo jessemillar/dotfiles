@@ -39,6 +39,10 @@ typeset -aU path
 # Load custom functions
 [ -f ~/.functionsrc ] && source ~/.functionsrc
 
+# Load various CLI helpers
+eval "$(hub alias -s)"
+eval "$(thefuck --alias)"
+
 # Load plugins
 plugins=(wd vi-mode)
 antibody bundle lukechilds/zsh-nvm
