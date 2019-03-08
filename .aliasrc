@@ -55,7 +55,9 @@ alias chunkid="chunkc tiling::query --window"
 
 # git
 alias gb="hub branch -a"
+alias gbd="hub branch -D"
 alias gc="hub checkout"
+alias gcb="hub checkout -b"
 alias gd="hub diff --ignore-all-space"
 alias gl="hub log"
 alias gla="hub log | ack"
