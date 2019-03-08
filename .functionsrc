@@ -1,38 +1,14 @@
 #!/usr/bin/env bash
 
-function e() {
-	nnn "$@"
-
-	if [ -f $NNN_TMPFILE ]; then
-		. $NNN_TMPFILE
-		rm $NNN_TMPFILE
-	fi
-}
-
-function brup() {
-	brew -v update &&\
-	brew -v upgrade &&\
-	brew -v cleanup &&\
-	brew -v doctor &&\
-
-	brew -v cask upgrade --greedy &&\
-
-	pip3 install pip --upgrade &&\
-	pip3 install neovim --upgrade &&\
-
-	nvim +GoUpdateBinaries +PlugUpdate +PlugUpgrade +qall &&\
-
-	echo "brup() finished"
-}
-
-function luv() {
-	love $(pwd)
-}
+####################
+# git functions
+####################
 
 function gdm() {
 	git diff master...$(git rev-parse --abbrev-ref HEAD)
 }
 
+# Quickly merge the current branch with a supplied branch (or master if no branch is supplied)
 function gm() {
 	BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
@@ -56,6 +32,47 @@ function gclean() {
 		git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -D
 	else
 		git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d
+	fi
+}
+
+# Add all git changes with a commit message (prepend the branch name to the commit message if the branch name contains a Jira card number) and push to remote
+function gitt() {
+	if [ -z "$1" ]
+	then
+		echo "No commit message supplied"
+	else
+		BRANCH="$(git rev-parse --abbrev-ref HEAD | awk 'match($0, /[A-Z]+-[[:digit:]]+/) { print substr($0, RSTART, RLENGTH) }')"
+
+		hub add -A
+
+		if [ -z "$BRANCH" ]
+		then
+			hub commit -m $1
+		else
+			hub commit -m "$BRANCH $1"
+		fi
+
+		hub push
+	fi
+}
+
+# Generate a .gitignore file using gitignore.io
+function gi() {
+	if [ -z "$1" ]
+	then
+		curl -L -s https://www.gitignore.io/api/linux,macos,windows
+	else
+		if [ "$1" = "list" ]
+		then
+			if [ -z "$2" ]
+			then
+				curl -L -s https://www.gitignore.io/api/list?format=lines
+			else
+				curl -L -s https://www.gitignore.io/api/list?format=lines | ack $2
+			fi
+		else
+			curl -L -s https://www.gitignore.io/api/"$1"
+		fi
 	fi
 }
 
@@ -88,15 +105,9 @@ function wip() {
 	done
 }
 
-function search() {
-	if [ $1 = "-f" ]
-	then
-		find . -name "*$2*" | ack -i --passthru "$2"
-	else
-		find . -name "*$1*" | ack -i --passthru "$1"
-		ack -i "$1"
-	fi
-}
+####################
+# Arduboy functions
+####################
 
 function ardbitmap() {
 	# Deal with GIFs
@@ -239,6 +250,11 @@ function gifify() {
 	fi
 }
 
+####################
+# SSH functions
+####################
+
+# SSH into multiple servers using SSH keys and run a supplied command on each before saving the output and errors to text files
 function mssh() {
 	for HOST in $(cat $2)
 	do
@@ -247,6 +263,7 @@ function mssh() {
 	wait
 }
 
+# SSH into multiple servers using a password and run a supplied command on each before saving the output and errors to text files
 function msshp() {
 	read -s "PASS?Password: "
 
@@ -257,63 +274,31 @@ function msshp() {
 	wait
 }
 
-function crup() {
-	brew cask reinstall $(brew cask outdated) || true
-	brew cask cleanup
-}
+####################
+# Docker functions
+####################
 
+# Kill all running containers
 function drydock() {
 	docker kill $(docker ps -a -q) 2>/dev/null || true
 }
 
+# Kill and remove all containers
 function scuttle() {
 	docker kill $(docker ps -a -q) 2>/dev/null || true
 	docker rm $(docker ps -a -q) 2>/dev/null || true
 }
 
+# Remove all saved Docker images
 function sink() {
 	docker rmi $(docker images -q) 2>/dev/null || true
 }
 
-function gitt() {
-	if [ -z "$1" ]
-	then
-		echo "No commit message supplied"
-	else
-		BRANCH="$(git rev-parse --abbrev-ref HEAD | awk 'match($0, /[A-Z]+-[[:digit:]]+/) { print substr($0, RSTART, RLENGTH) }')"
+####################
+# General functions
+####################
 
-		hub add -A
-
-		if [ -z "$BRANCH" ]
-		then
-			hub commit -m $1
-		else
-			hub commit -m "$BRANCH $1"
-		fi
-
-		hub push
-	fi
-}
-
-function gi() {
-	if [ -z "$1" ]
-	then
-		curl -L -s https://www.gitignore.io/api/linux,macos,windows
-	else
-		if [ "$1" = "list" ]
-		then
-			if [ -z "$2" ]
-			then
-				curl -L -s https://www.gitignore.io/api/list?format=lines
-			else
-				curl -L -s https://www.gitignore.io/api/list?format=lines | ack $2
-			fi
-		else
-			curl -L -s https://www.gitignore.io/api/"$1"
-		fi
-	fi
-}
-
+# Compare two files and print lines from the second file that are not included in the first file
 function includes() {
 	while read LINE
 	do
@@ -324,6 +309,7 @@ function includes() {
 	done <$1
 }
 
+# Generate cellular automata wallpapers using gautomata
 function cells() {
 	if [ -z $1 ]
 	then
@@ -347,6 +333,7 @@ function cells() {
 	fi
 }
 
+# Preview a file in the macOS Quick Look viewer
 function q() {
 	qlmanage -p "$@" >/dev/null 2>&1
 }
@@ -376,4 +363,47 @@ function boltcookie() {
 		TIME=$(date +%s)
 		~/Documents/Projects/cookie-cutter/cookie-cutter.sh ~/Documents/Projects/dropbox/branding/bolt_pixel@2x.png "$file" ~/Documents/Projects/trunk/wallpaper/randomized/$TIME.png 5760 3600
 	done
+}
+
+# CLI file explorer with cd on close functionality (triggered via Control + G)
+function e() {
+	nnn "$@"
+
+	if [ -f $NNN_TMPFILE ]; then
+		. $NNN_TMPFILE
+		rm $NNN_TMPFILE
+	fi
+}
+
+# Update all Homebrew and nvim packages
+function brup() {
+	brew -v update &&\
+	brew -v upgrade &&\
+	brew -v cleanup &&\
+	brew -v doctor &&\
+
+	brew -v cask upgrade --greedy &&\
+
+	pip3 install pip --upgrade &&\
+	pip3 install neovim --upgrade &&\
+
+	nvim +GoUpdateBinaries +PlugUpdate +PlugUpgrade +qall &&\
+
+	echo "brup() finished"
+}
+
+# Run a LOVE project so you can see console output
+function luv() {
+	love $(pwd)
+}
+
+# Quickly search the current directory (and child directories) for files with filenames or contents that match the supplied search term
+function search() {
+	if [ $1 = "-f" ]
+	then
+		find . -name "*$2*" | ack -i --passthru "$2"
+	else
+		find . -name "*$1*" | ack -i --passthru "$1"
+		ack -i "$1"
+	fi
 }
