@@ -10,6 +10,9 @@ ln -s ~/.dotfiles/.ackrc ~/.ackrc
 rm ~/.aliasrc
 ln -s ~/.dotfiles/.aliasrc ~/.aliasrc
 
+rm ~/.asciirc
+ln -s ~/.dotfiles/.asciirc ~/.asciirc
+
 rm ~/.chunkwmrc
 ln -s ~/.dotfiles/.chunkwmrc ~/.chunkwmrc
 

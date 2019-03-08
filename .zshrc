@@ -39,6 +39,9 @@ typeset -aU path
 # Load custom functions
 [ -f ~/.functionsrc ] && source ~/.functionsrc
 
+# Load custom functions for ASCII art
+[ -f ~/.asciirc ] && source ~/.asciirc
+
 # Load various CLI helpers
 eval "$(hub alias -s)"
 eval "$(thefuck --alias)"
@@ -50,5 +53,5 @@ antibody bundle lukechilds/zsh-nvm
 source $ZSH/oh-my-zsh.sh
 
 # Print a random logo
-LOGOS=("sombra" "compycore" "labs")
+LOGOS=("sombra" "compycore" "walmartlabs")
 $(shuf -n1 -e "${LOGOS[@]}")

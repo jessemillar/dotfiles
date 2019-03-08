@@ -44,7 +44,6 @@ alias deflate="docker-compose down"
 # Pico-8
 alias pew="cp ~/Library/Application\\ Support/pico-8/carts/blank.p8"
 alias pest="/Applications/PICO-8.app/Contents/MacOS/pico8 -run"
-alias pu="" # I'm tired of accidentally typing this
 alias pun="cd ..; pico-build run; cd src"
 alias pud="mv ~/Library/Application\\ Support/pico-8/carts/new.p8 _assets.p8"
 alias ped="cd ..; pico-build edit; cd src"
@@ -72,7 +71,4 @@ alias gsu="hub stash -u"
 
 alias gpersonal='hub config user.email "hellojessemillar@gmail.com"'
 alias gwork='hub config user.email "jesse.millar@walmartlabs.com"'
-
-# Generate Walmart Labs wallpapers
-alias cookie='for file in *; do TIME=$(date +%s) && ~/Documents/Projects/cookie-cutter/cookie-cutter.sh ~/Documents/Projects/dropbox/branding/bolt_pixel@2x.png "$file" ~/Documents/Projects/trunk/wallpaper/randomized/$TIME.png 5760 3600; done'
 
