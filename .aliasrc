@@ -13,6 +13,7 @@ alias h="history | tail -n 100"
 alias ha="history | ack"
 alias journal="nvim ~/Documents/Projects/resolutions/$(day).md"
 alias lines="tokei"
+alias mci="mvn clean install"
 alias o="open ."
 alias pb="pbcopy"
 alias poc="nvim ~/Desktop/$(day).md"
@@ -35,7 +36,7 @@ alias gin="go install && go run server.go"
 alias ginb="cd frontend && ng build --aot && cd .. && go install && go run server.go"
 alias gest="go test -v -race ./..."
 
-# Docker
+# Docker (there are also a few functions defined in .functionsrc)
 alias dr="docker run"
 alias inflate="scuttle && docker-compose build && docker-compose up"
 alias inflated="scuttle && docker-compose build && docker-compose up -d"
@@ -52,7 +53,7 @@ alias ped="cd ..; pico-build edit; cd src"
 alias chunki="chunkc tiling::query --desktop windows"
 alias chunkid="chunkc tiling::query --window"
 
-# git
+# git (there are also a few functions defined in .functionsrc)
 alias gb="hub branch -a"
 alias gbd="hub branch -D"
 alias gc="hub checkout"
@@ -61,6 +62,7 @@ alias gd="hub diff --ignore-all-space"
 alias gl="hub log"
 alias gla="hub log | ack"
 alias gp="hub pull"
+alias gpersonal='hub config user.email "hellojessemillar@gmail.com"'
 alias gpr="hub pull-request"
 alias gpri="hub diff origin/master..HEAD"
 alias gr="hub remote -v"
@@ -68,7 +70,4 @@ alias greset="git reset --hard HEAD"
 alias grm="hub ls-files -i --exclude-from=.gitignore | xargs hub rm --cached"
 alias gs="hub status"
 alias gsu="hub stash -u"
-
-alias gpersonal='hub config user.email "hellojessemillar@gmail.com"'
 alias gwork='hub config user.email "jesse.millar@walmartlabs.com"'
-
