@@ -8,7 +8,7 @@ cmd + shift - return : open -na Kitty
 cmd + shift - b : open -a "Firefox"
 
 # open google chrome to view walmart order details
-cmd + shift - d : open -a "Google Chrome" "http://prod-self-help-tool.cloud.walmart.com/gif-store-self-help-tool/od/orderDetails.html?order=$(pbpaste)&country=us"
+cmd + shift - d : open -a "Google Chrome" "http://dev-self-help-tool.cloud.walmart.com:8080/gif-store-self-help-tool/od/orderDetails.html?order=$(pbpaste)&country=us"
 
 # bring up a rubber duck friend
 cmd + shift - d : osascript -e 'quit app "Duck"' && open -na Duck
