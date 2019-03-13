@@ -16,6 +16,9 @@ ln -s ~/.dotfiles/.asciirc ~/.asciirc
 rm ~/.chunkwmrc
 ln -s ~/.dotfiles/.chunkwmrc ~/.chunkwmrc
 
+rm -rf ~/.ardbitmap
+ln -s ~/.dotfiles/.ardbitmap ~/.ardbitmap
+
 rm -rf ~/.config/karabiner
 ln -s ~/.dotfiles/.config/karabiner ~/.config/karabiner
 
