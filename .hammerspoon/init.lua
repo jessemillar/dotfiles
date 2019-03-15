@@ -47,6 +47,12 @@ end
 
 hs.wifi.watcher.new(ssidChangedCallback):start()
 
+function changeWallpaper()
+	hs.execute("/usr/local/bin/wallpaper set ~/.trunk/wallpaper/randomized")
+end
+
+hs.screen.watcher.new(changeWallpaper):start()
+
 -- watch for unplugged headphones
 function audioCallback(uid, event)
 	if event=="jack" then

@@ -387,6 +387,11 @@ function e() {
 	fi
 }
 
+# Copy the contents of a file to the clipboard
+function copy() {
+	cat $1 | pbcopy
+}
+
 # Update all Homebrew and nvim packages
 function brup() {
 	brew -v update &&\
