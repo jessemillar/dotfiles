@@ -47,6 +47,7 @@ chunkc core::load border.so
 
 # send certain apps to certain desktops
 chunkc tiling::rule --owner Spotify --desktop 7 --follow-desktop &
+chunkc tiling::rule --owner Mail --desktop 8 --follow-desktop &
 chunkc tiling::rule --owner Message --desktop 8 --follow-desktop &
 chunkc tiling::rule --owner Slack --desktop 9 --follow-desktop &
 chunkc tiling::rule --owner \"Microsoft Outlook\" --except Reminder --desktop 10 --follow-desktop &
