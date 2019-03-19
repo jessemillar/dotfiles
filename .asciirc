@@ -1,6 +1,43 @@
 #!/usr/bin/env bash
 
-function walmartlabs() {
+function printAscii() {
+	allLogos=("sombra" "compycore" "walmartLabs" "tinyPenguin")
+	allowedLogos=()
+
+	for logo in $allLogos
+	do
+		if [ $(getLogoMaxWidth "$($logo)") -lt $(getTermWidth) ]
+		then
+			allowedLogos+=("$logo")
+		fi
+	done
+
+	$(shuf -n1 -e "${allowedLogos[@]}")
+}
+
+function getTermWidth() {
+	echo $(tput cols)
+}
+
+function getLogoMaxWidth() {
+	printf '%s\n' "$1" | awk -v max=-1 '
+  {l = length}
+  l > max {max = l; output = max RS}
+  END {if (max >= 0) printf "%s", output}'
+}
+
+function tinyPenguin() {
+	echo $fg[blue] "
+      __
+     ' o)>
+    /,-.'
+   //  ||
+   ||  |'
+  .:(_/_
+"
+}
+
+function walmartLabs() {
 	echo $fg[yellow] "
        :########:
        ###' ####

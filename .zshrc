@@ -53,5 +53,4 @@ antibody bundle lukechilds/zsh-nvm
 source $ZSH/oh-my-zsh.sh
 
 # Print a random logo
-LOGOS=("sombra" "compycore" "walmartlabs")
-$(shuf -n1 -e "${LOGOS[@]}")
+printAscii
