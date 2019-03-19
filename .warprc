@@ -1,6 +1,5 @@
 arduino:~/Documents/Arduino
 art:~/Documents/Projects/art
-ccm:~/Documents/Projects/gif-picking-ccm
 commons:~/Documents/Projects/gif-picking-commons
 compycore:~/Documents/Projects/compycore.github.io
 conversations:~/Documents/Projects/conversations
@@ -31,7 +30,6 @@ pem:~/Documents/Projects/gif-picking-event-manager
 pixel:~/Documents/Projects/pixel-art
 pongs:~/Documents/Projects/the-pongs
 projects:~/Documents/Projects
-punchers:~/Documents/Projects/penguin-punchers
 quack:~/.go/src/github.com/jessemillar/quack
 read:~/Documents/Projects/gif-picking-read-service
 schemas:~/Documents/Projects/fulfillment-schemas
