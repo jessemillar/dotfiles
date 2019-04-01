@@ -394,6 +394,7 @@ function copy() {
 
 # Update all Homebrew and nvim packages
 function brup() {
+	# The below commands are chained via &&\ so that the function fails when a single command fails
 	brew -v update &&\
 	brew -v upgrade &&\
 	brew -v cleanup &&\
@@ -405,6 +406,8 @@ function brup() {
 	pip3 install neovim --upgrade &&\
 
 	nvim +GoUpdateBinaries +PlugUpdate +PlugUpgrade +qall &&\
+
+	tldr --update &&\
 
 	echo "brup() finished"
 }
