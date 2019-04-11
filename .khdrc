@@ -79,9 +79,9 @@ cmd + alt - 2 : chunkc tiling::monitor -f 2
 cmd + alt - 3 : chunkc tiling::monitor -f 3
 
 # send window to monitor and follow focus
-shift + cmd + alt - 1 : chunkc tiling::window --send-to-monitor 1; chunkc tiling::monitor -f 1
-shift + cmd + alt - 2 : chunkc tiling::window --send-to-monitor 2; chunkc tiling::monitor -f 2
-shift + cmd + alt - 3 : chunkc tiling::window --send-to-monitor 3; chunkc tiling::monitor -f 3
+shift + cmd - f1 : chunkc tiling::window --send-to-monitor 1; chunkc tiling::monitor -f 1
+shift + cmd - f2 : chunkc tiling::window --send-to-monitor 2; chunkc tiling::monitor -f 2
+shift + cmd - f3 : chunkc tiling::window --send-to-monitor 3; chunkc tiling::monitor -f 3
 
 # increase region size
 shift + alt - h : chunkc tiling::window --use-temporary-ratio 0.075 --adjust-window-edge west; chunkc tiling::window --use-temporary-ratio -0.075 --adjust-window-edge east
