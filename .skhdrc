@@ -1,25 +1,21 @@
 # reload config
-cmd + shift - r : khd -e "reload"; brew services restart chunkwm
+cmd + shift - r : skhd --reload; brew services restart chunkwm
 
 # open terminal
-cmd + shift - return : open -na Kitty
+cmd - return : open -na Kitty
 
 # open a browser
 cmd + shift - b : open -a "Firefox"
 
 # open a browser to view walmart order details
-cmd + shift - d : open -a "Firefox" "http://prod-self-help-tool.cloud.walmart.com/gif-store-self-help-tool/od/orderDetails.html?order=$(pbpaste)&country=us"
+cmd + shift - d: open -a "Firefox" "http://prod-self-help-tool.cloud.walmart.com/gif-store-self-help-tool/od/orderDetails.html?order=$(pbpaste)&country=us"
 
 # bring up a rubber duck friend
-cmd + shift - d : osascript -e 'quit app "Duck"' && open -na Duck
+cmd + alt + shift - d : osascript -e 'quit app "Duck"' && open -na Duck
 
 # enable "app mode" screenshots
 ctrl + shift - 4 -> : chunkc border::clear
 ctrl + shift - 6 -> : chunkc border::clear
-
-# spotify mouse controls
-alt - button3 : spotify prev
-alt - button4 : spotify next
 
 # focus window
 cmd + alt - h : chunkc tiling::window --focus west
@@ -72,11 +68,9 @@ shift + cmd - 0 : chunkc tiling::window -d 10; khd -p "cmd - 0"
 ctrl + alt - x : `id=$(chunkc get _last_active_desktop); khd -p "ctrl + alt - $id" &> /dev/null`
 
 # focus monitor
-- button3 : chunkc tiling::monitor -f prev
-- button4 : chunkc tiling::monitor -f next
-cmd + alt - 1 : chunkc tiling::monitor -f 1
-cmd + alt - 2 : chunkc tiling::monitor -f 2
-cmd + alt - 3 : chunkc tiling::monitor -f 3
+cmd + alt - f1 : chunkc tiling::monitor -f 1
+cmd + alt - f2 : chunkc tiling::monitor -f 2
+cmd + alt - f3 : chunkc tiling::monitor -f 3
 
 # send window to monitor and follow focus
 shift + cmd - f1 : chunkc tiling::window --send-to-monitor 1; chunkc tiling::monitor -f 1

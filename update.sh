@@ -41,8 +41,8 @@ ln -s ~/.dotfiles/.hammerspoon ~/.hammerspoon
 rm ~/.ideavimrc
 ln -s ~/.dotfiles/.ideavimrc ~/.ideavimrc
 
-rm -rf ~/.khdrc
-ln -s ~/.dotfiles/.khdrc ~/.khdrc
+rm -rf ~/.skhdrc
+ln -s ~/.dotfiles/.skhdrc ~/.skhdrc
 
 rm ~/.oh-my-zsh/custom/mister-michael.zsh-theme
 mkdir -p ~/.oh-my-zsh/custom
