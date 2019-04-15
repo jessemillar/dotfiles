@@ -52,20 +52,20 @@ shift + cmd + ctrl - 9 : chunkc tiling::window --send-to-desktop 9
 shift + cmd + ctrl - 0 : chunkc tiling::window --send-to-desktop 10
 
 # send window to desktop and switch desktop
-shift + cmd - x : `id=$(chunkc get _last_active_desktop); chunkc tiling::window -d $id; khd -p "ctrl + alt - $id" &> /dev/null`
-shift + cmd - 1 : chunkc tiling::window -d 1; khd -p "cmd - 1"
-shift + cmd - 2 : chunkc tiling::window -d 2; khd -p "cmd - 2"
-shift + cmd - 3 : chunkc tiling::window -d 3; khd -p "cmd - 3"
-shift + cmd - 4 : chunkc tiling::window -d 4; khd -p "cmd - 4"
-shift + cmd - 5 : chunkc tiling::window -d 5; khd -p "cmd - 5"
-shift + cmd - 6 : chunkc tiling::window -d 6; khd -p "cmd - 6"
-shift + cmd - 7 : chunkc tiling::window -d 7; khd -p "cmd - 7"
-shift + cmd - 8 : chunkc tiling::window -d 8; khd -p "cmd - 8"
-shift + cmd - 9 : chunkc tiling::window -d 9; khd -p "cmd - 9"
-shift + cmd - 0 : chunkc tiling::window -d 10; khd -p "cmd - 0"
+shift + cmd - x : `id=$(chunkc get _last_active_desktop); chunkc tiling::window -d $id; skhd -k "ctrl + alt - $id" &> /dev/null`
+shift + cmd - 1 : chunkc tiling::window -d 1; skhd -k "cmd - 1"
+shift + cmd - 2 : chunkc tiling::window -d 2; skhd -k "cmd - 2"
+shift + cmd - 3 : chunkc tiling::window -d 3; skhd -k "cmd - 3"
+shift + cmd - 4 : chunkc tiling::window -d 4; skhd -k "cmd - 4"
+shift + cmd - 5 : chunkc tiling::window -d 5; skhd -k "cmd - 5"
+shift + cmd - 6 : chunkc tiling::window -d 6; skhd -k "cmd - 6"
+shift + cmd - 7 : chunkc tiling::window -d 7; skhd -k "cmd - 7"
+shift + cmd - 8 : chunkc tiling::window -d 8; skhd -k "cmd - 8"
+shift + cmd - 9 : chunkc tiling::window -d 9; skhd -k "cmd - 9"
+shift + cmd - 0 : chunkc tiling::window -d 10; skhd -k "cmd - 0"
 
 # switch to last active desktop
-ctrl + alt - x : `id=$(chunkc get _last_active_desktop); khd -p "ctrl + alt - $id" &> /dev/null`
+ctrl + alt - x : `id=$(chunkc get _last_active_desktop); skhd -k "ctrl + alt - $id" &> /dev/null`
 
 # focus monitor
 cmd + alt - f1 : chunkc tiling::monitor -f 1
