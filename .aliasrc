@@ -56,7 +56,7 @@ alias ped="cd ..; pico-build edit; cd src"
 alias chunki="chunkc tiling::query --desktop windows"
 alias chunkid="chunkc tiling::query --window"
 
-# git (there are also a few functions defined in .functionsrc)
+# git (there are also a few git functions defined in .functionsrc)
 alias gb="hub branch -a"
 alias gbd="hub branch -D"
 alias gc="hub checkout"
@@ -65,12 +65,16 @@ alias gd="hub diff --ignore-all-space"
 alias gl="hub log"
 alias gla="hub log | ack"
 alias gp="hub pull"
+alias gpu="hub push"
+alias gput="hub push --tags"
 alias gpersonal='hub config user.email "hellojessemillar@gmail.com"'
 alias gpr="hub pull-request"
 alias gpri="hub diff origin/master..HEAD"
 alias gr="hub remote -v"
-alias greset="git reset --hard HEAD"
+alias grh="git reset --hard HEAD"
 alias grm="hub ls-files -i --exclude-from=.gitignore | xargs hub rm --cached"
 alias gs="hub status"
 alias gsu="hub stash -u"
+alias gt="hub tag"
+alias gtl="hub tag -l"
 alias gwork='hub config user.email "jesse.millar@walmartlabs.com"'
