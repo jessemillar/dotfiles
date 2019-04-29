@@ -86,7 +86,7 @@ function gitt() {
 			hub commit -m "$BRANCH $1"
 		fi
 
-		hub push
+		hub push -u
 	fi
 }
 
