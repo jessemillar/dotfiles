@@ -37,12 +37,35 @@ function gcpr() {
 function gclean() {
 	hub remote prune origin >/dev/null 2>&1
 
+	MERGED_BRANCHES=$(hub branch --merged master --no-color | cut -c 3- | grep -v '^[ *]*master$')
+	ORPHAN_BRANCHES=$(hub branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }')
+
 	# Force delete of stubborn branches if -f is passed
 	if [ "$1" = "-f" ]
 	then
-		hub branch --merged master --no-color | grep -v '^[ *]*master$' | xargs hub branch -D
+		echo "Merged branches:"
+		echo $MERGED_BRANCHES
+		echo "Orphan branches:"
+		echo $ORPHAN_BRANCHES
+		read "DELETE?Force delete the listed branches? [y/N] "
+		if [ "$DELETE" = "y" ]; then
+			hub branch --merged master --no-color | grep -v '^[ *]*master$' | xargs hub branch -D
+			hub branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }' | xargs hub branch -D
+		else
+			echo "Aborted"
+		fi
 	else
-		hub branch --merged master --no-color | grep -v '^[ *]*master$' | xargs hub branch -d
+		echo "Merged branches:"
+		echo $MERGED_BRANCHES
+		echo "Orphan branches:"
+		echo $ORPHAN_BRANCHES
+		read "DELETE?Delete the listed branches? [y/N] "
+		if [ "$DELETE" = "y" ]; then
+			hub branch --merged master --no-color | grep -v '^[ *]*master$' | xargs hub branch -d
+			hub branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }' | xargs hub branch -d
+		else
+			echo "Aborted"
+		fi
 	fi
 }
 
