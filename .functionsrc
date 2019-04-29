@@ -56,25 +56,30 @@ function gclean() {
 		echo $BRANCHES_WITH_NO_REMOTE
 	fi
 
-	# Force delete of stubborn branches if -f is passed
-	if [ "$1" = "-f" ]
+	if [[ -z $MERGED_BRANCHES ]] && [[ -z $ORPHAN_BRANCHES ]] && [[ -z $BRANCHES_WITH_NO_REMOTE ]]
 	then
-		read "DELETE?Force delete the listed branches? [y/N] "
-		if [ "$DELETE" = "y" ]; then
-			echo $MERGED_BRANCHES | xargs hub branch -D
-			echo $ORPHAN_BRANCHES | xargs hub branch -D
-			echo $BRANCHES_WITH_NO_REMOTE | xargs hub branch -D
-		else
-			echo "Aborted"
-		fi
+		echo "Repo is already clean"
 	else
-		read "DELETE?Delete the listed branches? [y/N] "
-		if [ "$DELETE" = "y" ]; then
-			echo $MERGED_BRANCHES | xargs hub branch -d
-			echo $ORPHAN_BRANCHES | xargs hub branch -d
-			echo $BRANCHES_WITH_NO_REMOTE | xargs hub branch -d
+		# Force delete of stubborn branches if -f is passed
+		if [ "$1" = "-f" ]
+		then
+			read "DELETE?Force delete the listed branches? [y/N] "
+			if [ "$DELETE" = "y" ]; then
+				echo $MERGED_BRANCHES | xargs hub branch -D
+				echo $ORPHAN_BRANCHES | xargs hub branch -D
+				echo $BRANCHES_WITH_NO_REMOTE | xargs hub branch -D
+			else
+				echo "Aborted"
+			fi
 		else
-			echo "Aborted"
+			read "DELETE?Delete the listed branches? [y/N] "
+			if [ "$DELETE" = "y" ]; then
+				echo $MERGED_BRANCHES | xargs hub branch -d
+				echo $ORPHAN_BRANCHES | xargs hub branch -d
+				echo $BRANCHES_WITH_NO_REMOTE | xargs hub branch -d
+			else
+				echo "Aborted"
+			fi
 		fi
 	fi
 }
