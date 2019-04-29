@@ -40,9 +40,9 @@ function gclean() {
 	# Force delete of stubborn branches if -f is passed
 	if [ "$1" = "-f" ]
 	then
-		hub branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs hub branch -D
+		hub branch --merged master --no-color | grep -v '^[ *]*master$' | xargs hub branch -D
 	else
-		hub branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs hub branch -d
+		hub branch --merged master --no-color | grep -v '^[ *]*master$' | xargs hub branch -d
 	fi
 }
 
