@@ -42,17 +42,17 @@ function gclean() {
 	BRANCHES_WITH_NO_REMOTE=$(hub branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }')
 
 	if [[ ! -z $MERGED_BRANCHES ]]; then
-		echo "Merged branches:"
+		echo "# Merged branches:"
 		echo $MERGED_BRANCHES
 	fi
 
 	if [[ ! -z $ORPHAN_BRANCHES ]]; then
-		echo "Orphan branches:"
+		echo "# Orphan branches:"
 		echo $ORPHAN_BRANCHES
 	fi
 
 	if [[ ! -z $BRANCHES_WITH_NO_REMOTE ]]; then
-		echo "Branches with no remote:"
+		echo "# Branches with no remote:"
 		echo $BRANCHES_WITH_NO_REMOTE
 	fi
 

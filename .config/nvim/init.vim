@@ -57,10 +57,10 @@ let g:javascript_plugin_jsdoc = 1
 set directory=/tmp
 
 " Better movement between panes
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Don't complain when I type too fast
 :command WQ wq
