@@ -48,7 +48,7 @@ end
 hs.wifi.watcher.new(ssidChangedCallback):start()
 
 function changeWallpaper()
-	hs.execute("/usr/local/bin/wallpaper set ~/.trunk/wallpaper/randomized")
+	hs.execute("/usr/local/bin/wallpaper set ~/Documents/Trunk/wallpaper/randomized")
 end
 
 hs.screen.watcher.new(changeWallpaper):start()

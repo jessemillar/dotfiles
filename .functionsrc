@@ -411,7 +411,7 @@ function boltcookie() {
 	for file in *
 	do
 		TIME=$(date +%s)
-		~/Documents/Projects/cookie-cutter/cookie-cutter.sh ~/Documents/Projects/dropbox/branding/bolt_pixel@2x.png "$file" ~/Documents/Projects/trunk/wallpaper/randomized/$TIME.png 5760 3600
+		~/Documents/Projects/cookie-cutter/cookie-cutter.sh ~/Documents/Projects/dropbox/branding/bolt_pixel@2x.png "$file" ~/Documents/Trunk/wallpaper/randomized/$TIME.png 5760 3600
 	done
 }
 
