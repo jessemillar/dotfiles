@@ -21,6 +21,9 @@ export PATH="$GOPATH/bin:$PATH"
 # Enable the itch.io butler
 export PATH="~/Library/Application\ Support/itch/apps/butler:$PATH"
 
+# Enable dvm
+[ -f /usr/local/opt/dvm/dvm.sh ] && . /usr/local/opt/dvm/dvm.sh
+
 # Remove duplicates from $PATH
 typeset -aU path
 
