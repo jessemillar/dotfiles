@@ -60,5 +60,5 @@ ln -s ~/.dotfiles/.warprc ~/.warprc
 rm ~/.zshrc
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
-rm $HOME/Library/Application\ Support/Code/User/settings.json
-ln -s ~/.dotfiles/Library/Application\ Support/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+rm ~/Library/Application\ Support/Code/User/settings.json
+ln -s ~/.dotfiles/Library/Application\ Support/Code/User/settings.json ~/Library/Application\ Support/Code/User/
