@@ -1,0 +1,10 @@
+{
+    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "Dracula",
+    "workbench.activityBar.visible": false,
+    "workbench.statusBar.feedback.visible": false,
+    "pixelbyte.love2d.path": "/usr/local/bin/love",
+    "editor.formatOnSave": true,
+    "editor.scrollBeyondLastLine": false,
+    "terminal.integrated.copyOnSelection": true
+}
