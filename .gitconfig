@@ -3,7 +3,7 @@
 	name = Jesse Millar
 	username = jessemillar
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = /Users/jessemillar/.gitignore_global
 	editor = vim
 [merge]
 	tool = opendiff

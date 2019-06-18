@@ -53,6 +53,7 @@ chunkc tiling::rule --owner Slack --desktop 9 &
 chunkc tiling::rule --owner \"Microsoft Outlook\" --except Reminder --desktop 10 &
 
 # shell commands require escaped quotes to pass value containing a whitespace
+chunkc tiling::rule --owner BlueJeans --state float &
 chunkc tiling::rule --owner DBeaver --except \".+\" --state float &
 chunkc tiling::rule --owner DBeaver --name Error --state float &
 chunkc tiling::rule --owner Duck --name Duck --state float &
