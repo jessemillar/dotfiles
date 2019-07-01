@@ -46,10 +46,10 @@ chunkc core::load tiling.so
 chunkc core::load border.so
 
 # send certain apps to certain desktops
-chunkc tiling::rule --owner Spotify --desktop 7 &
-chunkc tiling::rule --owner Messages --desktop 8 &
-chunkc tiling::rule --owner Slack --desktop 9 &
-chunkc tiling::rule --owner \"Microsoft Outlook\" --except Reminder --desktop 10 &
+chunkc tiling::rule --owner Spotify --desktop 7 --follow-desktop &
+chunkc tiling::rule --owner Messages --desktop 8 --follow-desktop &
+chunkc tiling::rule --owner Slack --desktop 9 --follow-desktop &
+chunkc tiling::rule --owner \"Microsoft Outlook\" --except Reminder --desktop 10 --follow-desktop &
 
 # shell commands require escaped quotes to pass value containing a whitespace
 chunkc tiling::rule --owner BlueJeans --state float &
