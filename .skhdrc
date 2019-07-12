@@ -1,5 +1,5 @@
 # reload config
-ctrl + alt + cmd - r : brew services restart koekeishiya/formulae/yabai; skhd --reload
+cmd + shift - r : skhd --reload; launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
 # open terminal
 cmd - return : open -na Kitty
