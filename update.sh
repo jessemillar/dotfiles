@@ -57,6 +57,9 @@ ln -s ~/.dotfiles/.uncrustify ~/.uncrustify
 rm ~/.warprc
 ln -s ~/.dotfiles/.warprc ~/.warprc
 
+rm ~/.yabairc
+ln -s ~/.dotfiles/.yabairc ~/.yabairc
+
 rm ~/.zshrc
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
