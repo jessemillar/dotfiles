@@ -52,9 +52,8 @@ alias pun="cd ..; pico-build run; cd src"
 alias pud="mv ~/Library/Application\\ Support/pico-8/carts/new.p8 _assets.p8"
 alias ped="cd ..; pico-build edit; cd src"
 
-# chunkwm
-alias chunki="chunkc tiling::query --desktop windows"
-alias chunkid="chunkc tiling::query --window"
+# yabai
+alias yabaiq="yabai -m query --windows"
 
 # git (there are also a few git functions defined in .functionsrc)
 alias gb="hub branch -a"
