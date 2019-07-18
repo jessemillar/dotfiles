@@ -6,5 +6,6 @@
     "pixelbyte.love2d.path": "/usr/local/bin/love",
     "editor.formatOnSave": true,
     "editor.scrollBeyondLastLine": false,
-    "terminal.integrated.copyOnSelection": true
+    "terminal.integrated.copyOnSelection": true,
+    "lovelauncher.path": "/usr/local/bin/love"
 }

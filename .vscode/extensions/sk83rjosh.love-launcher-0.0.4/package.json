@@ -1,0 +1,78 @@
+{
+	"name": "love-launcher",
+	"displayName": "LÖVE Launcher",
+	"description": "Launch LÖVE projects via shortcut.",
+	"version": "0.0.4",
+	"publisher": "SK83RJOSH",
+	"repository": "https://github.com/SK83RJOSH/vscode-love-launcher",
+	"icon": "icon.svg",
+	"galleryBanner": {
+		"color": "#6CBEE4",
+		"theme": "dark"
+	},
+	"engines": {
+		"vscode": "^1.0.0"
+	},
+	"keywords": [
+		"LÖVE",
+		"love2d",
+		"launcher"
+	],
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:lovelauncher.launch",
+		"workspaceContains:main.lua"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "lovelauncher.launch",
+				"title": "Launch LÖVE"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "lovelauncher.launch",
+				"key": "alt+l"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "LÖVE Launcher Config",
+			"properties": {
+				"lovelauncher.path": {
+					"type": "string",
+					"description": "Path to your LÖVE executable.",
+					"default": "C:\\Program Files (x86)\\LOVE\\love.exe"
+				},
+				"lovelauncher.args": {
+					"type": "string",
+					"description": "Arguments to pass to LÖVE.",
+					"default": ""
+				},
+				"lovelauncher.useOutput": {
+					"type": "boolean",
+					"description": "Whether or not to pipe stdout to an output channel (requires io.stdout:setvbuf('no') to be in conf.lua).",
+					"default": false
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"typescript": "^1.8.5",
+		"vscode": "^0.11.0"
+	},
+	"__metadata": {
+		"id": "3658f47e-4beb-408e-8a1c-b7dfbd8b21f0",
+		"publisherId": "3978ff3b-c261-4981-a484-bb77eba76085",
+		"publisherDisplayName": "SK83RJOSH"
+	}
+}
