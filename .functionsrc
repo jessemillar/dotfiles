@@ -345,8 +345,40 @@ function sink() {
 }
 
 ####################
+# Work functions
+####################
+
+# Combine files to aid in porting from CCM to ConfigClient
+function combine() {
+	s -f $1 | tail -r | xargs cat > combined-$(basename $1 .properties).conf
+}
+
+# Combine the multiple filetypes and remove empty files
+function unite() {
+	find . -type f -empty | xargs trash
+	s -f logging.properties | xargs trash
+
+	combine database.properties && combine application.properties && combine kafka.properties && combine business.properties
+
+	find . -type f -empty | xargs trash
+
+	for f in combined-*.conf
+	do
+		gsed -z -i 's/=\n/=""\n/g' $f
+		gsed -i 's/URL=\([^" >][^ >]*\)/URL="\1"/g' $f
+		gsed -i 's/URI=\([^" >][^ >]*\)/URI="\1"/g' $f
+		gsed -i 's/HOST=\([^" >][^ >]*\)/HOST="\1"/g' $f
+	done
+}
+
+####################
 # General functions
 ####################
+
+# Copy a file and remove it (useful for repetitive work tasks)
+function cosh() {
+	copy $1 && trash $1
+}
 
 # Compare two files and print lines from the second file that are not included in the first file
 function includes() {
