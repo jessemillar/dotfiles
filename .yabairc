@@ -40,6 +40,7 @@ yabai -m config right_padding                2
 yabai -m config window_gap                   2
 
 # send certain apps to certain desktops
+yabai -m rule --add app="iTunes" space=^7
 yabai -m rule --add app="Spotify" space=^7
 yabai -m rule --add app="Messages" space=^8
 yabai -m rule --add app="Slack" space=^9
