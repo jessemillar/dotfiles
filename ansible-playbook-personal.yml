@@ -7,3 +7,8 @@
       - homebrew/cask
     homebrew_cask_apps:
       - dropbox
+    tasks:
+      - name: Symlinking ~/Desktop to Dropbox
+        command: ln -s ~/Desktop ~/Dropbox
+      - name: Symlinking ~/Downloads to Dropbox
+        command: ln -s ~/Downloads ~/Dropbox

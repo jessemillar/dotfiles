@@ -18,6 +18,3 @@ I utilize a combination of [GNU Stow](https://www.gnu.org/software/stow/) and [A
 
 ### Ansible
 `ansible-playbook-main.yml` is a combination of multiple playbooks that get my system up to speed quickly with minimal user interaction. There are a few Ansible playbooks included in the repo that are not called as part of `ansible-playbook-main.yml`. Depending on which machine I'm configuring, I'll manually run one (or all) of the non-included playbooks via `ansible-playbook --ask-become-pass PLAYBOOK` after the successful completion of `ansible-playbook-main.yml`.
-
-## TODO
-- [ ] Set up testing with Travis
