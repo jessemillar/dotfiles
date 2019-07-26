@@ -5,10 +5,9 @@
       command: stow ack
     - name: Stow dotfiles for Git
       command: stow git
-    - name: Install nvim Python support
-      command: pip3 install --user neovim
   roles:
     - geerlingguy.homebrew
+  vars:
     homebrew_taps:
       - getantibody/tap
       - homebrew/cask
@@ -17,11 +16,9 @@
       - antibody
       - bat
       - coreutils
-      - excel-compare
       - fd
       - fdupes
       - ffmpeg
-      - gist
       - git
       - go
       - grep
@@ -30,13 +27,12 @@
       - imagemagick
       - imagesnap
       - jq
-      - mono
       - neovim
       - nmap
       - nnn
       - pipes-sh
       - python3
-      - shpotify
+      - shellcheck
       - thefuck
       - tidy-html5
       - tldr
@@ -48,16 +44,23 @@
       - watch
       - wifi-password
       - zsh
+    homebrew_uninstalled_packages:
+      - excel-compare
+      - gist
+      - mono
+      - shpotify
     homebrew_cask_apps:
       - colorpicker-skalacolor
       - couleurs
       - docker
-      - dotnet
       - goland
       - kitematic
       - postman
       - qlmarkdown
       - qlstephen
-      - shellcheck
     homebrew_cask_uninstalled_apps:
       - clion
+      - dotnet
+  tasks:
+    - name: Install nvim Python support
+      command: pip3 install --user neovim
