@@ -1,0 +1,10 @@
+- hosts: 127.0.0.1
+  connection: local
+  roles:
+    - geerlingguy.homebrew
+  vars:
+    homebrew_upgrade_all_packages: yes
+    homebrew_taps:
+      - homebrew/cask
+    homebrew_cask_apps:
+      - dropbox

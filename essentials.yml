@@ -16,7 +16,7 @@
   roles:
     - geerlingguy.homebrew
   vars:
-    homebrew_upgrade_all_packages: yes
+    homebrew_cask_accept_external_apps: true
     homebrew_taps:
       - homebrew/cask
       - homebrew/cask-versions
@@ -30,7 +30,6 @@
       - alfred3
       - appcleaner
       - cyberduck
-      - dropbox
       - firefox
       - google-chrome
       - hammerspoon
@@ -48,3 +47,7 @@
   post_tasks:
     - name: Remove dotfiles via Stow for BitBar
       command: stow -D bitbar
+    - name: Starting service for skhd
+      command: brew services start skhd
+    - name: Starting service for yabai
+      command: brew services start yabai
