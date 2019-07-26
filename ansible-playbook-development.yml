@@ -30,6 +30,7 @@
       - neovim
       - nmap
       - nnn
+      - nvm
       - pipes-sh
       - python3
       - shellcheck
@@ -62,10 +63,6 @@
       - clion
       - dotnet
   tasks:
-    - name: Install nvm
-      shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-      args:
-        creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
     - name: Use nvm to install Node.js
       command: nvm install node && nvm alias default node
     - name: Install Node.js packages
@@ -73,7 +70,7 @@
     - name: Install nvim Python support
       command: pip3 install --user neovim
     - name: Install nvim plugins
-      command: nvim --headless +PlugInstall +GoInstallBinaries +q
+      command: nvim --headless +GoUpdateBinaries +PlugUpdate +PlugUpgrade +qall
     - name: Install Oh My Zsh
       command: sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     - name: Install vim-plug
