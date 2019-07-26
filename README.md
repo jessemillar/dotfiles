@@ -1,8 +1,10 @@
 # dotfiles
 ## Overview
-This repo represents all my dotfiles and application configurations. I use and maintain this repo for a couple reasons:
+This repo contains all my dotfiles and application configurations. I use and maintain this repo for a couple reasons:
+1. Quickly setting up new machines from scratch
 1. Syncing configs between workstations
-1. Quickly setting up a new machine from scratch
+
+I utilize a combination of [GNU Stow](https://www.gnu.org/software/stow/) and [Ansible](https://www.ansible.com/) to manage my setups. Stow quickly creates symlinks between this repo and my home directory without the need for maintaining manual scripts. Ansible uses human-readable `.yml` configuration files to install applications and development dependencies in a reproducible way.
 
 ## Usage
 1. Clone/download this repo
@@ -13,9 +15,7 @@ This repo represents all my dotfiles and application configurations. I use and m
 1. Install Aseprite from Humble Bundle
 
 ### Ansible
-There are a few Ansible playbooks included in the repo that are not called as part of `bootstrap.sh`. Depending on which machine I'm configuring, I'll manually run one (or all) of the below playbooks via `ansible-playbook --ask-become-pass PLAYBOOK`.
-- `ansible-playbook-personal.yml` (my work laptop doesn't allow certain applications to be installed)
-- `ansible-playbook-work.yml`
+`ansible-playbook-main.yml` is a combination of multiple playbooks that get my system up to speed quickly with minimal user interaction. There are a few Ansible playbooks included in the repo that are not called as part of `ansible-playbook-main.yml`. Depending on which machine I'm configuring, I'll manually run one (or all) of the non-included playbooks via `ansible-playbook --ask-become-pass PLAYBOOK` after the successful completion of `ansible-playbook-main.yml`.
 
 ## TODO
 - [ ] Set up testing with Travis

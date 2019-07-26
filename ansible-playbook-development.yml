@@ -1,3 +1,4 @@
+# This playbook installs apps and packages needed for general development
 - hosts: localhost
   pre_tasks:
     - name: Stow dotfiles for ack
@@ -48,21 +49,15 @@
       - wifi-password
       - zsh
     homebrew_cask_apps:
-      - arduino
-      - bfxr
-      - blender
-      - clion
       - colorpicker-skalacolor
       - couleurs
       - docker
       - dotnet
       - goland
-      - itch
       - kitematic
-      - love
       - postman
       - qlmarkdown
       - qlstephen
       - shellcheck
-      - tiled
-      - unity
+    homebrew_cask_uninstalled_apps:
+      - clion

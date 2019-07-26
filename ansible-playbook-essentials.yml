@@ -1,3 +1,4 @@
+# This playbook represents apps and window/keyboard managers needed to get my system to a minimally "usable" state for my preferences
 - hosts: localhost
   pre_tasks:
     - name: Stow dotfiles for Hammerspoon
@@ -15,6 +16,7 @@
   roles:
     - geerlingguy.homebrew
   vars:
+    # Spotify doesn't have wonderful update support in Homebrew so this flag needs to be set to prevent failing the playbook if Spotify is already installed
     homebrew_cask_accept_external_apps: true
     homebrew_taps:
       - homebrew/cask

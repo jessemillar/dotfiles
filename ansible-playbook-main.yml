@@ -1,2 +1,4 @@
-- import_playbook: ansible-playbook-deps.yml
+# This playbook serves as a macro that combines common playbooks into one for easy initial setup of a new machine
+- import_playbook: ansible-playbook-dependencies.yml
 - import_playbook: ansible-playbook-essentials.yml
+- import_playbook: ansible-playbook-development.yml
