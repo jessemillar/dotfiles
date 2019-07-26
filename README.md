@@ -1,6 +1,3 @@
-## Setup
-See [the wiki](https://github.com/jessemillar/dotfiles/wiki/Mac-Setup) for program setup. Use the following command to configure dotfiles after cloning this repo:
-```
-./update.sh
-./apply-wallpaper.sh
-```
+# dotfiles
+1. Clone this repo
+1. Run `./bootstrap.sh`
