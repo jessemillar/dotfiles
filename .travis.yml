@@ -29,10 +29,10 @@ install:
 
 script:
   # Install dependencies
-  - "ansible-galaxy install -r requirements.yml"
+  - "ansible-galaxy install -r ansible-roles.yml"
 
   # Check the role/playbook's syntax
-  - "ansible-playbook main.yml --syntax-check"
+  - "ansible-playbook ansible-playbook-main.yml --syntax-check"
 
   # Copy test config.yml into place
   - "cp tests/config.yml config.yml"
