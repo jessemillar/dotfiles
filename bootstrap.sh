@@ -7,8 +7,8 @@
 brew install ansible
 
 # Give Ansible the community packages we need
-ansible-galaxy install -r roles.yml
-ansible-playbook --ask-become-pass essentials.yml
+ansible-galaxy install -r ansible-roles.yml
+ansible-playbook --ask-become-pass ansible-playbook-essentials.yml
 
 # TODO Move these inside Ansible
 stow neovim
