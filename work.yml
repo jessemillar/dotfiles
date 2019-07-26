@@ -1,3 +1,6 @@
+- name: Stow dotfiles for IntelliJ IDEA
+  command: stow intellij-idea
+
 homebrew_upgrade_all_packages: yes
 homebrew_taps:
   - homebrew/cask

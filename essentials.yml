@@ -1,27 +1,49 @@
-homebrew_upgrade_all_packages: yes
-homebrew_taps:
-  - homebrew/cask
-  - homebrew/cask-versions
-  - koekeishiya/formulae
-homebrew_installed_packages:
-  - skhd
-  - yabai
-homebrew_cask_apps:
-  - 1password
-  - alfred3
-  - appcleaner
-  - bitbar
-  - cyberduck
-  - dropbox
-  - firefox
-  - google-chrome
-  - hammerspoon
-  - karabiner-elements
-  - keepingyouawake
-  - kitty
-  - rocket
-  - spotify
-  - the-unarchiver
-  - visual-studio-code
-  - vlc
-  - whichspace
+- hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: Stow dotfiles for Hammerspoon
+      command: stow hammerspoon
+    - name: Stow dotfiles for Karabiner-Elements
+      command: stow karabiner-elements
+    - name: Stow dotfiles for Kitty
+      command: stow kitty
+    - name: Stow dotfiles for skhd
+      command: stow skhd
+    - name: Stow dotfiles for yabai
+      command: stow yabai
+    - name: Stow dotfiles for Visual Studio Code
+      command: stow visual-studio-code
+    - name: Remove dotfiles via Stow for BitBar
+      command: stow -D bitbar
+  roles:
+    - geerlingguy.homebrew
+  vars:
+    homebrew_upgrade_all_packages: yes
+    homebrew_taps:
+      - homebrew/cask
+      - homebrew/cask-versions
+      - koekeishiya/formulae
+    homebrew_installed_packages:
+      - skhd
+      - stow
+      - yabai
+    homebrew_cask_apps:
+      - 1password
+      - alfred3
+      - appcleaner
+      - cyberduck
+      - dropbox
+      - firefox
+      - google-chrome
+      - hammerspoon
+      - karabiner-elements
+      - keepingyouawake
+      - kitty
+      - rocket
+      - spotify
+      - the-unarchiver
+      - visual-studio-code
+      - vlc
+      - whichspace
+    homebrew_cask_uninstalled_apps:
+      - bitbar
