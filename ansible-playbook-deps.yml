@@ -1,3 +1,4 @@
+# Any dependencies needed for other playbooks to run successfully should be managed here
 - hosts: localhost
   roles:
     - geerlingguy.homebrew
