@@ -1,5 +1,4 @@
-- hosts: 127.0.0.1
-  connection: local
+- hosts: localhost
   pre_tasks:
     - name: Stow dotfiles for Hammerspoon
       command: stow hammerspoon
