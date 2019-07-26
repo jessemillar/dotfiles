@@ -10,6 +10,7 @@
       - homebrew/cask
     homebrew_installed_packages:
       - maven
+      - tomcat@8
     homebrew_cask_apps:
       - dbeaver-community
       - intellij-idea
@@ -18,7 +19,6 @@
       - slack
       - zoomus
       - zoomus-outlook-plugin
-      - tomcat@8
     homebrew_cask_uninstalled_apps:
       - android-platform-tools
       - sequel-pro

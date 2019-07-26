@@ -2,6 +2,8 @@
 - hosts: localhost
   roles:
     - geerlingguy.homebrew
+  vars:
+    homebrew_cask_accept_external_apps: true
     homebrew_taps:
       - homebrew/cask
     homebrew_cask_apps:
