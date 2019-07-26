@@ -1,20 +1,23 @@
-- name: Stow dotfiles for IntelliJ IDEA
-  command: stow intellij-idea
-
-homebrew_upgrade_all_packages: yes
-homebrew_taps:
-  - homebrew/cask
-homebrew_installed_packages:
-  - maven
-homebrew_cask_apps:
-  - android-platform-tools
-  - dbeaver-community
-  - intellij-idea
-  - java8
-  - kafka-tool
-  - sequel-pro
-  - slack
-  - visualvm
-  - zoomus
-  - zoomus-outlook-plugin
-  - tomcat@8
+- hosts: localhost
+  - name: Stow dotfiles for IntelliJ IDEA
+    command: stow intellij-idea
+  roles:
+    - geerlingguy.homebrew
+  vars:
+    homebrew_upgrade_all_packages: yes
+    homebrew_taps:
+      - homebrew/cask
+    homebrew_installed_packages:
+      - maven
+    homebrew_cask_apps:
+      - android-platform-tools
+      - dbeaver-community
+      - intellij-idea
+      - java8
+      - kafka-tool
+      - sequel-pro
+      - slack
+      - visualvm
+      - zoomus
+      - zoomus-outlook-plugin
+      - tomcat@8

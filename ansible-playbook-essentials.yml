@@ -43,10 +43,11 @@
       - whichspace
     homebrew_cask_uninstalled_apps:
       - bitbar
-  post_tasks:
-    - name: Remove dotfiles via Stow for BitBar
-      command: stow -D bitbar
+  tasks:
     - name: Starting service for skhd
       command: brew services start skhd
     - name: Starting service for yabai
       command: brew services start yabai
+  post_tasks:
+    - name: Remove dotfiles via Stow for BitBar
+      command: stow -D bitbar

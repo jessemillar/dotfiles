@@ -1,67 +1,68 @@
-- name: Stow dotfiles for ack
-  command: stow ack
-
-- name: Stow dotfiles for Git
-  command: stow git
-
-homebrew_upgrade_all_packages: yes
-homebrew_taps:
-  - getantibody/tap
-  - homebrew/cask
-homebrew_installed_packages:
-  - ack
-  - antibody
-  - bat
-  - coreutils
-  - excel-compare
-  - fd
-  - fdupes
-  - ffmpeg
-  - gist
-  - git
-  - go
-  - grep
-  - gron
-  - hub
-  - imagemagick
-  - imagesnap
-  - jq
-  - mono
-  - neovim
-  - nmap
-  - nnn
-  - pipes-sh
-  - python3
-  - shpotify
-  - thefuck
-  - tidy-html5
-  - tldr
-  - tokei
-  - trash
-  - tree
-  - uncrustify
-  - wallpaper
-  - watch
-  - wifi-password
-  - zsh
-homebrew_cask_apps:
-  - arduino
-  - bfxr
-  - blender
-  - clion
-  - colorpicker-skalacolor
-  - couleurs
-  - docker
-  - dotnet
-  - goland
-  - itch
-  - kitematic
-  - love
-  - postman
-  - qlmarkdown
-  - qlstephen
-  - shellcheck
-  - tiled
-  - unity
-- name: Install nvim Python support
-  command: pip3 install --user neovim
+- hosts: localhost
+  pre_tasks:
+    - name: Stow dotfiles for ack
+      command: stow ack
+    - name: Stow dotfiles for Git
+      command: stow git
+    - name: Install nvim Python support
+      command: pip3 install --user neovim
+  roles:
+    - geerlingguy.homebrew
+    homebrew_taps:
+      - getantibody/tap
+      - homebrew/cask
+    homebrew_installed_packages:
+      - ack
+      - antibody
+      - bat
+      - coreutils
+      - excel-compare
+      - fd
+      - fdupes
+      - ffmpeg
+      - gist
+      - git
+      - go
+      - grep
+      - gron
+      - hub
+      - imagemagick
+      - imagesnap
+      - jq
+      - mono
+      - neovim
+      - nmap
+      - nnn
+      - pipes-sh
+      - python3
+      - shpotify
+      - thefuck
+      - tidy-html5
+      - tldr
+      - tokei
+      - trash
+      - tree
+      - uncrustify
+      - wallpaper
+      - watch
+      - wifi-password
+      - zsh
+    homebrew_cask_apps:
+      - arduino
+      - bfxr
+      - blender
+      - clion
+      - colorpicker-skalacolor
+      - couleurs
+      - docker
+      - dotnet
+      - goland
+      - itch
+      - kitematic
+      - love
+      - postman
+      - qlmarkdown
+      - qlstephen
+      - shellcheck
+      - tiled
+      - unity
