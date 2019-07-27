@@ -13,11 +13,6 @@ before_install:
   - sudo rm -rf /usr/local/bin/brew
 
 install:
-  # Install pip
-  - sudo easy_install pip
-
-  # Install Ansible
-  - sudo pip install ansible
 
   # Add ansible.cfg to pick up roles path
   - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
@@ -28,14 +23,10 @@ install:
   - "echo -e '[local]\nlocalhost ansible_connection=local' | sudo tee -a /etc/ansible/hosts > /dev/null"
 
 script:
-  # Install dependencies
-  - "ansible-galaxy install -r ansible-roles.yml"
+  - ./bootstrap.sh
 
   # Check the role/playbook's syntax
   - "ansible-playbook ansible-playbook-main.yml --syntax-check"
-
-  # Test the playbook
-  - "travis_wait 30 ansible-playbook --extra-vars '{\"configure_sudoers\":\"false\"}' ansible-playbook-main.yml"
 
   # Test the playbook's idempotence
   - idempotence=$(mktemp)
