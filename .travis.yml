@@ -14,7 +14,7 @@ before_install:
 
 install:
   # Add ansible.cfg to pick up roles path
-  - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
+  #- "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
 
   # Add a hosts file
   - sudo mkdir -p /etc/ansible
