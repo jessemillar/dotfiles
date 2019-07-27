@@ -13,22 +13,22 @@ before_install:
   - sudo rm -rf /usr/local/bin/brew
 
 install:
-  # Add ansible.cfg to pick up roles path
-  #- "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
-
   # Add a hosts file
   - sudo mkdir -p /etc/ansible
   - sudo touch /etc/ansible/hosts
   - "echo -e '[local]\nlocalhost ansible_connection=local' | sudo tee -a /etc/ansible/hosts > /dev/null"
 
 script:
-  # Run the bootstrapping script
-  - ./bootstrap.sh
+  # Mimic bootstrap.sh but run Ansible without the need for sudo
+  - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  - brew install ansible
+  - ansible-galaxy install -r ansible-roles.yml
+  - "ansible-playbook --extra-vars '{\"configure_sudoers\":\"false\"}' ansible-playbook-main.yml"
 
   # Check the syntax of all playbooks
   - ansible-playbook ansible-playbook-*.yml --syntax-check
 
-  # Test the playbook's idempotence
+  # Test the playbook's idempotence by running it again and seeing if there are any changes from the previous run
   - idempotence=$(mktemp)
   - "ansible-playbook --extra-vars '{\"configure_sudoers\":\"false\"}' ansible-playbook-main.yml | tee -a ${idempotence}"
   - >
