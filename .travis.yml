@@ -23,11 +23,7 @@ install:
 
 script:
   # Check the syntax of all playbooks
-  - >
-    for file in ansible-playbook-*.yml
-    do
-      ansible-playbook $file --syntax-check
-    done
+  - ansible-playbook ansible-playbook-*.yml --syntax-check
 
   # Run the bootstrapping script
   - ./bootstrap.sh
