@@ -10,9 +10,5 @@ brew install ansible
 ansible-galaxy install -r ansible-roles.yml
 ansible-playbook --ask-become-pass ansible-playbook-main.yml
 
-# TODO Move these inside Ansible
-stow neovim
-stow zsh
-
 # Print a message on completion
 echo "bootstrap.sh finished"
