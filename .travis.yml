@@ -23,7 +23,7 @@ install:
 
 script:
   # Check the syntax of all playbooks
-  - |
+  - >
     for file in ansible-playbook-*.yml
     do
       ansible-playbook $file --syntax-check
