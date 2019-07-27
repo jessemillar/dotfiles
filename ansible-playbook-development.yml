@@ -10,27 +10,6 @@
     - name: Stow dotfiles for Oh My Zsh
       command: stow zsh
   roles:
-    - gantsign.oh-my-zsh
-    - geerlingguy.homebrew
-  vars:
-    homebrew_taps:
-      - getantibody/tap
-      - homebrew/cask
-    homebrew_installed_packages:
-      - ack
-      - antibody
-      - bat
-      - coreutils
-      - fd
-      - fdupes
-      - ffmpeg
-      - git
-      - go
-      - grep
-      - gron
-      - hub
-      - imagemagick
-  roles:
     - geerlingguy.homebrew
   vars:
     homebrew_taps:
