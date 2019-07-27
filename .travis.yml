@@ -22,10 +22,15 @@ install:
   - "echo -e '[local]\nlocalhost ansible_connection=local' | sudo tee -a /etc/ansible/hosts > /dev/null"
 
 script:
-  - ./bootstrap.sh
+  # Check the syntax of all playbooks
+  - |
+    for file in ansible-playbook-*.yml
+    do
+      ansible-playbook $file --syntax-check
+    done
 
-  # Check the role/playbook's syntax
-  - "ansible-playbook ansible-playbook-main.yml --syntax-check"
+  # Run the bootstrapping script
+  - ./bootstrap.sh
 
   # Test the playbook's idempotence
   - idempotence=$(mktemp)
