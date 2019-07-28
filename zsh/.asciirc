@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function printAscii() {
-	allLogos=("sombra" "compycore" "walmartLabs" "tinyPenguin")
+	allLogos=("sombra" "compycore" "tinyPenguin")
 	allowedLogos=()
 
 	for logo in $allLogos
@@ -34,28 +34,6 @@ function tinyPenguin() {
    //  ||
    ||  |'
   .:(_/_
-"
-}
-
-function walmartLabs() {
-	echo $fg[yellow] "
-       :########:
-       ###' ####
-      :### .###:
-      ###' ####
-     :### .###:
-    .###' ####
-    #### .##############
-   :###' #############:
-   ####.,,,,,,,,,,####
-   :################:
-    '*:############
-           ######:
-          :#####
-          ####:
-         :###
-         ##:
-         %
 "
 }
 
