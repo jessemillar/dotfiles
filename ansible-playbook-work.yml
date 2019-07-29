@@ -7,6 +7,7 @@
   roles:
     - geerlingguy.homebrew
   vars:
+    homebrew_upgrade_all_packages: yes
     homebrew_taps:
       - homebrew/cask
     homebrew_installed_packages:
