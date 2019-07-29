@@ -8,9 +8,6 @@ ZSH_THEME="mister-michael"
 # Makes repository status check for large repositories much, much faster
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Make NVM load in a way that doesn't slow down terminal startup
-NVM_LAZY_LOAD=true
-
 # Put Homebrew's sbin in my path
 export PATH="/usr/local/sbin:$PATH"
 
@@ -51,7 +48,6 @@ eval "$(thefuck --alias)"
 
 # Load plugins
 plugins=(wd vi-mode)
-antibody bundle lukechilds/zsh-nvm
 
 source $ZSH/oh-my-zsh.sh
 
