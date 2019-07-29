@@ -3,6 +3,7 @@
   pre_tasks:
     - name: Stow dotfiles for IntelliJ IDEA
       command: stow intellij-idea
+      changed_when: false
   roles:
     - geerlingguy.homebrew
   vars:

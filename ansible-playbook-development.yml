@@ -3,12 +3,16 @@
   pre_tasks:
     - name: Stow dotfiles for ack
       command: stow ack
+      changed_when: false
     - name: Stow dotfiles for Git
       command: stow git
+      changed_when: false
     - name: Stow dotfiles for Neovim
       command: stow neovim
+      changed_when: false
     - name: Stow dotfiles for Oh My Zsh
       command: stow zsh
+      changed_when: false
   roles:
     - geerlingguy.homebrew
   vars:
@@ -71,8 +75,8 @@
   #command: nvm install node && nvm alias default node
   #- name: Install Node.js packages
   #command: npm install -g js-beautify prettydiff typescript typescript-formatter
-    - name: Install nvim Python support
-      command: pip3 install --user neovim
+    - pip:
+        name: neovim
     - name: Install nvim plugins
       command: nvim --headless +GoUpdateBinaries +PlugUpdate +PlugUpgrade +qall
     - name: Install vim-plug
