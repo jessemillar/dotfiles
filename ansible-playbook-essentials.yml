@@ -27,6 +27,7 @@
     homebrew_upgrade_all_packages: yes
     homebrew_taps:
       - homebrew/cask
+      - homebrew/cask-fonts
       - homebrew/cask-versions
       - koekeishiya/formulae
     homebrew_installed_packages:
@@ -39,6 +40,7 @@
       - appcleaner
       - cyberduck
       - firefox
+      - font-fontawesome
       - google-chrome
       - hammerspoon
       - karabiner-elements
