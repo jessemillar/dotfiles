@@ -51,9 +51,9 @@
       - the-unarchiver
       - visual-studio-code
       - vlc
-      - whichspace
     homebrew_cask_uninstalled_apps:
       - bitbar
+      - whichspace
   tasks:
     - name: Starting service for skhd
       command: brew services start skhd
