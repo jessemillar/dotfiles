@@ -48,7 +48,6 @@ yabai -m rule --add app="Slack" space=^9
 yabai -m rule --add app="Microsoft Outlook" title="(?!Reminder)" space=^10
 
 # shell commands require escaped quotes to pass value containing a whitespace
-yabai -m rule --add app="DBeaver" title="(?!.+)" manage=off
 yabai -m rule --add app="DBeaver" title="Error" manage=off
 yabai -m rule --add app="Duck" manage=off sticky=on opacity=1
 yabai -m rule --add app="Finder" title="Copy" manage=off

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Java Overview</title>
+</head>
+
+<body>
+  <div class="container mt-5 mb-5">
+    <div class="row mb-3">
+      <div class="col">
+        <h1>Java Overview</h1>
+      </div>
+    </div>
+    <div class="row mb-3 d-none" id="javaRuntimePanel">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="alert-heading">⚠️ Java Development Kit Required</h4>
+            <p>Java Development Kit (JDK) 8 or later is required for developing Java applications. Please follow the links below to download and install JDK:
+            </p>
+            <ul class="nav nav-tabs mb-3" id="jdkSourceTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="adoptOpenJdkTab" data-toggle="tab" href="#adoptOpenJdkPanel" role="tab" aria-controls="adoptOpenJdkPanel" aria-selected="true" title="Reliable source of OpenJDK binaries for all platforms">AdoptOpenJDK</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="otherJdkTab" data-toggle="tab" href="#otherJdkPanel" role="tab" aria-controls="otherJdkPanel" aria-selected="false" title="Other choices">Others</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="adoptOpenJdkPanel" role="tabpanel" aria-labelledby="adoptOpenJdkTab">
+                <form>
+                  <div class="form-row align-items-center">
+                    <div class="form-group col mb-1">
+                      <h6 class="text-capitalize mb-2">
+                        Download for
+                        <span id="jdkOs">windows</span>
+                        <span id="jdkArch">x64</span>
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-sm-6">
+                      <label>JDK Version:</label>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="jdkVersion" id="openjdk8Radio" value="openjdk8">
+                        <label class="form-check-label" for="openjdk8Radio">
+                          OpenJDK 8
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="jdkVersion" id="openjdk11Radio" value="openjdk11" checked>
+                        <label class="form-check-label" for="openjdk11Radio">
+                          OpenJDK 11
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="jdkVersion" id="openjdk12Radio" value="openjdk12">
+                        <label class="form-check-label" for="openjdk12Radio">
+                          OpenJDK 12 (Technical Preview)
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-group col-sm-6">
+                      <label>JVM:</label>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="jvmImpl" id="hotspotRadio" value="hotspot" checked>
+                        <label class="form-check-label" for="hotspotRadio">
+                          Hotspot (Recommended)
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="jvmImpl" id="openj9Radio" value="openj9">
+                        <label class="form-check-label" for="openj9Radio">
+                          OpenJ9
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-sm-12">
+                      <div class="spinner-border spinner-border-sm" role="status" id="jdkSpinner">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                      <a class="btn btn-primary btn-lg d-none" id="jdkDownloadLink" href="command:java.helper.openUrl" role="button" title="Download JDK">
+                          Download
+                          <br>
+                          <sub id="jdkReleaseName">release</sub><sub> | </sub><sub id="jdkDownloadSize">size</sub>
+                      </a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="tab-pane fade" id="otherJdkPanel" role="tabpanel" aria-labelledby="otherJdkTab">
+                <ul id="jdkProviderList" class="list-unstyled">
+                  <li><a href="command:java.helper.openUrl?%22https%3A%2F%2Fwww.azul.com%2Fdownloads%2Fazure-only%2Fzulu%2F%22" title="Recommended for Microsoft Azure Cloud and Azure Stack applications">Azul Zulu Enterprise build of OpenJDK for Azure</a></li>
+                  <li><a href="command:java.helper.openUrl?%22https%3A%2F%2Fdevelopers.redhat.com%2Fproducts%2Fopenjdk%2Fdownload%22" title="Red Hat build of OpenJDK">Red Hat build of OpenJDK</a></li>
+                  <li><a href="command:java.helper.openUrl?%22https%3A%2F%2Fjdk.java.net%2F%22" title="OpenJDK by Oracle">Oracle OpenJDK</a></li>
+                </ul>
+              </div>
+            </div>
+            <p>When you are finished, please reload Visual Studio Code to activate Java language server.</p>
+            <p class="mb-0">
+              <a class="btn btn-primary" href="command:workbench.action.reloadWindow" role="button" title="Reload Visual Studio Code">Reload Window</a>
+              <a class="btn btn-secondary" href="command:java.helper.openUrl?%22https%3A%2F%2Fgithub.com%2Fredhat-developer%2Fvscode-java%23setting-the-jdk%22" role="button" title="More info on how JDK is resolved">Having Trouble?</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="row mb-3">
+          <div class="col">
+            <h3 class="font-weight-light">Start</h3>
+            <div>
+              <a href="command:java.helper.createMavenProject" title="Create a Maven project using archetypes">Create a Maven project...</a>
+            </div>
+            <div>
+              <a href="command:java.helper.createSpringBootProject" title="Create a project with Spring Initializr">Create a Spring Boot project...</a>
+            </div>
+            <!-- <a href="command:java.helper.createJavaFile">Create a standalone Java file...</a><br> -->
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <h3 class="font-weight-light">Documentation</h3>
+            <div>
+              <a href="command:java.helper.openUrl?%22https%3A%2F%2Fcode.visualstudio.com%2Fdocs%2Flanguages%2Fjava%22" title="Learn how to work with Java code in VS Code">Java in VS Code Tutorial</a>
+            </div>
+            <div>
+              <a href="command:java.helper.openUrl?%22https%3A%2F%2Fcode.visualstudio.com%2Fdocs%2Fjava%2Fjava-debugging%22" title="Learn how to debug Java apps in VS Code">Debugging Tutorial</a>
+            </div>
+            <div>
+              <a href="command:java.helper.openUrl?%22https%3A%2F%2Fcode.visualstudio.com%2Fdocs%2Fjava%2Fjava-debugging%23_run-junit-tests%22" title="Learn how to work with JUnit test cases in VS Code">Run JUnit Tests</a>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <h3 class="font-weight-light">Key Bindings</h3>
+            <div ext="k--kato.intellij-idea-keybindings">
+              <a href="command:java.helper.showExtension?%22k--kato.intellij-idea-keybindings%22" title="Use IntelliJ IDEA hot keys in VS Code...">Use IntelliJ IDEA Key Bindings</a>
+            </div>
+            <div ext="alphabotsec.vscode-eclipse-keybindings">
+              <a href="command:java.helper.showExtension?%22alphabotsec.vscode-eclipse-keybindings%22" title="Use Eclipse hot keys in VS Code...">Use Eclipse Key Bindings</a>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <h3 class="font-weight-light">Extensions</h3>
+            <div ext="redhat.java">
+              <a href="command:java.helper.showExtension?%22redhat.java%22" title="Install Java Language Support extension...">Install Java Language Support by Red Hat</a>
+            </div>
+            <div ext="redhat.java">
+              <a href="command:java.helper.showExtension?%22vscjava.vscode-java-debug%22" title="Install Debugger for Java extension...">Install Debugger for Java</a>
+            </div>
+            <div ext="vscjava.vscode-java-test">
+              <a href="command:java.helper.showExtension?%22vscjava.vscode-java-test%22" title="Install Java Test Runner extension...">Install Java Test Runner</a>
+            </div>
+            <div ext="vscjava.vscode-maven">
+              <a href="command:java.helper.showExtension?%22vscjava.vscode-maven%22" title="Install Maven for Java extension...">Install Maven for Java</a>
+            </div>
+            <div ext="adashen.vscode-tomcat">
+              <a href="command:java.helper.showExtension?%22adashen.vscode-tomcat%22" title="Install Tomcat for Java extension...">Install Tomcat for Java</a>
+            </div>
+            <div ext="shengchen.vscode-checkstyle">
+              <a href="command:java.helper.showExtension?%22shengchen.vscode-checkstyle%22" title="Install Checkstyle for Java extension...">Install Checkstyle for Java</a>
+            </div>
+            <div ext="redhat.vscode-xml">
+              <a href="command:java.helper.showExtension?%22redhat.vscode-xml%22" title="Schema validation when editing pom.xml...">Install XML extension</a>
+            </div>
+            <div ext="vscjava.vscode-java-dependency">
+              <a href="command:java.helper.showExtension?%22vscjava.vscode-java-dependency%22" title="Install Java Dependency Viewer extension...">Install Java Dependency Viewer</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="row mb-3">
+          <div class="col">
+            <h3 class="font-weight-light">Spring</h3>
+            <div>
+              <a href="command:java.helper.openUrl?%22https%3A%2F%2Fcode.visualstudio.com%2Fdocs%2Fjava%2Fjava-spring-boot%22" title="Learn how to work with Spring Boot projects in VS Code">Spring Boot with VS Code</a>
+            </div>
+            <div>
+              <a href="command:java.helper.openUrl?%22https%3A%2F%2Fgithub.com%2Fspring-projects%2Fspring-petclinic%22" title="Run PetClinic sample app in VS Code">Spring PetClinic Sample Application</a>
+            </div>
+            <div ext="pivotal.vscode-boot-dev-pack">
+              <a href="command:java.helper.showExtension?%22pivotal.vscode-boot-dev-pack%22" title="Install Spring Boot Extension Pack...">Install Spring Boot Extension Pack</a>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <h3 class="font-weight-light">Microservices</h3>
+            <div>
+              <a href="command:java.helper.openUrl?%22https%3A%2F%2Fcode.visualstudio.com%2Fdocs%2Fazure%2Fkubernetes%22" title="Learn how to work with Kubernetes in VS Code">Kubernetes in VS Code</a>
+            </div>
+            <div>
+              <a href="command:java.helper.openUrl?%22https%3A%2F%2Fcode.visualstudio.com%2Fdocs%2Fazure%2Fdocker%22" title="Learn how to work with Docker in VS Code">Docker in VS Code</a>
+            </div>
+            <div ext="ms-kubernetes-tools.vscode-kubernetes-tools">
+              <a href="command:java.helper.showExtension?%22ms-kubernetes-tools.vscode-kubernetes-tools%22" title="Install Kubernetes extension...">Install Kubernetes Extension</a>
+            </div>
+            <div ext="peterjausovec.vscode-docker">
+              <a href="command:java.helper.showExtension?%22peterjausovec.vscode-docker%22" title="Install Docker extension...">Install Docker Extension</a>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <h3 class="font-weight-light">Release Notes</h3>
+            <div>
+              <a href="command:java.showReleaseNotes?%220.7.0%22" title="April 2019 Release Notes">April 2019</a>
+            </div>
+            <div>
+              <a href="command:java.showReleaseNotes?%220.6.0%22" title="February 2019 Release Notes">February 2019</a>
+            </div>
+            <div>
+              <a href="command:java.showReleaseNotes?%220.5.0%22" title="November 2018 Release Notes">November 2018</a>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <h3 class="font-weight-light">Help</h3>
+            <div>
+              <a href="command:java.helper.openUrl?%22https%3A%2F%2Fgithub.com%2FMicrosoft%2Fvscode-java-pack%2Fissues%22" title="Report issues or request features">Questions & Issues</a>
+            </div>
+            <div>
+              <a href="command:java.helper.openUrl?%22https%3A%2F%2Ftwitter.com%2Fintent%2Ftweet%3Fvia%3Dcode%26hashtags%3DJava%252CHappyCoding%22" title="Tweet us your feedback">Twitter</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="showWhenUsingJava" checked>
+          <label class="form-check-label" for="showWhenUsingJava">Show overview page when using Java</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

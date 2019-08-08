@@ -1,0 +1,65 @@
+{
+	"name": "scala",
+	"displayName": "Scala Syntax (official)",
+	"description": "Official Scala Syntax",
+	"version": "0.3.4",
+	"publisher": "scala-lang",
+	"license": "SEE LICENSE IN LICENSE.md",
+	"engines": {
+		"vscode": "^1.5.0"
+	},
+	"homepage": "https://github.com/scala/vscode-scala-syntax/blob/master/syntax/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/scala/vscode-scala-syntax.git"
+	},
+	"icon": "images/smooth-spiral.png",
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "scala",
+				"aliases": [
+					"Scala",
+					"scala"
+				],
+				"extensions": [
+					".scala",
+					".sbt",
+					".sc"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "scala",
+				"scopeName": "source.scala",
+				"path": "./syntaxes/Scala.tmLanguage.json"
+			}
+		]
+	},
+	"devDependencies": {
+		"@types/node": "^11.11.4",
+		"ajv": "^6.10.0",
+		"github-changes": "^1.1.2",
+		"ts-node": "^8.1.0",
+		"tsc": "^1.20150623.0",
+		"typescript": "^3.3.3",
+		"vsce": "^1.59.0",
+		"vscode-tmgrammar-test": "0.0.5"
+	},
+	"scripts": {
+		"vscode:prepublish": "test -f ./syntaxes/Scala.tmLanguage.json",
+		"vscode:publish": "vsce publish --yarn",
+		"build": "ts-node src/typescript/GenerateTmLanguageFile.ts > ./syntaxes/Scala.tmLanguage.json",
+		"test": "node scripts/unit.js && node scripts/snap.js"
+	},
+	"__metadata": {
+		"id": "c6f87c08-f5ca-4f59-8cee-bc29464dcbfb",
+		"publisherId": "2ffc6e5b-e6aa-408c-98b4-47db120356c8",
+		"publisherDisplayName": "scala-lang"
+	}
+}

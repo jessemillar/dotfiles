@@ -7,5 +7,8 @@
     "editor.formatOnSave": true,
     "editor.scrollBeyondLastLine": false,
     "terminal.integrated.copyOnSelection": true,
-    "lovelauncher.path": "/usr/local/bin/love"
+    "lovelauncher.path": "/usr/local/bin/love",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "java.configuration.checkProjectSettingsExclusions": false
 }

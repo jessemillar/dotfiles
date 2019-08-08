@@ -1,0 +1,150 @@
+{
+	"name": "gitblame",
+	"displayName": "Git Blame",
+	"description": "See git blame information in the status bar.",
+	"version": "3.0.1",
+	"publisher": "waderyan",
+	"engines": {
+		"vscode": "^1.32.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"galleryBanner": {
+		"color": "#f0efe7",
+		"theme": "light"
+	},
+	"icon": "images/git_icon.png",
+	"activationEvents": [
+		"*"
+	],
+	"keywords": [
+		"git",
+		"gitblame",
+		"blame"
+	],
+	"qna": false,
+	"main": "./dist/bundle",
+	"scripts": {
+		"vscode:prepublish": "npm run build",
+		"build": "webpack --config webpack.config.js",
+		"test-build": "tsc -p ./",
+		"lint": "eslint --no-inline-config --ext .js,.ts ./src ./test",
+		"test": "npm run test-build && node ./out/test/run-test.js"
+	},
+	"dependencies": {
+		"@types/vscode": "^1.32.0",
+		"reflect-metadata": "^0.1.13",
+		"tsyringe": "^3.2.0",
+		"vscode-test": "^1.0.0"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^10.14.9",
+		"@typescript-eslint/eslint-plugin": "^1.10.2",
+		"@typescript-eslint/parser": "^1.10.2",
+		"eslint": "^5.16.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"ts-loader": "^6.0.4",
+		"typescript": "^3.5.2",
+		"webpack": "^4.38.0",
+		"webpack-cli": "^3.3.6"
+	},
+	"homepage": "https://github.com/Sertion/vscode-gitblame/blob/master/README.md",
+	"bugs": {
+		"url": "https://github.com/Sertion/vscode-gitblame/issues"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Sertion/vscode-gitblame"
+	},
+	"extensionDependencies": [
+		"vscode.git"
+	],
+	"contributes": {
+		"commands": [
+			{
+				"command": "gitblame.quickInfo",
+				"title": "Git Blame: Show quick info"
+			},
+			{
+				"command": "gitblame.online",
+				"title": "Git Blame: View last change online"
+			},
+			{
+				"command": "gitblame.addCommitHashToClipboard",
+				"title": "Git Blame: Copy hash to clipboard"
+			},
+			{
+				"command": "gitblame.addToolUrlToClipboard",
+				"title": "Git Blame: Copy tool URL to clipboard"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Git Blame",
+			"properties": {
+				"gitblame.infoMessageFormat": {
+					"type": "string",
+					"default": "${commit.summary}",
+					"description": "Customize the info message"
+				},
+				"gitblame.statusBarMessageFormat": {
+					"type": "string",
+					"default": "Blame ${author.name} ( ${time.ago} )",
+					"description": "Customize the status bar message"
+				},
+				"gitblame.statusBarMessageNoCommit": {
+					"type": "string",
+					"default": "Not Committed Yet",
+					"description": "Customize the status bar message"
+				},
+				"gitblame.statusBarPositionPriority": {
+					"type": "number",
+					"description": "Priority where the status bar view should be placed"
+				},
+				"gitblame.inferCommitUrl": {
+					"type": "boolean",
+					"default": true,
+					"markdownDescription": "When enabled it inferes online commit tool URL based on origin URL. Disabled whenever `gitblame.commitUrl` isn't empty."
+				},
+				"gitblame.commitUrl": {
+					"type": "string",
+					"default": "",
+					"markdownDescription": "The link to an online tool to view a commit (use `${hash}` for the commit hash)."
+				},
+				"gitblame.ignoreWhitespace": {
+					"type": "boolean",
+					"default": false,
+					"description": "Ignore whitespace changes when blaming (-w flag)"
+				},
+				"gitblame.isWebPathPlural": {
+					"type": "boolean",
+					"default": false,
+					"description": "BitBucket uses commits instead of commit in their web interface. Turn this on if you want the View button to work for BitBucket."
+				},
+				"gitblame.pluralWebPathSubstrings": {
+					"type": "array",
+					"default": [
+						"bitbucket",
+						"atlassian"
+					],
+					"markdownDescription": "An array of substrings that, when present in the git origin URL, activates `gitblame.isWebPathPlural`"
+				},
+				"gitblame.logNonCritical": {
+					"type": "boolean",
+					"default": true,
+					"description": "If enabled it logs all messages to the log. If disabled only critical messages gets logged."
+				}
+			}
+		}
+	},
+	"__metadata": {
+		"id": "2335b326-c334-4e81-bc51-c408fcec6e7c",
+		"publisherId": "531ba7ca-0230-4a97-bfd1-0d02fdb02958",
+		"publisherDisplayName": "Wade Anderson"
+	}
+}
