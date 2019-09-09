@@ -1,6 +1,0 @@
-{
-    "projects": [
-        "./jdtls.ext/"
-    ],
-   "targetPlatform": "./jdtls.ext/target.target"
-}
