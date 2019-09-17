@@ -39,7 +39,7 @@ function ssidChangedCallback()
 		-- we just left work wifi
 		hs.execute("rm ~/.proxyrc")
 		hs.execute("rm ~/.npmrc")
-		hs.execute("rm ~/.gitconfig && ln -s ~/.dotfiles/.gitconfig ~/.gitconfig")
+		hs.execute("rm ~/.gitconfig && cd ~/.dotfiles && stow git")
 	end
 
 	lastSSID = currentSSID
