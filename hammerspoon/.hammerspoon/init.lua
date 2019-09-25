@@ -34,12 +34,12 @@ function ssidChangedCallback()
 		-- we just joined work wifi
 		hs.execute("ln -s ~/Documents/Projects/dropbox/dotfiles/proxyrc ~/.proxyrc")
 		hs.execute("ln -s ~/Documents/Projects/dropbox/dotfiles/npmrc ~/.npmrc")
-		hs.execute("rm ~/.gitconfig && ln -s ~/Documents/Projects/dropbox/dotfiles/gitconfig ~/.gitconfig")
+		hs.execute("rm -f ~/.gitconfig && ln -s ~/Documents/Projects/dropbox/dotfiles/gitconfig ~/.gitconfig")
 	elseif currentSSID ~= workSSID and lastSSID == workSSID then
 		-- we just left work wifi
 		hs.execute("rm ~/.proxyrc")
 		hs.execute("rm ~/.npmrc")
-		hs.execute("rm ~/.gitconfig && cd ~/.dotfiles && stow git")
+		hs.execute("rm -f ~/.gitconfig && cd ~/.dotfiles && stow git")
 	end
 
 	lastSSID = currentSSID
