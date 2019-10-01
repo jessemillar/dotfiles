@@ -20,8 +20,8 @@
       - kafka-tool
       - slack
       - zoomus
-      - zoomus-outlook-plugin
     homebrew_cask_uninstalled_apps:
       - android-platform-tools
       - sequel-pro
       - visualvm
+      - zoomus-outlook-plugin
