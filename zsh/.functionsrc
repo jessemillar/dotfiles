@@ -399,8 +399,8 @@ function cells() {
 	else
 		for i in {1..$1}
 		do
-			WIDTH=960
-			HEIGHT=600
+			WIDTH=1920
+			HEIGHT=800
 
 			if [ -z $2 ]
 			then
@@ -411,7 +411,7 @@ function cells() {
 		done
 
 		echo "Scaling images"
-		mogrify -scale 5760x3600+0+0 *.png
+		mogrify -scale 3840x1600+0+0 *.png
 	fi
 }
 
