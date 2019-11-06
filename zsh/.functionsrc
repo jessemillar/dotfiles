@@ -479,6 +479,8 @@ function brup() {
 
 	tldr --update &&\
 
+	choco upgrade all -y &&\
+
 	echo "brup() finished"
 }
 

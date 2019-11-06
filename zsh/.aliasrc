@@ -6,6 +6,7 @@ alias day="date +%m-%d-%Y"
 
 alias a="ack"
 alias cat="bat"
+alias choco="choco.exe"
 alias conversation="nvim ~/Documents/Projects/conversations/$(day).md"
 alias crates="sim_arduboy -p 3 ~/Documents/Projects/crates/crates.ino.leonardo.hex"
 alias grep="ggrep"
