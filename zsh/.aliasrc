@@ -5,7 +5,7 @@
 alias day="date +%m-%d-%Y"
 
 alias a="ack"
-alias alacritty="v /mnt/c/Users/jemillar/AppData/Roaming/alacritty/alacritty.yml"
+alias alacritty="v /mnt/c/Users/jemillar/AppData/Roaming/alacritty/alacritty.yml && cp /mnt/c/Users/jemillar/AppData/Roaming/alacritty/alacritty.yml ~/.dotfiles/alacritty/alacritty.yml"
 alias cat="bat"
 alias choco="choco.exe"
 alias conversation="nvim ~/Documents/Projects/conversations/$(day).md"
