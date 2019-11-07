@@ -459,7 +459,7 @@ function e() {
 
 # Copy the contents of a file to the clipboard
 function copy() {
-	cat $1 | pbcopy
+	cat $1 | pb
 }
 
 # Update all Homebrew and nvim packages
