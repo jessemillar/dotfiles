@@ -14,6 +14,10 @@ export PATH="/usr/local/sbin:$PATH"
 # Put Go in my path
 export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$PATH"
+export GO111MODULE=on
+
+# Put Kubebuilder (https://book.kubebuilder.io/quick-start.html#installation) in my path
+export PATH="$PATH:/usr/local/kubebuilder/bin"
 
 # Enable the itch.io butler
 export PATH="~/Library/Application\ Support/itch/apps/butler:$PATH"

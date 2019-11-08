@@ -28,6 +28,7 @@ alias s="search"
 alias tmp="mkdir tmp || true && cd tmp"
 alias v="nvim"
 alias watch="watch " # This is so aliases get expanded when passed to `watch`
+alias wsl="wsl.exe"
 
 # Maven
 alias md="mvn dependency:tree"
