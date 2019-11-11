@@ -481,6 +481,8 @@ function brup() {
 
 	choco upgrade all -y &&\
 
+	sudo apt update && sudo apt -y upgrade &&\
+
 	echo "brup() finished"
 }
 
