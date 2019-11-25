@@ -96,9 +96,9 @@ function gitt() {
 
 		if [ -z "$BRANCH" ]
 		then
-			hub commit -m $1
+			hub commit -s -m $1
 		else
-			hub commit -m "$BRANCH $1"
+			hub commit -s -m "$BRANCH $1"
 		fi
 
 		hub push -u

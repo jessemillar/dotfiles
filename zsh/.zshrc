@@ -19,6 +19,9 @@ export GO111MODULE=on
 # Put Kubebuilder (https://book.kubebuilder.io/quick-start.html#installation) in my path
 export PATH="$PATH:/usr/local/kubebuilder/bin"
 
+# Enable nvm
+source $(brew --prefix nvm)/nvm.sh
+
 # Enable dvm
 [ -f /usr/local/opt/dvm/dvm.sh ] && . /usr/local/opt/dvm/dvm.sh
 
@@ -48,7 +51,7 @@ eval "$(hub alias -s)"
 eval "$(thefuck --alias)"
 
 # Load plugins
-plugins=(docker docker-compose github golang kubectl wd vi-mode)
+plugins=(docker docker-compose github golang kubectl nvm wd vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
