@@ -13,3 +13,5 @@
 	default = current
 [url "msazure@vs-ssh.visualstudio.com:v3/msazure/CloudNativeCompute"]
 	insteadOf = https://dev.azure.com/msazure/CloudNativeCompute/_git
+[credential]
+	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
