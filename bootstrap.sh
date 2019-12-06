@@ -11,6 +11,7 @@ Darwin*)
 	sudo apt update && sudo apt upgrade -y
 	sudo apt install -y build-essential curl file git
 	yes "" | sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+	eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
   ;;
 esac
 
