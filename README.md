@@ -11,7 +11,7 @@ This repo contains all my dotfiles and application configurations. I use and mai
 I utilize a combination of [GNU Stow](https://www.gnu.org/software/stow/) and [Ansible](https://www.ansible.com/) to manage my setups. Stow quickly creates symlinks between this repo and my home directory without the need for maintaining manual scripts. Ansible uses human-readable `.yml` configuration files to install applications and development dependencies in a reproducible way.
 
 ## Usage
-j
+
 1. Clone/download this repo
 1. Run `./bootstrap.sh`
 
