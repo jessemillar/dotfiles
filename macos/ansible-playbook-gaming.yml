@@ -1,0 +1,7 @@
+# This playbook installs apps and packages needed for playing videogames
+- hosts: localhost
+  tasks:
+    - name: Install casks for gaming
+      homebrew_cask:
+        name: epic-games
+        state: present

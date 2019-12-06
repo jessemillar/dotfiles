@@ -20,7 +20,7 @@
         state: present
     - name: Install development packages with Homebrew
       homebrew:
-        name: ack, antibody, bat, coreutils, fd, fdupes, ffmpeg, git, go, grep, gron, hub, imagemagick, imagesnap, jq, neovim, nmap, nnn, node, pipes-sh, python3, shellcheck, thefuck, tidy-html5, tldr, tokei, trash, tree, uncrustify, wallpaper, watch, wifi-password, zsh
+        name: ack,antibody,bat,coreutils,fd,fdupes,ffmpeg,git,go,grep,gron,hub,imagemagick,imagesnap,jq,neovim,nmap,nnn,node,pipes-sh,python3,shellcheck,thefuck,tidy-html5,tldr,tokei,trash,tree,uncrustify,wallpaper,watch,wifi-password,zsh
         state: present
     - pip:
         name: neovim

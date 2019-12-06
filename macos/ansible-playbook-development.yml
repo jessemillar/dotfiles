@@ -1,20 +1,6 @@
 # This playbook installs apps and packages needed for general development
 - hosts: localhost
-  roles:
-    - geerlingguy.homebrew
-  vars:
-    homebrew_upgrade_all_packages: yes
-    homebrew_taps:
-      - homebrew/cask
-    homebrew_cask_apps:
-      - colorpicker-skalacolor
-      - couleurs
-      - docker
-      - goland
-      - kitematic
-      - postman
-      - qlmarkdown
-      - qlstephen
-    homebrew_cask_uninstalled_apps:
-      - clion
-      - dotnet
+  tasks:
+    homebrew_cask:
+      name: colorpicker-skalacolor,couleurs,docker,goland,kitematic,postman,qlmarkdown,qlstephen
+      state: present

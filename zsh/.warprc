@@ -7,7 +7,6 @@ darkest:~/Documents/Projects/darkest-moon/src
 devlog:~/Documents/Projects/devlog/_posts
 dirt-manual:~/Documents/Projects/dirt-manual
 dotfiles:~/.dotfiles
-downloads:~/Downloads
 dracula:~/Documents/Projects/dracula
 dropbox:~/Documents/Projects/dropbox
 duck:~/Documents/Projects/duck
@@ -36,3 +35,9 @@ startup:/mnt/c/Users/jemillar/AppData/Roaming/Microsoft/Windows/Start Menu/Progr
 desktop:/mnt/c/Users/jemillar/Desktop
 dri:/mnt/c/Users/jemillar/Documents/Projects/CloudNativeCompute.wiki/AKS/Weekly-DRI-Review
 runner:~/.go/src/goms.io/aks/runner
+downloads:/mnt/c/Users/jemillar/Downloads
+binaries:/mnt/c/Users/jemillar/Documents/Binaries
+bb8:/mnt/c/Users/jemillar/Documents/Projects/bb-8
+dri-generator:/mnt/c/Users/jemillar/Documents/Projects/reporting-tools/weekly-dri-review-generator
+appdata:/mnt/c/Users/jemillar/AppData
+vscode:/mnt/c/Users/jemillar/AppData/Roaming/Code/User

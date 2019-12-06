@@ -8,6 +8,7 @@ Darwin*)
   ;;
 *)
 	# Linux (WSL included)
+	sudo apt update && sudo apt upgrade -y
 	sudo apt install -y build-essential curl file git
 	yes "" | sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
   ;;
@@ -17,7 +18,7 @@ esac
 brew install ansible
 
 # Give Ansible the community packages we need
-ansible-playbook ansible-playbook-main.yml
+ansible-playbook ansible-playbook-main.yml -vvvv
 
 # Print a message on completion
 echo "bootstrap.sh finished"

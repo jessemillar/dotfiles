@@ -17,41 +17,17 @@
     - name: Stow dotfiles for yabai
       command: stow yabai
       changed_when: false
-  roles:
-    - geerlingguy.homebrew
-  vars:
-    # Spotify doesn't have wonderful update support in Homebrew so this flag needs to be set to prevent failing the playbook if Spotify is already installed
-    homebrew_cask_accept_external_apps: true
-    homebrew_upgrade_all_packages: yes
-    homebrew_taps:
-      - homebrew/cask
-      - homebrew/cask-fonts
-      - homebrew/cask-versions
-      - koekeishiya/formulae
-    homebrew_installed_packages:
-      - skhd
-      - stow
-      - yabai
-    homebrew_cask_apps:
-      - 1password
-      - alfred3
-      - appcleaner
-      - cyberduck
-      - firefox
-      - font-fontawesome
-      - google-chrome
-      - hammerspoon
-      - karabiner-elements
-      - keepingyouawake
-      - kitty
-      - rocket
-      - spotify
-      - the-unarchiver
-      - vlc
-    homebrew_cask_uninstalled_apps:
-      - bitbar
-      - whichspace
   tasks:
+    homebrew_tap:
+      name: homebrew/cask-fonts,homebrew/cask-versions,koekeishiya/formulae
+      state: present
+    homebrew:
+      name: skhd,stow,yabai
+      state: present
+    homebrew_cask:
+      name:
+       1password,alfred3,appcleaner,cyberduck,firefox,font-fontawesome,google-chrome,hammerspoon,karabiner-elements,keepingyouawake,kitty,rocket,spotify,the-unarchiver,vlc
+      state: present
     - name: Starting service for skhd
       command: brew services start skhd
       register: result
@@ -60,7 +36,3 @@
       command: brew services start yabai
       register: result
       changed_when: result.stdout is not search("already started")
-  post_tasks:
-    - name: Remove dotfiles via Stow for BitBar
-      command: stow -D bitbar
-      changed_when: false
