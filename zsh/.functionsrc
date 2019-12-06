@@ -96,9 +96,9 @@ function gitt() {
 
 		if [ -z "$BRANCH" ]
 		then
-			hub commit -m $1
+			hub commit -s -m $1
 		else
-			hub commit -m "$BRANCH $1"
+			hub commit -s -m "$BRANCH $1"
 		fi
 
 		hub push -u
@@ -399,8 +399,8 @@ function cells() {
 	else
 		for i in {1..$1}
 		do
-			WIDTH=960
-			HEIGHT=600
+			WIDTH=1920
+			HEIGHT=800
 
 			if [ -z $2 ]
 			then
@@ -411,7 +411,7 @@ function cells() {
 		done
 
 		echo "Scaling images"
-		mogrify -scale 5760x3600+0+0 *.png
+		mogrify -scale 3840x1600+0+0 *.png
 	fi
 }
 
@@ -459,7 +459,7 @@ function e() {
 
 # Copy the contents of a file to the clipboard
 function copy() {
-	cat $1 | pbcopy
+	cat $1 | pb
 }
 
 # Update all Homebrew and nvim packages
@@ -478,6 +478,10 @@ function brup() {
 	nvim +GoUpdateBinaries +PlugUpdate +PlugUpgrade +qall &&\
 
 	tldr --update &&\
+
+	choco upgrade all -y &&\
+
+	sudo apt update && sudo apt -y upgrade &&\
 
 	echo "brup() finished"
 }

@@ -14,9 +14,13 @@ export PATH="/usr/local/sbin:$PATH"
 # Put Go in my path
 export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$PATH"
+export GO111MODULE=on
 
-# Enable the itch.io butler
-export PATH="~/Library/Application\ Support/itch/apps/butler:$PATH"
+# Put Kubebuilder (https://book.kubebuilder.io/quick-start.html#installation) in my path
+export PATH="$PATH:/usr/local/kubebuilder/bin"
+
+# Enable nvm
+source $(brew --prefix nvm)/nvm.sh
 
 # Enable dvm
 [ -f /usr/local/opt/dvm/dvm.sh ] && . /usr/local/opt/dvm/dvm.sh
@@ -47,7 +51,7 @@ eval "$(hub alias -s)"
 eval "$(thefuck --alias)"
 
 # Load plugins
-plugins=(wd vi-mode)
+plugins=(docker docker-compose github golang kubectl nvm wd vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 

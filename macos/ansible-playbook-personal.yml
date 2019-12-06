@@ -1,0 +1,11 @@
+# This playbook installs things specific to my personal machines (e.g. some applications are disallowed on corporate-managed laptops)
+- hosts: localhost
+  tasks:
+    tasks:
+      homebrew_cask:
+        name: dropbox
+        state: present
+      - name: Symlinking ~/Desktop to Dropbox
+        command: ln -s ~/Desktop ~/Dropbox
+      - name: Symlinking ~/Downloads to Dropbox
+        command: ln -s ~/Downloads ~/Dropbox

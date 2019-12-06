@@ -1,15 +1,17 @@
 [user]
-	email = hellojessemillar@gmail.com
+	email = jesse.millar@microsoft.com
 	name = Jesse Millar
-	username = jessemillar
+	username = jemillar
 [core]
-	excludesfile = /Users/j0m01o9/.gitignore_global
-	editor = vim
+	excludesfile = ~/.gitignore_global
+	editor = nvim
 [merge]
 	tool = opendiff
 [mergetool]
 	keepBackup = false
-[hub]
-	host = gecgithub01.walmart.com
 [push]
 	default = current
+[url "msazure@vs-ssh.visualstudio.com:v3/msazure/CloudNativeCompute"]
+	insteadOf = https://dev.azure.com/msazure/CloudNativeCompute/_git
+[credential]
+	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe

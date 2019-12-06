@@ -1,0 +1,6 @@
+# This playbook installs apps and packages needed for videogame development
+- hosts: localhost
+  tasks:
+    homebrew_cask:
+      name: arduino,bfxr,blender,itch,love,tiled,unity
+      state: present

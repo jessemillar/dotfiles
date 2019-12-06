@@ -13,68 +13,15 @@
     - name: Stow dotfiles for Oh My Zsh
       command: stow zsh
       changed_when: false
-  roles:
-    - geerlingguy.homebrew
-  vars:
-    homebrew_upgrade_all_packages: yes
-    homebrew_taps:
-      - getantibody/tap
-      - homebrew/cask
-    homebrew_installed_packages:
-      - ack
-      - antibody
-      - bat
-      - coreutils
-      - fd
-      - fdupes
-      - ffmpeg
-      - git
-      - go
-      - grep
-      - gron
-      - hub
-      - imagemagick
-      - imagesnap
-      - jq
-      - neovim
-      - nmap
-      - nnn
-      - node
-      - pipes-sh
-      - python3
-      - shellcheck
-      - thefuck
-      - tidy-html5
-      - tldr
-      - tokei
-      - trash
-      - tree
-      - uncrustify
-      - wallpaper
-      - watch
-      - wifi-password
-      - zsh
-    homebrew_uninstalled_packages:
-      - excel-compare
-      - gist
-      - mono
-      - nvm
-      - shpotify
-    homebrew_cask_apps:
-      - colorpicker-skalacolor
-      - couleurs
-      - docker
-      - goland
-      - kitematic
-      - postman
-      - qlmarkdown
-      - qlstephen
-    homebrew_cask_uninstalled_apps:
-      - clion
-      - dotnet
   tasks:
-    - pip:
-        name: neovim
+    - name: Tap antibody repository
+      homebrew_tap:
+        name: getantibody/tap
+        state: present
+    - name: Install development packages with Homebrew
+      homebrew:
+        name: ack,antibody,bat,coreutils,fd,fdupes,ffmpeg,git,go,grep,gron,hub,imagemagick,jq,neovim,nmap,nnn,node,pipes-sh,python,shellcheck,thefuck,tidy-html5,tldr,tokei,tree,uncrustify,watch,zsh
+        state: present
     - name: Install nvim plugins
       command: nvim --headless +GoUpdateBinaries +PlugUpdate +PlugUpgrade +qall
       changed_when: false
@@ -84,6 +31,7 @@
     - name: Install Node.js packages
       command: npm install -g js-beautify prettydiff typescript typescript-formatter
     - name: Install Oh My Zsh
-      command: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+      shell: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
       register: result
       changed_when: result.stdout is not search("You already have Oh My Zsh installed.")
+      failed_when: result.rc != 0 and result.stdout is not search("You already have Oh My Zsh installed.")
