@@ -1,16 +1,6 @@
 # This playbook installs apps and packages needed for videogame development
 - hosts: localhost
-  roles:
-    - geerlingguy.homebrew
-  vars:
-    homebrew_upgrade_all_packages: yes
-    homebrew_taps:
-      - homebrew/cask
-    homebrew_cask_apps:
-      - arduino
-      - bfxr
-      - blender
-      - itch
-      - love
-      - tiled
-      - unity
+  tasks:
+    homebrew_cask:
+      name: arduino,bfxr,blender,itch,love,tiled,unity
+      state: present

@@ -22,7 +22,6 @@ script:
   # Mimic bootstrap.sh but run Ansible without the need for sudo
   - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   - brew install ansible
-  - ansible-galaxy install -r ansible-roles.yml
   - "ansible-playbook --extra-vars '{\"configure_sudoers\":\"false\"}' ansible-playbook-main.yml"
 
   # Check the syntax of all playbooks

@@ -1,14 +1,10 @@
 # This playbook installs things specific to my personal machines (e.g. some applications are disallowed on corporate-managed laptops)
 - hosts: localhost
-  roles:
-    - geerlingguy.homebrew
-  vars:
-    homebrew_upgrade_all_packages: yes
-    homebrew_taps:
-      - homebrew/cask
-    homebrew_cask_apps:
-      - dropbox
+  tasks:
     tasks:
+      homebrew_cask:
+        name: dropbox
+        state: present
       - name: Symlinking ~/Desktop to Dropbox
         command: ln -s ~/Desktop ~/Dropbox
       - name: Symlinking ~/Downloads to Dropbox
