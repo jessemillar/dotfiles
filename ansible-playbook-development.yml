@@ -13,51 +13,15 @@
     - name: Stow dotfiles for Oh My Zsh
       command: stow zsh
       changed_when: false
-  roles:
-    - geerlingguy.homebrew
-  vars:
-    homebrew_upgrade_all_packages: yes
-    homebrew_taps:
-      - getantibody/tap
-    homebrew_installed_packages:
-      - ack
-      - antibody
-      - bat
-      - coreutils
-      - fd
-      - fdupes
-      - ffmpeg
-      - git
-      - go
-      - grep
-      - gron
-      - hub
-      - imagemagick
-      - imagesnap
-      - jq
-      - neovim
-      - nmap
-      - nnn
-      - node
-      - pipes-sh
-      - shellcheck
-      - thefuck
-      - tidy-html5
-      - tldr
-      - tokei
-      - trash
-      - tree
-      - uncrustify
-      - wallpaper
-      - watch
-      - wifi-password
-      - zsh
-    homebrew_uninstalled_packages:
-      - excel-compare
-      - gist
-      - mono
-      - nvm
-      - shpotify
+    tasks:
+      - name: Tap antibody repository
+        homebrew_tap:
+          name: getantibody/tap
+          state: present
+      - name: Install development packages with Homebrew
+        homebrew:
+          name: ack, antibody, bat, coreutils, fd, fdupes, ffmpeg, git, go, grep, gron, hub, imagemagick, imagesnap, jq, neovim, nmap, nnn, node, pipes-sh, python3, shellcheck, thefuck, tidy-html5, tldr, tokei, trash, tree, uncrustify, wallpaper, watch, wifi-password, zsh
+          state: present
   tasks:
     - pip:
         name: neovim
