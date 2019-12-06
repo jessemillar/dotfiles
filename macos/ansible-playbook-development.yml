@@ -1,6 +1,9 @@
 # This playbook installs apps and packages needed for general development
 - hosts: localhost
   tasks:
+    homebrew:
+      name: imagesnap,trash,wallpaper,wifi-password
+      state: present
     homebrew_cask:
       name: colorpicker-skalacolor,couleurs,docker,goland,kitematic,postman,qlmarkdown,qlstephen
       state: present
