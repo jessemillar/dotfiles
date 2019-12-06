@@ -1,0 +1,22 @@
+# This playbook installs programs that are specific to my current employment
+- hosts: localhost
+  pre_tasks:
+    - name: Stow git configuration
+      command: stow git
+      changed_when: false
+  roles:
+    - geerlingguy.homebrew
+  vars:
+    homebrew_upgrade_all_packages: yes
+    homebrew_installed_packages:
+      - ack
+      - antibody
+      - bat
+      - go
+      - hub
+      - imagemagick
+      - neovim
+      - shellcheck
+      - thefuck
+      - tldr
+      - tree

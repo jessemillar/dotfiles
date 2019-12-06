@@ -20,6 +20,7 @@ j
 ### General
 
 1. Install Aseprite from Humble Bundle
+1. Install and configure the [Settings Sync plugin](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) in Visual Studio Code
 
 ### Ansible
 

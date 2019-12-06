@@ -13,8 +13,6 @@
     - name: Stow dotfiles for skhd
       command: stow skhd
       changed_when: false
-    - name: Stow dotfiles for Visual Studio Code
-      command: stow visual-studio-code
       changed_when: false
     - name: Stow dotfiles for yabai
       command: stow yabai
@@ -49,7 +47,6 @@
       - rocket
       - spotify
       - the-unarchiver
-      - visual-studio-code
       - vlc
     homebrew_cask_uninstalled_apps:
       - bitbar

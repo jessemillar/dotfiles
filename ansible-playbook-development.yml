@@ -19,7 +19,6 @@
     homebrew_upgrade_all_packages: yes
     homebrew_taps:
       - getantibody/tap
-      - homebrew/cask
     homebrew_installed_packages:
       - ack
       - antibody
@@ -41,7 +40,6 @@
       - nnn
       - node
       - pipes-sh
-      - python3
       - shellcheck
       - thefuck
       - tidy-html5
@@ -60,18 +58,6 @@
       - mono
       - nvm
       - shpotify
-    homebrew_cask_apps:
-      - colorpicker-skalacolor
-      - couleurs
-      - docker
-      - goland
-      - kitematic
-      - postman
-      - qlmarkdown
-      - qlstephen
-    homebrew_cask_uninstalled_apps:
-      - clion
-      - dotnet
   tasks:
     - pip:
         name: neovim
