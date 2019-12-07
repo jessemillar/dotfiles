@@ -9,6 +9,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Put Homebrew's sbin in my path
 export PATH="/usr/local/sbin:$PATH"
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 source <(antibody init)
 
@@ -16,10 +17,6 @@ source <(antibody init)
 export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$PATH"
 export GO111MODULE=on
-
-# Put Kubebuilder (https://book.kubebuilder.io/quick-start.html#installation) in my path
-#export PATH="$PATH:/usr/local/kubebuilder/bin"
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # Enable dvm
 [ -f /usr/local/opt/dvm/dvm.sh ] && . /usr/local/opt/dvm/dvm.sh
