@@ -157,3 +157,4 @@
     - name: Change user shell to Zsh
       shell: command -v zsh | sudo tee -a /etc/shells && sudo usermod --shell $(command -v zsh) $(whoami)
       changed_when: false
+      failed_when: false

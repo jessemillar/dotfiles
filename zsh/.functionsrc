@@ -375,6 +375,10 @@ function unite() {
 # General functions
 ####################
 
+function fimg() {
+	curl $1 | sed -n 's/.*href="\([^"]*\).*/\1/p' | ack 'shopify|jpg|png'
+}
+
 # Copy a file and remove it (useful for repetitive work tasks)
 function cosh() {
 	copy $1 && trash $1
