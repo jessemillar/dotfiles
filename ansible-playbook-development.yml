@@ -146,6 +146,14 @@
       register: result
       changed_when: result.stdout is not search("You already have Oh My Zsh installed.")
       failed_when: result.rc != 0 and result.stdout is not search("You already have Oh My Zsh installed.")
+    - name: Remove the default ~/.zshrc
+      file:
+        path: ~/.zshrc
+        state: absent
+      changed_when: false
     - name: Stow dotfiles for Oh My Zsh
       command: stow zsh
+      changed_when: false
+    - name: Change user shell to Zsh
+      shell: command -v zsh | sudo tee -a /etc/shells && sudo usermod --shell $(command -v zsh) $(whoami)
       changed_when: false

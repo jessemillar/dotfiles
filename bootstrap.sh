@@ -21,4 +21,4 @@ brew install ansible
 ansible-playbook ansible-playbook-main.yml
 
 # Print a message on completion
-echo "bootstrap.sh finished"
+echo -e "bootstrap.sh finished\nYou probably want to reboot at this point"

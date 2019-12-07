@@ -13,6 +13,7 @@ I utilize a combination of [GNU Stow](https://www.gnu.org/software/stow/) and [A
 ## Usage
 
 1. Clone/download this repo
+1. Make sure your current user has `sudo` permissions (either has a password or is marked as `NOPASSWD` in `/etc/passwd`)
 1. Run `./bootstrap.sh`
 
 ## Manual Steps
