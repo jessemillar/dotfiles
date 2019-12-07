@@ -19,10 +19,8 @@ install:
   - "echo -e '[local]\nlocalhost ansible_connection=local' | sudo tee -a /etc/ansible/hosts > /dev/null"
 
 script:
-  # Mimic bootstrap.sh but run Ansible without the need for sudo
-  - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  - brew install ansible
-  - "ansible-playbook --extra-vars '{\"configure_sudoers\":\"false\"}' ansible-playbook-main.yml"
+  # Run the bootstrap script
+  - ./bootstrap.sh
 
   # Check the syntax of all playbooks
   - ansible-playbook ansible-playbook-*.yml --syntax-check

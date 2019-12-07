@@ -1,6 +1,5 @@
 # Path to your oh-my-zsh installation
 export ZSH=~/.oh-my-zsh
-source <(antibody init)
 
 # Set the prompt theme
 ZSH_THEME="mister-michael"
@@ -11,16 +10,16 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Put Homebrew's sbin in my path
 export PATH="/usr/local/sbin:$PATH"
 
+source <(antibody init)
+
 # Put Go in my path
 export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$PATH"
 export GO111MODULE=on
 
 # Put Kubebuilder (https://book.kubebuilder.io/quick-start.html#installation) in my path
-export PATH="$PATH:/usr/local/kubebuilder/bin"
-
-# Enable nvm
-source $(brew --prefix nvm)/nvm.sh
+#export PATH="$PATH:/usr/local/kubebuilder/bin"
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # Enable dvm
 [ -f /usr/local/opt/dvm/dvm.sh ] && . /usr/local/opt/dvm/dvm.sh
@@ -51,7 +50,7 @@ eval "$(hub alias -s)"
 eval "$(thefuck --alias)"
 
 # Load plugins
-plugins=(docker docker-compose github golang kubectl nvm wd vi-mode)
+plugins=(docker docker-compose github golang kubectl wd vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
