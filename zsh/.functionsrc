@@ -376,7 +376,7 @@ function unite() {
 ####################
 
 function fimg() {
-	curl $1 | sed -n 's/.*href="\([^"]*\).*/\1/p' | ack 'shopify|jpg|png'
+	curl $1 --silent | sed -n 's/.*href="\([^"]*\).*/\1/p' | ack 'jpg|png' | ack --passthru 'shopify'
 }
 
 # Copy a file and remove it (useful for repetitive work tasks)
