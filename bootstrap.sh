@@ -18,8 +18,7 @@ esac
 # Install Ansible via Homebrew
 brew install ansible
 
-# Give Ansible the community packages we need
-ansible-playbook ansible-playbook-main.yml -vvvv
+ansible-playbook ansible-playbook-main.yml
 
 # Print a message on completion
 echo "bootstrap.sh finished"
