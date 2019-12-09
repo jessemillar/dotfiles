@@ -8,17 +8,21 @@ Darwin*)
   ;;
 *)
 	# Linux (WSL included)
-	sudo apt update && sudo apt upgrade -y
+	sudo apt update
+	sudo apt upgrade -y
 	sudo apt install -y build-essential curl file git
 	yes "" | sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-	eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
   ;;
 esac
+
+# Put Homebrew in the PATH until the script can do it in a more permanent way
+eval $($(brew --prefix)/bin/brew shellenv)
 
 # Install Ansible via Homebrew
 brew install ansible
 
+# Run the playbooks
 ansible-playbook ansible-playbook-main.yml
 
 # Print a message on completion
-echo -e "bootstrap.sh finished\nYou probably want to reboot at this point"
+echo -e "bootstrap.sh finished\nRun any os-specific bootstrap.sh scripts and then reboot"
