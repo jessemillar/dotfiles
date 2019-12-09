@@ -1,0 +1,3 @@
+SetCapsLockState, Off
+Capslock::Esc
+

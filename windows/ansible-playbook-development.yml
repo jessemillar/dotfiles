@@ -5,3 +5,9 @@
       copy:
         src: ~/.dotfiles/windows/alacritty/alacritty.yml
         dest: /mnt/c/Users/jemillar/AppData/Roaming/alacritty/alacritty.yml
+    - name: Change Caps Lock to Escape via AutoHotkey
+      copy:
+        #shell: cp ~/.dotfiles/windows/autohotkey/caps-to-escape.ahk.lnk /mnt/c/Users/jemillar/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup
+        src: ~/.dotfiles/windows/autohotkey/caps-to-escape.ahk.lnk
+        dest: /mnt/c/Users/jemillar/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup
+
