@@ -1,6 +1,10 @@
 # This playbook installs apps and packages needed for general development
 - hosts: localhost
   pre_tasks:
+    - name: Make .config directory
+      file:
+        path: ~/.config
+        state: directory
     - name: Stow dotfiles for ack
       command: stow ack
       changed_when: false

@@ -1,0 +1,8 @@
+# This playbook uses the Chocolatey installer to install certain Windows GUI apps
+# Be sure to run this playbook from a WSL terminal running "as Administrator"
+- hosts: localhost
+  tasks:
+    - name: Install AutoHotkey
+      shell: choco.exe install autohotkey -y
+      register: result
+      changed_when: result.stdout is not search ("Chocolatey installed 0/")

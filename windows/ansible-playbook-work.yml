@@ -1,0 +1,15 @@
+# This playbook installs apps and packages needed for work
+- hosts: localhost
+  tasks:
+    - name: Install docker
+      homebrew:
+        name: ack
+        state: present
+    - name: Install Helm
+      homebrew:
+        name: helm
+        state: present
+    - name: Install k3d
+      homebrew:
+        name: k3d
+        state: present
