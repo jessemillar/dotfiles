@@ -17,9 +17,6 @@ export PATH="$GOPATH/bin:$PATH"
 # Enable Go modules
 export GO111MODULE=on
 
-# Enable GVM for multiple installs of Golang
-[[ -s "/home/jessemillar/.gvm/scripts/gvm" ]] && source "/home/jessemillar/.gvm/scripts/gvm"
-
 # Load proxy information
 [ -f ~/.proxyrc ] && source ~/.proxyrc
 
