@@ -11,18 +11,18 @@
       command: stow neovim
       changed_when: false
   tasks:
-    - name: Tap antibody repository
+    - name: Untap antibody repository
       homebrew_tap:
         name: getantibody/tap
-        state: present
+        state: absent
     - name: Install ack
       homebrew:
         name: ack
         state: present
-    - name: Install antibody
+    - name: Remove antibody
       homebrew:
         name: antibody
-        state: present
+        state: absent
     - name: Install bat
       homebrew:
         name: bat

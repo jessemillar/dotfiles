@@ -7,22 +7,18 @@ ZSH_THEME="mister-michael"
 # Makes repository status check for large repositories much, much faster
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Put Homebrew's sbin in my path
-export PATH="/usr/local/sbin:$PATH"
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+# Put Homebrew in my PATH
+eval $($(brew --prefix)/bin/brew shellenv)
 
-source <(antibody init)
-
-# Put Go in my path
+# Put Go in my PATH
 export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$PATH"
+
+# Enable Go modules
 export GO111MODULE=on
 
-# Enable dvm
-[ -f /usr/local/opt/dvm/dvm.sh ] && . /usr/local/opt/dvm/dvm.sh
-
-# Remove duplicates from $PATH
-typeset -aU path
+# Enable GVM for multiple installs of Golang
+[[ -s "/home/jessemillar/.gvm/scripts/gvm" ]] && source "/home/jessemillar/.gvm/scripts/gvm"
 
 # Load proxy information
 [ -f ~/.proxyrc ] && source ~/.proxyrc
