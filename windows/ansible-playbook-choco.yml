@@ -6,3 +6,35 @@
       shell: choco.exe install autohotkey -y
       register: result
       changed_when: result.stdout is not search ("Chocolatey installed 0/")
+    - name: Install Google Chrome
+      shell: choco.exe install GoogleChrome -y
+      register: result
+      changed_when: result.stdout is not search ("Chocolatey installed 0/")
+    - name: Install Microsoft Windows Terminal
+      shell: choco.exe install microsoft-windows-terminal -y
+      register: result
+      changed_when: result.stdout is not search ("Chocolatey installed 0/")
+    - name: Install OBS Studio
+      shell: choco.exe install obs-studio -y
+      register: result
+      changed_when: result.stdout is not search ("Chocolatey installed 0/")
+    - name: Install Postman
+      shell: choco.exe install postman -y
+      register: result
+      changed_when: result.stdout is not search ("Chocolatey installed 0/")
+    - name: Install PureText
+      shell: choco.exe install puretext -y
+      register: result
+      changed_when: result.stdout is not search ("Chocolatey installed 0/")
+    - name: Install Microsoft Teams
+      shell: choco.exe install microsoft-teams -y
+      register: result
+      changed_when: result.stdout is not search ("Chocolatey installed 0/")
+    - name: Install PowerToys
+      shell: choco.exe install powertoys -y
+      register: result
+      changed_when: result.stdout is not search ("Chocolatey installed 0/")
+    - name: Install Visual Studio Code
+      shell: choco.exe install vscode -y
+      register: result
+      changed_when: result.stdout is not search ("Chocolatey installed 0/")
