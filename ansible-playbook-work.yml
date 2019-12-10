@@ -11,7 +11,7 @@
         state: present
     - name: Install packages to allow apt to use a repository over HTTPS
       become: yes
-      shell: apt update && apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+      shell: apt update && apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
       register: result
       changed_when: result.stdout is not search("0 newly installed")
     - name: Add Docker's GPG key
@@ -25,6 +25,6 @@
       changed_when: false
     - name: Install Docker
       become: yes
-      shell: apt install docker-ce docker-ce-cli containerd.io
+      shell: apt install -y docker-ce docker-ce-cli containerd.io
       register: result
       changed_when: result.stdout is not search("0 newly installed")
