@@ -1,6 +1,9 @@
 {
-    "$schema": "https://aka.ms/terminal-profiles-schema",
+		"$schema": "https://aka.ms/terminal-profiles-schema",
     "defaultProfile": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+    "alwaysShowTabs": false,
+    "showTabsInTitlebar": false,
+    "showTerminalTitleInTitlebar": true,
     "initialCols": 142,
     "initialRows": 42,
     "profiles": [
@@ -13,7 +16,7 @@
             "colorScheme": "Dracula"
         },
         {
-            "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+            "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6102}",
             "name": "cmd",
             "commandline": "cmd.exe",
             "hidden": false,
@@ -72,6 +75,19 @@
             "keys": [
                 "ctrl+shift+v"
             ]
+        },
+        {
+            "command": "newTab",
+            "keys": [
+                "ctrl+t"
+            ]
+        },
+        {
+            "command": "closeTab",
+            "keys": [
+                "ctrl+w"
+            ]
         }
     ]
 }
+
