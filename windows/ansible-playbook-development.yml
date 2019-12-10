@@ -3,6 +3,6 @@
   tasks:
     - name: Change Caps Lock to Escape via AutoHotkey
       copy:
-        src: ~/.dotfiles/windows/autohotkey/caps-to-escape.ahk.lnk
+        src: ~/.dotfiles/windows/autohotkey/caps-to-escape.ahk
         dest: /mnt/c/Users/jemillar/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup
 

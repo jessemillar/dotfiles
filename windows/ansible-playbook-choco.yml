@@ -6,6 +6,10 @@
       shell: choco.exe install autohotkey -y
       register: result
       changed_when: result.stdout is not search ("Chocolatey installed 0/")
+    - name: Install Docker Desktop (edge)
+      shell: choco.exe install docker-desktop --pre -y
+      register: result
+      changed_when: result.stdout is not search ("Chocolatey installed 0/")
     - name: Install Google Chrome
       shell: choco.exe install GoogleChrome -y
       register: result
