@@ -12,11 +12,10 @@ Darwin*)
 	sudo apt upgrade -y
 	sudo apt install -y build-essential curl file git
 	yes "" | sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+	# Put Homebrew in the PATH until the script can do it in a more permanent way
+	eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
   ;;
 esac
-
-# Put Homebrew in the PATH until the script can do it in a more permanent way
-eval $($(brew --prefix)/bin/brew shellenv)
 
 # Install Ansible via Homebrew
 brew install ansible
