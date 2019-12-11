@@ -1,0 +1,8 @@
+# This playbook configures the attached disk that's used for Docker
+- hosts: localhost
+  tasks:
+  - name: Mount disk for Docker usage
+    mount:
+      path: /mnt/docker
+      src: UUID=b3e48f45-f933-4c8e-a700-22a159ec9077
+      state: present
