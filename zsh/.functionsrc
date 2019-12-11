@@ -339,9 +339,9 @@ function scuttle() {
 	docker rm $(docker ps -a -q) 2>/dev/null || true
 }
 
-# Remove all saved Docker images
+# Remove everything Docker-related
 function sink() {
-	docker rmi $(docker images -q) 2>/dev/null || true
+	docker system prune -a --volumes
 }
 
 ####################

@@ -27,6 +27,7 @@ alias powershell="powershell.exe"
 alias rc="source ~/.zshrc"
 alias re="remind"
 alias s="search"
+alias term="ssh terminal.jessemillar.com"
 alias tmp="mkdir tmp || true && cd tmp"
 alias v="nvim"
 alias watch="watch " # This is so aliases get expanded when passed to `watch`
