@@ -1,10 +1,6 @@
 # Any dependencies needed for other playbooks to run successfully should be managed here
 - hosts: localhost
   tasks:
-  - name: Update & upgrade Homebrew
-    homebrew:
-      update_homebrew: yes
-      upgrade_all: yes
   - name: Install stow
     homebrew:
       name: stow
