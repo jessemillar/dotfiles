@@ -162,3 +162,5 @@
       shell: command -v zsh | sudo tee -a /etc/shells && sudo usermod --shell $(command -v zsh) $(whoami)
       changed_when: false
       failed_when: false
+    - openssh_keypair:
+        path: ~/.ssh/id_rsa
