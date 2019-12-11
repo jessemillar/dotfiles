@@ -17,3 +17,6 @@ sudo mount /dev/sdc1 /mnt/docker
 ```
 
 Place `daemon.json` in `/etc/docker/daemon.json` and restart the Docker service
+
+set `DOCKER_HOST` on the machine that'll be connecting to the remote Docker daemon
+https://www.digitalocean.com/community/tutorials/how-to-use-a-remote-docker-server-to-speed-up-your-workflow
