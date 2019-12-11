@@ -4,5 +4,5 @@
   - name: Mount disk for Docker usage
     mount:
       path: /mnt/docker
-      src: UUID=b3e48f45-f933-4c8e-a700-22a159ec9077
+      src: UUID=8594c301-8d3c-4d4e-b328-450d4bcb8e24
       state: present
