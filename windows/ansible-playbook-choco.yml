@@ -14,6 +14,10 @@
       shell: choco.exe install GoogleChrome -y
       register: result
       changed_when: result.stdout is not search ("Chocolatey installed 0/")
+    - name: Install Just Color Picker
+      shell: choco.exe install jcpicker -y
+      register: result
+      changed_when: result.stdout is not search ("Chocolatey installed 0/")
     - name: Install Microsoft Windows Terminal
       shell: choco.exe install microsoft-windows-terminal -y
       register: result
