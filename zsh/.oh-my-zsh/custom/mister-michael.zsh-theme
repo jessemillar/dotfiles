@@ -13,7 +13,7 @@ _hostname_icon() {
 			echo "🐧"
 			;;
 		MININT*)
-			echo "🦓"
+			echo "🌵"
 			;;
 		*)
 			echo "❓"
