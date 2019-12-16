@@ -22,7 +22,7 @@ _hostname_icon() {
 }
 
 local user_color='magenta'; [ $UID -eq 0 ] && user_color='red'
-PROMPT='$(_hostname_icon) %{$fg[$user_color]%}$(_michael_collapsed_wd)%{$reset_color%} %(!.#.>) '
+PROMPT='$(_hostname_icon) %{$fg[$user_color]%}$(_michael_collapsed_wd) %{$fg[cyan]%}%(!.#.>)  %{$reset_color%}'
 PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
 
 local return_status="%{$fg_bold[red]%}%(?..%?)%{$reset_color%}"
