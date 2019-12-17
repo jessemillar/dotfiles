@@ -1,4 +1,4 @@
-_michael_collapsed_wd() {
+_collapsed_wd() {
 	echo $(pwd | perl -pe '
 		BEGIN {
 			binmode STDIN,  ":encoding(UTF-8)";
@@ -22,8 +22,8 @@ _hostname_icon() {
 }
 
 local user_color='magenta'; [ $UID -eq 0 ] && user_color='red'
-PROMPT='$(_hostname_icon)  %{$fg[$user_color]%}$(_michael_collapsed_wd) %{$fg[cyan]%}%(!.#.>) %{$reset_color%}'
-PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
+PROMPT='$(_hostname_icon)  %{$fg[$user_color]%}$(_collapsed_wd) %{$fg[cyan]%}%(!.#.>) %{$reset_color%}'
+# PROMPT2='%{$fg[red]%}\ %{$reset_color%}'
 
 local return_status="%{$fg_bold[red]%}%(?..%?)%{$reset_color%}"
 RPROMPT='$(vi_mode_prompt_info)${return_status}%{$fg[cyan]%}$(git_prompt_info)$(git_prompt_status)%{$reset_color%}'
