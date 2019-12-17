@@ -1,4 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/jessemillar/projects/underlay-nanny/executors/nsg'
+let g:netrw_dirhist_4='/home/jessemillar/projects/underlay-nanny/executors'
+let g:netrw_dirhist_3='/home/jessemillar/projects/underlay-nanny'
 let g:netrw_dirhist_2='/home/jessemillar/.dotfiles/windows'
 let g:netrw_dirhist_1='/Users/j0m01o9/.hammerspoon'

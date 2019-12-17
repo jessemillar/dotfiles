@@ -40,7 +40,7 @@ eval "$(hub alias -s)"
 eval "$(thefuck --alias)"
 
 # Load plugins
-plugins=(docker docker-compose github golang kubectl wd vi-mode)
+plugins=(docker docker-compose emoji github golang kubectl wd vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
