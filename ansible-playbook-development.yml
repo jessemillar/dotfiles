@@ -115,6 +115,10 @@
       homebrew:
         name: tldr
         state: present
+    - name: Install tmux
+      homebrew:
+        name: tmux
+        state: present
     - name: Install tokei
       homebrew:
         name: tokei
