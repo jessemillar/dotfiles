@@ -5,6 +5,7 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = nvim
+	pager = less -F
 [merge]
 	tool = opendiff
 [mergetool]
@@ -15,3 +16,5 @@
 	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
 [url "git@ssh.dev.azure.com:v3/msazure/CloudNativeCompute/"]
 	insteadOf = https://dev.azure.com/msazure/CloudNativeCompute/_git/
+[pager]
+	status = true
