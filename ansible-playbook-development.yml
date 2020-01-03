@@ -75,6 +75,10 @@
       homebrew:
         name: jq
         state: present
+    - name: Install mosh
+      homebrew:
+        name: mosh
+        state: present
     - name: Install neovim
       homebrew:
         name: neovim
