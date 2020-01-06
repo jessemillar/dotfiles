@@ -11,7 +11,7 @@
       register: result
       changed_when: result.stdout is not search ("Chocolatey installed 0/")
     - name: Install FiraCode font
-      shell: choco.exe install firacode --pre -y
+      shell: choco.exe install firacode -y
       register: result
       changed_when: result.stdout is not search ("Chocolatey installed 0/")
     - name: Install Google Chrome
@@ -20,6 +20,7 @@
       changed_when: result.stdout is not search ("Chocolatey installed 0/")
     - name: Install Just Color Picker
       shell: choco.exe install jcpicker -y
+      ignore_errors: yes
       register: result
       changed_when: result.stdout is not search ("Chocolatey installed 0/")
     - name: Install Microsoft Windows Terminal
