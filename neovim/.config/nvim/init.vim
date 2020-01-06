@@ -75,9 +75,6 @@ nnoremap <C-l> <C-w>l
 set tabstop=2
 set shiftwidth=2
 
-" Custom mapping for Autoformat
-command! AF Neoformat
-
 " Quick spellcheck toggle
 command! SP :set spell!
 
