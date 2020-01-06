@@ -87,6 +87,10 @@
       homebrew:
         name: nmap
         state: present
+    - name: Install Node.js
+      homebrew:
+        name: node
+        state: present
     - name: Install nnn
       homebrew:
         name: nnn
@@ -147,6 +151,10 @@
       homebrew:
         name: zsh
         state: present
+    - name: Install "prettier" Node.js package globally
+      npm:
+        name: prettier
+        global: yes
     - name: Install neovim Python module
       shell: pip3 install neovim
       register: result
