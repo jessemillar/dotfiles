@@ -10,6 +10,10 @@
       shell: choco.exe install docker-desktop --pre -y
       register: result
       changed_when: result.stdout is not search ("Chocolatey installed 0/")
+    - name: Install FiraCode font
+      shell: choco.exe install firacode --pre -y
+      register: result
+      changed_when: result.stdout is not search ("Chocolatey installed 0/")
     - name: Install Google Chrome
       shell: choco.exe install GoogleChrome -y
       register: result

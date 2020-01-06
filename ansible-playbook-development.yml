@@ -155,6 +155,11 @@
       homebrew:
         name: zsh
         state: present
+    - name: Install FiraCode font
+      become: yes
+      shell: apt remove -y fonts-firacode
+      register: result
+      changed_when: result.stdout is not search("0 newly installed")
     - name: Install "prettier" Node.js package globally
       npm:
         name: prettier
