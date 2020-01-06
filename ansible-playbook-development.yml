@@ -143,6 +143,10 @@
       homebrew:
         name: uncrustify
         state: present
+    - name: Install unzip
+      homebrew:
+        name: unzip
+        state: present
     - name: Install watch
       homebrew:
         name: watch
