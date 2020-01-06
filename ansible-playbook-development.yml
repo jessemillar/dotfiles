@@ -107,6 +107,10 @@
       homebrew:
         name: shellcheck
         state: present
+    - name: Install the Starship prompt
+      homebrew:
+        name: starship
+        state: present
     - name: Install thefuck
       homebrew:
         name: thefuck

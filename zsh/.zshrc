@@ -1,12 +1,6 @@
 # Path to your oh-my-zsh installation
 export ZSH=~/.oh-my-zsh
 
-# Set the prompt theme
-ZSH_THEME="mister-michael"
-
-# Makes repository status check for large repositories much, much faster
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-
 # Put Homebrew in my PATH
 eval $($(brew --prefix)/bin/brew shellenv)
 
@@ -46,3 +40,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Print a random logo
 printAscii
+
+# Start Starship
+eval "$(starship init zsh)"

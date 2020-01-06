@@ -41,6 +41,7 @@ alias gmod="go clean -modcache && go mod download && go mod tidy"
 alias gun="go run main.go"
 alias gin="go install && go run main.go"
 alias gest="go test -race ./... | less -F"
+alias gestv="go test -v -race ./... | less -F"
 
 # Docker (there are also a few functions defined in .functionsrc)
 alias dr="docker run"
