@@ -29,7 +29,7 @@ export GO111MODULE=on
 eval "$(thefuck --alias)"
 
 # Load plugins
-plugins=(docker docker-compose emoji github golang kubectl wd vi-mode)
+plugins=(docker docker-compose emoji golang kubectl wd vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
