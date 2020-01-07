@@ -1,9 +1,6 @@
 # Path to your oh-my-zsh installation
 export ZSH=~/.oh-my-zsh
 
-# Put Homebrew in my PATH
-eval $($(brew --prefix)/bin/brew shellenv)
-
 # Put Go in my PATH
 export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$PATH"
