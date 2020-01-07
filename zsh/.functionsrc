@@ -500,7 +500,7 @@ function search() {
 	then
 		find . -name "*$2*" | ack -i --passthru "$2"
 	else
-		find . -name "*$1*"
+		find . -name "*$1*" | ack -i --passthru "$1"
 		ack -i "$1"
 	fi
 }
