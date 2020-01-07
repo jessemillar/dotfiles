@@ -7,6 +7,14 @@ export PATH="$GOPATH/bin:$PATH"
 # Enable Go modules
 export GO111MODULE=on
 
+# Load various CLI helpers
+eval "$(thefuck --alias)"
+
+# Load plugins
+plugins=(docker docker-compose emoji golang kubectl wd vi-mode)
+
+source $ZSH/oh-my-zsh.sh
+
 # Load environment variables
 [ -f ~/.envrc ] && source ~/.envrc
 
@@ -21,14 +29,6 @@ export GO111MODULE=on
 
 # Load custom functions for ASCII art
 [ -f ~/.asciirc ] && source ~/.asciirc
-
-# Load various CLI helpers
-eval "$(thefuck --alias)"
-
-# Load plugins
-plugins=(docker docker-compose emoji golang kubectl wd vi-mode)
-
-source $ZSH/oh-my-zsh.sh
 
 # Print a random logo
 printAscii

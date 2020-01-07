@@ -38,6 +38,10 @@
       homebrew:
         name: coreutils
         state: present
+    - name: Install expect
+      homebrew:
+        name: expect
+        state: absent
     - name: Install fd
       homebrew:
         name: fd

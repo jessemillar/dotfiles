@@ -498,8 +498,9 @@ function luv() {
 function search() {
 	if [ $1 = "-f" ]
 	then
-		find . -name "*$2*" | ack -i --passthru --pager="less -R" "$2"
+		find . -name "*$2*" | ack -i --passthru "$2"
 	else
-		{find . -name "*$1*"; ack -i "$1"} | ack -i --passthru --pager="less -R" "$1"
+		find . -name "*$1*"
+		ack -i "$1"
 	fi
 }
