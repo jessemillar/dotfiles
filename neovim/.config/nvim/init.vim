@@ -27,6 +27,9 @@ call plug#end()
 " Load vim-sensible first so we can override defaults
 runtime! plugin/sensible.vim
 
+" Disable netrw history
+let g:netrw_dirhistmax = 0
+
 " Enable autocompletion with tab support
 highlight Pmenu ctermfg=236 ctermbg=243
 highlight PmenuSel ctermfg=236 ctermbg=255
