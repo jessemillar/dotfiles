@@ -69,7 +69,7 @@
     - name: Install hub
       homebrew:
         name: hub
-        state: present
+        state: absent
     - name: Install imagemagick
       homebrew:
         name: imagemagick

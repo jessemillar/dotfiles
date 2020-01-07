@@ -7,12 +7,8 @@ eval $($(brew --prefix)/bin/brew shellenv)
 # Put Go in my PATH
 export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$PATH"
-
 # Enable Go modules
 export GO111MODULE=on
-
-# Load proxy information
-[ -f ~/.proxyrc ] && source ~/.proxyrc
 
 # Load environment variables
 [ -f ~/.envrc ] && source ~/.envrc
@@ -30,7 +26,6 @@ export GO111MODULE=on
 [ -f ~/.asciirc ] && source ~/.asciirc
 
 # Load various CLI helpers
-eval "$(hub alias -s)"
 eval "$(thefuck --alias)"
 
 # Load plugins
