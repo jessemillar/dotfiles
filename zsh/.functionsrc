@@ -378,7 +378,7 @@ function fimg() {
 	curl $1 --silent | sed -n 's/.*href="\([^"]*\).*/\1/p' | ack 'jpeg|jpg|png' | ack --passthru 'shopify'
 }
 
-# Copy a file and remove it (useful for repetitive work tasks)
+# Copy a file to the clipboard and remove it (useful for repetitive work tasks)
 function cosh() {
 	copy $1 && trash $1
 }
@@ -503,4 +503,9 @@ function search() {
 		find . -name "*$1*" | ack -i --passthru "$1"
 		ack -i "$1"
 	fi
+}
+
+# Find disk usage by directory
+function usage() {
+	sudo du -cha --max-depth=1 "$1" | grep -E "M|G"
 }

@@ -1,4 +1,4 @@
-# This playbook installs apps and packages needed for work
+# This playbook installs apps and packages needed for working with Kubernetes
 - hosts: localhost
   tasks:
     - name: Install packages to allow apt to use a repository over HTTPS
@@ -36,6 +36,10 @@
       service:
         name: docker
         state: started
+    - name: Install cfssl
+      homebrew:
+        name: cfssl
+        state: present
     - name: Install Helm
       homebrew:
         name: helm
@@ -43,4 +47,8 @@
     - name: Install k3d
       homebrew:
         name: k3d
+        state: present
+    - name: Install kubectl
+      homebrew:
+        name: kubectl
         state: present
