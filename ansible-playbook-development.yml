@@ -14,6 +14,9 @@
     - name: Stow dotfiles for Neovim
       command: stow neovim
       changed_when: false
+    - name: Stow dotfiles for the Starship prompt
+      command: stow starship
+      changed_when: false
     - name: Stow dotfiles for tmux
       command: stow tmux
       changed_when: false
