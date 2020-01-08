@@ -5,10 +5,6 @@
       copy:
         src: ~/.dotfiles/windows/autohotkey/caps-to-escape.ahk
         dest: /mnt/c/Users/jemillar/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup
-    - name: Disable arrow keys (and make up arrow = right shift)
-      copy:
-        src: ~/.dotfiles/windows/autohotkey/disable-arrow-keys.ahk
-        dest: /mnt/c/Users/jemillar/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup
     - name: Copy WSL SSH key
       copy:
         src: '{{ item }}'
