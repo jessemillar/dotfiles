@@ -10,9 +10,6 @@ export GO111MODULE=on
 # Load various CLI helpers
 eval "$(thefuck --alias)"
 
-# Start tmux at launch
-ZSH_TMUX_AUTOSTART=true
-
 # Load plugins
 plugins=(docker docker-compose emoji golang kubectl tmux wd vi-mode)
 
