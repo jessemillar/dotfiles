@@ -2,44 +2,43 @@
 
 ####################
 # git functions
-# Note: The below functions use hub (https://github.com/github/hub) instead of git
 ####################
 
 # Compare the current branch to a supplied branch (or master if no branch is supplied) and view the diff (similar to creating a GitHub PR)
 function gdpr() {
 	if [[ -z $1 ]]
 	then
-		hub diff master...$(hub rev-parse --abbrev-ref HEAD)
+		git diff master...$(git rev-parse --abbrev-ref HEAD)
 	else
-		hub diff $1...$(hub rev-parse --abbrev-ref HEAD)
+		git diff $1...$(git rev-parse --abbrev-ref HEAD)
 	fi
 }
 
 # Quickly merge the current branch with a supplied branch (or master if no branch is supplied)
 function gm() {
-	BRANCH=$(hub rev-parse --abbrev-ref HEAD)
+	BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
 	if [[ -z $1 ]]
 	then
-		hub checkout master && hub pull && hub checkout $BRANCH && hub merge master
+		git checkout master && git pull && git checkout $BRANCH && git merge master
 	else
-		hub checkout $1 && hub pull && hub checkout $BRANCH && hub merge $1
+		git checkout $1 && git pull && git checkout $BRANCH && git merge $1
 	fi
 }
 
 # Checkout a PR by PR number (useful if someone created a PR from a fork)
-# Note: 'hub pr checkout $1' should work in place of this function but receives "x509: certificate signed by unknown authority" because of Walmart security settings
+# Note: 'git pr checkout $1' should work in place of this function but receives "x509: certificate signed by unknown authority" because of Walmart security settings
 function gcpr() {
-	hub checkout master && hub pull && hub pull origin pull/$1/head:pr/$1 && hub checkout pr/$1
+	git checkout master && git pull && git pull origin pull/$1/head:pr/$1 && git checkout pr/$1
 }
 
 # Delete local git branches that are not present on the remote
 function gclean() {
-	hub remote prune origin >/dev/null 2>&1
+	git remote prune origin >/dev/null 2>&1
 
-	MERGED_BRANCHES=$(hub branch --merged master --no-color | cut -c 3- | grep -v '^[ *]*master$')
-	ORPHAN_BRANCHES=$(grep gone <(hub branch -v) | cut -d ' ' -f 3)
-	BRANCHES_WITH_NO_REMOTE=$(hub branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }')
+	MERGED_BRANCHES=$(git branch --merged master --no-color | cut -c 3- | grep -v '^[ *]*master$')
+	ORPHAN_BRANCHES=$(grep gone <(git branch -v) | cut -d ' ' -f 3)
+	BRANCHES_WITH_NO_REMOTE=$(git branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }')
 
 	if [[ ! -z $MERGED_BRANCHES ]]; then
 		echo "# Merged branches:"
@@ -65,18 +64,18 @@ function gclean() {
 		then
 			read "DELETE?Force delete the listed branches? [y/N] "
 			if [ "$DELETE" = "y" ]; then
-				echo $MERGED_BRANCHES | xargs hub branch -D
-				echo $ORPHAN_BRANCHES | xargs hub branch -D
-				echo $BRANCHES_WITH_NO_REMOTE | xargs hub branch -D
+				echo $MERGED_BRANCHES | xargs git branch -D
+				echo $ORPHAN_BRANCHES | xargs git branch -D
+				echo $BRANCHES_WITH_NO_REMOTE | xargs git branch -D
 			else
 				echo "Aborted"
 			fi
 		else
 			read "DELETE?Delete the listed branches? [y/N] "
 			if [ "$DELETE" = "y" ]; then
-				echo $MERGED_BRANCHES | xargs hub branch -d
-				echo $ORPHAN_BRANCHES | xargs hub branch -d
-				echo $BRANCHES_WITH_NO_REMOTE | xargs hub branch -d
+				echo $MERGED_BRANCHES | xargs git branch -d
+				echo $ORPHAN_BRANCHES | xargs git branch -d
+				echo $BRANCHES_WITH_NO_REMOTE | xargs git branch -d
 			else
 				echo "Aborted"
 			fi
@@ -90,18 +89,18 @@ function gitt() {
 	then
 		echo "No commit message supplied"
 	else
-		BRANCH="$(hub rev-parse --abbrev-ref HEAD | awk 'match($0, /[A-Z]+-[[:digit:]]+/) { print substr($0, RSTART, RLENGTH) }')"
+		BRANCH="$(git rev-parse --abbrev-ref HEAD | awk 'match($0, /[A-Z]+-[[:digit:]]+/) { print substr($0, RSTART, RLENGTH) }')"
 
-		hub add -A
+		git add -A
 
 		if [ -z "$BRANCH" ]
 		then
-			hub commit -s -m $1
+			git commit -s -m $1
 		else
-			hub commit -s -m "$BRANCH $1"
+			git commit -s -m "$BRANCH $1"
 		fi
 
-		hub push -u
+		git push -u
 	fi
 }
 
@@ -133,19 +132,19 @@ function wip() {
 		(
 		cd $repo && cd ..
 
-		if [[ ! -z $(hub --no-pager diff HEAD) || ! -z $(hub status --short) || ! -z $(hub cherry -v 2>&1) || ! -z $(hub --no-pager log --branches --not --remotes --no-walk --pretty=tformat:"%d%n") || ! -z $(hub branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }') ]]
+		if [[ ! -z $(git --no-pager diff HEAD) || ! -z $(git status --short) || ! -z $(git cherry -v 2>&1) || ! -z $(git --no-pager log --branches --not --remotes --no-walk --pretty=tformat:"%d%n") || ! -z $(git branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }') ]]
 		then
 			echo $repo
 
 			# Make newlines the only split character
 			IFS=$'\n'
 
-			for line in `hub branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }'`
+			for line in `git branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }'`
 			do
 				echo "  No remote: "$line
 			done
 
-			for line in `hub --no-pager log --branches --not --remotes --no-walk --pretty=tformat:"%d%n"`
+			for line in `git --no-pager log --branches --not --remotes --no-walk --pretty=tformat:"%d%n"`
 			do
 				echo "  Unpushed/outdated: "$line
 			done
@@ -499,7 +498,7 @@ function luv() {
 function search() {
 	if [ $1 = "-f" ]
 	then
-		find . -name "*$2*" | ack -i --passthru "$2" | less -F
+		find . -name "*$2*" | ack -i --passthru "$2"
 	else
 		find . -name "*$1*" | ack -i --passthru "$1"
 		ack -i "$1"

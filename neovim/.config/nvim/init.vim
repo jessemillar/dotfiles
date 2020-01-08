@@ -19,12 +19,16 @@ Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 
 call plug#end()
 
 " Load vim-sensible first so we can override defaults
 runtime! plugin/sensible.vim
+
+" Disable netrw history
+let g:netrw_dirhistmax = 0
 
 " Enable autocompletion with tab support
 highlight Pmenu ctermfg=236 ctermbg=243
@@ -60,10 +64,12 @@ let g:javascript_plugin_jsdoc = 1
 set directory=/tmp
 
 " Better movement between panes
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+set splitbelow
+set splitright
 
 " Don't complain when I type too fast
 :command WQ wq
@@ -89,12 +95,6 @@ hi Search ctermfg=236
 set number
 set relativenumber
 
-" Custom mapping for Go definition finding
-command! GD GoDef
-
-" Custom mapping for Go definition finding
-command! GR GoRun
-
 " Go syntax highlighting
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -103,15 +103,6 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_auto_sameids = 1
-
-" Make building and running Go files easier
-autocmd FileType go nmap <leader>b  <Plug>(go-build)
-autocmd FileType go nmap <leader>r  <Plug>(go-run)
-
-" Make debugging Go programs easier
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
 
 " Run goimports instead of gofmt
 let g:go_fmt_command = 'goimports'

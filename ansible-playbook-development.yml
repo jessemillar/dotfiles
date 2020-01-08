@@ -14,6 +14,9 @@
     - name: Stow dotfiles for Neovim
       command: stow neovim
       changed_when: false
+    - name: Stow dotfiles for tmux
+      command: stow tmux
+      changed_when: false
   tasks:
     - name: Untap antibody repository
       homebrew_tap:
@@ -35,6 +38,10 @@
       homebrew:
         name: coreutils
         state: present
+    - name: Install expect
+      homebrew:
+        name: expect
+        state: absent
     - name: Install fd
       homebrew:
         name: fd
@@ -66,7 +73,7 @@
     - name: Install hub
       homebrew:
         name: hub
-        state: present
+        state: absent
     - name: Install imagemagick
       homebrew:
         name: imagemagick

@@ -1,1 +1,1 @@
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+eval $($(brew --prefix)/bin/brew shellenv)
