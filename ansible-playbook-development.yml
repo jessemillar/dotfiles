@@ -33,6 +33,10 @@
       homebrew:
         name: antibody
         state: absent
+    - name: Install azure-cli
+      homebrew:
+        name: azure-cli
+        state: present
     - name: Install bat
       homebrew:
         name: bat
