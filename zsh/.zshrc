@@ -10,13 +10,13 @@ export GO111MODULE=on
 # Load various CLI helpers
 eval "$(thefuck --alias)"
 
-# Load environment variables
-[ -f ~/.envrc ] && source ~/.envrc
-
 # Load plugins
 plugins=(docker docker-compose emoji golang kubectl tmux wd vi-mode)
 
 source $ZSH/oh-my-zsh.sh
+
+# Load environment variables for development secrets
+[ -f ~/.envrc ] && source ~/.envrc
 
 # Load Docker environment variables
 [ -f ~/.dockerrc ] && source ~/.dockerrc
