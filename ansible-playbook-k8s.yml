@@ -52,3 +52,17 @@
       homebrew:
         name: kubectl
         state: present
+    - name: Install snap
+      become: yes
+      shell: apt install -y snap
+      register: result
+      changed_when: result.stdout is not search("0 newly installed")
+    - name: Install microk8s via snap
+      become: yes
+      snap:
+        name: microk8s
+        state: present
+        classic: yes
+    - name: Start microk8s services
+      become: yes
+      shell: microk8s.enable dns
