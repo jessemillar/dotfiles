@@ -66,3 +66,12 @@
     - name: Start microk8s services
       become: yes
       shell: microk8s.enable dns
+      changed_when: false
+    - name: Install kustomize
+      homebrew:
+        name: kustomize
+        state: present
+    - name: Install Kubebuilder
+      homebrew:
+        name: kubebuilder
+        state: present
