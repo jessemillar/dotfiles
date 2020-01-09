@@ -1,10 +1,36 @@
 # This playbook configures the attached disk that's used for Docker
 - hosts: localhost
   tasks:
-  - name: Mount disk for Docker usage
-    become: yes
-    mount:
-      path: /mnt/docker
-      src: UUID=8594c301-8d3c-4d4e-b328-450d4bcb8e24
-      fstype: ext4
-      state: mounted
+    - name: Install util-linux for sfdisk
+      homebrew:
+        name: util-linux
+        state: present
+    - name: Make partition on /dev/sdc
+      become: yes
+      shell: echo 'type=83' | sudo sfdisk /dev/sdc
+      ignore_errors: true
+      register: result
+      changed_when: result.stderr is not search ("disk is currently in use")
+    - name: Make filesystem on /dev/sdc1
+      become: yes
+      shell: mkfs -t ext4 /dev/sdc1
+      ignore_errors: true
+      register: result
+      changed_when: result.stderr is not search ("is mounted")
+    - name: Mount disk for Docker usage
+      become: yes
+      mount:
+        path: /mnt/docker
+        src: /dev/sdc1
+        fstype: ext4
+        state: mounted
+    - name: Point Docker to the new disk
+      become: yes
+      copy:
+        src: ~/.dotfiles/azure/etc/docker/daemon.json
+        dest: /etc/docker
+    - name: Restart Docker
+      become: yes
+      service:
+        name: docker
+        state: restarted
