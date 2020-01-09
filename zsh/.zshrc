@@ -4,8 +4,6 @@ export ZSH=~/.oh-my-zsh
 # Put Go in my PATH
 export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$PATH"
-# Enable Go modules
-export GO111MODULE=on
 
 # Load various CLI helpers
 eval "$(thefuck --alias)"
