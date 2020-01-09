@@ -1,44 +1,40 @@
 #!/usr/bin/env bash
 
 # General
-# day is listed first because it's needed in a couple aliases below
-alias day="date +%m-%d-%Y"
-
 alias a="ack"
-alias cat="bat"
-alias choco="choco.exe"
-alias chocol="choco list --local-only"
-alias conversation="nvim ~/Documents/Projects/conversations/$(day).md"
 alias crates="sim_arduboy -p 3 ~/Documents/Projects/crates/crates.ino.leonardo.hex"
+alias day="date +%m-%d-%Y"
 alias f="fuck"
 alias h="history | tail -n 300"
 alias ha="history | ack"
 alias host="hostess . &"
 alias imcat="~/projects/imcat/imcat"
-alias journal="nvim ~/Documents/Projects/resolutions/$(day).md"
 alias lines="tokei"
 alias mci="mvn clean install -Dmaven.test.skip=true"
 alias mcit="mvn clean install"
-alias o="explorer.exe ."
-alias pb="clip.exe"
-alias powershell="powershell.exe"
 alias rc="source ~/.zshrc"
 alias s="search"
 alias tmp="mkdir tmp || true && cd tmp"
 alias v="nvim"
 alias watch="watch " # This is so aliases get expanded when passed to `watch`
+
+# Windows (for use with WSL2)
+alias choco="choco.exe"
+alias chocol="choco.exe list --local-only"
+alias o="explorer.exe ."
+alias pb="clip.exe"
+alias powershell="powershell.exe"
 alias wsl="wsl.exe"
 
 # Go
 alias gg="go get -v"
-alias gmod="go clean -modcache && go mod download && go mod tidy"
+alias gmod="go clean -modcache && go mod tidy"
 alias gun="go run main.go"
 alias gin="go install && go run main.go"
 alias gest="go test -race ./..."
 alias gestv="go test -v -race ./..."
 
 # Docker (there are also a few functions defined in .functionsrc)
-alias dr="docker run"
 alias inflate="scuttle && docker-compose build && docker-compose up"
 alias inflated="scuttle && docker-compose build && docker-compose up -d"
 alias deflate="docker-compose down"
@@ -72,5 +68,6 @@ alias grh="git reset --hard HEAD"
 alias grm="git ls-files -i --exclude-from=.gitignore | xargs git rm --cached"
 alias gs="git status"
 alias gsu="git stash -u"
+alias gsc="git stash clear"
 alias gt="git tag"
 alias gtl="git tag -l"
