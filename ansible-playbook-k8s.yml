@@ -65,7 +65,7 @@
         classic: yes
     - name: Start microk8s services
       become: yes
-      shell: microk8s.enable dns
+      shell: microk8s.enable dns dashboard registry
       changed_when: false
     - name: Install kustomize
       homebrew:
@@ -74,4 +74,8 @@
     - name: Install Kubebuilder
       homebrew:
         name: kubebuilder
+        state: present
+    - name: Install fluxctl
+      homebrew:
+        name: fluxctl
         state: present
