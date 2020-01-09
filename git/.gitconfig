@@ -11,15 +11,11 @@
 	keepBackup = false
 [push]
 	default = current
-[credential]
-	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
-[url "git@ssh.dev.azure.com:v3/msazure/CloudNativeCompute/"]
-	insteadOf = https://dev.azure.com/msazure/CloudNativeCompute/_git/
+[url "git@github.com"]
+	insteadOf = https://github.com
 [url "msazure@vs-ssh.visualstudio.com:v3/msazure/CloudNativeCompute"]
-	 insteadOf = ssh://dev.azure.com/msazure/CloudNativeCompute/_git
+	insteadOf = ssh://dev.azure.com/msazure/CloudNativeCompute/_git
 [url "ssh://msazure@vs-ssh.visualstudio.com:22/DefaultCollection/One/_ssh/"]
 	insteadOf = https://dev.azure.com/msazure/DefaultCollection/One/_git/
-[url "git@github.com:"]
-	insteadOf = https://github.com
 [url "ssh://msazure@vs-ssh.visualstudio.com:22/CloudNativeCompute/_ssh/"]
 	insteadOf = https://dev.azure.com/msazure/CloudNativeCompute/_git/
