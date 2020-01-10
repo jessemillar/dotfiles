@@ -9,7 +9,7 @@ export PATH="$GOPATH/bin:$PATH"
 eval "$(thefuck --alias)"
 
 # Load plugins
-plugins=(docker docker-compose emoji golang kubectl tmux wd vi-mode)
+plugins=(docker docker-compose golang kubectl wd vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
