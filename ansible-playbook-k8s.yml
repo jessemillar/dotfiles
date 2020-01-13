@@ -79,3 +79,7 @@
       homebrew:
         name: fluxctl
         state: present
+    - name: Install kind
+      homebrew:
+        name: kind
+        state: present
