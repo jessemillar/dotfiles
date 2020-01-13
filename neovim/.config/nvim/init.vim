@@ -9,6 +9,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'brooth/far.vim'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'dracula/vim'
 Plug 'fatih/vim-go'
 Plug 'justinj/vim-pico8-syntax'
@@ -19,8 +20,8 @@ Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'zivyangll/git-blame.vim'
 
 call plug#end()
 
@@ -110,3 +111,6 @@ let g:go_auto_sameids = 1
 
 " Run goimports instead of gofmt
 let g:go_fmt_command = 'goimports'
+
+" Git blame config
+nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>
