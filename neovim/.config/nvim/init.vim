@@ -83,8 +83,8 @@ set tabstop=2
 set shiftwidth=2
 
 " Faster split resizing
-nnoremap <silent> <Leader>+ :exe "resize 20"<CR>
-nnoremap <silent> <Leader>- :exe "resize 20"<CR>
+nnoremap <silent> <Leader>+ :exe "resize 10"<CR>
+nnoremap <silent> <Leader>- :exe "resize 10"<CR>
 
 " Quick spellcheck toggle
 command! SP :set spell!
