@@ -83,3 +83,7 @@
       homebrew:
         name: kind
         state: present
+    - name: Install the k wrapper
+      shell: curl -L https://raw.githubusercontent.com/jakepearson/k/master/k -o ~/.bin/k --create-dirs && chmod +x ~/.bin/k
+    - name: Install the h wrapper
+      shell: curl -L https://raw.githubusercontent.com/jakepearson/h/master/h -o ~/.bin/h --create-dirs && chmod +x ~/.bin/h

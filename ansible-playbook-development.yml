@@ -211,3 +211,6 @@
       failed_when: false
     - openssh_keypair:
         path: ~/.ssh/id_rsa
+    - name: Install imcat
+      shell: git clone https://github.com/stolk/imcat.git && cd imcat && make && mkdir -p ~/.bin && mv imcat ~/.bin && cd .. && rm -rf imcat
+      changed_when: false

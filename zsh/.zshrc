@@ -3,13 +3,12 @@ export ZSH=~/.oh-my-zsh
 
 # Put Go in my PATH
 export GOPATH="$HOME/.go"
-export PATH="$GOPATH/bin:$PATH"
 
 # Load various CLI helpers
 eval "$(thefuck --alias)"
 
 # Load plugins
-plugins=(docker docker-compose golang kubectl wd vi-mode)
+plugins=(docker docker-compose golang wd vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
