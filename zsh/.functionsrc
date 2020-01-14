@@ -26,6 +26,11 @@ function gm() {
 	fi
 }
 
+# Recover a file from a previous commit that's deleted in the working version
+function grecover() {
+	git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1"
+}
+
 # Checkout a PR by PR number (useful if someone created a PR from a fork)
 # Note: 'git pr checkout $1' should work in place of this function but receives "x509: certificate signed by unknown authority" because of Walmart security settings
 function gcpr() {

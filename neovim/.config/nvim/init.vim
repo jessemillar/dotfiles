@@ -112,5 +112,12 @@ let g:go_auto_sameids = 1
 " Run goimports instead of gofmt
 let g:go_fmt_command = 'goimports'
 
+" Tell Deoplete where gocode is to improve performance
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+
+" Jump to next and previous issues in Go code
+map <C-n> :cn<CR>
+map <C-m> :cp<CR>
+
 " Git blame config
 nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>

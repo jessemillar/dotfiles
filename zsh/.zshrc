@@ -1,14 +1,11 @@
 # Path to your oh-my-zsh installation
 export ZSH=~/.oh-my-zsh
 
-# Put Go in my PATH
-export GOPATH="$HOME/.go"
-
 # Load various CLI helpers
 eval "$(thefuck --alias)"
 
 # Load plugins
-plugins=(docker docker-compose golang wd vi-mode)
+plugins=(wd vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
