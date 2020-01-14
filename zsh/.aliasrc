@@ -24,6 +24,11 @@ alias pb="clip.exe"
 alias powershell="powershell.exe"
 alias wsl="wsl.exe"
 
+# tmux
+alias tm="tmux"
+alias tml="tmux ls"
+alias tma="tmux a -t "
+
 # Go
 alias gg="go get -v"
 alias gmod="go clean -modcache && go mod tidy"
