@@ -9,6 +9,9 @@ plugins=(wd vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
+# Don't trush the cache of binaries to make installation of new programs slightly easier at the cost of performance
+zstyle ":completion:*:commands" rehash 1
+
 # Load environment variables for development secrets
 [ -f ~/.envrc ] && source ~/.envrc
 
