@@ -14,6 +14,7 @@ Plug 'dracula/vim'
 Plug 'fatih/vim-go'
 Plug 'justinj/vim-pico8-syntax'
 Plug 'leafgarland/typescript-vim'
+Plug 'melonmanchan/vim-tmux-resizer'
 Plug 'othree/eregex.vim'
 Plug 'roxma/vim-paste-easy'
 Plug 'sbdchd/neoformat'
@@ -45,10 +46,6 @@ function! s:check_back_space() abort "{{{
     return !col || getline('.')[col - 1] =~ '\s'
 endfunction"}}}
 
-" Shortcuts for talking to myself
-:inoremap <C-F> <C-R>="\n\nFriend - " . strftime("%a, %d %b %Y %H:%M:%S %z") . "\n"<CR>
-:inoremap <C-S> <C-R>="\n\nSelf - " . strftime("%a, %d %b %Y %H:%M:%S %z") . "\n"<CR>
-
 " Trim trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -72,19 +69,15 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
-" Don't complain when I type too fast
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
+" Easier pane resizing
+nnoremap <silent> <Leader>H :exe "vertical resize -10"<CR>
+nnoremap <silent> <Leader>J :exe "resize +5"<CR>
+nnoremap <silent> <Leader>K :exe "resize -5"<CR>
+nnoremap <silent> <Leader>L :exe "vertical resize +10"<CR>
 
 " Custom tab widths
 set tabstop=2
 set shiftwidth=2
-
-" Faster split resizing
-nnoremap <silent> <Leader>+ :exe "resize 10"<CR>
-nnoremap <silent> <Leader>- :exe "resize 10"<CR>
 
 " Quick spellcheck toggle
 command! SP :set spell!
