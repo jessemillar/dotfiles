@@ -305,30 +305,6 @@ function gifify() {
 }
 
 ####################
-# SSH functions
-####################
-
-# SSH into multiple servers using SSH keys and run a supplied command on each before saving the output and errors to text files
-function mssh() {
-	for HOST in $(cat $2)
-	do
-		ssh -o StrictHostKeyChecking=no "$1@$HOST" "$3" >"output.$HOST.txt" 2>"output.$HOST.err.txt" &
-	done
-	wait
-}
-
-# SSH into multiple servers using a password and run a supplied command on each before saving the output and errors to text files
-function msshp() {
-	read -s "PASS?Password: "
-
-	for HOST in $(cat $2)
-	do
-		sshpass -p "$PASS" ssh -o StrictHostKeyChecking=no "$1@$HOST" "$3" >"output.$HOST.txt" 2>"output.$HOST.err.txt" &
-	done
-	wait
-}
-
-####################
 # Docker functions
 ####################
 
@@ -349,43 +325,11 @@ function sink() {
 }
 
 ####################
-# Work functions
-####################
-
-# Combine files to aid in porting from CCM to ConfigClient
-function combine() {
-	s -f $1 | tail -r | xargs cat > combined-$(basename $1 .properties).conf
-}
-
-# Combine the multiple filetypes and remove empty files
-function unite() {
-	find . -type f -empty | xargs trash
-	s -f logging.properties | xargs trash
-
-	combine database.properties && combine application.properties && combine kafka.properties && combine business.properties
-
-	find . -type f -empty | xargs trash
-
-	for f in combined-*.conf
-	do
-		gsed -z -i 's/=\n/=""\n/g' $f
-		gsed -i 's/URL=\([^" >][^ >]*\)/URL="\1"/g' $f
-		gsed -i 's/URI=\([^" >][^ >]*\)/URI="\1"/g' $f
-		gsed -i 's/HOST=\([^" >][^ >]*\)/HOST="\1"/g' $f
-	done
-}
-
-####################
 # General functions
 ####################
 
 function fimg() {
 	curl $1 --silent | sed -n 's/.*href="\([^"]*\).*/\1/p' | ack 'jpeg|jpg|png' | ack --passthru 'shopify'
-}
-
-# Copy a file to the clipboard and remove it (useful for repetitive work tasks)
-function cosh() {
-	copy $1 && trash $1
 }
 
 # Compare two files and print lines from the second file that are not included in the first file
@@ -426,33 +370,6 @@ function cells() {
 # Preview a file in the macOS Quick Look viewer
 function q() {
 	qlmanage -p "$@" >/dev/null 2>&1
-}
-
-# Used for taking notes from the command line
-function n() {
-	local fpath=$HOME/Desktop/notes.md
-
-	if [ "$1" = "v" ]; then
-		nvim + $fpath
-	elif [ "$1" = "date" ]; then
-		echo '' >> $fpath
-		echo '# '`date +"%m-%d-%Y-%T"` >> $fpath
-		echo '---------------------' >> $fpath
-	elif [ "$1" = "" ]; then
-		less +G $fpath
-	else
-		echo '' >> $fpath
-		echo $@ >> $fpath
-	fi
-}
-
-# Generate Walmart Labs bolt wallpapers
-function boltcookie() {
-	for file in *
-	do
-		TIME=$(date +%s)
-		~/Documents/Projects/cookie-cutter/cookie-cutter.sh ~/Documents/Projects/dropbox/branding/bolt_pixel@2x.png "$file" ~/Documents/Trunk/wallpaper/randomized/$TIME.png 5760 3600
-	done
 }
 
 # CLI file explorer with cd on close functionality (triggered via Control + G)
