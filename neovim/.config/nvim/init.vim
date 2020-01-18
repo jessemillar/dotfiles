@@ -68,12 +68,6 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
-" Easier pane resizing
-nnoremap <silent> <Leader>H :exe "vertical resize -10"<CR>
-nnoremap <silent> <Leader>J :exe "resize +5"<CR>
-nnoremap <silent> <Leader>K :exe "resize -5"<CR>
-nnoremap <silent> <Leader>L :exe "vertical resize +10"<CR>
-
 " Custom tab widths
 set tabstop=2
 set shiftwidth=2
