@@ -75,6 +75,9 @@ set shiftwidth=2
 " Quick spellcheck toggle
 command! SP :set spell!
 
+" Quick code format
+command! NF :Neoformat
+
 " Automatically enable spellcheck for .md files and don't mark URL-like things as spelling errors
 autocmd BufRead,BufNewFile *.md setlocal spell | syn match UrlNoSpell '\w\+:\/\/[^[:space:]]\+' contains=@NoSpell
 hi SpellBad ctermfg=236
