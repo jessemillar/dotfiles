@@ -28,6 +28,8 @@ alias wsl="wsl.exe"
 alias tm="tmux"
 alias tml="tmux ls"
 alias tma="tmux a -t "
+alias tmkill="tmux kill-session -a"
+alias tmnuke="tmux kill-session"
 
 # Go
 alias gg="go get -v"

@@ -98,6 +98,11 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_auto_sameids = 1
 
+" Go quick commands
+command! GD :GoDef
+command! GT :GoTest
+command! GTF :GoTestFunc
+
 " Run goimports instead of gofmt
 let g:go_fmt_command = 'goimports'
 
