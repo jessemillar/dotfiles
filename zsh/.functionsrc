@@ -332,6 +332,10 @@ function fimg() {
 	curl $1 --silent | sed -n 's/.*href="\([^"]*\).*/\1/p' | ack 'jpeg|jpg|png' | ack --passthru 'shopify'
 }
 
+function imgsize() {
+	magick identify $1
+}
+
 # Compare two files and print lines from the second file that are not included in the first file
 function includes() {
 	while read LINE

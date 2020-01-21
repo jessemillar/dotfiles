@@ -33,6 +33,10 @@
       homebrew:
         name: antibody
         state: absent
+    - name: Install apngasm
+      homebrew:
+        name: apngasm
+        state: present
     - name: Install azure-cli
       homebrew:
         name: azure-cli
