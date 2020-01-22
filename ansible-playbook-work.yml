@@ -13,7 +13,7 @@
     - name: Install mage
       shell: |
         cd ~/projects && \
-        git -C mage pull || git clone https://github.com/magefile/mage && \
+        git -C mage pull origin master || git clone https://github.com/magefile/mage && \
         cd mage && \
         git checkout master || true && \
         go run bootstrap.go
@@ -21,7 +21,7 @@
     - name: Install aksiknife
       shell: |
         cd ~/projects && \
-        git -C aksiknife pull || git clone git@ssh.dev.azure.com:v3/msazure/CloudNativeCompute/aksiknife && \
+        git -C aksiknife pull origin master || git clone git@ssh.dev.azure.com:v3/msazure/CloudNativeCompute/aksiknife && \
         cd aksiknife && \
         git checkout master || true && \
         mage BuildFast && \
@@ -30,7 +30,7 @@
     - name: Install underlay-nanny
       shell: |
         cd ~/projects && \
-        git -C underlay-nanny pull || git clone msazure@vs-ssh.visualstudio.com:v3/msazure/CloudNativeCompute/underlay-nanny && \
+        git -C underlay-nanny pull origin master || git clone msazure@vs-ssh.visualstudio.com:v3/msazure/CloudNativeCompute/underlay-nanny && \
         cd underlay-nanny && \
         git checkout master || true && \
         ./aks-ci underlay-nanny-build && \
