@@ -328,6 +328,10 @@ function sink() {
 # General functions
 ####################
 
+function tma() {
+	tmux a -t $1
+}
+
 function fimg() {
 	curl $1 --silent | sed -n 's/.*href="\([^"]*\).*/\1/p' | ack 'jpeg|jpg|png' | ack --passthru 'shopify'
 }
