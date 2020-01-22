@@ -1,0 +1,38 @@
+# This playbook installs apps and packages needed for my SRE work at Microsoft
+- hosts: localhost
+  pre_tasks:
+    - name: Make .bin directory
+      file:
+        path: ~/.bin
+        state: directory
+    - name: Make projects directory
+      file:
+        path: ~/projects
+        state: directory
+  tasks:
+    - name: Install mage
+      shell: |
+        cd ~/projects && \
+        git -C mage pull || git clone https://github.com/magefile/mage && \
+        cd mage && \
+        git checkout master || true && \
+        go run bootstrap.go
+      changed_when: false
+    - name: Install aksiknife
+      shell: |
+        cd ~/projects && \
+        git -C aksiknife pull || git clone git@ssh.dev.azure.com:v3/msazure/CloudNativeCompute/aksiknife && \
+        cd aksiknife && \
+        git checkout master || true && \
+        mage BuildFast && \
+        cp bin/aksiknife-linux-amd64 ~/.bin/aksiknife
+      changed_when: false
+    - name: Install underlay-nanny
+      shell: |
+        cd ~/projects && \
+        git -C underlay-nanny pull || git clone msazure@vs-ssh.visualstudio.com:v3/msazure/CloudNativeCompute/underlay-nanny && \
+        cd underlay-nanny && \
+        git checkout master || true && \
+        ./aks-ci underlay-nanny-build && \
+        cp bin/underlay-nanny ~/.bin/underlay-nanny
+      changed_when: false

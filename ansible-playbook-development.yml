@@ -5,6 +5,10 @@
       file:
         path: ~/.config
         state: directory
+    - name: Make .bin directory
+      file:
+        path: ~/.bin
+        state: directory
     - name: Stow dotfiles for ack
       command: stow ack
       changed_when: false
@@ -216,5 +220,5 @@
     - openssh_keypair:
         path: ~/.ssh/id_rsa
     - name: Install imcat
-      shell: git clone https://github.com/stolk/imcat.git && cd imcat && make && mkdir -p ~/.bin && mv imcat ~/.bin && cd .. && rm -rf imcat
+      shell: git clone https://github.com/stolk/imcat.git && cd imcat && make && mv imcat ~/.bin && cd .. && rm -rf imcat
       changed_when: false
