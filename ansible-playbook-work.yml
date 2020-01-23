@@ -10,6 +10,10 @@
         path: ~/projects
         state: directory
   tasks:
+    - name: Install pass
+      homebrew:
+        name: pass
+        state: present
     - name: Install mage
       shell: |
         cd ~/projects && \
