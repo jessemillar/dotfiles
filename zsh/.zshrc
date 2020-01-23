@@ -7,9 +7,13 @@ eval "$(thefuck --alias)"
 # Load plugins
 plugins=(wd vi-mode)
 
+# Load up Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
-# Don't trush the cache of binaries to make installation of new programs slightly easier at the cost of performance
+# Enable autocomplete for hidden files
+setopt globdots
+
+# Don't trust the cache of binaries to make installation of new programs slightly easier at the cost of performance
 zstyle ":completion:*:commands" rehash 1
 
 # Load environment variables for development secrets

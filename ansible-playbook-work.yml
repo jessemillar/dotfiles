@@ -14,6 +14,11 @@
       homebrew:
         name: pass
         state: present
+    - name: Initialize pass
+      shell: |
+        pass init Microsoft && \
+        pass git init
+      changed_when: false
     - name: Install mage
       shell: |
         cd ~/projects && \
