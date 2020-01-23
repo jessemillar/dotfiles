@@ -325,6 +325,18 @@ function sink() {
 }
 
 ####################
+# Work functions
+####################
+
+azlogin() {
+	export AZURE_TENANT_ID=$(pass show $1/$2/azure-tenant-id)
+	export AZURE_CLIENT_ID=$(pass show $1/$2/azure-client-id)
+	export AZURE_CLIENT_SECRET=$(pass show $1/$2/azure-client-secret)
+
+	az login --tenant $AZURE_TENANT_ID --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET
+}
+
+####################
 # General functions
 ####################
 

@@ -16,7 +16,7 @@
         state: present
     - name: Initialize pass
       shell: |
-        pass init Microsoft && \
+        pass init jemillar@microsoft.com && \
         pass git init
       changed_when: false
     - name: Install mage

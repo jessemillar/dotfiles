@@ -25,9 +25,6 @@ alias pb="clip.exe"
 alias powershell="powershell.exe"
 alias wsl="wsl.exe"
 
-# Work
-alias azlogin="az login --tenant $AZURE_TENANT_ID --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET"
-
 # tmux
 alias tm="tmux"
 alias tml="tmux ls"
