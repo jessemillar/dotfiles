@@ -11,6 +11,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'brooth/far.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dracula/vim'
+Plug 'dyng/ctrlsf.vim'
 Plug 'fatih/vim-go'
 Plug 'justinj/vim-pico8-syntax'
 Plug 'leafgarland/typescript-vim'
@@ -100,11 +101,15 @@ let g:go_auto_sameids = 1
 
 " Go quick commands
 command! GD :GoDef
+command! GR :GoRename
 command! GT :GoTest
 command! GTF :GoTestFunc
 
 " Run goimports instead of gofmt
 let g:go_fmt_command = 'goimports'
+
+" Use gopls for renaming since modules are what I usually work with
+let g:go_rename_command = 'gopls'
 
 " Tell Deoplete where gocode is to improve performance
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
@@ -112,6 +117,9 @@ let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 " Jump to next and previous issues in Go code
 map <C-n> :cn<CR>
 map <C-m> :cp<CR>
+
+" Make CtrlSF use regular expressions by default
+let g:ctrlsf_regex_pattern = 1
 
 " Git blame config
 nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>

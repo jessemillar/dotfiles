@@ -341,7 +341,7 @@ azlogin() {
 ####################
 
 function tma() {
-	tmux a -t $1
+	tmux a -t $1 -d
 }
 
 function fimg() {

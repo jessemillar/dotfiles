@@ -33,6 +33,10 @@
       homebrew:
         name: ack
         state: present
+    - name: Install ag
+      homebrew:
+        name: ag
+        state: present
     - name: Remove antibody
       homebrew:
         name: antibody

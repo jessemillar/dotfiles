@@ -15,6 +15,7 @@ alias rc="exec zsh"
 alias s="search"
 alias tmp="mkdir tmp || true && cd tmp"
 alias v="nvim"
+alias vimrc="nvim ~/.config/nvim/init.vim"
 alias watch="watch " # This is so aliases get expanded when passed to `watch`
 
 # Windows (for use with WSL2)
@@ -28,7 +29,6 @@ alias wsl="wsl.exe"
 # tmux
 alias tm="tmux"
 alias tml="tmux ls"
-alias tmkill="tmux kill-session -a"
 alias tmnuke="tmux kill-session"
 
 # Go
