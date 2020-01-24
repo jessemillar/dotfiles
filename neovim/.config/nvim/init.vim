@@ -121,5 +121,8 @@ map <C-m> :cp<CR>
 " Make CtrlSF use regular expressions by default
 let g:ctrlsf_regex_pattern = 1
 
+" Tell CtrlSF to use ack as the search program
+let g:ctrlsf_ackprg = 'ack'
+
 " Git blame config
 nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>
