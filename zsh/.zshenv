@@ -9,7 +9,7 @@ PATH="$PATH:$GOPATH/bin"
 PATH="$PATH:$HOME/.bin"
 
 # Set default options for fzf
-export FZF_DEFAULT_OPTS="--height 20% --border"
+export FZF_DEFAULT_OPTS="--height 20% --border --bind alt-j:down,alt-k:up"
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
 #
 # Apply the Dracula theme to fzf
