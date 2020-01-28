@@ -28,6 +28,9 @@ zstyle ":completion:*:commands" rehash 1
 # Load custom functions
 [ -f ~/.functionsrc ] && source ~/.functionsrc
 
+# Enable fzf fuzzy completion
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Load custom functions for ASCII art
 [ -f ~/.asciirc ] && source ~/.asciirc
 

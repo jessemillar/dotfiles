@@ -259,3 +259,5 @@ Minikube
 Zsh
 Kubebuilder
 CompyCore
+OpenSSL
+ShellCheck

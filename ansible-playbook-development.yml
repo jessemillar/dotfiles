@@ -69,6 +69,10 @@
       homebrew:
         name: ffmpeg
         state: present
+    - name: Install fzf
+      homebrew:
+        name: fzf
+        state: present
     - name: Install git
       homebrew:
         name: git

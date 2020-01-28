@@ -13,6 +13,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'dracula/vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'fatih/vim-go'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
 Plug 'justinj/vim-pico8-syntax'
 Plug 'leafgarland/typescript-vim'
 Plug 'othree/eregex.vim'
