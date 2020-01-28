@@ -56,6 +56,9 @@ set completeopt-=preview
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
 
+" Map fzf to Control + P
+:nnoremap <C-P> :FZF<CR>
+
 " Enable JavaScript syntax highlighting
 let g:javascript_plugin_jsdoc = 1
 
