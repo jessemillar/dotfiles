@@ -12,16 +12,18 @@ Plug 'brooth/far.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dracula/vim'
 Plug 'dyng/ctrlsf.vim'
+Plug 'edkolev/tmuxline.vim'
 Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
 Plug 'justinj/vim-pico8-syntax'
 Plug 'leafgarland/typescript-vim'
+Plug 'machakann/vim-sandwich'
 Plug 'othree/eregex.vim'
 Plug 'roxma/vim-paste-easy'
 Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'zivyangll/git-blame.vim'
 
@@ -52,6 +54,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Don't open scratch windows
 set completeopt-=preview
+
+" Use the Dracula theme for vim-airline
+let g:airline_theme='dracula'
 
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
@@ -134,10 +139,6 @@ let g:go_rename_command = 'gopls'
 
 " Tell Deoplete where gocode is to improve performance
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-
-" Jump to next and previous issues in Go code
-map <C-n> :cn<CR>
-map <C-m> :cp<CR>
 
 " Make CtrlSF use regular expressions by default
 let g:ctrlsf_regex_pattern = 1
