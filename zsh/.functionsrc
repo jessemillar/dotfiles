@@ -341,7 +341,12 @@ azlogin() {
 ####################
 
 function vf() {
-	nvim $(fzf)
+	FILES=$(fzf)
+	if [[ ! $FILES ]]; then
+		return
+	fi
+
+	nvim $FILES
 }
 
 function tma() {
