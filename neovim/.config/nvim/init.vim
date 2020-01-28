@@ -59,6 +59,14 @@ set completeopt-=preview
 let g:airline_theme='dracula'
 let g:airline_powerline_fonts = 1
 
+" Customize the tmuxline display
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'b'    : '#W',
+      \'x'    : '%a, %b %e',
+      \'y'    : '%I:%m %P',
+      \'z'    : '#H'}
+
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
 
