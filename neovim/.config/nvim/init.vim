@@ -58,7 +58,10 @@ set completeopt-=preview
 
 " Use the Dracula theme for vim-airline
 let g:airline_theme='dracula'
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts=1
+
+" Don't run too many calculations on the git repo
+let g:airline#extensions#branch#vcs_checks = []
 
 " Customize the tmuxline display
 let g:tmuxline_preset = {
