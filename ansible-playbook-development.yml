@@ -185,6 +185,9 @@
       homebrew:
         name: zsh
         state: present
+    - name: Install fzf zsh support
+      shell: $(brew --prefix)/opt/fzf/install --all
+      changed_when: false
     - name: Install FiraCode font
       become: yes
       shell: apt remove -y fonts-firacode

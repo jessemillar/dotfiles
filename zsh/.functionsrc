@@ -340,6 +340,10 @@ azlogin() {
 # General functions
 ####################
 
+function vf() {
+	nvim $(fzf)
+}
+
 function tma() {
 	tmux a -t $1 -d
 }
