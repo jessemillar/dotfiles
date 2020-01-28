@@ -57,6 +57,7 @@ set completeopt-=preview
 
 " Use the Dracula theme for vim-airline
 let g:airline_theme='dracula'
+let g:airline_powerline_fonts = 1
 
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
