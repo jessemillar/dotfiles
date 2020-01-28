@@ -19,3 +19,5 @@
 	insteadOf = https://dev.azure.com/msazure/CloudNativeCompute/_git/
 [url "git@ssh.dev.azure.com:v3/msazure/CloudNativeCompute/"]
 	insteadOf = https://dev.azure.com/msazure/CloudNativeCompute/_git/
+[pager]
+	branch = false
