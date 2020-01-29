@@ -2,6 +2,8 @@
 
 # General
 alias a="ack"
+alias ac="./aks-ci"
+alias acl="./aks-ci list"
 alias ap="ansible-playbook "
 alias crates="sim_arduboy -p 3 ~/Documents/Projects/crates/crates.ino.leonardo.hex"
 alias day="date +%m-%d-%Y"
