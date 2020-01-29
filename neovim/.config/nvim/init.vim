@@ -12,7 +12,7 @@ Plug 'brooth/far.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dracula/vim'
 Plug 'dyng/ctrlsf.vim'
-Plug 'edkolev/tmuxline.vim'
+Plug 'edkolev/tmuxline.vim', { 'do': ':TmuxlineSnapshot! ~/.dotfiles/tmux/tmuxline.conf' }
 Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
 Plug 'justinj/vim-pico8-syntax'
@@ -68,7 +68,7 @@ let g:tmuxline_preset = {
       \'a'    : '#S',
       \'b'    : '#W',
       \'x'    : '%a, %b %e',
-      \'y'    : '%I:%m %P',
+      \'y'    : '%l:%M %P',
       \'z'    : '#H'}
 
 " Enable easier pasting
