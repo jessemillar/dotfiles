@@ -43,6 +43,8 @@ set completeopt-=preview
 
 " Use deoplete with tab
 let g:deoplete#enable_at_startup = 1
+highlight Pmenu ctermfg=236 ctermbg=243
+highlight PmenuSel ctermfg=236 ctermbg=255
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Use the Dracula theme for vim-airline
