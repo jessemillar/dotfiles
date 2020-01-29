@@ -25,18 +25,10 @@
       command: stow tmux
       changed_when: false
   tasks:
-    - name: Untap antibody repository
-      homebrew_tap:
-        name: getantibody/tap
-        state: absent
     - name: Install ack
       homebrew:
         name: ack
         state: present
-    - name: Remove antibody
-      homebrew:
-        name: antibody
-        state: absent
     - name: Install apngasm
       homebrew:
         name: apngasm
@@ -53,10 +45,6 @@
       homebrew:
         name: coreutils
         state: present
-    - name: Install expect
-      homebrew:
-        name: expect
-        state: absent
     - name: Install fd
       homebrew:
         name: fd
@@ -89,10 +77,6 @@
       homebrew:
         name: gron
         state: present
-    - name: Install hub
-      homebrew:
-        name: hub
-        state: absent
     - name: Install imagemagick
       homebrew:
         name: imagemagick
