@@ -261,3 +261,6 @@ Kubebuilder
 CompyCore
 OpenSSL
 ShellCheck
+jumpbox
+JIT
+PowerShell

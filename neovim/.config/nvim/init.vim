@@ -15,7 +15,6 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'edkolev/tmuxline.vim', { 'do': ':TmuxlineSnapshot! ~/.dotfiles/tmux/tmuxline.conf' }
 Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
-Plug 'justinj/vim-pico8-syntax'
 Plug 'leafgarland/typescript-vim'
 Plug 'machakann/vim-sandwich'
 Plug 'othree/eregex.vim'
@@ -36,25 +35,15 @@ runtime! plugin/sensible.vim
 " Disable netrw history
 let g:netrw_dirhistmax = 0
 
-" Enable autocompletion with tab support
-highlight Pmenu ctermfg=236 ctermbg=243
-highlight PmenuSel ctermfg=236 ctermbg=255
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ deoplete#mappings#manual_complete()
-function! s:check_back_space() abort "{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1] =~ '\s'
-endfunction"}}}
-
 " Trim trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Don't open scratch windows
 set completeopt-=preview
+
+" Use deoplete with tab
+let g:deoplete#enable_at_startup = 1
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Use the Dracula theme for vim-airline
 let g:airline_theme='dracula'
@@ -77,7 +66,7 @@ autocmd VimEnter * PasteEasyEnable
 " Map fzf to Control + P
 :nnoremap <C-P> :FZF<CR>
 
-" Customize fzf colors to match your color scheme
+" Customize fzf colors to match my color scheme
 " - fzf#wrap translates this to a set of `--color` options
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -94,9 +83,6 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-" Enable JavaScript syntax highlighting
-let g:javascript_plugin_jsdoc = 1
-
 " Change location of saved swap files
 set directory=/tmp
 
@@ -111,9 +97,6 @@ set splitright
 " Custom tab widths
 set tabstop=2
 set shiftwidth=2
-
-" Quick spellcheck toggle
-command! SP :set spell!
 
 " Quick code format
 command! NF :Neoformat
