@@ -10,6 +10,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'brooth/far.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'dracula/vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'edkolev/tmuxline.vim', { 'do': ':TmuxlineSnapshot! ~/.dotfiles/tmux/tmuxline.conf' }
@@ -26,7 +27,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
-Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'zivyangll/git-blame.vim'
 
 call plug#end()
@@ -130,9 +130,16 @@ let g:go_auto_sameids = 1
 
 " Go quick commands
 command! GD :GoDef
+command! GB :GoBuild
 command! GR :GoRename
 command! GT :GoTest
 command! GTF :GoTestFunc
+
+" Keyboard shortcuts for use with the vim-go quickfix window (appears after
+" :GoBuild)
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
 
 " Run goimports instead of gofmt
 let g:go_fmt_command = 'goimports'
@@ -142,6 +149,9 @@ let g:go_rename_command = 'gopls'
 
 " Tell Deoplete where gocode is to improve performance
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+
+" Tell Deoplete to autocomplete all Go-related things
+call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
 " Make CtrlSF use regular expressions by default
 let g:ctrlsf_regex_pattern = 1
