@@ -18,6 +18,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
 Plug 'leafgarland/typescript-vim'
 Plug 'machakann/vim-sandwich'
 Plug 'othree/eregex.vim'
+Plug 'preservim/nerdcommenter'
 Plug 'roxma/vim-paste-easy'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'sbdchd/neoformat'
@@ -41,6 +42,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Don't open scratch windows
 set completeopt-=preview
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
 
 " Use deoplete with tab
 let g:deoplete#enable_at_startup = 1
