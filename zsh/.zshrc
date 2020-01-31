@@ -1,9 +1,6 @@
 # Path to your oh-my-zsh installation
 export ZSH=~/.oh-my-zsh
 
-# Load various CLI helpers
-eval "$(thefuck --alias)"
-
 # Load plugins
 plugins=(docker docker-compose vi-mode wd)
 
@@ -33,6 +30,11 @@ zstyle ":completion:*:commands" rehash 1
 
 # Load custom functions for ASCII art
 [ -f ~/.asciirc ] && source ~/.asciirc
+
+# Load various CLI helpers
+eval "$(thefuck --alias)"
+source <(h completion zsh 2>/dev/null | sed "s/helm/h/g")
+source <(k completion zsh 2>/dev/null | sed "s/kubectl/k/g")
 
 # Print a random logo
 printAscii
