@@ -15,7 +15,8 @@ Plug 'dracula/vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'edkolev/tmuxline.vim', { 'do': ':TmuxlineSnapshot! ~/.dotfiles/tmux/tmuxline.conf' }
 Plug 'fatih/vim-go'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'machakann/vim-sandwich'
 Plug 'othree/eregex.vim'
