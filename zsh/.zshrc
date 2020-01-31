@@ -5,7 +5,7 @@ export ZSH=~/.oh-my-zsh
 eval "$(thefuck --alias)"
 
 # Load plugins
-plugins=(wd vi-mode)
+plugins=(docker docker-compose vi-mode wd)
 
 # Load up Oh My Zsh
 source $ZSH/oh-my-zsh.sh
