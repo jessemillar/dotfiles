@@ -2,6 +2,7 @@ test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew
 
 # Go setup
 export GOPATH="$HOME/.go"
+export GOBIN="$GOPATH/bin"
 export GOPRIVATE="goms.io"
 
 # Path config
