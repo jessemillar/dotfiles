@@ -45,17 +45,9 @@
       homebrew:
         name: cfssl
         state: present
-    - name: Install Helm
-      homebrew:
-        name: helm
-        state: present
     - name: Install k3d
       homebrew:
         name: k3d
-        state: present
-    - name: Install kubectl
-      homebrew:
-        name: kubectl
         state: present
     - name: Install snap
       become: yes
