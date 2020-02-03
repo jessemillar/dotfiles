@@ -116,9 +116,8 @@ hi SpellBad ctermfg=236
 " Search color
 hi Search ctermfg=236
 
-" Show hybrid line numbers by default
+" Show line numbers by default
 set number
-set relativenumber
 
 " Go syntax highlighting
 let g:go_highlight_functions = 1
@@ -132,7 +131,7 @@ let g:go_auto_sameids = 1
 " Go quick commands
 command! GD :GoDef
 command! GB :GoBuild
-command! GR :GoRename
+command! GR :w|:GoRename
 command! GT :GoTest
 command! GTF :GoTestFunc
 
