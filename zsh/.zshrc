@@ -33,8 +33,8 @@ zstyle ":completion:*:commands" rehash 1
 
 # Load various CLI helpers
 eval "$(thefuck --alias)"
-source <(h version &>/dev/null && h completion zsh 2>/dev/null | sed "s/helm/h/g" 2>/dev/null)
-source <(k version &>/dev/null && k completion zsh 2>/dev/null | sed "s/kubectl/k/g" 2>/dev/null)
+source <(h version &>/dev/null && h completion zsh | sed "s/helm/h/g")
+source <(k version &>/dev/null && k completion zsh | sed "s/kubectl/k/g")
 
 # Print a random logo
 printAscii
