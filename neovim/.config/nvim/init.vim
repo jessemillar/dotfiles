@@ -51,7 +51,8 @@ let g:NERDSpaceDelims = 1
 let g:deoplete#enable_at_startup = 1
 highlight Pmenu ctermfg=236 ctermbg=243
 highlight PmenuSel ctermfg=236 ctermbg=255
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <silent><expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <silent><expr><s-tab> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " Use the Dracula theme for vim-airline
 let g:airline_theme='dracula'
@@ -131,9 +132,12 @@ let g:go_auto_sameids = 1
 " Go quick commands
 command! GD :GoDef
 command! GB :GoBuild
-command! GR :w|:GoRename
+command! GR :GoRename
 command! GT :GoTest
 command! GTF :GoTestFunc
+
+" Tell vim to automatically save file changes before running certain commands
+set autowrite
 
 " Keyboard shortcuts for use with the vim-go quickfix window (appears after
 " :GoBuild)
