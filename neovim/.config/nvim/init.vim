@@ -8,6 +8,7 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
 Plug 'brooth/far.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
@@ -148,14 +149,13 @@ nnoremap <leader>a :cclose<CR>
 " Run goimports instead of gofmt
 let g:go_fmt_command = 'goimports'
 
-" Use gopls for renaming since modules are what I usually work with
+" Use gopls for various things
 let g:go_rename_command = 'gopls'
+let g:go_def_mode = 'gopls'
+let g:go_info_mode = 'gopls'
 
 " Tell Deoplete where gocode is to improve performance
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-
-" Tell Deoplete to autocomplete all Go-related things
-call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
 " Make CtrlSF use regular expressions by default
 let g:ctrlsf_regex_pattern = 1
@@ -165,3 +165,13 @@ let g:ctrlsf_ackprg = 'ack'
 
 " Git blame config
 nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>
+
+" Configure LanguageClient
+" Required for operations modifying multiple buffers like rename
+set hidden
+
+let g:LanguageClient_serverCommands = {
+		\ 'go': ['gopls'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
