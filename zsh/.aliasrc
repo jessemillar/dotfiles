@@ -16,7 +16,7 @@ alias mci="mvn clean install -Dmaven.test.skip=true"
 alias mcit="mvn clean install"
 alias rc="exec zsh"
 alias s="search"
-alias tmp="mkdir tmp || true && cd tmp"
+alias tmp="mkdir tmp 2>/dev/null || true && cd tmp"
 alias v="nvim"
 alias vimrc="nvim ~/.config/nvim/init.vim"
 alias watch="watch " # This is so aliases get expanded when passed to `watch`
