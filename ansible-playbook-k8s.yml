@@ -49,6 +49,10 @@
       homebrew:
         name: k3d
         state: present
+    - name: Install kubectl
+      homebrew:
+        name: kubectl
+        state: present
     - name: Install snap
       become: yes
       shell: apt install -y snap

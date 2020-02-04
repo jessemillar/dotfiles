@@ -1,2 +1,13 @@
 [git_status]
 deleted = "x"
+
+[golang]
+symbol = "💨 "
+
+[hostname]
+style = "bold green"
+
+[memory_usage]
+disabled = false
+show_percentage = true
+style = "bold white"
