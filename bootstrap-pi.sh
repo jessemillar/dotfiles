@@ -7,7 +7,12 @@ stow git
 stow neovim
 stow starship
 stow tmux
-sudo apt install -y ack bat fzf git go grep imagemagick less neovim python python3 shellcheck starship tldr tmux tokei tree unzip watch zsh
+sudo apt install -y ack bat fzf git golang grep imagemagick less neovim python python3 shellcheck tldr tmux tree unzip watch zsh
+
+# Install Rust
+curl https://sh.rustup.rs -sSf | sh
+# Install the Starship prompt
+cargo install starship
 
 # Install fzf zsh support
 # $(brew --prefix)/opt/fzf/install --all
