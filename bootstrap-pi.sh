@@ -25,7 +25,12 @@ stow starship
 stow tmux
 
 # Install general packages
-sudo apt install -y ack fzf git golang grep imagemagick less neovim python python3 python3-pip shellcheck tldr tmux tree unzip watch xfce4 zsh
+sudo apt install -y ack fzf git grep imagemagick less neovim python python3 python3-pip shellcheck tldr tmux tree unzip watch xfce4 zsh
+
+# Install Go
+wget -O go.tar.gz https://dl.google.com/go/go1.13.7.linux-armv6l.tar.gz
+tar -C ~/.bin -xzf go.tar.gz
+rm go.tar.gz
 
 # Install Rust
 curl https://sh.rustup.rs -sSf | sh -s -- -y
