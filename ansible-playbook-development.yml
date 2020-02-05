@@ -125,10 +125,6 @@
       homebrew:
         name: starship
         state: present
-    - name: Install thefuck
-      homebrew:
-        name: thefuck
-        state: present
     - name: Install tidy-html5
       homebrew:
         name: tidy-html5

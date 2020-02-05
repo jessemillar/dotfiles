@@ -1,5 +1,8 @@
-# exit when any command fails
+#!/usr/bin/env bash
+
+# Exit when any command fails
 set -e
+# Enable debug mode to print out commands a la Ansible prior to running them
 set -x
 
 sudo apt update
@@ -28,14 +31,14 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.g
 # Install nvim plugins
 nvim --headless +PlugUpdate +PlugUpgrade +UpdateRemotePlugins +GoUpdateBinaries +qall
 # Install Oh My Zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended || true
 # Remove the default ~/.zshrc
-rm ~/.zshrc
+rm ~/.zshrc || true
 stow zsh
 # Change user shell to Zsh
 command -v zsh | sudo tee -a /etc/shells && sudo usermod --shell $(command -v zsh) $(whoami)
-# TODO Generate SSH keypairs
-cat /dev/zero | ssh-keygen -q -N ""
+# Generate SSH keypairs
+cat /dev/zero | ssh-keygen -q -N "" || true
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 # Install imcat
