@@ -33,10 +33,6 @@
       homebrew:
         name: apngasm
         state: present
-    - name: Install azure-cli
-      homebrew:
-        name: azure-cli
-        state: present
     - name: Install bat
       homebrew:
         name: bat
@@ -172,11 +168,6 @@
     - name: Install fzf zsh support
       shell: $(brew --prefix)/opt/fzf/install --all
       changed_when: false
-    - name: Install FiraCode font
-      become: yes
-      shell: apt remove -y fonts-firacode
-      register: result
-      changed_when: result.stdout is not search("0 newly installed")
     - name: Install "prettier" Node.js package globally
       npm:
         name: prettier

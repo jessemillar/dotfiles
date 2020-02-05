@@ -10,6 +10,10 @@
         path: ~/projects
         state: directory
   tasks:
+    - name: Install azure-cli
+      homebrew:
+        name: azure-cli
+        state: present
     - name: Install pass
       homebrew:
         name: pass
