@@ -131,11 +131,13 @@ let g:go_highlight_build_constraints = 1
 let g:go_auto_sameids = 1
 
 " Go quick commands
-command! GD :GoDef
 command! GB :GoBuild
-command! GR :GoRename
 command! GT :GoTest
 command! GTF :GoTestFunc
+command! GD :GoDef
+
+" Use gopls for various things
+let g:go_def_mode = 'gopls'
 
 " Tell vim to automatically save file changes before running certain commands
 set autowrite
@@ -148,11 +150,6 @@ nnoremap <leader>a :cclose<CR>
 
 " Run goimports instead of gofmt
 let g:go_fmt_command = 'goimports'
-
-" Use gopls for various things
-let g:go_rename_command = 'gopls'
-let g:go_def_mode = 'gopls'
-let g:go_info_mode = 'gopls'
 
 " Tell Deoplete where gocode is to improve performance
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
@@ -175,3 +172,6 @@ let g:LanguageClient_serverCommands = {
     \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
