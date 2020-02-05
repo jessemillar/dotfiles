@@ -44,4 +44,4 @@ ssh-add ~/.ssh/id_rsa
 # Install imcat
 git clone https://github.com/stolk/imcat.git && cd imcat && make && mv imcat ~/.bin && cd .. && rm -rf imcat
 
-echo "Enable VNC in the raspi-config menu and set a resolution"
+echo "Remember to use raspi-config to enable VNC, set a resolution, change the timezone, and generate locales"
