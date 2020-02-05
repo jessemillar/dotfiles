@@ -29,7 +29,8 @@ sudo apt install -y ack fzf git grep imagemagick less neovim python python3 pyth
 
 # Install Go
 wget -O go.tar.gz https://dl.google.com/go/go1.13.7.linux-armv6l.tar.gz
-tar -C ~/.bin -xzf go.tar.gz
+tar -C ~/.gox -xzf go.tar.gz
+ln -s ~/.gox/bin/* ~/.bin
 rm go.tar.gz
 
 # Install Rust
