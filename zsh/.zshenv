@@ -9,10 +9,14 @@ export GOPRIVATE="goms.io"
 PATH="$PATH:$GOPATH/bin"
 PATH="$PATH:$HOME/.bin"
 
+# Automatically start tmux at login
+export ZSH_TMUX_AUTOSTART=true
+export ZSH_TMUX_AUTOQUIT=false
+
 # Set default options for fzf
 export FZF_DEFAULT_OPTS="--height 20% --border --bind alt-j:down,alt-k:up"
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
-#
+
 # Apply the Dracula theme to fzf
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --color=dark

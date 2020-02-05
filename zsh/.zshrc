@@ -2,7 +2,7 @@
 export ZSH=~/.oh-my-zsh
 
 # Load plugins
-plugins=(docker docker-compose fzf vi-mode wd)
+plugins=(docker docker-compose fzf tmux vi-mode wd)
 
 # Load up Oh My Zsh
 source $ZSH/oh-my-zsh.sh
