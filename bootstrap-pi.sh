@@ -14,7 +14,7 @@ stow tmux
 sudo apt install -y ack fzf git golang grep imagemagick less neovim python python3 shellcheck tldr tmux tree unzip watch zsh
 
 # Install Rust
-curl https://sh.rustup.rs -sSf | sh -y
+curl https://sh.rustup.rs -sSf | sh -s -- -y
 # Install the Starship prompt
 cargo install starship
 
