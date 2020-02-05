@@ -1,4 +1,8 @@
-sudo apt update && sudo apt upgrade -y
+# exit when any command fails
+set -e
+
+sudo apt update
+sudo apt upgrade -y
 sudo apt install -y stow
 mkdir -p ~/.config
 mkdir -p ~/.bin
@@ -7,10 +11,10 @@ stow git
 stow neovim
 stow starship
 stow tmux
-sudo apt install -y ack bat fzf git golang grep imagemagick less neovim python python3 shellcheck tldr tmux tree unzip watch zsh
+sudo apt install -y ack fzf git golang grep imagemagick less neovim python python3 shellcheck tldr tmux tree unzip watch zsh
 
 # Install Rust
-curl https://sh.rustup.rs -sSf | sh
+curl https://sh.rustup.rs -sSf | sh -y
 # Install the Starship prompt
 cargo install starship
 
