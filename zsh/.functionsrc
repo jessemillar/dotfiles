@@ -328,6 +328,7 @@ function sink() {
 # Work functions
 ####################
 
+# This function mimics `eval $(aksiknife dev-setup)` but uses pass to circumvent the need for an AME card
 azlogin() {
 	export AZURE_TENANT_ID=$(pass show $1/$2/azure-tenant-id)
 	export AZURE_CLIENT_ID=$(pass show $1/$2/azure-client-id)
