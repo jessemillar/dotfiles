@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
+# Putting this here until I move it into aks-ci
+function poots() {
+	./aks-ci underlay-nanny-build
+	./aks-ci underlay-nanny-docker-build
+	./aks-ci underlay-nanny-docker-push
+	h del --purge underlay-nanny
+	cat helm-deploy.sh | envsubst | bash
+	sleep 2
+	k get po -n infra
+}
+
 ####################
 # git functions
 ####################

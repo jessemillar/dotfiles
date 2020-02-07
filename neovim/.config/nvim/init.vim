@@ -66,6 +66,8 @@ let g:airline#extensions#branch#vcs_checks = []
 let g:tmuxline_preset = {
       \'a'    : '#S',
       \'b'    : '#W',
+      \'win'  : '#I #W',
+      \'cwin' : '#I #W',
       \'x'    : '%a, %b %e',
       \'y'    : '%l:%M %P',
       \'z'    : '#H'}

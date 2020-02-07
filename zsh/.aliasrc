@@ -78,3 +78,7 @@ alias gsu="git stash -u"
 alias gsc="git stash clear"
 alias gt="git tag"
 alias gtl="git tag -l"
+
+# Kubernetes
+alias kgp="k get pods"
+alias kl="k logs -f"
