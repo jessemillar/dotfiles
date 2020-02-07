@@ -9,7 +9,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
-Plug 'brooth/far.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'dracula/vim'
@@ -65,12 +64,11 @@ let g:airline#extensions#branch#vcs_checks = []
 " Customize the tmuxline display
 let g:tmuxline_preset = {
       \'a'    : '#S',
-      \'b'    : '#W',
+      \'b'    : '#H',
       \'win'  : '#I #W',
       \'cwin' : '#I #W',
-      \'x'    : '%a, %b %e',
-      \'y'    : '%l:%M %P',
-      \'z'    : '#H'}
+      \'y'    : '%a, %b %e',
+      \'z'    : '%l:%M %P'}
 
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
