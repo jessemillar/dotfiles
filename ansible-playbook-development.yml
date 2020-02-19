@@ -25,6 +25,10 @@
       command: stow tmux
       changed_when: false
   tasks:
+    - name: Update Homebrew and upgrade all existing packages
+      homebrew:
+        update_homebrew: yes
+        upgrade_all: yes
     - name: Install ack
       homebrew:
         name: ack

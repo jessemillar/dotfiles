@@ -4,4 +4,5 @@
   - name: Install stow
     homebrew:
       name: stow
-      state: present
+      state: latest
+      update_homebrew: yes
