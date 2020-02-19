@@ -172,8 +172,8 @@
       npm:
         name: prettier
         global: yes
-    - name: Install neovim Python module
-      shell: pip3 install neovim
+    - name: Install neovim Python modules
+      shell: pip3 install msgpack neovim -U
       register: result
       changed_when: "result.stdout is not search('Requirement already satisfied: neovim')"
     - name: Install vim-plug
