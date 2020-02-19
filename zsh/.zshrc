@@ -2,7 +2,7 @@
 export ZSH=~/.oh-my-zsh
 
 # Load plugins
-plugins=(docker docker-compose fzf tmux vi-mode wd zsh-autosuggestions)
+plugins=(docker docker-compose fzf tmux vi-mode wd)
 
 # Load up Oh My Zsh
 source $ZSH/oh-my-zsh.sh
@@ -35,9 +35,6 @@ zstyle ":completion:*:commands" rehash 1
 # TODO Fix h autocompletion
 # source <(h version &>/dev/null && h completion zsh | sed "s/helm/h/g")
 source <(k version &>/dev/null && k completion zsh | sed "s/kubectl/k/g")
-
-# Use Control + Space to accept autosuggestions
-bindkey '^ ' autosuggest-accept
 
 # Load GVM so I can use older versions of Go
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"

@@ -195,10 +195,6 @@
       shell: command -v zsh | sudo tee -a /etc/shells && sudo usermod --shell $(command -v zsh) $(whoami)
       changed_when: false
       failed_when: false
-    - name: Install zsh-autosuggestions
-      shell: git -C ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions pull || git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-      register: result
-      changed_when: "result.stdout is not search('Already up to date.')"
     - openssh_keypair:
         path: ~/.ssh/id_rsa
     - name: Install imcat
