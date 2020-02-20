@@ -470,5 +470,5 @@ function search() {
 
 # Find disk usage by directory
 function usage() {
-	sudo du -cha --max-depth=1 "$1" | grep -E "M|G"
+	sudo du -cha --max-depth=1 "$1" | sort -rh | grep -E "M|G"
 }
