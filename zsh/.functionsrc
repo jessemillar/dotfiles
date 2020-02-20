@@ -7,7 +7,7 @@ function poots() {
 	./aks-ci underlay-nanny-docker-push
 	h del --purge underlay-nanny
 	cat helm-deploy.sh | envsubst | bash
-	sleep 2
+	sleep 10
 	k get po -n infra
 }
 
