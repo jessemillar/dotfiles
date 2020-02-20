@@ -2,13 +2,20 @@
 
 # Putting this here until I move it into aks-ci
 function poots() {
+	ruler "Building Nanny"
 	./aks-ci underlay-nanny-build
+	ruler "Building Nanny Docker container"
 	./aks-ci underlay-nanny-docker-build
+	ruler "Pushing Nanny Docker container"
 	./aks-ci underlay-nanny-docker-push
+	ruler "Deleting existing helm deployment"
 	h del --purge underlay-nanny
+	ruler "Deploying to cluster"
 	cat helm-deploy.sh | envsubst | bash
+	ruler "Sleeping"
 	sleep 10
-	k get po -n infra
+	ruler "Getting logs"
+	k logs -f -n infra $(k get po -n infra | grep 'Running\|Completed\|CrashLoopBackOff' | awk '{print $1}')
 }
 
 ####################
@@ -351,6 +358,12 @@ azlogin() {
 ####################
 # General functions
 ####################
+
+function ruler {
+	printf '\n%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+	echo -e "$1"
+	printf '%*s\n\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+}
 
 function vf() {
 	FILES=$(fzf)
