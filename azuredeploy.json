@@ -24,12 +24,19 @@
       "type": "String"
     }
   },
-  "variables": {},
+  "variables": {
+    "nsgName": "[concat(parameters('virtualMachineName'), '-nsg')]",
+    "ipName": "[concat(parameters('virtualMachineName'), '-ip')]",
+    "vnetName": "[concat(parameters('virtualMachineName'), '-vnet')]",
+    "networkInterfaceName": "[concat(parameters('virtualMachineName'), '-network-interface')]",
+    "diskName": "[concat(parameters('virtualMachineName'), '-disk')]",
+    "dockerDiskName": "[concat(parameters('virtualMachineName'), '-disk-docker')]"
+  },
   "resources": [
     {
       "type": "Microsoft.Network/networkSecurityGroups",
       "apiVersion": "2019-11-01",
-      "name": "[concat(parameters('virtualMachineName'), '-nsg')]",
+      "name": "[variables('nsgName')]",
       "location": "[parameters('location')]",
       "properties": {
         "securityRules": [
@@ -90,7 +97,7 @@
     {
       "type": "Microsoft.Network/publicIPAddresses",
       "apiVersion": "2019-11-01",
-      "name": "[concat(parameters('virtualMachineName'), '-ip')]",
+      "name": "[variables('ipName')]",
       "location": "[parameters('location')]",
       "sku": {
         "name": "Basic"
@@ -106,7 +113,7 @@
     {
       "type": "Microsoft.Network/virtualNetworks",
       "apiVersion": "2019-11-01",
-      "name": "[concat(parameters('virtualMachineName'), '-vnet')]",
+      "name": "[variables('vnetName')]",
       "location": "[parameters('location')]",
       "properties": {
         "addressSpace": {
@@ -134,7 +141,7 @@
       "name": "[parameters('virtualMachineName')]",
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('virtualMachineName'), '-network-interface'))]"
+        "[resourceId('Microsoft.Network/networkInterfaces', variables('networkInterfaceName'))]"
       ],
       "properties": {
         "hardwareProfile": {
@@ -149,25 +156,25 @@
           },
           "osDisk": {
             "osType": "Linux",
-            "name": "[concat(parameters('virtualMachineName'), '_disk1_026f84ecedc44098bbbc062407520194')]",
+            "name": "[variables('dockerDiskName')]",
             "createOption": "FromImage",
             "caching": "ReadWrite",
             "managedDisk": {
               "storageAccountType": "Premium_LRS",
-              "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachineName'), '_disk1_026f84ecedc44098bbbc062407520194'))]"
+              "id": "[resourceId('Microsoft.Compute/disks', variables('dockerDiskName'))]"
             },
             "diskSizeGB": 30
           },
           "dataDisks": [
             {
               "lun": 0,
-              "name": "[concat(parameters('virtualMachineName'), '-disk')]",
+              "name": "[variables('diskName')]",
               "createOption": "Attach",
               "caching": "None",
               "writeAcceleratorEnabled": false,
               "managedDisk": {
                 "storageAccountType": "Premium_LRS",
-                "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachineName'), '-disk'))]"
+                "id": "[resourceId('Microsoft.Compute/disks', variables('diskName'))]"
               },
               "diskSizeGB": 32,
               "toBeDetached": false
@@ -196,7 +203,7 @@
         "networkProfile": {
           "networkInterfaces": [
             {
-              "id": "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('virtualMachineName'), '-network-interface'))]"
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('networkInterfaceName'))]"
             }
           ]
         }
@@ -205,9 +212,9 @@
     {
       "type": "Microsoft.Network/networkSecurityGroups/securityRules",
       "apiVersion": "2019-11-01",
-      "name": "[concat(concat(parameters('virtualMachineName'), '-nsg'), '/Mosh')]",
+      "name": "[concat(variables('nsgName'), '/Mosh')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('virtualMachineName'), '-nsg'))]"
+        "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgName'))]"
       ],
       "properties": {
         "protocol": "UDP",
@@ -227,9 +234,9 @@
     {
       "type": "Microsoft.Network/networkSecurityGroups/securityRules",
       "apiVersion": "2019-11-01",
-      "name": "[concat(concat(parameters('virtualMachineName'), '-nsg'), '/Port_8080')]",
+      "name": "[concat(variables('nsgName'), '/Port_8080')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('virtualMachineName'), '-nsg'))]"
+        "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgName'))]"
       ],
       "properties": {
         "protocol": "*",
@@ -249,9 +256,9 @@
     {
       "type": "Microsoft.Network/networkSecurityGroups/securityRules",
       "apiVersion": "2019-11-01",
-      "name": "[concat(concat(parameters('virtualMachineName'), '-nsg'), '/SSH')]",
+      "name": "[concat(variables('nsgName'), '/SSH')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('virtualMachineName'), '-nsg'))]"
+        "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgName'))]"
       ],
       "properties": {
         "protocol": "*",
@@ -271,9 +278,9 @@
     {
       "type": "Microsoft.Network/virtualNetworks/subnets",
       "apiVersion": "2019-11-01",
-      "name": "[concat(concat(parameters('virtualMachineName'), '-vnet'), '/default')]",
+      "name": "[concat(variables('vnetName'), '/default')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/virtualNetworks', concat(parameters('virtualMachineName'), '-vnet'))]"
+        "[resourceId('Microsoft.Network/virtualNetworks', variables('vnetName'))]"
       ],
       "properties": {
         "addressPrefix": "10.1.0.0/24",
@@ -285,12 +292,12 @@
     {
       "type": "Microsoft.Network/networkInterfaces",
       "apiVersion": "2019-11-01",
-      "name": "[concat(parameters('virtualMachineName'), '-network-interface')]",
+      "name": "[variables('networkInterfaceName')]",
       "location": "[parameters('location')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('virtualMachineName'), '-ip'))]",
-        "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(parameters('virtualMachineName'), '-vnet'), 'default')]",
-        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('virtualMachineName'), '-nsg'))]"
+        "[resourceId('Microsoft.Network/publicIPAddresses', variables('ipName'))]",
+        "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetName'), 'default')]",
+        "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgName'))]"
       ],
       "properties": {
         "ipConfigurations": [
@@ -300,10 +307,10 @@
               "privateIPAddress": "10.1.0.4",
               "privateIPAllocationMethod": "Dynamic",
               "publicIPAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('virtualMachineName'), '-ip'))]"
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('ipName'))]"
               },
               "subnet": {
-                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(parameters('virtualMachineName'), '-vnet'), 'default')]"
+                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('vnetName'), 'default')]"
               },
               "primary": true,
               "privateIPAddressVersion": "IPv4"
@@ -316,7 +323,7 @@
         "enableAcceleratedNetworking": false,
         "enableIPForwarding": false,
         "networkSecurityGroup": {
-          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('virtualMachineName'), '-nsg'))]"
+          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgName'))]"
         }
       }
     }
