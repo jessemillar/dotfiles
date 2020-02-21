@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/jessemillar/dotfiles.svg?branch=master)](https://travis-ci.org/jessemillar/dotfiles)
 
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.svg)](https://azuredeploy.net/)
+
 ## Overview
 
 This repo contains all my dotfiles and application configurations. I use and maintain this repo for a couple reasons:
