@@ -2,33 +2,33 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "virtualMachines_terminal_vm_name": {
+    "vmName": {
       "defaultValue": "terminal-vm",
       "type": "String"
     },
-    "virtualMachines_terminal_admin_username": {
+    "adminUsername": {
       "defaultValue": "jessemillar",
       "type": "String"
     },
-    "virtualNetworks_terminal_ssh_key": {
+    "sshKey": {
       "type": "String"
     },
-    "virtualNetworks_terminal_vnet_name": {
+    "vmVnetName": {
       "defaultValue": "terminal-vnet",
       "type": "String"
     },
-    "virtualNetworks_terminal_ip_address": {
+    "vmIpAddress": {
       "type": "String"
     },
-    "networkInterfaces_terminal_vm103_name": {
+    "vmNetworkInterfaceName": {
       "defaultValue": "terminal-vm103",
       "type": "String"
     },
-    "publicIPAddresses_terminal_vm_ip_name": {
+    "vmIpName": {
       "defaultValue": "terminal-vm-ip",
       "type": "String"
     },
-    "networkSecurityGroups_terminal_vm_nsg_name": {
+    "vmNsgName": {
       "defaultValue": "terminal-vm-nsg",
       "type": "String"
     }
@@ -38,7 +38,7 @@
     {
       "type": "Microsoft.Network/networkSecurityGroups",
       "apiVersion": "2019-11-01",
-      "name": "[parameters('networkSecurityGroups_terminal_vm_nsg_name')]",
+      "name": "[parameters('vmNsgName')]",
       "location": "eastus",
       "properties": {
         "securityRules": [
@@ -99,13 +99,13 @@
     {
       "type": "Microsoft.Network/publicIPAddresses",
       "apiVersion": "2019-11-01",
-      "name": "[parameters('publicIPAddresses_terminal_vm_ip_name')]",
+      "name": "[parameters('vmIpName')]",
       "location": "eastus",
       "sku": {
         "name": "Basic"
       },
       "properties": {
-        "ipAddress": "[parameters('virtualNetworks_terminal_ip_address')]",
+        "ipAddress": "[parameters('vmIpAddress')]",
         "publicIPAddressVersion": "IPv4",
         "publicIPAllocationMethod": "Dynamic",
         "idleTimeoutInMinutes": 4,
@@ -115,7 +115,7 @@
     {
       "type": "Microsoft.Network/virtualNetworks",
       "apiVersion": "2019-11-01",
-      "name": "[parameters('virtualNetworks_terminal_vnet_name')]",
+      "name": "[parameters('vmVnetName')]",
       "location": "eastus",
       "properties": {
         "addressSpace": {
@@ -140,10 +140,10 @@
     {
       "type": "Microsoft.Compute/virtualMachines",
       "apiVersion": "2019-07-01",
-      "name": "[parameters('virtualMachines_terminal_vm_name')]",
+      "name": "[parameters('vmName')]",
       "location": "eastus",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_terminal_vm103_name'))]"
+        "[resourceId('Microsoft.Network/networkInterfaces', parameters('vmNetworkInterfaceName'))]"
       ],
       "properties": {
         "hardwareProfile": {
@@ -158,25 +158,25 @@
           },
           "osDisk": {
             "osType": "Linux",
-            "name": "[concat(parameters('virtualMachines_terminal_vm_name'), '_disk1_026f84ecedc44098bbbc062407520194')]",
+            "name": "[concat(parameters('vmName'), '_disk1_026f84ecedc44098bbbc062407520194')]",
             "createOption": "FromImage",
             "caching": "ReadWrite",
             "managedDisk": {
               "storageAccountType": "Premium_LRS",
-              "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_terminal_vm_name'), '_disk1_026f84ecedc44098bbbc062407520194'))]"
+              "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('vmName'), '_disk1_026f84ecedc44098bbbc062407520194'))]"
             },
             "diskSizeGB": 30
           },
           "dataDisks": [
             {
               "lun": 0,
-              "name": "[concat(parameters('virtualMachines_terminal_vm_name'), '-disk')]",
+              "name": "[concat(parameters('vmName'), '-disk')]",
               "createOption": "Attach",
               "caching": "None",
               "writeAcceleratorEnabled": false,
               "managedDisk": {
                 "storageAccountType": "Premium_LRS",
-                "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_terminal_vm_name'), '-disk'))]"
+                "id": "[resourceId('Microsoft.Compute/disks', concat(parameters('vmName'), '-disk'))]"
               },
               "diskSizeGB": 32,
               "toBeDetached": false
@@ -184,15 +184,15 @@
           ]
         },
         "osProfile": {
-          "computerName": "[parameters('virtualMachines_terminal_vm_name')]",
-          "adminUsername": "[parameters('virtualMachines_terminal_admin_username')]",
+          "computerName": "[parameters('vmName')]",
+          "adminUsername": "[parameters('adminUsername')]",
           "linuxConfiguration": {
             "disablePasswordAuthentication": true,
             "ssh": {
               "publicKeys": [
                 {
-                  "path": "[concat('/home/', parameters('virtualMachines_terminal_admin_username'), '/.ssh/authorized_keys')]",
-                  "keyData": "[parameters('virtualNetworks_terminal_ssh_key')]"
+                  "path": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
+                  "keyData": "[parameters('sshKey')]"
                 }
               ]
             },
@@ -205,7 +205,7 @@
         "networkProfile": {
           "networkInterfaces": [
             {
-              "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_terminal_vm103_name'))]"
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('vmNetworkInterfaceName'))]"
             }
           ]
         }
@@ -214,9 +214,9 @@
     {
       "type": "Microsoft.Network/networkSecurityGroups/securityRules",
       "apiVersion": "2019-11-01",
-      "name": "[concat(parameters('networkSecurityGroups_terminal_vm_nsg_name'), '/Mosh')]",
+      "name": "[concat(parameters('vmNsgName'), '/Mosh')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_terminal_vm_nsg_name'))]"
+        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('vmNsgName'))]"
       ],
       "properties": {
         "protocol": "UDP",
@@ -236,9 +236,9 @@
     {
       "type": "Microsoft.Network/networkSecurityGroups/securityRules",
       "apiVersion": "2019-11-01",
-      "name": "[concat(parameters('networkSecurityGroups_terminal_vm_nsg_name'), '/Port_8080')]",
+      "name": "[concat(parameters('vmNsgName'), '/Port_8080')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_terminal_vm_nsg_name'))]"
+        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('vmNsgName'))]"
       ],
       "properties": {
         "protocol": "*",
@@ -258,9 +258,9 @@
     {
       "type": "Microsoft.Network/networkSecurityGroups/securityRules",
       "apiVersion": "2019-11-01",
-      "name": "[concat(parameters('networkSecurityGroups_terminal_vm_nsg_name'), '/SSH')]",
+      "name": "[concat(parameters('vmNsgName'), '/SSH')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_terminal_vm_nsg_name'))]"
+        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('vmNsgName'))]"
       ],
       "properties": {
         "protocol": "*",
@@ -280,9 +280,9 @@
     {
       "type": "Microsoft.Network/virtualNetworks/subnets",
       "apiVersion": "2019-11-01",
-      "name": "[concat(parameters('virtualNetworks_terminal_vnet_name'), '/default')]",
+      "name": "[concat(parameters('vmVnetName'), '/default')]",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_terminal_vnet_name'))]"
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('vmVnetName'))]"
       ],
       "properties": {
         "addressPrefix": "10.1.0.0/24",
@@ -294,12 +294,12 @@
     {
       "type": "Microsoft.Network/networkInterfaces",
       "apiVersion": "2019-11-01",
-      "name": "[parameters('networkInterfaces_terminal_vm103_name')]",
+      "name": "[parameters('vmNetworkInterfaceName')]",
       "location": "eastus",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_terminal_vm_ip_name'))]",
-        "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_terminal_vnet_name'), 'default')]",
-        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_terminal_vm_nsg_name'))]"
+        "[resourceId('Microsoft.Network/publicIPAddresses', parameters('vmIpName'))]",
+        "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vmVnetName'), 'default')]",
+        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('vmNsgName'))]"
       ],
       "properties": {
         "ipConfigurations": [
@@ -309,10 +309,10 @@
               "privateIPAddress": "10.1.0.4",
               "privateIPAllocationMethod": "Dynamic",
               "publicIPAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_terminal_vm_ip_name'))]"
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('vmIpName'))]"
               },
               "subnet": {
-                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_terminal_vnet_name'), 'default')]"
+                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vmVnetName'), 'default')]"
               },
               "primary": true,
               "privateIPAddressVersion": "IPv4"
@@ -325,7 +325,7 @@
         "enableAcceleratedNetworking": false,
         "enableIPForwarding": false,
         "networkSecurityGroup": {
-          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_terminal_vm_nsg_name'))]"
+          "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('vmNsgName'))]"
         }
       }
     }
