@@ -4,6 +4,7 @@ test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew
 export GOPATH="$HOME/.go"
 export GOBIN="$GOPATH/bin"
 export GOPRIVATE="goms.io"
+export GO111MODULE=on
 
 # Path config
 PATH="$PATH:$GOPATH/bin"
