@@ -165,6 +165,7 @@
               "caching": "None",
               "writeAcceleratorEnabled": false,
               "managedDisk": {
+                "id": "[resourceId('Microsoft.Compute/disks', variables('dockerDiskName'))]",
                 "storageAccountType": "Premium_LRS"
               },
               "diskSizeGB": 32,
