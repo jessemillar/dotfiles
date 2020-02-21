@@ -2,6 +2,13 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "location": {
+      "type": "String",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    },
     "virtualMachineName": {
       "defaultValue": "terminal-vm",
       "type": "String"
@@ -13,7 +20,7 @@
     "sshKey": {
       "type": "String"
     },
-    "staticIP": {
+    "staticIp": {
       "type": "String"
     }
   },
@@ -23,7 +30,7 @@
       "type": "Microsoft.Network/networkSecurityGroups",
       "apiVersion": "2019-11-01",
       "name": "[concat(parameters('virtualMachineName'), '-nsg')]",
-      "location": "eastus",
+      "location": "[parameters('location')]",
       "properties": {
         "securityRules": [
           {
@@ -84,12 +91,12 @@
       "type": "Microsoft.Network/publicIPAddresses",
       "apiVersion": "2019-11-01",
       "name": "[concat(parameters('virtualMachineName'), '-ip')]",
-      "location": "eastus",
+      "location": "[parameters('location')]",
       "sku": {
         "name": "Basic"
       },
       "properties": {
-        "ipAddress": "[parameters('staticIP')]",
+        "ipAddress": "[parameters('staticIp')]",
         "publicIPAddressVersion": "IPv4",
         "publicIPAllocationMethod": "Dynamic",
         "idleTimeoutInMinutes": 4,
@@ -100,7 +107,7 @@
       "type": "Microsoft.Network/virtualNetworks",
       "apiVersion": "2019-11-01",
       "name": "[concat(parameters('virtualMachineName'), '-vnet')]",
-      "location": "eastus",
+      "location": "[parameters('location')]",
       "properties": {
         "addressSpace": {
           "addressPrefixes": ["10.1.0.0/24"]
@@ -125,7 +132,7 @@
       "type": "Microsoft.Compute/virtualMachines",
       "apiVersion": "2019-07-01",
       "name": "[parameters('virtualMachineName')]",
-      "location": "eastus",
+      "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Network/networkInterfaces', concat(parameters('virtualMachineName'), '-network-interface'))]"
       ],
@@ -279,7 +286,7 @@
       "type": "Microsoft.Network/networkInterfaces",
       "apiVersion": "2019-11-01",
       "name": "[concat(parameters('virtualMachineName'), '-network-interface')]",
-      "location": "eastus",
+      "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('virtualMachineName'), '-ip'))]",
         "[resourceId('Microsoft.Network/virtualNetworks/subnets', concat(parameters('virtualMachineName'), '-vnet'), 'default')]",
