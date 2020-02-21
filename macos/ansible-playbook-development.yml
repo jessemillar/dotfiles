@@ -5,5 +5,7 @@
       name: imagesnap,trash,wallpaper,wifi-password
       state: present
     homebrew_cask:
+      upgrade_all: true
+    homebrew_cask:
       name: colorpicker-skalacolor,couleurs,docker,goland,kitematic,postman,qlmarkdown,qlstephen
       state: present

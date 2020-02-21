@@ -440,30 +440,6 @@ function copy() {
 	cat $1 | pb
 }
 
-# Update all Homebrew and nvim packages
-function brup() {
-	# The below commands are chained via &&\ so that the function fails when a single command fails
-	brew -v update &&\
-	brew -v upgrade &&\
-	brew -v cleanup &&\
-	brew -v doctor &&\
-
-	brew -v cask upgrade --greedy &&\
-
-	pip3 install pip --upgrade &&\
-	pip3 install neovim --upgrade &&\
-
-	nvim +GoUpdateBinaries +PlugUpdate +PlugUpgrade +qall &&\
-
-	tldr --update &&\
-
-	choco upgrade all -y &&\
-
-	sudo apt update && sudo apt -y upgrade &&\
-
-	echo "brup() finished"
-}
-
 # Run a LOVE project so you can see console output
 function luv() {
 	love $(pwd)

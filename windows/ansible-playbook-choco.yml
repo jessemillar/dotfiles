@@ -2,6 +2,8 @@
 # Be sure to run this playbook from a WSL terminal running "as Administrator"
 - hosts: localhost
   tasks:
+    - name: Upgrade all Choco packages
+      shell: choco.exe upgrade all -y
     - name: Install AutoHotkey
       shell: choco.exe install autohotkey -y
       register: result

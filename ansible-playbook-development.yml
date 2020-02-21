@@ -204,3 +204,6 @@
     - name: Install imcat
       shell: git clone https://github.com/stolk/imcat.git && cd imcat && make && mv imcat ~/.bin && cd .. && rm -rf imcat
       changed_when: false
+    - name: Update tldr
+      shell: tldr --update
+      changed_when: false
