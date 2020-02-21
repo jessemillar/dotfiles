@@ -149,25 +149,24 @@
           },
           "osDisk": {
             "osType": "Linux",
-            "name": "[variables('dockerDiskName')]",
+            "name": "[variables('diskName')]",
             "createOption": "FromImage",
             "caching": "ReadWrite",
             "managedDisk": {
-              "storageAccountType": "Premium_LRS",
-              "id": "[resourceId('Microsoft.Compute/disks', variables('dockerDiskName'))]"
+              "storageAccountType": "Premium_LRS"
             },
             "diskSizeGB": 30
           },
           "dataDisks": [
             {
               "lun": 0,
-              "name": "[variables('diskName')]",
+              "name": "[variables('dockerDiskName')]",
               "createOption": "Attach",
               "caching": "None",
               "writeAcceleratorEnabled": false,
               "managedDisk": {
                 "storageAccountType": "Premium_LRS",
-                "id": "[resourceId('Microsoft.Compute/disks', variables('diskName'))]"
+                "id": "[resourceId('Microsoft.Compute/disks', variables('dockerDiskName'))]"
               },
               "diskSizeGB": 32,
               "toBeDetached": false
