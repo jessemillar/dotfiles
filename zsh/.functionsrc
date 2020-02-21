@@ -15,6 +15,10 @@ function poots() {
 	ruler "Sleeping"
 	sleep 10
 	ruler "Getting logs"
+	bananas
+}
+
+function bananas() {
 	k logs -f -n infra $(k get po -n infra | grep 'Running\|Completed\|CrashLoopBackOff' | awk '{print $1}')
 }
 
@@ -42,11 +46,6 @@ function gm() {
 	else
 		git checkout $1 && git pull && git checkout $BRANCH && git merge $1
 	fi
-}
-
-# Recover a file from a previous commit that's deleted in the working version
-function grecover() {
-	git checkout $(git rev-list -n 1 HEAD -- "$1")^ -- "$1"
 }
 
 # Checkout a PR by PR number (useful if someone created a PR from a fork)

@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-function ruler {
-	printf '\n%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
-	echo -e "$1"
-	printf '%*s\n\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
-}
+# Source .functionsrc to get access to the ruler function
+source zsh/.functionsrc
 
 # Install the Homebrew package manager
 case $(uname -s) in
