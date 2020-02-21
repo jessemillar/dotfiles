@@ -4,10 +4,7 @@
   "parameters": {
     "location": {
       "type": "String",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for all resources."
-      }
+      "defaultValue": "eastus"
     },
     "virtualMachineName": {
       "defaultValue": "terminal-vm",
@@ -18,9 +15,6 @@
       "type": "String"
     },
     "sshKey": {
-      "type": "String"
-    },
-    "staticIp": {
       "type": "String"
     }
   },
@@ -103,9 +97,8 @@
         "name": "Basic"
       },
       "properties": {
-        "ipAddress": "[parameters('staticIp')]",
         "publicIPAddressVersion": "IPv4",
-        "publicIPAllocationMethod": "Dynamic",
+        "publicIPAllocationMethod": "Static",
         "idleTimeoutInMinutes": 4,
         "ipTags": []
       }
