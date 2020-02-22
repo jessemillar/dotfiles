@@ -12,8 +12,8 @@ function poots() {
 	h del --purge underlay-nanny
 	ruler "Deploying to cluster"
 	cat helm-deploy.sh | envsubst | bash
-	ruler "Sleeping"
-	sleep 10
+	ruler "Sleeping for 20 seconds"
+	sleep 20
 	ruler "Getting logs"
 	bananas
 }

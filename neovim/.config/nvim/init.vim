@@ -10,7 +10,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'dracula/vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'edkolev/tmuxline.vim', { 'do': ':TmuxlineSnapshot! ~/.dotfiles/tmux/tmuxline.conf' }
@@ -53,6 +52,11 @@ highlight Pmenu ctermfg=236 ctermbg=243
 highlight PmenuSel ctermfg=236 ctermbg=255
 inoremap <silent><expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <silent><expr><s-tab> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+" Use an Omni pattern for Go completions
+call deoplete#custom#option('omni_patterns', {
+	\ 'go': '[^. *\t]\.\w*',
+	\})
 
 " Use the Dracula theme for vim-airline
 let g:airline_theme='dracula'
@@ -151,9 +155,6 @@ nnoremap <leader>a :cclose<CR>
 " Run goimports instead of gofmt
 let g:go_fmt_command = 'goimports'
 
-" Tell Deoplete where gocode is to improve performance
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-
 " Make CtrlSF use regular expressions by default
 let g:ctrlsf_regex_pattern = 1
 
@@ -166,7 +167,6 @@ nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>
 " Configure LanguageClient
 " Required for operations modifying multiple buffers like rename
 set hidden
-
 let g:LanguageClient_serverCommands = {
 		\ 'go': ['gopls'],
     \ }
