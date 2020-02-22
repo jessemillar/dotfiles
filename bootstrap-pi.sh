@@ -38,7 +38,8 @@ if ! grep -q "$GO_VERSION" ~/.gox/VERSION; then
 fi
 if [ ! -d ~/.gox ]; then
 	wget -O go.tar.gz https://dl.google.com/go/$GO_VERSION.linux-armv6l.tar.gz
-	tar -C ~/.gox -xzf go.tar.gz
+	tar -C ~/ -xzf go.tar.gz
+	mv ~/go ~/.gox
 	ln -s ~/.gox/bin/* ~/.bin
 	rm go.tar.gz
 fi
@@ -50,7 +51,7 @@ ruler "Install the Starship prompt"
 cargo install starship
 
 ruler "Install neovim Python module"
-pip3 install neovim
+pip3 install msgpack neovim -U
 
 ruler "Install vim-plug"
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -69,7 +70,7 @@ ruler "Change user shell to Zsh"
 command -v zsh | sudo tee -a /etc/shells && sudo usermod --shell $(command -v zsh) $(whoami)
 
 ruler "Install fzf with Zsh support"
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+git -C ~/.fzf pull origin master || git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
 
 ruler "Generate SSH keypairs"
