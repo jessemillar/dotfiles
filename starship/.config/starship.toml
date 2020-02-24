@@ -4,6 +4,12 @@ deleted = "x"
 [golang]
 symbol = "💨 "
 
+[nodejs]
+symbol = "📦 "
+
+[package]
+symbol = ""
+
 [hostname]
 style = "bold green"
 
@@ -11,3 +17,4 @@ style = "bold green"
 disabled = false
 show_percentage = true
 style = "bold white"
+threshold = 50
