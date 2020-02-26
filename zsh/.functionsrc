@@ -8,8 +8,12 @@ function poots() {
 	./aks-ci underlay-nanny-docker-build
 	ruler "Pushing Nanny Docker container"
 	./aks-ci underlay-nanny-docker-push
+	ruler "Setting permissions on cluster"
+	kubectl create clusterrolebinding permissive-binding --clusterrole=cluster-admin --user=admin --user=kubelet --group=system:serviceaccounts
 	ruler "Deleting existing helm deployment"
 	h del --purge underlay-nanny
+	ruler "Purging namespace"
+	kubectl delete ns infra
 	ruler "Deploying to cluster"
 	cat docs/helm-deploy.sh | envsubst | bash
 	ruler "Sleeping for 20 seconds"
