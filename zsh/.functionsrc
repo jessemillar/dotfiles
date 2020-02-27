@@ -109,8 +109,8 @@ function gclean() {
 	fi
 }
 
-# Add all git changes with a commit message (prepend the branch name to the commit message if the branch name contains a Jira card number) and push to remote
-function gitt() {
+# Add all git changes with a commit message and push to remote
+function g() {
 	if [ -z "$1" ]
 	then
 		echo "No commit message supplied"
