@@ -6,6 +6,9 @@ export GOBIN="$GOPATH/bin"
 export GOPRIVATE="goms.io"
 export GO111MODULE=on
 
+# Kubernetes setup
+export KUBERNETES_VERSION=1.17.2
+
 # Path config
 PATH="$PATH:$GOPATH/bin"
 PATH="$PATH:$HOME/.bin"

@@ -55,7 +55,7 @@ alias ped="cd ..; pico-build edit; cd src"
 # yabai
 alias yabaiq="yabai -m query --windows"
 
-# git (there are also a few git functions defined in .functionsrc)
+# git (there are also a few functions defined in .functionsrc)
 alias gb="git branch -a"
 alias gbd="git branch -D"
 alias gc="git checkout"
@@ -80,8 +80,10 @@ alias gsc="git stash clear"
 alias gt="git tag"
 alias gtl="git tag -l"
 
-# Kubernetes
+# Kubernetes (there are also a few functions defined in .functionsrc)
+alias ka="k api-resources --sort-by=name"
 alias kd="k describe"
+alias ke="k exec"
 alias kgp="k get pods"
 alias kgpa="k get pods --all-namespaces"
 alias kgn="k get namespaces"

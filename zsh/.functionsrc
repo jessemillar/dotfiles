@@ -1,7 +1,22 @@
 #!/usr/bin/env bash
 
+####################
+# k8s functions
+####################
+
+function kla() {
+	rm -rf /tmp/kind-logs
+	kind export logs /tmp/kind-logs -q
+	echo "Logs for kind cluster exported"
+	cd /tmp/kind-logs
+}
+
+####################
+# Work functions
+####################
+
 # Putting this here until I move it into aks-ci
-function poots() {
+function deployNanny() {
 	ruler "Building Nanny"
 	./aks-ci underlay-nanny-build
 	ruler "Building Nanny Docker container"
@@ -16,13 +31,13 @@ function poots() {
 	kubectl delete ns infra
 	ruler "Deploying to cluster"
 	cat docs/helm-deploy.sh | envsubst | bash
-	ruler "Sleeping for 20 seconds"
-	sleep 20
+	ruler "Sleeping for 30 seconds"
+	sleep 30
 	ruler "Getting logs"
-	bananas
+	getNannyLogs
 }
 
-function bananas() {
+function getNannyLogs() {
 	k logs -f -n infra $(k get po -n infra | grep 'Running\|Completed\|CrashLoopBackOff' | awk '{print $1}')
 }
 
