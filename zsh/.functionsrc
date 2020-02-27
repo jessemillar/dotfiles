@@ -115,17 +115,8 @@ function gitt() {
 	then
 		echo "No commit message supplied"
 	else
-		BRANCH="$(git rev-parse --abbrev-ref HEAD | awk 'match($0, /[A-Z]+-[[:digit:]]+/) { print substr($0, RSTART, RLENGTH) }')"
-
 		git add -A
-
-		if [ -z "$BRANCH" ]
-		then
-			git commit -s -m $1
-		else
-			git commit -s -m "$BRANCH $1"
-		fi
-
+		git commit -s -m "$1"
 		git push -u
 	fi
 }

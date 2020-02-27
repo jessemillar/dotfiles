@@ -81,5 +81,8 @@ alias gt="git tag"
 alias gtl="git tag -l"
 
 # Kubernetes
+alias kd="k describe"
 alias kgp="k get pods"
+alias kgpa="k get pods --all-namespaces"
+alias kgn="k get namespaces"
 alias kl="k logs -f"
