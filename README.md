@@ -23,12 +23,11 @@ I utilize a combination of [GNU Stow](https://www.gnu.org/software/stow/) and [A
 ### General
 
 1. Install Aseprite from Humble Bundle
-1. Install and configure the [Settings Sync plugin](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) in Visual Studio Code
 
 ### Ansible
 
-`ansible-playbook-main.yml` is a combination of multiple playbooks that get my system up to speed quickly with minimal user interaction. There are a few Ansible playbooks included in the repo that are not called as part of `ansible-playbook-main.yml`. Depending on which machine I'm configuring, I'll manually run one (or all) of the non-included playbooks via `ansible-playbook --ask-become-pass PLAYBOOK` after the successful completion of `ansible-playbook-main.yml`.
+`ansible-playbook-main.yml` is a combination of multiple playbooks that get my system up to speed quickly with minimal user interaction. There are a few Ansible playbooks included in the repo that are not called as part of `ansible-playbook-main.yml`. Depending on which machine I'm configuring, I'll manually run one (or all) of the non-included playbooks via `ansible-playbook PLAYBOOK` after the successful completion of `ansible-playbook-main.yml`.
 
 ## Notes
 
-I'm most comfortable with Unix systems and mostly use Unix systems (or Unix-compatibility layers like [WSL](https://docs.microsoft.com/en-us/windows/wsl/about)). That said, this repo is assumed to be Unix-centric with the exception of the [`/windows`](windows) directory.
+I'm most comfortable with Unix systems and mostly use Unix systems. That said, this repo is assumed to be Unix-centric with the exception of the [`/windows`](windows) directory.
