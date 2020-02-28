@@ -4,6 +4,7 @@
 set -e
 
 # Source .functionsrc to get access to the ruler function
+# shellcheck disable=SC1091
 source zsh/.functionsrc
 
 ruler "Make sure the system is up to date"
@@ -67,14 +68,17 @@ rm ~/.zshrc || true
 stow zsh
 
 ruler "Change user shell to Zsh"
-command -v zsh | sudo tee -a /etc/shells && sudo usermod --shell $(command -v zsh) $(whoami)
+command -v zsh | sudo tee -a /etc/shells && sudo usermod --shell "$(command -v zsh)" "$(whoami)"
 
 ruler "Install fzf with Zsh support"
 git -C ~/.fzf pull origin master || git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
 
 ruler "Generate SSH keypairs"
-cat /dev/zero | ssh-keygen -q -N "" || true
+if [ ! -f  ~/.ssh/id_rsa.pub ]
+then
+	ssh-keygen -q -N ""
+fi
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 

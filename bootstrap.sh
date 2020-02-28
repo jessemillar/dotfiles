@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Source .functionsrc to get access to the ruler function
+# shellcheck disable=SC1091
 source zsh/.functionsrc
 
 # Install the Homebrew package manager
