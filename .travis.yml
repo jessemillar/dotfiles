@@ -22,3 +22,9 @@ script:
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
+  # Run shellcheck against all bash scripts in the repo
+  - >
+    while IFS= read -r SCRIPT
+    do
+      shellcheck "$SCRIPT"
+    done < <(ack -l "\#\!\/usr\/bin\/env bash")

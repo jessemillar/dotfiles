@@ -4,19 +4,17 @@ function printAscii() {
 	allLogos=("sombra" "compycore" "tinyPenguin")
 	allowedLogos=()
 
-	for logo in $allLogos
+	for logo in "${allLogos[@]}"
 	do
-		if [ $(getLogoMaxWidth "$($logo)") -lt $(getTermWidth) ]
+		# Make sure the selected logo isn't too wide for the current terminal
+		if [ "$(getLogoMaxWidth "$($logo)")" -lt "$(tput cols)" ]
 		then
 			allowedLogos+=("$logo")
 		fi
 	done
 
+	# shellcheck disable=SC2091
 	$(shuf -n1 -e "${allowedLogos[@]}")
-}
-
-function getTermWidth() {
-	echo $(tput cols)
 }
 
 function getLogoMaxWidth() {
@@ -27,7 +25,7 @@ function getLogoMaxWidth() {
 }
 
 function tinyPenguin() {
-	echo $fg[blue] "
+	tput setaf 4; echo "
       __
      ' o)>
     /,-.'
@@ -38,7 +36,7 @@ function tinyPenguin() {
 }
 
 function sombra() {
-	echo $fg[magenta] "
+	tput setaf 5; echo "
                       :PB@Bk:
                   ,jB@@B@B@B@BBL.
                7G@B@B@BMMMMMB@B@B@Nr
@@ -68,7 +66,7 @@ function sombra() {
 }
 
 function compycore() {
-	echo $fg[cyan] "
+	tput setaf 6; echo "
                ,*##*                     ###*,
              ,*####                        ######,
             *######                         #######

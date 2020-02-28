@@ -304,3 +304,12 @@ function search() {
 function usage() {
 	sudo du -cha --max-depth=1 "$1" | sort -rh | grep -E "M|G"
 }
+
+function shellcheck_all() {
+	while IFS= read -r SCRIPT
+	do
+		echo "$SCRIPT"
+		shellcheck "$SCRIPT"
+	done < <(ack -l "\#\!\/usr\/bin\/env bash")
+}
+
