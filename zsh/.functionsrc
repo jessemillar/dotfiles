@@ -30,7 +30,7 @@ function deployNanny() {
 	ruler "Purging namespace"
 	kubectl delete ns infra
 	ruler "Deploying to cluster"
-	cat docs/helm-deploy.sh | envsubst | bash
+	envsubst < docs/helm-deploy.sh | bash
 	ruler "Sleeping for 30 seconds"
 	sleep 30
 	ruler "Getting logs"
@@ -38,7 +38,7 @@ function deployNanny() {
 }
 
 function getNannyLogs() {
-	k logs -f -n infra $(k get po -n infra | grep 'Running\|Completed\|CrashLoopBackOff' | awk '{print $1}')
+	k logs -f -n infra "$(k get po -n infra | grep 'Running\|Completed\|CrashLoopBackOff' | awk '{print $1}')"
 }
 
 # This function mimics `eval $(aksiknife dev-setup)` but uses pass to circumvent the need for an AME card
@@ -93,22 +93,22 @@ function gclean() {
 	ORPHAN_BRANCHES=$(grep gone <(git branch -v) | cut -d ' ' -f 3)
 	BRANCHES_WITH_NO_REMOTE=$(git branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }')
 
-	if [[ ! -z $MERGED_BRANCHES ]]; then
+	if [[ -n "$MERGED_BRANCHES" ]]; then
 		ruler "Merged branches"
-		echo $MERGED_BRANCHES
+		echo "$MERGED_BRANCHES"
 	fi
 
-	if [[ ! -z $ORPHAN_BRANCHES ]]; then
+	if [[ -n "$ORPHAN_BRANCHES" ]]; then
 		ruler "Orphan branches"
-		echo $ORPHAN_BRANCHES
+		echo "$ORPHAN_BRANCHES"
 	fi
 
-	if [[ ! -z $BRANCHES_WITH_NO_REMOTE ]]; then
+	if [[ -n "$BRANCHES_WITH_NO_REMOTE" ]]; then
 		ruler "Branches with no remote"
-		echo $BRANCHES_WITH_NO_REMOTE
+		echo "$BRANCHES_WITH_NO_REMOTE"
 	fi
 
-	if [[ -z $MERGED_BRANCHES ]] && [[ -z $ORPHAN_BRANCHES ]] && [[ -z $BRANCHES_WITH_NO_REMOTE ]]
+	if [[ -z "$MERGED_BRANCHES" ]] && [[ -z "$ORPHAN_BRANCHES" ]] && [[ -z "$BRANCHES_WITH_NO_REMOTE" ]]
 	then
 		echo "Repo is already clean"
 	else
@@ -116,21 +116,21 @@ function gclean() {
 		if [ "$1" = "-f" ]
 		then
 			echo
-			read "DELETE?Force delete the listed branches? [y/N] "
+			read -r "DELETE?Force delete the listed branches? [y/N] "
 			if [ "$DELETE" = "y" ]; then
-				[[ ! -z "$MERGED_BRANCHES" ]] && { echo $MERGED_BRANCHES | xargs git branch -D; }
-				[[ ! -z "$ORPHAN_BRANCHES" ]] && { echo $ORPHAN_BRANCHES | xargs git branch -D; }
-				[[ ! -z "$BRANCHES_WITH_NO_REMOTE" ]] && { echo $BRANCHES_WITH_NO_REMOTE | xargs git branch -D; }
+				[[ -n "$MERGED_BRANCHES" ]] && { echo "$MERGED_BRANCHES" | xargs git branch -D; }
+				[[ -n "$ORPHAN_BRANCHES" ]] && { echo "$ORPHAN_BRANCHES" | xargs git branch -D; }
+				[[ -n "$BRANCHES_WITH_NO_REMOTE" ]] && { echo "$BRANCHES_WITH_NO_REMOTE" | xargs git branch -D; }
 			else
 				echo "Aborted"
 			fi
 		else
 			echo
-			read "DELETE?Delete the listed branches? [y/N] "
+			read -r "DELETE?Delete the listed branches? [y/N] "
 			if [ "$DELETE" = "y" ]; then
-				[[ ! -z "$MERGED_BRANCHES" ]] && { echo $MERGED_BRANCHES | xargs git branch -d; }
-				[[ ! -z "$ORPHAN_BRANCHES" ]] && { echo $ORPHAN_BRANCHES | xargs git branch -d; }
-				[[ ! -z "$BRANCHES_WITH_NO_REMOTE" ]] && { echo $BRANCHES_WITH_NO_REMOTE | xargs git branch -d; }
+				[[ -n "$MERGED_BRANCHES" ]] && { echo "$MERGED_BRANCHES" | xargs git branch -d; }
+				[[ -n "$ORPHAN_BRANCHES" ]] && { echo "$ORPHAN_BRANCHES" | xargs git branch -d; }
+				[[ -n "$BRANCHES_WITH_NO_REMOTE" ]] && { echo "$BRANCHES_WITH_NO_REMOTE" | xargs git branch -d; }
 			else
 				echo "Aborted"
 			fi
@@ -162,7 +162,7 @@ function gi() {
 			then
 				curl -L -s https://www.gitignore.io/api/list?format=lines
 			else
-				curl -L -s https://www.gitignore.io/api/list?format=lines | ack $2
+				curl -L -s https://www.gitignore.io/api/list?format=lines | ack "$2"
 			fi
 		else
 			curl -L -s https://www.gitignore.io/api/"$1"
@@ -172,31 +172,31 @@ function gi() {
 
 # Find local git repositories that have unpushed commits or uncommitted files
 function wip() {
-	for repo in `find . -name .git -type d -prune`
+	while IFS= read -r -d '' REPO
 	do
 		# Use a subshell to avoid having to cd out of the directory)
 		(
-		cd $repo && cd ..
+		cd "$REPO" && cd ..
 
-		if [[ ! -z $(git --no-pager diff HEAD) || ! -z $(git status --short) || ! -z $(git cherry -v 2>&1) || ! -z $(git --no-pager log --branches --not --remotes --no-walk --pretty=tformat:"%d%n") || ! -z $(git branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }') ]]
+		if [[ -n $(git --no-pager diff HEAD) || -n $(git status --short) || -n $(git cherry -v 2>&1) || -n $(git --no-pager log --branches --not --remotes --no-walk --pretty=tformat:"%d%n") || -n $(git branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }') ]]
 		then
-			echo $repo
+			echo "$REPO"
 
 			# Make newlines the only split character
 			IFS=$'\n'
 
-			for line in `git branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }'`
+			for LINE in $(git branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }')
 			do
-				echo "  No remote: "$line
+				echo "  No remote: $LINE"
 			done
 
-			for line in `git --no-pager log --branches --not --remotes --no-walk --pretty=tformat:"%d%n"`
+			for LINE in $(git --no-pager log --branches --not --remotes --no-walk --pretty=tformat:"%d%n")
 			do
-				echo "  Unpushed/outdated: "$line
+				echo "  Unpushed/outdated: $LINE"
 			done
 		fi
 		)
-	done
+	done < <(find . -name .git -type d -prune -print0)
 }
 
 ####################
@@ -223,12 +223,14 @@ function sink() {
 # General functions
 ####################
 
+# Echo output with surrounding whitespace and lines across the width of the screen for readability
 function ruler {
 	printf '\n%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 	echo -e "$1"
 	printf '%*s\n\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 }
 
+# Fuzzy find a file and then open it in nvim
 function vf() {
 	FILES=$(fzf)
 	if [[ ! $FILES ]]; then
@@ -238,23 +240,14 @@ function vf() {
 	nvim "$FILES"
 }
 
+# Attach to an existing tmux session
 function tma() {
 	tmux a -t "$1" -d
 }
 
+# Find an image file's dimensions
 function imgsize() {
 	magick identify "$1"
-}
-
-# Compare two files and print lines from the second file that are not included in the first file
-function includes() {
-	while read LINE
-	do
-		if ! grep -qr "\b$LINE\b" "$2"
-		then
-			echo $LINE # The line was not found
-		fi
-	done <$1
 }
 
 # Generate cellular automata wallpapers using gautomata
@@ -263,7 +256,7 @@ function cells() {
 	then
 		echo "No iteration count supplied"
 	else
-		for i in {1..$1}
+		for ((i=0; i<$1; i++))
 		do
 			WIDTH=1920
 			HEIGHT=800
@@ -277,7 +270,7 @@ function cells() {
 		done
 
 		echo "Scaling images"
-		mogrify -scale 3840x1600+0+0 *.png
+		mogrify -scale 3840x1600+0+0 ./*.png
 	fi
 }
 
