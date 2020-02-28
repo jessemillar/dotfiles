@@ -1,5 +1,5 @@
+dist: bionic
 sudo: required
-dist: xenial
 
 install:
   # Add a hosts file
