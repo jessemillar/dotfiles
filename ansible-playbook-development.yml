@@ -33,10 +33,6 @@
       homebrew:
         name: ack
         state: present
-    - name: Install apngasm
-      homebrew:
-        name: apngasm
-        state: present
     - name: Install bat
       homebrew:
         name: bat
