@@ -23,7 +23,7 @@ script:
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
   # Run shellcheck against all bash scripts in the repo
-  - >
+  - |
     while IFS= read -r SCRIPT
     do
       shellcheck "$SCRIPT"
