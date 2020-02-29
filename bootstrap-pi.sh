@@ -24,10 +24,10 @@ sudo apt dist-upgrade -y
 ruler "Install stow since it's needed for some pre-installation setup"
 sudo apt install -y stow
 
-ruler "Make .config, .bin, and projects  directories"
+ruler "Make .config, .bin, and Projects  directories"
 mkdir -p ~/.config || true
 mkdir -p ~/.bin || true
-mkdir -p ~/projects || true
+mkdir -p ~/Projects || true
 
 ruler "Stow general config files"
 stow ack
@@ -99,14 +99,14 @@ ruler "Compile LÖVE"
 if ! [ -x "$(command -v love)" ]
 then
 	sudo apt-get install -y build-essential autotools-dev automake libtool pkg-config libfreetype6-dev libluajit-5.1-dev libphysfs-dev libsdl2-dev libopenal-dev libogg-dev libvorbis-dev libmodplug-dev libmpg123-dev libtheora-dev
-	cd ~/projects
+	cd ~/Projects
 	git clone https://github.com/love2d/love
 	cd love
 	git checkout 11.3
 	./platform/unix/automagic
 	./configure
 	make
-	ln -s ~/projects/love/src/love ~/.bin
+	ln -s ~/Projects/love/src/love ~/.bin
 fi
 
 ruler "Done"
