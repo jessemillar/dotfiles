@@ -99,14 +99,15 @@ ruler "Compile LÖVE"
 if ! [ -x "$(command -v love)" ]
 then
 	sudo apt-get install -y build-essential autotools-dev automake libtool pkg-config libfreetype6-dev libluajit-5.1-dev libphysfs-dev libsdl2-dev libopenal-dev libogg-dev libvorbis-dev libmodplug-dev libmpg123-dev libtheora-dev
-	cd ~/Projects
+	cd
 	git clone https://github.com/love2d/love
-	cd love
+	mv love .love
+	cd .love
 	git checkout 11.3
 	./platform/unix/automagic
 	./configure
 	make
-	ln -s ~/Projects/love/src/love ~/.bin
+	ln -s ~/.love/src/love ~/.bin
 fi
 
 ruler "Done"
