@@ -24,9 +24,10 @@ sudo apt dist-upgrade -y
 ruler "Install stow since it's needed for some pre-installation setup"
 sudo apt install -y stow
 
-ruler "Make .config and .bin directories"
+ruler "Make .config, .bin, and projects  directories"
 mkdir -p ~/.config || true
 mkdir -p ~/.bin || true
+mkdir -p ~/projects || true
 
 ruler "Stow general config files"
 stow ack
@@ -93,6 +94,16 @@ ssh-add ~/.ssh/id_rsa
 
 ruler "Install imcat"
 git clone https://github.com/stolk/imcat.git && cd imcat && make && mv imcat ~/.bin && cd .. && rm -rf imcat
+
+ruler "Compile LÖVE"
+sudo apt-get install build-essential autotools-dev automake libtool pkg-config libfreetype6-dev libluajit-5.1-dev libphysfs-dev libsdl2-dev libopenal-dev libogg-dev libvorbis-dev libmodplug-dev libmpg123-dev libtheora-dev
+cd ~/projects
+git clone https://github.com/love2d/love
+cd love
+git checkout 11.3
+./platform/unix/automagic
+./configure
+make
 
 ruler "Done"
 ruler "Remember to use raspi-config to enable VNC, set a resolution, change the timezone, and generate locales"
