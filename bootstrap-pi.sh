@@ -7,6 +7,15 @@ set -e
 # shellcheck disable=SC1091
 source zsh/.functionsrc
 
+if ! [ -x "$(command -v mosh)" ]
+then
+	ruler "Installing mosh"
+	sudo apt update
+	sudo apt install -y mosh
+	ruler "Exit the session, reattach with mosh, and run bootstrap-pi.sh again"
+	exit
+fi
+
 ruler "Make sure the system is up to date"
 sudo apt update
 sudo apt upgrade -y
