@@ -97,3 +97,4 @@ git clone https://github.com/stolk/imcat.git && cd imcat && make && mv imcat ~/.
 ruler "Done"
 ruler "Remember to use raspi-config to enable VNC, set a resolution, change the timezone, and generate locales"
 ruler "Also set UseDNS to 'no' in /etc/ssh/sshd_config"
+ruler "Also upload ~/.ssh/id_rsa.pub to GitHub and re-clone .dotfiles"
