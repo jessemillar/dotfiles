@@ -53,6 +53,9 @@ highlight PmenuSel ctermfg=236 ctermbg=255
 inoremap <silent><expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <silent><expr><s-tab> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
+" Enable a shortcut for inserting bash shebangs
+nnoremap sb i#!/usr/bin/env bash<CR><Esc>
+
 " Use an Omni pattern for Go completions
 call deoplete#custom#option('omni_patterns', {
 	\ 'go': '[^. *\t]\.\w*',
@@ -78,7 +81,7 @@ let g:tmuxline_preset = {
 autocmd VimEnter * PasteEasyEnable
 
 " Map fzf to Control + P
-:nnoremap <C-P> :FZF<CR>
+nnoremap <C-P> :FZF<CR>
 
 " Customize fzf colors to match my color scheme
 " - fzf#wrap translates this to a set of `--color` options
