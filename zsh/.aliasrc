@@ -2,22 +2,22 @@
 
 # General
 alias a="ack"
-alias ac="./aks-ci"
-alias acl="./aks-ci list"
 alias ap="ansible-playbook "
 alias crates="sim_arduboy -p 3 ~/Documents/Projects/crates/crates.ino.leonardo.hex"
 alias day="date +%m-%d-%Y"
 alias f="fzf -m"
 alias host="hostess . &"
 alias lines="tokei"
-alias mci="mvn clean install -Dmaven.test.skip=true"
-alias mcit="mvn clean install"
 alias rc="exec zsh"
 alias s="search"
 alias tmp="mkdir tmp 2>/dev/null || true && cd tmp"
 alias v="nvim"
 alias vimrc="nvim ~/.config/nvim/init.vim"
 alias watch="watch " # This is so aliases get expanded when passed to `watch`
+
+# Work
+alias ac="./aks-ci"
+alias acl="./aks-ci list"
 
 # Windows (for use with WSL2)
 alias choco="choco.exe"
@@ -27,7 +27,7 @@ alias pb="clip.exe"
 alias powershell="powershell.exe"
 alias wsl="wsl.exe"
 
-# tmux
+# tmux (there are also a few functions defined in .functionsrc)
 alias tm="tmux"
 alias tml="tmux ls"
 alias tmnuke="tmux kill-session"
