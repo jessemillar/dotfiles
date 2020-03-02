@@ -56,6 +56,9 @@ inoremap <silent><expr><s-tab> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " Enable a shortcut for inserting bash shebangs
 nnoremap sb i#!/usr/bin/env bash<CR><Esc>
 
+" Make a shortcut for killing smart quotes
+nnoremap sq :%s/’/'/g<CR>:%s/[“”]/"/g<CR><Esc>
+
 " Use an Omni pattern for Go completions
 call deoplete#custom#option('omni_patterns', {
 	\ 'go': '[^. *\t]\.\w*',
@@ -149,8 +152,7 @@ let g:go_def_mode = 'gopls'
 " Tell vim to automatically save file changes before running certain commands
 set autowrite
 
-" Keyboard shortcuts for use with the vim-go quickfix window (appears after
-" :GoBuild)
+" Keyboard shortcuts for use with the vim-go quickfix window (appears after :GoBuild)
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
