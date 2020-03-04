@@ -10,10 +10,12 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'dense-analysis/ale'
 Plug 'dracula/vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'edkolev/tmuxline.vim', { 'do': ':TmuxlineSnapshot! ~/.dotfiles/tmux/tmuxline.conf' }
 Plug 'fatih/vim-go'
+Plug 'gabrielelana/vim-markdown'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'leafgarland/typescript-vim'
@@ -144,7 +146,6 @@ let g:go_auto_sameids = 1
 command! GB :GoBuild
 command! GT :GoTest
 command! GTF :GoTestFunc
-command! GD :GoDef
 
 " Use gopls for various things
 let g:go_def_mode = 'gopls'
@@ -174,6 +175,8 @@ nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>
 set hidden
 let g:LanguageClient_serverCommands = {
 		\ 'go': ['gopls'],
+		\ 'yaml': ['yaml-language-server', '--stdio'],
+    \ 'sh': ['bash-language-server', 'start'],
     \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
