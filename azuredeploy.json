@@ -23,8 +23,7 @@
     "ipName": "[concat(parameters('virtualMachineName'), '-ip')]",
     "vnetName": "[concat(parameters('virtualMachineName'), '-vnet')]",
     "networkInterfaceName": "[concat(parameters('virtualMachineName'), '-network-interface')]",
-    "diskName": "[concat(parameters('virtualMachineName'), '-disk')]",
-    "dockerDiskName": "[concat(parameters('virtualMachineName'), '-disk-docker')]"
+    "diskName": "[concat(parameters('virtualMachineName'), '-disk')]"
   },
   "resources": [
     {
@@ -155,23 +154,8 @@
             "managedDisk": {
               "storageAccountType": "Premium_LRS"
             },
-            "diskSizeGB": 30
-          },
-          "dataDisks": [
-            {
-              "lun": 0,
-              "name": "[variables('dockerDiskName')]",
-              "createOption": "Attach",
-              "caching": "None",
-              "writeAcceleratorEnabled": false,
-              "managedDisk": {
-                "id": "[resourceId('Microsoft.Compute/disks', variables('dockerDiskName'))]",
-                "storageAccountType": "Premium_LRS"
-              },
-              "diskSizeGB": 32,
-              "toBeDetached": false
-            }
-          ]
+            "diskSizeGB": 64
+          }
         },
         "osProfile": {
           "computerName": "[parameters('virtualMachineName')]",
