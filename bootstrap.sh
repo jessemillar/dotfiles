@@ -16,6 +16,7 @@ Darwin*)
 	ruler "Updating packages via apt"
 	sudo apt update
 	sudo apt full-upgrade -y
+	sudo apt autoremove -y
 	ruler "Installing Linuxbrew dependencies via apt"
 	sudo apt install -y build-essential curl file git
 	ruler "Installing Linuxbrew"
