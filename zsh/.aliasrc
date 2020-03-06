@@ -3,7 +3,6 @@
 # General
 alias a="ack"
 alias ap="ansible-playbook "
-alias c="sl; clear"
 alias crates="sim_arduboy -p 3 ~/Documents/Projects/crates/crates.ino.leonardo.hex"
 alias day="date +%m-%d-%Y"
 alias e="exit"

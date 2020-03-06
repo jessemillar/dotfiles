@@ -164,6 +164,10 @@
       npm:
         name: prettier
         global: yes
+    - name: Install "markdown-cli" Node.js package globally
+      npm:
+        name: markdown-cli
+        global: yes
     - name: Install neovim Python modules
       shell: pip3 install msgpack neovim -U
       register: result
