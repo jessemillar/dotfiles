@@ -206,7 +206,7 @@
               ]
             },
             "protectedSettings": {
-              "commandToExecute": "sh bootstrap.sh"
+              "commandToExecute": "[concat('sudo -u ', parameters('adminUsername'), ' -- sh bootstrap.sh')]"
             }
           }
         }
