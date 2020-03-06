@@ -15,6 +15,7 @@ alias tmp="mkdir tmp 2>/dev/null || true && cd tmp"
 alias v="nvim"
 alias vimrc="nvim ~/.config/nvim/init.vim"
 alias watch="watch " # This is so aliases get expanded when passed to `watch`
+alias wdl="wd list"
 
 # Work
 alias ac="./aks-ci"
