@@ -223,6 +223,12 @@ function sink() {
 # General functions
 ####################
 
+# Quickly make a warp point with the name of the current directory
+function wda {
+	CUR_DIR=$(basename "$(pwd)")
+	wd add "${CUR_DIR#.}"
+}
+
 # Echo output with surrounding whitespace and lines across the width of the screen for readability
 function ruler {
 	printf '\n%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
