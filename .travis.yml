@@ -11,6 +11,9 @@ script:
   # Run the bootstrap script
   - ./bootstrap.sh
 
+  # Put Homebrew in the PATH
+  - eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
   # Check the syntax of all playbooks
   - ansible-playbook ansible-playbook-*.yml --syntax-check
 
