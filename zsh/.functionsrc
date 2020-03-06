@@ -229,7 +229,7 @@ function wda {
 	# Remove leading periods
 	CUR_DIR_STRIPPED="${CUR_DIR#.}"
 	wd add "$CUR_DIR_STRIPPED" || exit
-	echo " + $CUR_DIR_STRIPPED"
+	echo " + '$CUR_DIR_STRIPPED'"
 }
 
 # Echo output with surrounding whitespace and lines across the width of the screen for readability
