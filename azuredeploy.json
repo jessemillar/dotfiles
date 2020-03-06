@@ -182,7 +182,35 @@
             }
           ]
         }
-      }
+      },
+      "resources": [
+        {
+          "apiVersion": "2015-06-15",
+          "type": "extensions",
+          "name": "dotfiles-install",
+          "location": "[parameters('location')]",
+          "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
+          ],
+          "tags": {
+            "displayName": "dotfiles-install"
+          },
+          "properties": {
+            "publisher": "Microsoft.Azure.Extensions",
+            "type": "CustomScript",
+            "typeHandlerVersion": "2.0",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "fileUris": [
+                "https://raw.githubusercontent.com/jessemillar/dotfiles/master/azure/bootstrap.sh"
+              ]
+            },
+            "protectedSettings": {
+              "commandToExecute": "sh bootstrap.sh"
+            }
+          }
+        }
+      ]
     },
     {
       "type": "Microsoft.Network/networkSecurityGroups/securityRules",
