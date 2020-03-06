@@ -89,6 +89,10 @@
       homebrew:
         name: mosh
         state: present
+    - name: Install zsh
+      homebrew:
+        name: zsh
+        state: present
     - name: Install neovim
       homebrew:
         name: neovim
@@ -152,10 +156,6 @@
     - name: Install watch
       homebrew:
         name: watch
-        state: present
-    - name: Install zsh
-      homebrew:
-        name: zsh
         state: present
     - name: Install fzf zsh support
       shell: $(brew --prefix)/opt/fzf/install --all
