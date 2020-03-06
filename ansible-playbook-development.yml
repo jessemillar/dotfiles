@@ -85,10 +85,6 @@
       homebrew:
         name: mosh
         state: present
-    - name: Install zsh
-      homebrew:
-        name: zsh
-        state: present
     - name: Install neovim
       homebrew:
         name: neovim
@@ -145,6 +141,11 @@
       homebrew:
         name: watch
         state: present
+    - name: Install zsh
+      become: yes
+      shell: apt install -y zsh
+      register: result
+      changed_when: result.stdout is not search("0 newly installed")
     - name: Install fzf zsh support
       shell: $(brew --prefix)/opt/fzf/install --all
       changed_when: false
