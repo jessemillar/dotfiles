@@ -168,6 +168,14 @@
       npm:
         name: markdown-cli
         global: yes
+    - name: Install "bash-language-server" Node.js package globally
+      npm:
+        name: bash-language-server
+        global: yes
+    - name: Install "yaml-language-server" Node.js package globally
+      npm:
+        name: yaml-language-server
+        global: yes
     - name: Install neovim Python modules
       shell: pip3 install msgpack neovim -U
       register: result
