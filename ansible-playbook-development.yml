@@ -49,10 +49,6 @@
       homebrew:
         name: fdupes
         state: present
-    - name: Install ffmpeg
-      homebrew:
-        name: ffmpeg
-        state: present
     - name: Install fzf
       homebrew:
         name: fzf
@@ -97,17 +93,9 @@
       homebrew:
         name: neovim
         state: present
-    - name: Install nmap
-      homebrew:
-        name: nmap
-        state: present
     - name: Install Node.js
       homebrew:
         name: node
-        state: present
-    - name: Install pipes-sh
-      homebrew:
-        name: pipes-sh
         state: present
     - name: Install python
       homebrew:
