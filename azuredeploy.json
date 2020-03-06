@@ -206,7 +206,7 @@
               ]
             },
             "protectedSettings": {
-              "commandToExecute": "[concat('mv bootstrap.sh /home/', parameters('adminUsername'), ' && cd /home/', parameters('adminUsername'), ' && sudo chown ', parameters('adminUsername'), ' bootstrap.sh && sudo chgrp ', parameters('adminUsername'), ' bootstrap.sh && sudo -u ', parameters('adminUsername'), ' -- sh bootstrap.sh')]"
+              "commandToExecute": "[concat('mv bootstrap.sh /home/', parameters('adminUsername'), ' && cd /home/', parameters('adminUsername'), ' && sudo chown ', parameters('adminUsername'), ' bootstrap.sh && sudo chgrp ', parameters('adminUsername'), ' bootstrap.sh && sudo -u ', parameters('adminUsername'), ' -- sh bootstrap.sh && sudo rm bootstrap.sh')]"
             }
           }
         }
