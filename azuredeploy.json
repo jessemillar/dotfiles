@@ -14,7 +14,7 @@
       "defaultValue": "jessemillar",
       "type": "String"
     },
-    "sshKey": {
+    "sshPublicKey": {
       "type": "String"
     }
   },
@@ -166,15 +166,14 @@
               "publicKeys": [
                 {
                   "path": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
-                  "keyData": "[parameters('sshKey')]"
+                  "keyData": "[parameters('sshPublicKey')]"
                 }
               ]
             },
             "provisionVMAgent": true
           },
           "secrets": [],
-          "allowExtensionOperations": true,
-          "requireGuestProvisionSignal": true
+          "allowExtensionOperations": true
         },
         "networkProfile": {
           "networkInterfaces": [
