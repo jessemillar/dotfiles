@@ -224,7 +224,7 @@ function sink() {
 ####################
 
 # Quickly make a warp point with the name of the current directory
-function wda {
+function wda() {
 	CUR_DIR=$(basename "$(pwd)")
 	# Remove leading periods
 	CUR_DIR_STRIPPED="${CUR_DIR#.}"
@@ -233,7 +233,7 @@ function wda {
 }
 
 # Echo output with surrounding whitespace and lines across the width of the screen for readability
-function ruler {
+function ruler() {
 	printf '\n%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 	echo -e "$1"
 	printf '%*s\n\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -

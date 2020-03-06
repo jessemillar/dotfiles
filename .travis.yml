@@ -25,9 +25,14 @@ script:
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
-  # Run shellcheck against all bash scripts in the repo
+  # Run shellcheck against all bash scripts in the repo (all files with a specific shebang on the first line)
   - |
+    SHEBANG="\#\!\/usr\/bin\/env bash"
     while IFS= read -r SCRIPT
     do
-      shellcheck "$SCRIPT"
-    done < <(ack -l "\#\!\/usr\/bin\/env bash")
+      MATCH_LINE_NUMBER=$(grep -n "$SHEBANG" "$SCRIPT" | cut -f1 -d:)
+      if [ "$MATCH_LINE_NUMBER" = 1 ]
+      then
+        shellcheck "$SCRIPT"
+      fi
+    done < <(ack -l "$SHEBANG")
