@@ -32,7 +32,7 @@ brew upgrade ansible
 
 # Run the playbooks
 ruler "Running ansible-playbook-main.yml"
-ansible-playbook -vvv ansible-playbook-main.yml
+ansible-playbook ansible-playbook-main.yml
 
 # Print a message on completion
 ruler "bootstrap.sh finished; run any os-specific bootstrap.sh scripts and then reboot"
