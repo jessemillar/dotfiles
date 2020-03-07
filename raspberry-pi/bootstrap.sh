@@ -37,7 +37,7 @@ stow starship
 stow tmux
 
 ruler "Install general packages"
-sudo apt install -y ack git grep imagemagick less neovim python python3 python3-pip shellcheck tldr tmux tree unzip watch xfce4 zsh
+sudo apt install -y ack fonts-firacode git grep imagemagick less neovim python python3 python3-pip shellcheck tldr tmux tree unzip watch xfce4 zsh
 
 ruler "Install Go"
 GO_VERSION="go1.13.8"
