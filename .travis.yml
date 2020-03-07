@@ -5,7 +5,8 @@ notifications:
   email:
     recipients:
       - hellojessemillar@gmail.com
-    on_success: change
+    # on_success: change
+    on_success: always
     on_failure: always
 
 install:
