@@ -1,6 +1,13 @@
 dist: bionic
 sudo: required
 
+notifications:
+  email:
+    recipients:
+      - hellojessemillar@gmail.com
+    on_success: change
+    on_failure: always
+
 install:
   # Add a hosts file
   - sudo mkdir -p /etc/ansible
