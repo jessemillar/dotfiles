@@ -21,3 +21,5 @@
 	insteadOf = https://dev.azure.com/msazure/CloudNativeCompute/_git/
 [pager]
 	branch = false
+[http]
+	sslVerify = true
