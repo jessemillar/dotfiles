@@ -37,7 +37,7 @@ stow starship
 stow tmux
 
 ruler "Install general packages"
-sudo apt install -y ack git grep imagemagick less neovim python python3 python3-pip shellcheck tldr tmux tree unzip watch xfce4 zsh
+sudo apt install -y ack fonts-firacode git grep imagemagick less neovim python python3 python3-pip shellcheck tldr tmux tree unzip watch xfce4 zsh
 
 ruler "Install Go"
 GO_VERSION="go1.13.8"
@@ -94,21 +94,6 @@ ssh-add ~/.ssh/id_rsa
 
 ruler "Install imcat"
 git clone https://github.com/stolk/imcat.git && cd imcat && make && mv imcat ~/.bin && cd .. && rm -rf imcat
-
-ruler "Compile LÖVE"
-if ! [ -x "$(command -v love)" ]
-then
-	sudo apt-get install -y build-essential autotools-dev automake libtool pkg-config libfreetype6-dev libluajit-5.1-dev libphysfs-dev libsdl2-dev libopenal-dev libogg-dev libvorbis-dev libmodplug-dev libmpg123-dev libtheora-dev
-	cd
-	git clone https://github.com/love2d/love
-	mv love .love
-	cd .love
-	git checkout 11.3
-	./platform/unix/automagic
-	./configure
-	make
-	ln -s ~/.love/src/love ~/.bin
-fi
 
 ruler "Done"
 ruler "Remember to use raspi-config to enable VNC, set a resolution, change the timezone, and generate locales"
