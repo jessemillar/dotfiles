@@ -21,8 +21,9 @@ I utilize a combination of [GNU Stow](https://www.gnu.org/software/stow/) and [A
 
 ### General
 
+1. Put necessary workstation SSH keys in `~/.ssh/authorized_keys`
 1. Upload `~/.ssh/id_rsa.pub` to GitHub
-1. Install Aseprite from Humble Bundle
+1. Install Aseprite from Humble Bundle or via code compilation
 
 ### Ansible
 
