@@ -9,6 +9,9 @@ export GO111MODULE=on
 # Kubernetes setup
 export KUBERNETES_VERSION=1.17.2
 
+# Kubebuilder asset setup
+export KUBEBUILDER_ASSETS="~/.bin/"
+
 # Path config
 PATH="$PATH:$GOPATH/bin"
 PATH="$PATH:$HOME/.bin"
