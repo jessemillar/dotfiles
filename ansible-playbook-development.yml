@@ -141,6 +141,10 @@
       homebrew:
         name: watch
         state: present
+    - name: Install yq
+      homebrew:
+        name: yq
+        state: present
     - name: Install zsh
       become: yes
       shell: apt install -y zsh

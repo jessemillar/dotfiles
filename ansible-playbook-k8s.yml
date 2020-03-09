@@ -90,8 +90,6 @@
       shell: |
         os=$(go env GOOS)
         arch=$(go env GOARCH)
-        # Download kubebuilder and extract it to tmp
         curl -L https://go.kubebuilder.io/dl/2.3.0/${os}/${arch} | tar -xz -C /tmp/
-        # Move to a long-term location
         mv /tmp/kubebuilder_2.3.0_${os}_${arch}/bin/* ~/.bin
       changed_when: false
