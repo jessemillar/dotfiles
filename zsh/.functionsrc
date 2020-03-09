@@ -112,28 +112,14 @@ function gclean() {
 	then
 		echo "Repo is already clean"
 	else
-		# Force delete of stubborn branches if -f is passed
-		if [ "$1" = "-f" ]
-		then
-			echo
-			read -r "DELETE?Force delete the listed branches? [y/N] "
-			if [ "$DELETE" = "y" ]; then
-				[[ -n "$MERGED_BRANCHES" ]] && { echo "$MERGED_BRANCHES" | xargs git branch -D; }
-				[[ -n "$ORPHAN_BRANCHES" ]] && { echo "$ORPHAN_BRANCHES" | xargs git branch -D; }
-				[[ -n "$BRANCHES_WITH_NO_REMOTE" ]] && { echo "$BRANCHES_WITH_NO_REMOTE" | xargs git branch -D; }
-			else
-				echo "Aborted"
-			fi
+		echo
+		read -r "DELETE?Force delete the listed branches? [y/N] "
+		if [ "$DELETE" = "y" ]; then
+			[[ -n "$MERGED_BRANCHES" ]] && { echo "$MERGED_BRANCHES" | xargs git branch -D; }
+			[[ -n "$ORPHAN_BRANCHES" ]] && { echo "$ORPHAN_BRANCHES" | xargs git branch -D; }
+			[[ -n "$BRANCHES_WITH_NO_REMOTE" ]] && { echo "$BRANCHES_WITH_NO_REMOTE" | xargs git branch -D; }
 		else
-			echo
-			read -r "DELETE?Delete the listed branches? [y/N] "
-			if [ "$DELETE" = "y" ]; then
-				[[ -n "$MERGED_BRANCHES" ]] && { echo "$MERGED_BRANCHES" | xargs git branch -d; }
-				[[ -n "$ORPHAN_BRANCHES" ]] && { echo "$ORPHAN_BRANCHES" | xargs git branch -d; }
-				[[ -n "$BRANCHES_WITH_NO_REMOTE" ]] && { echo "$BRANCHES_WITH_NO_REMOTE" | xargs git branch -d; }
-			else
-				echo "Aborted"
-			fi
+			echo "Aborted"
 		fi
 	fi
 }
