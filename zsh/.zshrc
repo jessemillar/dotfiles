@@ -10,6 +10,9 @@ source $ZSH/oh-my-zsh.sh
 # Enable autocomplete for hidden files
 setopt globdots
 
+# Let Zsh prevent me from being an idiot and typing the wrong things over and over
+setopt correct
+
 # Don't trust the cache of binaries to make installation of new programs slightly easier at the cost of performance
 zstyle ":completion:*:commands" rehash 1
 
