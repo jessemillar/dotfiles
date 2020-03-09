@@ -10,7 +10,7 @@ export GO111MODULE=on
 export KUBERNETES_VERSION=1.17.2
 
 # Kubebuilder asset setup
-export KUBEBUILDER_ASSETS="~/.bin/"
+export KUBEBUILDER_ASSETS="$HOME/.bin/"
 
 # Path config
 PATH="$PATH:$GOPATH/bin"
