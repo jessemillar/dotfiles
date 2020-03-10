@@ -139,7 +139,6 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:go_auto_sameids = 1
 
 " Go quick commands
 command! GB :GoBuild
