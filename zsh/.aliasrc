@@ -85,6 +85,7 @@ alias gt="git tag"
 alias gtl="git tag -l"
 
 # Kubernetes (there are also a few functions defined in .functionsrc)
+## General functions
 alias ka="k apply"
 alias kapi="k api-resources --sort-by=name"
 alias kd="k describe"
@@ -100,3 +101,5 @@ alias kgn="k get namespaces"
 alias kl="k logs -f"
 alias kpf="k port-forward"
 alias kpfe="k port-forward --address 0.0.0.0"
+## Custom functions
+alias kgv="k get validators -n validators"
