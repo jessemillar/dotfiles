@@ -307,8 +307,10 @@ function search() {
 		esac
 	done
 
+	ruler "Filenames"
 	find . -name "*$SEARCH_WORD*" | ack "${ACK_FLAGS[@]}" --passthru "$SEARCH_WORD"
 
+	ruler "File contents"
 	if [ "$F_FLAG" = false ]
 	then
 		ack "${ACK_FLAGS[@]}" "$SEARCH_WORD"
