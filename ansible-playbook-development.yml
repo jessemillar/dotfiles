@@ -5,6 +5,10 @@
       file:
         path: ~/.config
         state: directory
+    - name: Make projects directory
+      file:
+        path: ~/projects
+        state: directory
     - name: Make .bin directory
       file:
         path: ~/.bin
@@ -25,6 +29,11 @@
       command: stow tmux
       changed_when: false
   tasks:
+    - name: Install packages to allow apt to use a repository over HTTPS
+      become: yes
+      shell: apt update && apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+      register: result
+      changed_when: result.stdout is not search("0 newly installed")
     - name: Update Homebrew and upgrade all existing packages
       homebrew:
         update_homebrew: yes
