@@ -15,6 +15,22 @@ function kla() {
 # Work functions
 ####################
 
+function controllerLogs() {
+	MANAGER=$(k get po -n validator-crd-system | grep 'validator-crd-controller-manager' | awk '{print $1}')
+	k logs -f -n validator-crd-system "$MANAGER" manager
+}
+
+function validatorDevLoopKind() {
+	make redeploy-validator
+	sleep 5
+	controllerLogs
+}
+
+function validatorDevLoopLocal() {
+	k delete -n validator-crd-system validator-crd-controller-manager
+	make run
+}
+
 # Putting this here until I move it into aks-ci
 function deployNanny() {
 	ruler "Building Nanny"
