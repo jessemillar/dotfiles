@@ -126,6 +126,9 @@ command! NF :Neoformat
 autocmd BufRead,BufNewFile *.md setlocal spell | syn match UrlNoSpell '\w\+:\/\/[^[:space:]]\+' contains=@NoSpell
 hi SpellBad ctermfg=236
 
+" Bind spell check toggling to a key
+nnoremap <leader>sp :setlocal spell!<CR>
+
 " Search color
 hi Search ctermfg=236
 
