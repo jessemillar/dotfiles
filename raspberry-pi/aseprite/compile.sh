@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-# See https://github.com/aseprite/aseprite/issues/1735
+# For anyone attempting to use this script to compile Aseprite, please note a few things specific to my setup:
+# 1. I have ~/.bin added to my PATH
+
+# See https://github.com/aseprite/aseprite/issues/1735 for info on compiling issues
 
 # Install dependencies
 sudo apt update
@@ -15,6 +18,7 @@ git clone https://gn.googlesource.com/gn
 cd gn || exit
 python build/gen.py
 ninja -C out
+ln -s ~/.aseprite-deps/gn/out/gn ~/.bin/gn
 cd ..
 
 # Install Skia library
