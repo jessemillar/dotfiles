@@ -319,5 +319,15 @@ function search() {
 
 # Find disk usage by directory
 function usage() {
-	sudo du -cha --max-depth=1 "$1" | sort -rh | grep -E "M|G"
+	DIR="$1"
+
+	if [[ $# -eq 0 || "$DIR" = "." ]]
+	then
+		DIR="$(pwd)"
+	fi
+
+	ruler "Total disk usage"
+	df -h /
+	ruler "Disk usage of $DIR"
+	sudo du -cha --max-depth=1 "$DIR" | sort -rh | grep -E "M\s|G\s|K\s"
 }
