@@ -13,7 +13,7 @@ then
 	sudo apt update
 	sudo apt install -y mosh
 	ruler "Exit the session, reattach with mosh, and run bootstrap-pi.sh again"
-	exit
+	return
 fi
 
 ruler "Make sure the system is up to date"
