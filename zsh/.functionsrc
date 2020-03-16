@@ -35,7 +35,7 @@ function loopKind() {
 # Test local Validator code without deploying to the Kind cluster
 function loopLocal() {
 	ruler "Deleting manager"
-	k delete -n validator-crd-system validator-crd-controller-manager
+	kdelr pod -n validator-crd-system validator-crd-controller-manager
 	ruler "Running make run"
 	make run
 }
@@ -384,4 +384,42 @@ function usage() {
 	df -h /
 	ruler "Disk usage of $DIR"
 	sudo du -cha --max-depth=1 "$DIR" | sort -rh | grep -E "M\s|G\s|K\s"
+}
+
+####################
+# Kubernetes functions
+####################
+
+# Delete pod via regex
+function kdelr() {
+	# An array for non-flag arguments
+	ARGS=()
+	# Set default values for optional flags
+	NAMESPACE="default"
+
+	# Get values from flags
+	while test $# -gt 0; do
+		case "$1" in
+			-n)
+				shift
+				NAMESPACE=$1
+				shift
+				;;
+			*)
+				ARGS+=("$1")
+				shift
+				;;
+		esac
+	done
+
+	if [ ! ${#ARGS[@]} -eq 2 ]
+	then
+		echo "Usage: kdelr pod -n validator-crd-system validator-crd-controller-manager"
+		return
+	fi
+
+	RESOURCE_TYPE="${ARGS[1]}"
+	REGEX="${ARGS[2]}"
+
+	kubectl get "$RESOURCE_TYPE" -n "$NAMESPACE" --no-headers=true | awk '/'"$REGEX"'/{print $1}'| xargs kubectl delete "$RESOURCE_TYPE" -n "$NAMESPACE"
 }
