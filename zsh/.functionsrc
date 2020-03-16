@@ -78,10 +78,10 @@ azlogin() {
 	az login --tenant "$AZURE_TENANT_ID" --service-principal -u "$AZURE_CLIENT_ID" -p "$AZURE_CLIENT_SECRET"
 }
 
+# Quickly edit the latest #snippet doc and auto commit the changes
 function snippet() {
 	(
 	cd ~/projects/personal-retrospectives/snippets || return
-	ls -la
 	MONDAY="$(date -dmonday +%m-%d-%Y)"
 	FRIDAY="$(date -dnext-friday +%m-%d-%Y)"
 	CURRENT_SNIPPET=$(ls "$MONDAY"*)
@@ -97,6 +97,14 @@ function snippet() {
 	git commit -m "Automatic #snippet update"
 	git push
 	)
+}
+
+# Print out the contents of the latest #snippet doc for easy copypasta
+function snippetc() {
+	cd ~/projects/personal-retrospectives/snippets || return
+	MONDAY="$(date -dmonday +%m-%d-%Y)"
+	CURRENT_SNIPPET=$(ls "$MONDAY"*)
+	cat "$CURRENT_SNIPPET"
 }
 
 ####################
