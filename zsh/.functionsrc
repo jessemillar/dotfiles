@@ -4,6 +4,7 @@
 # k8s functions
 ####################
 
+# Get all logs from the Kind cluster
 function kla() {
 	rm -rf /tmp/kind-logs
 	kind export logs /tmp/kind-logs -q
@@ -15,19 +16,27 @@ function kla() {
 # Work functions
 ####################
 
-function controllerLogs() {
+# Get logs from the Validator manager
+function validatorLogs() {
 	MANAGER=$(k get po -n validator-crd-system | grep 'validator-crd-controller-manager' | awk '{print $1}')
 	k logs -f -n validator-crd-system "$MANAGER" manager
 }
 
+# Test local Validator code by deploying to the Kind cluster and examining logs
 function loopKind() {
+	ruler "Redeploying"
 	make redeploy-validator
+	ruler "Sleeping"
 	sleep 20
-	controllerLogs
+	ruler "Getting logs"
+	validatorLogs
 }
 
+# Test local Validator code without deploying to the Kind cluster
 function loopLocal() {
+	ruler "Deleting manager"
 	k delete -n validator-crd-system validator-crd-controller-manager
+	ruler "Running make run"
 	make run
 }
 
@@ -83,6 +92,10 @@ function snippet() {
 	else
 		nvim "$CURRENT_SNIPPET"
 	fi
+
+	git add -A
+	git commit -m "Automatic #snippet update"
+	git push
 	)
 }
 

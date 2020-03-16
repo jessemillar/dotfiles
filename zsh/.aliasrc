@@ -2,13 +2,14 @@
 
 # General
 alias a="ack"
-alias ap="ansible-playbook "
+alias ap="ack --passthru"
 alias crates="sim_arduboy -p 3 ~/Documents/Projects/crates/crates.ino.leonardo.hex"
 alias day="date +%m-%d-%Y"
 alias e="exit"
 alias f="fzf -m"
 alias host="hostess . &"
 alias lines="tokei"
+alias play="ansible-playbook "
 alias rc="exec zsh"
 alias s="search -i"
 alias S="search"
