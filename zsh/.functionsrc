@@ -20,13 +20,13 @@ function controllerLogs() {
 	k logs -f -n validator-crd-system "$MANAGER" manager
 }
 
-function validatorDevLoopKind() {
+function loopKind() {
 	make redeploy-validator
-	sleep 5
+	sleep 20
 	controllerLogs
 }
 
-function validatorDevLoopLocal() {
+function loopLocal() {
 	k delete -n validator-crd-system validator-crd-controller-manager
 	make run
 }
