@@ -19,7 +19,7 @@
     },
 		"diskSizeGb": {
       "defaultValue": 64,
-      "type": "integer"
+      "type": "Integer"
 		}
   },
   "variables": {
@@ -158,7 +158,7 @@
             "managedDisk": {
               "storageAccountType": "Premium_LRS"
             },
-            "diskSizeGB": "[concat(parameters('diskSizeGb')]"
+            "diskSizeGB": "[parameters('diskSizeGb')]"
           }
         },
         "osProfile": {
