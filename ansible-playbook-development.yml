@@ -164,14 +164,16 @@
       register: result
       changed_when: result.stdout is not search("0 newly installed")
     - name: Install gvm
-      shell: GVM_NO_UPDATE_PROFILE=true zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+      shell: GVM_NO_UPDATE_PROFILE=true zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer) && source ~/.zshrc
       args:
-        executable: /bin/bash
+        executable: /usr/bin/zsh
       register: result
       changed_when: result.stdout is not search("Already installed! Remove old installation by running")
       failed_when: result.rc != 0 and result.stdout is not search("Already installed! Remove old installation by running")
     - name: Install go1.13.1 via gvm
       shell: brew install go && gvm install go1.13.1 && brew remove go
+      args:
+        executable: /usr/bin/zsh
       register: result
       changed_when: false
     - name: Make go1.13.1 the default via gvm
