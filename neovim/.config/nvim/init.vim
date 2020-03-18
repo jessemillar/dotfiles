@@ -24,6 +24,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'roxma/vim-paste-easy'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'sbdchd/neoformat'
+Plug 'sebdah/vim-delve'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
@@ -37,6 +38,9 @@ runtime! plugin/sensible.vim
 
 " Disable netrw history
 let g:netrw_dirhistmax = 0
+
+" Don't color in the gutter
+highlight clear SignColumn
 
 " Trim trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -134,6 +138,9 @@ hi Search ctermfg=236
 
 " Show line numbers by default
 set number
+
+" Allow for number toggling (for copying)
+command! NUM set number!
 
 " Go syntax highlighting
 let g:go_highlight_functions = 1
