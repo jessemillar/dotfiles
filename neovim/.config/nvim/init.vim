@@ -42,6 +42,9 @@ let g:netrw_dirhistmax = 0
 " Don't color in the gutter
 highlight clear SignColumn
 
+" Use Escape to exit insert mode in the terminal
+:tnoremap <Esc> <C-\><C-n>
+
 " Trim trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
