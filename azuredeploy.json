@@ -3,22 +3,19 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
-      "type": "String",
       "defaultValue": "eastus"
     },
     "virtualMachineName": {
-      "defaultValue": "terminal-vm",
-      "type": "String"
+      "defaultValue": "terminal-vm"
     },
     "adminUsername": {
-      "defaultValue": "jessemillar",
-      "type": "String"
+      "defaultValue": "jessemillar"
     },
     "sshPublicKey": {
       "type": "String"
     },
 		"diskSizeGb": {
-      "defaultValue": 64
+      "defaultValue": "64"
 		}
   },
   "variables": {
