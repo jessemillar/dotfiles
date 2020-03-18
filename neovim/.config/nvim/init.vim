@@ -9,6 +9,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
+Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
 Plug 'dracula/vim'
@@ -56,6 +57,9 @@ let g:NERDSpaceDelims = 1
 
 " Quickly toggle Go breakpoints
 nnoremap <Leader>b :DlvToggleBreakpoint<CR>
+
+" Use vimux for Go debuggin
+let g:delve_use_vimux	= 1
 
 " Use deoplete with tab
 let g:deoplete#enable_at_startup = 1

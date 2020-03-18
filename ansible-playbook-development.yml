@@ -171,15 +171,10 @@
       changed_when: result.stdout is not search("Already installed! Remove old installation by running")
       failed_when: result.rc != 0 and result.stdout is not search("Already installed! Remove old installation by running")
     - name: Install go1.13.1 via gvm
-      shell: brew install go && source ~/.gvm/scripts/gvm && gvm install go1.13.1 && brew remove go
+      shell: brew install go && source ~/.gvm/scripts/gvm && gvm install go1.13.1 --prefer-binary && gvm use go1.13.1 --default && brew remove go
       args:
         executable: /usr/bin/zsh
-      register: result
       changed_when: false
-    - name: Make go1.13.1 the default via gvm
-      shell: gvm use go1.13.1 --default
-      changed_when: false
-      failed_when: false
     - name: Update all global NPM packages
       shell: npm update -g
       changed_when: false

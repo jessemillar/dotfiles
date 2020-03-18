@@ -82,8 +82,8 @@ azlogin() {
 function snippet() {
 	(
 	cd ~/projects/personal-retrospectives/snippets || return
-	MONDAY="$(date -dmonday +%m-%d-%Y)"
-	FRIDAY="$(date -dnext-friday +%m-%d-%Y)"
+	MONDAY="$(date -dlast-monday +%m-%d-%Y)"
+	FRIDAY="$(date -d "$(date -d "$(date -dlast-monday) + 4 days")" +%m-%d-%Y)"
 	CURRENT_SNIPPET=$(ls "$MONDAY"*)
 
 	if [[ -z "$CURRENT_SNIPPET" ]]

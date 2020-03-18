@@ -5,6 +5,7 @@ export GOPATH="$HOME/.go"
 export GOBIN="$GOPATH/bin"
 export GOPRIVATE="goms.io"
 export GO111MODULE=on
+export DELVE_EDITOR="$(which nvim)"
 
 # Kubernetes setup
 export KUBERNETES_VERSION=1.17.2
