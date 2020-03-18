@@ -164,7 +164,7 @@
       register: result
       changed_when: result.stdout is not search("0 newly installed")
     - name: Install gvm
-      shell: GVM_NO_UPDATE_PROFILE=true zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer) && source ~/.zshrc
+      shell: GVM_NO_UPDATE_PROFILE=true zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer) && source ~/.gvm/scripts/gvm
       args:
         executable: /usr/bin/zsh
       register: result
