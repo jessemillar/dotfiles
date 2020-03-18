@@ -16,11 +16,7 @@
     },
     "sshPublicKey": {
       "type": "String"
-    },
-		"diskSizeInGb": {
-      "type": "String",
-      "defaultValue": "64"
-		}
+    }
   },
   "variables": {
     "nsgName": "[concat(parameters('virtualMachineName'), '-nsg')]",
@@ -158,7 +154,7 @@
             "managedDisk": {
               "storageAccountType": "Premium_LRS"
             },
-            "diskSizeGB": "[parameters('diskSizeInGb')]"
+            "diskSizeGB": 64
           }
         },
         "osProfile": {
