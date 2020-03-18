@@ -157,7 +157,7 @@
             "managedDisk": {
               "storageAccountType": "Premium_LRS"
             },
-            "diskSizeGB": [parameters('diskSizeGb')]
+            "diskSizeGB": "[parameters('diskSizeGb')]"
           }
         },
         "osProfile": {
