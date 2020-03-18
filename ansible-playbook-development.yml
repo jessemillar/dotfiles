@@ -178,6 +178,9 @@
       shell: gvm use go1.13.1 --default
       changed_when: false
       failed_when: false
+    - name: Update all global NPM packages
+      shell: npm update -g
+      changed_when: false
     - name: Install "prettier" Node.js package globally
       npm:
         name: prettier
