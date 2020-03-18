@@ -51,6 +51,9 @@ set completeopt-=preview
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
+" Quickly toggle Go breakpoints
+nnoremap <Leader>b :DlvToggleBreakpoint<CR>
+
 " Use deoplete with tab
 let g:deoplete#enable_at_startup = 1
 highlight Pmenu ctermfg=236 ctermbg=243
@@ -59,10 +62,10 @@ inoremap <silent><expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <silent><expr><s-tab> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " Enable a shortcut for inserting bash shebangs
-nnoremap sb i#!/usr/bin/env bash<CR><Esc>
+command! Shebang i#!/usr/bin/env bash<CR><Esc>
 
 " Make a shortcut for killing smart quotes
-nnoremap sq :%s/’/'/g<CR>:%s/[“”]/"/g<CR><Esc>
+command! SmartQuotes :%s/’/'/g<CR>:%s/[“”]/"/g<CR><Esc>
 
 " Use an Omni pattern for Go completions
 call deoplete#custom#option('omni_patterns', {
@@ -124,14 +127,11 @@ set tabstop=2
 set shiftwidth=2
 
 " Quick code format
-command! NF :Neoformat
+command! Format :Neoformat
 
 " Automatically enable spellcheck for .md files and don't mark URL-like things as spelling errors
 autocmd BufRead,BufNewFile *.md setlocal spell | syn match UrlNoSpell '\w\+:\/\/[^[:space:]]\+' contains=@NoSpell
 hi SpellBad ctermfg=236
-
-" Bind spell check toggling to a key
-nnoremap <leader>sp :setlocal spell!<CR>
 
 " Search color
 hi Search ctermfg=236
@@ -140,7 +140,7 @@ hi Search ctermfg=236
 set number
 
 " Allow for number toggling (for copying)
-command! NUM set number!
+command! LineNumbers set number!
 
 " Go syntax highlighting
 let g:go_highlight_functions = 1
@@ -149,11 +149,6 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-
-" Go quick commands
-command! GB :GoBuild
-command! GT :GoTest
-command! GTF :GoTestFunc
 
 " Use gopls for various things
 let g:go_def_mode = 'gopls'
@@ -176,7 +171,7 @@ let g:ctrlsf_regex_pattern = 1
 let g:ctrlsf_ackprg = 'ack'
 
 " Git blame config
-nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>
+command! Blame :<C-u>call gitblame#echo()<CR>
 
 " Configure LanguageClient
 " Required for operations modifying multiple buffers like rename
