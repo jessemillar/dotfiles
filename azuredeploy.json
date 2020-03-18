@@ -14,7 +14,7 @@
     "sshPublicKey": {
       "type": "String"
     },
-		"diskSizeGb": {
+		"diskSizeInGb": {
       "defaultValue": "64"
 		}
   },
@@ -154,7 +154,7 @@
             "managedDisk": {
               "storageAccountType": "Premium_LRS"
             },
-            "diskSizeGB": "[parameters('diskSizeGb')]"
+            "diskSizeGB": "[parameters('diskSizeInGb')]"
           }
         },
         "osProfile": {
