@@ -10,6 +10,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
 Plug 'benmills/vimux'
+Plug 'brooth/far.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
 Plug 'dracula/vim'
@@ -36,6 +37,9 @@ call plug#end()
 
 " Load vim-sensible first so we can override defaults
 runtime! plugin/sensible.vim
+
+" Tell far to use ack
+let g:far#source = 'acknvim'
 
 " Disable netrw history
 let g:netrw_dirhistmax = 0
@@ -184,6 +188,7 @@ let g:go_fmt_command = 'goimports'
 
 " Configure CtrlSF
 let g:ctrlsf_regex_pattern = 1
+let g:ctrlsf_default_root = 'project'
 let g:ctrlsf_ackprg = 'ack'
 nmap     <C-F>f <Plug>CtrlSFPrompt
 vmap     <C-F>f <Plug>CtrlSFVwordPath
