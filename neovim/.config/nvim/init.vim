@@ -89,11 +89,18 @@ call deoplete#custom#option('omni_patterns', {
 " Use the Dracula theme for vim-airline
 let g:airline_theme='dracula'
 let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = '|'
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = '|'
 
 " Don't run too many calculations on the git repo
 let g:airline#extensions#branch#vcs_checks = []
 
 " Customize the tmuxline display
+let g:tmuxline_powerline_separators = 0
 let g:tmuxline_preset = {
       \'a'    : '#S',
       \'b'    : '#H',
@@ -101,6 +108,10 @@ let g:tmuxline_preset = {
       \'cwin' : '#I#F #W',
       \'y'    : '%a, %b %e',
       \'z'    : '%l:%M %P'}
+
+" Tab between buffers
+nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
