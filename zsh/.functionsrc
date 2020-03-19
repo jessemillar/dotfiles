@@ -4,30 +4,39 @@
 # k8s functions
 ####################
 
+# Get all logs from the Kind cluster
 function kla() {
 	rm -rf /tmp/kind-logs
 	kind export logs /tmp/kind-logs -q
 	echo "Logs for kind cluster exported"
-	cd /tmp/kind-logs || exit
+	cd /tmp/kind-logs || return
 }
 
 ####################
 # Work functions
 ####################
 
-function controllerLogs() {
+# Get logs from the Validator manager
+function validatorLogs() {
 	MANAGER=$(k get po -n validator-crd-system | grep 'validator-crd-controller-manager' | awk '{print $1}')
 	k logs -f -n validator-crd-system "$MANAGER" manager
 }
 
-function validatorDevLoopKind() {
+# Test local Validator code by deploying to the Kind cluster and examining logs
+function loopKind() {
+	ruler "Redeploying"
 	make redeploy-validator
-	sleep 5
-	controllerLogs
+	ruler "Sleeping"
+	sleep 20
+	ruler "Getting logs"
+	validatorLogs
 }
 
-function validatorDevLoopLocal() {
-	k delete -n validator-crd-system validator-crd-controller-manager
+# Test local Validator code without deploying to the Kind cluster
+function loopLocal() {
+	ruler "Deleting manager"
+	kdelr pod -n validator-crd-system validator-crd-controller-manager
+	ruler "Running make run"
 	make run
 }
 
@@ -67,6 +76,35 @@ azlogin() {
 	export AZURE_CLIENT_SECRET
 
 	az login --tenant "$AZURE_TENANT_ID" --service-principal -u "$AZURE_CLIENT_ID" -p "$AZURE_CLIENT_SECRET"
+}
+
+# Quickly edit the latest #snippet doc and auto commit the changes
+function snippet() {
+	(
+	cd ~/projects/personal-retrospectives/snippets || return
+	MONDAY="$(date -dlast-monday +%m-%d-%Y)"
+	FRIDAY="$(date -d "$(date -d "$(date -dlast-monday) + 4 days")" +%m-%d-%Y)"
+	CURRENT_SNIPPET=$(ls "$MONDAY"*)
+
+	if [[ -z "$CURRENT_SNIPPET" ]]
+	then
+		nvim "$MONDAY-to-$FRIDAY.md"
+	else
+		nvim "$CURRENT_SNIPPET"
+	fi
+
+	git add -A
+	git commit -m "Automatic #snippet update"
+	git push
+	)
+}
+
+# Print out the contents of the latest #snippet doc for easy copypasta
+function snippetc() {
+	cd ~/projects/personal-retrospectives/snippets || return
+	MONDAY="$(date -dmonday +%m-%d-%Y)"
+	CURRENT_SNIPPET=$(ls "$MONDAY"*)
+	cat "$CURRENT_SNIPPET"
 }
 
 ####################
@@ -230,7 +268,7 @@ function wda() {
 	CUR_DIR=$(basename "$(pwd)")
 	# Remove leading periods
 	CUR_DIR_STRIPPED="${CUR_DIR#.}"
-	wd add "$CUR_DIR_STRIPPED" || exit
+	wd add "$CUR_DIR_STRIPPED" || return
 	echo " + '$CUR_DIR_STRIPPED'"
 }
 
@@ -346,4 +384,42 @@ function usage() {
 	df -h /
 	ruler "Disk usage of $DIR"
 	sudo du -cha --max-depth=1 "$DIR" | sort -rh | grep -E "M\s|G\s|K\s"
+}
+
+####################
+# Kubernetes functions
+####################
+
+# Delete pod via regex
+function kdelr() {
+	# An array for non-flag arguments
+	ARGS=()
+	# Set default values for optional flags
+	NAMESPACE="default"
+
+	# Get values from flags
+	while test $# -gt 0; do
+		case "$1" in
+			-n)
+				shift
+				NAMESPACE=$1
+				shift
+				;;
+			*)
+				ARGS+=("$1")
+				shift
+				;;
+		esac
+	done
+
+	if [ ! ${#ARGS[@]} -eq 2 ]
+	then
+		echo "Usage: kdelr pod -n validator-crd-system validator-crd-controller-manager"
+		return
+	fi
+
+	RESOURCE_TYPE="${ARGS[1]}"
+	REGEX="${ARGS[2]}"
+
+	kubectl get "$RESOURCE_TYPE" -n "$NAMESPACE" --no-headers=true | awk '/'"$REGEX"'/{print $1}'| xargs kubectl delete "$RESOURCE_TYPE" -n "$NAMESPACE"
 }

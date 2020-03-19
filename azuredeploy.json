@@ -7,12 +7,12 @@
       "defaultValue": "eastus"
     },
     "virtualMachineName": {
-      "defaultValue": "terminal-vm",
-      "type": "String"
+      "type": "String",
+      "defaultValue": "terminal-vm"
     },
     "adminUsername": {
-      "defaultValue": "jessemillar",
-      "type": "String"
+      "type": "String",
+      "defaultValue": "jessemillar"
     },
     "sshPublicKey": {
       "type": "String"

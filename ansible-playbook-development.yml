@@ -66,10 +66,6 @@
       homebrew:
         name: git
         state: present
-    - name: Install go
-      homebrew:
-        name: go
-        state: present
     - name: Install grep
       homebrew:
         name: grep
@@ -161,6 +157,26 @@
       changed_when: result.stdout is not search("0 newly installed")
     - name: Install fzf zsh support
       shell: $(brew --prefix)/opt/fzf/install --all
+      changed_when: false
+    - name: Install gvm dependencies
+      become: yes
+      shell: apt install curl git mercurial make binutils bison gcc build-essential
+      register: result
+      changed_when: result.stdout is not search("0 newly installed")
+    - name: Install gvm
+      shell: GVM_NO_UPDATE_PROFILE=true zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+      args:
+        executable: /usr/bin/zsh
+      register: result
+      changed_when: result.stdout is not search("Already installed! Remove old installation by running")
+      failed_when: result.rc != 0 and result.stdout is not search("Already installed! Remove old installation by running")
+    - name: Install go1.14.1 via gvm
+      shell: brew install go && source ~/.gvm/scripts/gvm && gvm install go1.14.1 --prefer-binary && gvm use go1.14.1 --default && brew remove go
+      args:
+        executable: /usr/bin/zsh
+      changed_when: false
+    - name: Update all global NPM packages
+      shell: npm update -g
       changed_when: false
     - name: Install "prettier" Node.js package globally
       npm:

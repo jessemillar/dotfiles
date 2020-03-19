@@ -12,6 +12,10 @@ symbol = ""
 
 [hostname]
 style = "bold green"
+disabled = true
+
+[username]
+show_always = true
 
 [memory_usage]
 disabled = false
