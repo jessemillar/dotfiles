@@ -7,13 +7,12 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'arcticicestudio/nord-vim'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
 Plug 'benmills/vimux'
 Plug 'brooth/far.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
-Plug 'dracula/vim'
 Plug 'dyng/ctrlsf.vim'
 Plug 'edkolev/tmuxline.vim', { 'do': ':TmuxlineSnapshot! ~/.dotfiles/tmux/tmuxline.conf' }
 Plug 'fatih/vim-go'
@@ -26,6 +25,7 @@ Plug 'roxma/vim-paste-easy'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'sbdchd/neoformat'
 Plug 'sebdah/vim-delve'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -86,8 +86,11 @@ call deoplete#custom#option('omni_patterns', {
 	\ 'go': '[^. *\t]\.\w*',
 	\})
 
+" Use the Nord color scheme
+colorscheme nord
+
 " Use the Dracula theme for vim-airline
-let g:airline_theme='dracula'
+let g:airline_theme='nord'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
