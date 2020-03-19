@@ -18,7 +18,6 @@ Plug 'edkolev/tmuxline.vim', { 'do': ':TmuxlineSnapshot! ~/.dotfiles/tmux/tmuxli
 Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'leafgarland/typescript-vim'
 Plug 'machakann/vim-sandwich'
 Plug 'othree/eregex.vim'
 Plug 'preservim/nerdcommenter'
@@ -26,6 +25,7 @@ Plug 'roxma/vim-paste-easy'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'sbdchd/neoformat'
 Plug 'sebdah/vim-delve'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
@@ -51,6 +51,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Reload this config file easily
 command! Reload :source $MYVIMRC
+
+" Preview replaces live
+set inccommand=nosplit
 
 " Don't open scratch windows
 set completeopt-=preview
@@ -99,7 +102,7 @@ let g:tmuxline_preset = {
 autocmd VimEnter * PasteEasyEnable
 
 " Map fzf to Control + P
-nnoremap <C-P> :FZF<CR>
+nnoremap <C-Space> :FZF<CR>
 
 " Customize fzf colors to match my color scheme
 " - fzf#wrap translates this to a set of `--color` options
@@ -179,11 +182,17 @@ nnoremap <leader>a :cclose<CR>
 " Run goimports instead of gofmt
 let g:go_fmt_command = 'goimports'
 
-" Make CtrlSF use regular expressions by default
+" Configure CtrlSF
 let g:ctrlsf_regex_pattern = 1
-
-" Tell CtrlSF to use ack as the search program
 let g:ctrlsf_ackprg = 'ack'
+nmap     <C-F>f <Plug>CtrlSFPrompt
+vmap     <C-F>f <Plug>CtrlSFVwordPath
+vmap     <C-F>F <Plug>CtrlSFVwordExec
+nmap     <C-F>n <Plug>CtrlSFCwordPath
+nmap     <C-F>p <Plug>CtrlSFPwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
 " Git blame config
 command! Blame :<C-u>call gitblame#echo()<CR>
