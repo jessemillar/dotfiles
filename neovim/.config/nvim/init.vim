@@ -49,6 +49,9 @@ highlight clear SignColumn
 " Trim trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
+" Reload this config file easily
+command! Reload :source $MYVIMRC
+
 " Don't open scratch windows
 set completeopt-=preview
 
@@ -57,9 +60,6 @@ let g:NERDSpaceDelims = 1
 
 " Quickly toggle Go breakpoints
 nnoremap <Leader>b :DlvToggleBreakpoint<CR>
-
-" Use vimux for Go debuggin
-let g:delve_use_vimux	= 1
 
 " Use deoplete with tab
 let g:deoplete#enable_at_startup = 1
@@ -145,6 +145,14 @@ hi Search ctermfg=236
 
 " Show line numbers by default
 set number
+
+" Hide linux numbers in the terminal
+au TermOpen * setlocal nonumber norelativenumber
+
+" Use vimux for Go debugging
+let g:delve_use_vimux  = 1
+let g:VimuxHeight = "25"
+command! Delve :DlvDebug<CR>
 
 " Allow for number toggling (for copying)
 command! LineNumbers set number!
