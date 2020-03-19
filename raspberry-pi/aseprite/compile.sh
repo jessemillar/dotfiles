@@ -7,7 +7,7 @@
 
 # Install dependencies
 sudo apt update
-sudo apt install -y g++ cmake ninja-build libx11-dev libxcursor-dev libgl1-mesa-dev libfontconfig1-dev clang
+sudo apt install -y g++ cmake ninja-build libharfbuzz-dev libx11-dev libxcursor-dev libgl1-mesa-dev libfontconfig1-dev clang
 
 # Create the directory we'll clone dependencies into
 mkdir "$HOME"/.aseprite-deps
@@ -46,9 +46,9 @@ cd build || exit
 cmake \
   -DCMAKE_BUILD_TYPE=RelWithDebInfo \
   -DLAF_BACKEND=skia \
-  -DSKIA_DIR="$HOME"/deps/skia \
+  -DSKIA_DIR="$HOME"/.aseprite-deps/skia \
 	-DUSE_SHARED_CURL=yes \
-  -DSKIA_LIBRARY_DIR="$HOME"/deps/skia/out/Release-x64 \
+  -DSKIA_LIBRARY_DIR="$HOME"/.aseprite-deps/skia/out/Release-x64 \
   -G Ninja \
   ..
 ninja aseprite
