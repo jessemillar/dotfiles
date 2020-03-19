@@ -25,9 +25,8 @@ export ZSH_TMUX_AUTOQUIT=false
 export FZF_DEFAULT_OPTS="--height 20% --border --bind alt-j:down,alt-k:up"
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
 
-# Apply the Dracula theme to fzf
+# Apply the Nord theme to fzf
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
---color=dark
---color=fg:-1,bg:-1,hl:#5fff87,fg+:-1,bg+:-1,hl+:#ffaf5f
---color=info:#af87ff,prompt:#5fff87,pointer:#ff87d7,marker:#ff87d7,spinner:#ff87d7
+--color fg:#D8DEE9,bg:#2E3440,hl:#A3BE8C,fg+:#D8DEE9,bg+:#434C5E,hl+:#A3BE8C
+--color pointer:#BF616A,info:#4C566A,spinner:#4C566A,header:#4C566A,prompt:#81A1C1,marker:#EBCB8B
 '

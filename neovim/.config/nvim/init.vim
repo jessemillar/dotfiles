@@ -89,7 +89,7 @@ call deoplete#custom#option('omni_patterns', {
 " Use the Nord color scheme
 colorscheme nord
 
-" Use the Dracula theme for vim-airline
+" Configure vim-airline
 let g:airline_theme='nord'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
