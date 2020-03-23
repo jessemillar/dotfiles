@@ -111,6 +111,11 @@ function snippetc() {
 # git functions
 ####################
 
+# cd to the root of the current repository
+function root() {
+	cd "$(git rev-parse --show-toplevel)" || return
+}
+
 # Compare the current branch to a supplied branch (or master if no branch is supplied) and view the diff (similar to creating a GitHub PR)
 function gdpr() {
 	if [[ -z "$1" ]]
