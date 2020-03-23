@@ -26,7 +26,6 @@ Plug 'roxma/vim-tmux-clipboard'
 Plug 'sbdchd/neoformat'
 Plug 'sebdah/vim-delve'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
@@ -123,7 +122,7 @@ nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :wri
 autocmd VimEnter * PasteEasyEnable
 
 " Map fzf to Control + P
-nnoremap <C-T> :FZF<CR>
+nnoremap <C-P> :FZF<CR>
 
 " Change location of saved swap files
 set directory=/tmp

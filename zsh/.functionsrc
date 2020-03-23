@@ -81,18 +81,40 @@ azlogin() {
 # Quickly cat or edit the latest #snippet doc (and auto commit the changes)
 function snippet() {
 	(
+	# Get values from flags
+	COPY_MODE=false
+	LAST_WEEK=false
+	while getopts "cl" opt; do
+		case $opt in
+			c) COPY_MODE=true ;;
+			l) LAST_WEEK=true ;;
+			*) echo "Usage: snippet -c -l" && return ;;
+		esac
+	done
+
 	cd ~/projects/personal-retrospectives/snippets || return
-	MONDAY="$(date -dlast-monday +%m-%d-%Y)"
-	FRIDAY="$(date -d "$(date -d "$(date -dlast-monday) + 4 days")" +%m-%d-%Y)"
+	MONDAY="$(date -d "$(date -d "$(date -dfriday) - 4 days")" +%m-%d-%Y)"
+	FRIDAY="$(date -dfriday +%m-%d-%Y)"
 	CURRENT_SNIPPET=$(ls "$MONDAY"*)
 
-	if [[ $1 = "-c" ]]
+	if [[ $COPY_MODE = true ]]
 	then
-		cat "$CURRENT_SNIPPET"
+		if [[ $LAST_WEEK = true ]]
+		then
+			LAST_MONDAY="$(date -d "$(date -dlast-friday) - 4 days" +%m-%d-%Y)"
+			LAST_FRIDAY="$(date -dlast-friday +%m-%d-%Y)"
+			sed '1s/^..//' "$LAST_MONDAY-to-$LAST_FRIDAY.md"
+		else
+			sed '1s/^..//' "$CURRENT_SNIPPET"
+		fi
 	else
 		if [[ -z "$CURRENT_SNIPPET" ]]
 		then
-			nvim "$MONDAY-to-$FRIDAY.md"
+			SHORT_MONDAY="$(date -d "$(date -d "$(date -dfriday) - 4 days")" +%m/%d)"
+			SHORT_FRIDAY="$(date -dfriday +%m/%d)"
+			NEW_SNIPPET="$MONDAY-to-$FRIDAY.md"
+			echo -e "# #snippet $SHORT_MONDAY - $SHORT_FRIDAY\n" > "$NEW_SNIPPET"
+			nvim "$NEW_SNIPPET"
 		else
 			nvim "$CURRENT_SNIPPET"
 		fi
