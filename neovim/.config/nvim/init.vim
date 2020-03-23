@@ -144,9 +144,6 @@ command! Format :Neoformat
 autocmd BufRead,BufNewFile *.md setlocal spell | syn match UrlNoSpell '\w\+:\/\/[^[:space:]]\+' contains=@NoSpell
 hi SpellBad ctermfg=236
 
-" Search color
-hi Search ctermfg=236
-
 " Show line numbers by default
 set number
 
