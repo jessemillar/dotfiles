@@ -45,6 +45,14 @@
       homebrew:
         name: ack
         state: present
+    - name: Install autoconf
+      homebrew:
+        name: autoconf
+        state: present
+    - name: Install automake
+      homebrew:
+        name: automake
+        state: present
     - name: Install bat
       homebrew:
         name: bat
@@ -92,7 +100,7 @@
     - name: Install mosh
       homebrew:
         name: mosh
-        state: present
+        state: head
     - name: Install neovim
       homebrew:
         name: neovim
