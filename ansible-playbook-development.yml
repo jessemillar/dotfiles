@@ -37,6 +37,11 @@
       shell: apt update && apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
       register: result
       changed_when: result.stdout is not search("0 newly installed")
+    - name: Install packages for compiling mosh
+      become: yes
+      shell: apt update && apt install -y autoconf automake
+      register: result
+      changed_when: result.stdout is not search("0 newly installed")
     - name: Update Homebrew and upgrade all existing packages
       homebrew:
         update_homebrew: yes
@@ -44,14 +49,6 @@
     - name: Install ack
       homebrew:
         name: ack
-        state: present
-    - name: Install autoconf
-      homebrew:
-        name: autoconf
-        state: present
-    - name: Install automake
-      homebrew:
-        name: automake
         state: present
     - name: Install bat
       homebrew:
