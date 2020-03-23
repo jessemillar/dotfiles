@@ -1,0 +1,67 @@
+---
+metadata:
+  border: d blue on_black
+  marker: d black on_black
+  color: d white on_black
+emphasis:
+  bold: b
+  italic: u i
+  bold-italic: b u i
+h1:
+  color: b black on_white
+  pad: d black on_white
+  pad_char: "="
+h2:
+  color: b white on_black
+  pad: d white on_black
+  pad_char: "-"
+h3:
+  color: u b yellow
+h4:
+  color: u yellow
+h5:
+  color: b white
+h6:
+  color: b white
+link:
+  brackets: b black
+  text: u b blue
+  url: cyan
+image:
+  bang: red
+  brackets: b black
+  title: cyan
+  url: u yellow
+list:
+  bullet: b red
+  number: b blue
+  color: white
+footnote:
+  brackets: b black on_black
+  caret: b yellow on_black
+  title: x yellow on_black
+  note: u white on_black
+code_span:
+  marker: b white
+  color: b white on_black
+code_block:
+  marker: black
+  bg: on_black
+  color: white on_black
+  border: blue
+  title: magenta
+  eol: black on_black
+  pygments_theme: nord
+dd:
+  marker: d red
+  color: b white
+hr:
+  color: d white
+table:
+  border: d black
+  header: yellow
+  divider: b black
+  color: white
+html:
+  brackets: d yellow on_black
+  color: yellow on_black

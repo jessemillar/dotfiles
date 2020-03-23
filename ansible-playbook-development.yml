@@ -19,6 +19,9 @@
     - name: Stow dotfiles for Git
       command: stow git
       changed_when: false
+    - name: Stow dotfiles for mdless
+      command: stow mdless
+      changed_when: false
     - name: Stow dotfiles for Neovim
       command: stow neovim
       changed_when: false
@@ -105,6 +108,10 @@
     - name: Install python3
       homebrew:
         name: python3
+        state: present
+    - name: Install Ruby
+      homebrew:
+        name: ruby
         state: present
     - name: Install shellcheck
       homebrew:
@@ -202,7 +209,7 @@
       command: curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
       changed_when: false
     - name: Install nvim plugins
-      command: nvim --headless +GoUpdateBinaries +PlugUpdate +PlugUpgrade +UpdateRemotePlugins +qall
+      command: nvim --headless +GoUpdateBinaries +PlugClean! +PlugUpdate +PlugUpgrade +UpdateRemotePlugins +qall
       changed_when: false
     - name: Install Oh My Zsh
       shell: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -229,3 +236,12 @@
     - name: Update tldr
       shell: tldr --update
       changed_when: false
+    # Install mdless and applicable themes/deps for quickly viewing Markdown files
+    - name: Install mdless
+      gem:
+        name: mdless
+        state: present
+    - name: Install Nord theme for mdless/Pygments
+      shell: pip3 install nord-pygments -U
+      register: result
+      changed_when: "result.stdout is not search('Requirement already up-to-date: nord-pygments')"
