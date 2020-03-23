@@ -38,6 +38,9 @@ call plug#end()
 " Load vim-sensible first so we can override defaults
 runtime! plugin/sensible.vim
 
+" Use the Nord color scheme
+colorscheme nord
+
 " Tell far to use ack
 let g:far#source = 'acknvim'
 
@@ -86,9 +89,6 @@ call deoplete#custom#option('omni_patterns', {
 	\ 'go': '[^. *\t]\.\w*',
 	\})
 
-" Use the Nord color scheme
-colorscheme nord
-
 " Configure vim-airline
 let g:airline_theme='nord'
 let g:airline_powerline_fonts=1
@@ -120,24 +120,7 @@ nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :wri
 autocmd VimEnter * PasteEasyEnable
 
 " Map fzf to Control + P
-nnoremap <C-Space> :FZF<CR>
-
-" Customize fzf colors to match my color scheme
-" - fzf#wrap translates this to a set of `--color` options
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+nnoremap <C-T> :FZF<CR>
 
 " Change location of saved swap files
 set directory=/tmp
