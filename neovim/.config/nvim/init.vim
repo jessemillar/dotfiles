@@ -40,6 +40,9 @@ runtime! plugin/sensible.vim
 
 " Use the Nord color scheme
 colorscheme nord
+if (has("termguicolors"))
+  set termguicolors
+endif
 
 " Tell far to use ack
 let g:far#source = 'acknvim'
