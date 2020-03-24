@@ -255,5 +255,5 @@
       changed_when: false
     - name: Install Nord theme for mdless/Pygments
       shell: pip3 install nord-pygments -U
-      register: result
-      changed_when: "result.stdout is not search('Requirement already up-to-date: nord-pygments')"
+      # TODO Make this properly report when it changes
+      changed_when: false
