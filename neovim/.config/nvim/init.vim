@@ -81,10 +81,10 @@ inoremap <silent><expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <silent><expr><s-tab> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " Enable a shortcut for inserting bash shebangs
-command! Shebang i#!/usr/bin/env bash<CR><Esc>
+command! Shebang :normal! i#!/usr/bin/env bash<CR><Esc>
 
 " Make a shortcut for killing smart quotes
-command! SmartQuotes :%s/’/'/g<CR>:%s/[“”]/"/g<CR><Esc>
+command! SmartQuotes :%s/’/'/ge | :%s/[“”]/"/ge
 
 " Use an Omni pattern for Go completions
 call deoplete#custom#option('omni_patterns', {
@@ -155,7 +155,7 @@ au TermOpen * setlocal nonumber norelativenumber
 " Use vimux for Go debugging
 let g:delve_use_vimux  = 1
 let g:VimuxHeight = "25"
-command! Delve :DlvDebug<CR>
+command! Delve :DlvDebug
 
 " Allow for number toggling (for copying)
 command! LineNumbers set number!
@@ -196,7 +196,7 @@ nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
 " Git blame config
-command! Blame :<C-u>call gitblame#echo()<CR>
+command! Blame :call gitblame#echo()
 
 " Configure LanguageClient
 " Required for operations modifying multiple buffers like rename
