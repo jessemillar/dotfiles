@@ -37,9 +37,13 @@
       shell: apt update && apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
       register: result
       changed_when: result.stdout is not search("0 newly installed")
-    - name: Install packages for compiling mosh
+    - name: Add Mosh development repository
       become: yes
-      shell: apt update && apt install -y autoconf automake
+      shell: add-apt-repository "ppa:keithw/mosh-dev"
+      changed_when: false
+    - name: Install Mosh with 256 color support
+      become: yes
+      shell: apt update && apt install -y mosh
       register: result
       changed_when: result.stdout is not search("0 newly installed")
     - name: Update Homebrew and upgrade all existing packages
@@ -94,10 +98,6 @@
       homebrew:
         name: less
         state: present
-    - name: Install mosh
-      homebrew:
-        name: mosh
-        state: head
     - name: Install neovim
       homebrew:
         name: neovim
