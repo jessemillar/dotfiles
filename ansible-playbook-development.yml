@@ -246,6 +246,8 @@
       gem:
         name: mdless
         state: present
+      # TODO Make this properly report when it changes
+      changed_when: false
     - name: Install Nord theme for mdless/Pygments
       shell: pip3 install nord-pygments -U
       register: result
