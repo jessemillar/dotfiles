@@ -21,6 +21,9 @@ PATH="$PATH:$HOME/.bin"
 export ZSH_TMUX_AUTOSTART=true
 export ZSH_TMUX_AUTOQUIT=false
 
+# Make tmux-yank work
+export DISPLAY=:0
+
 # Set default options for fzf
 export FZF_DEFAULT_OPTS="--height 20% --border --bind alt-j:down,alt-k:up"
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
