@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Aseprite
+Comment=Pixel art editor
+Icon=/home/pi/.dotfiles/raspberry-pi/aseprite/aseprite.png
+Exec=/home/pi/.aseprite-deps/aseprite/build/bin/aseprite
+Terminal=false
+Categories=Graphics

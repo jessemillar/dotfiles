@@ -52,3 +52,10 @@ cmake \
   -G Ninja \
   ..
 ninja aseprite
+
+# Put the binary in the start menu for easy access
+sudo ln -s ~/.dotfiles/raspberry-pi/aseprite/Aseprite.desktop /usr/share/applications
+lxpanelctl restart
+
+# Link the binary to ~/.bin for easy CLI access
+ln -s ~/.aseprite-deps/aseprite/build/bin/aseprite ~/.bin
