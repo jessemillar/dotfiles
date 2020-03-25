@@ -22,9 +22,6 @@ zstyle ":completion:*:commands" rehash 1
 # Load environment variables for development secrets
 [ -f ~/.envrc ] && source ~/.envrc
 
-# Load Docker environment variables
-[ -f ~/.dockerrc ] && source ~/.dockerrc
-
 # Load custom aliases
 [ -f ~/.aliasrc ] && source ~/.aliasrc
 

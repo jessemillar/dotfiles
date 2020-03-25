@@ -23,6 +23,7 @@ alias v="nvim"
 alias vimrc="nvim ~/.config/nvim/init.vim"
 alias watch="watch " # This is so aliases get expanded when passed to `watch`
 alias wdl="wd list"
+alias whatami="lsb_release -a"
 
 # Work
 alias ac="./aks-ci"
@@ -40,7 +41,7 @@ alias wsl="wsl.exe"
 alias tm="tmux"
 alias tml="tmux ls"
 alias tmn="tmux new"
-alias tmnuke="tmux kill-session"
+alias tmkill="tmux kill-session"
 
 # Go
 alias gg="go get -v"
