@@ -8,7 +8,7 @@ export GO111MODULE=on
 export DELVE_EDITOR="$(which nvim)"
 
 # Kubernetes setup
-export KUBERNETES_VERSION=1.17.2
+export KUBERNETES_VERSION=1.17.3
 
 # Kubebuilder asset setup
 export KUBEBUILDER_ASSETS="$HOME/.bin/"
