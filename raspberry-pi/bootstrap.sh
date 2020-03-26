@@ -105,6 +105,7 @@ command -v zsh | sudo tee -a /etc/shells && sudo usermod --shell "$(command -v z
 ruler "Install fzf with Zsh support"
 git -C ~/.fzf pull origin master || git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
+sudo apt install fd-find
 
 ruler "Generate SSH keypairs"
 if [ ! -f  ~/.ssh/id_rsa.pub ]
