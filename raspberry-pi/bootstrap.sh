@@ -56,6 +56,11 @@ stow tmux
 ruler "Install general packages"
 sudo apt install -y ack fonts-firacode git grep imagemagick less neovim python python3 python3-pip shellcheck tldr tmux tree unzip watch xfce4 zsh
 
+ruler "Install Lua packages"
+sudo apt install luarocks
+sudo luarocks install lanes
+sudo luarocks install luacheck
+
 ruler "Install Go"
 GO_VERSION="go1.13.8"
 if ! grep -q "$GO_VERSION" ~/.gox/VERSION; then
