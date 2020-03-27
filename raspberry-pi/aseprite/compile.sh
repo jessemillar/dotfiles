@@ -7,11 +7,11 @@
 
 # Install dependencies
 sudo apt update
-sudo apt install -y g++ cmake ninja-build libharfbuzz-dev libx11-dev libxcursor-dev libgl1-mesa-dev libfontconfig1-dev clang
+sudo apt install -y g++ cmake ninja-build libharfbuzz-dev libx11-dev libxcursor-dev libgl1-mesa-dev libfontconfig1-dev clang libcurl4-openssl-dev
 
 # Create the directory we'll clone dependencies into
-mkdir "$HOME"/.aseprite-deps
-cd "$HOME"/.aseprite-deps || exit
+mkdir "$HOME/.aseprite-deps" || true
+cd "$HOME/.aseprite-deps" || exit
 
 # Install gn
 git clone https://gn.googlesource.com/gn
@@ -41,7 +41,7 @@ git clone --recursive https://github.com/aseprite/aseprite.git
 # git submodule update --init --recursive
 
 cd aseprite || exit
-mkdir build
+mkdir build || true
 cd build || exit
 cmake \
   -DCMAKE_BUILD_TYPE=RelWithDebInfo \
