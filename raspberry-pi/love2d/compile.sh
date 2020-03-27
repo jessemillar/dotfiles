@@ -3,9 +3,10 @@
 # Exit when any command fails
 set -e
 
+(
 # Source .functionsrc to get access to the ruler function
-# shellcheck disable=SC1091
-source zsh/.functionsrc
+# shellcheck disable=SC1090
+source ~/.dotfiles/zsh/.functionsrc
 
 ruler "Checking for existing LÖVE"
 if ! [ -x "$(command -v love)" ]
@@ -27,3 +28,4 @@ then
 fi
 
 ruler "Done"
+)
