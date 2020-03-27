@@ -318,11 +318,6 @@ function tma() {
 	tmux a -t "$1" -d
 }
 
-# Find an image file's dimensions
-function imgsize() {
-	magick identify "$1"
-}
-
 # Generate cellular automata wallpapers using gautomata
 function cells() {
 	if [ -z "$1" ]
