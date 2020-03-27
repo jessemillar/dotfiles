@@ -32,14 +32,14 @@ sudo apt update
 sudo apt upgrade -y
 sudo apt dist-upgrade -y
 
+ruler "Install stow since it's needed for some pre-installation setup"
+sudo apt install -y stow
+
 ruler "Apply window manager configs"
 moveIfSymlink "$HOME/.config/lxpanel"
 moveIfSymlink "$HOME/.config/lxsession"
 moveIfSymlink "$HOME/.config/lxterminal"
 stow pixel
-
-ruler "Install stow since it's needed for some pre-installation setup"
-sudo apt install -y stow
 
 ruler "Make .config, .bin, and Projects  directories"
 mkdir -p ~/.config || true
@@ -57,7 +57,7 @@ ruler "Install general packages"
 sudo apt install -y ack fonts-firacode git grep imagemagick less neovim python python3 python3-pip shellcheck tldr tmux tree unzip watch xfce4 zsh
 
 ruler "Install Lua packages"
-sudo apt install luarocks
+sudo apt install -y luarocks
 sudo luarocks install lanes
 sudo luarocks install luacheck
 
@@ -82,12 +82,14 @@ curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 ruler "Install lua-fmt"
-npm install -g lua-fmt
+sudo npm install -g lua-fmt
 
 ruler "Install Rust"
 curl https://sh.rustup.rs -sSf | sh -s -- -y
+source "$HOME"/.cargo/env
 
 ruler "Install the Starship prompt"
+sudo apt install -y libssl-dev
 cargo install starship
 
 ruler "Install neovim Python module"
