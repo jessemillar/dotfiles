@@ -80,7 +80,6 @@ fi
 ruler "Install Node.js"
 curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
 sudo apt-get install -y nodejs
-sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}
 
 ruler "Install lua-fmt"
 npm install -g lua-fmt
