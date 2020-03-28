@@ -54,12 +54,15 @@ stow starship
 stow tmux
 
 ruler "Install general packages"
-sudo apt install -y ack fonts-firacode git grep imagemagick less neovim python python3 python3-pip shellcheck tldr tmux tree unzip watch xfce4 zsh
+sudo apt install -y ack fonts-firacode git grep imagemagick less neovim python python3 python3-pip shellcheck snapd tldr tmux tree unzip watch xfce4 zsh
 
 ruler "Install Lua packages"
 sudo apt install -y luarocks
 sudo luarocks install lanes
 sudo luarocks install luacheck
+
+ruler "Install the Tiled level editor"
+sudo snap install tiled
 
 ruler "Install Go"
 GO_VERSION="go1.13.8"
@@ -128,7 +131,7 @@ ssh-add ~/.ssh/id_rsa
 ruler "Install imcat"
 git clone https://github.com/stolk/imcat.git && cd imcat && make && mv imcat ~/.bin && cd .. && rm -rf imcat
 
-ruler "Done"
+ruler "Done; Reboot manually"
 ruler "Remember to use raspi-config to enable VNC, set a resolution, change the timezone, and generate locales"
 ruler "Also set UseDNS to 'no' in /etc/ssh/sshd_config"
 ruler "Also upload ~/.ssh/id_rsa.pub to GitHub and re-clone .dotfiles"
