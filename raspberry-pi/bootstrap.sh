@@ -61,9 +61,6 @@ sudo apt install -y luarocks
 sudo luarocks install lanes
 sudo luarocks install luacheck
 
-ruler "Install the Tiled level editor"
-sudo snap install tiled
-
 ruler "Install Go"
 GO_VERSION="go1.13.8"
 if ! grep -q "$GO_VERSION" ~/.gox/VERSION; then

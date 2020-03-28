@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Tiled
+Comment=2D level editor
+Icon=/home/pi/.dotfiles/raspberry-pi/tiled/tiled.png
+Exec=/usr/bin/snap run tiled
+Terminal=false
+Categories=Graphics
