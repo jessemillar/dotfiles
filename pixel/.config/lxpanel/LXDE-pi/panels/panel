@@ -74,12 +74,6 @@ Plugin {
   }
 }
 Plugin {
-  type=space
-  Config {
-    Size=8
-  }
-}
-Plugin {
   type=taskbar
   expand=1
   Config {
