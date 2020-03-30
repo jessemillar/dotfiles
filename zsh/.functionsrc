@@ -95,28 +95,35 @@ function snippet() {
 	cd ~/projects/personal-retrospectives/snippets || return
 	MONDAY="$(date -d "$(date -d "$(date -dfriday) - 4 days")" +%m-%d-%Y)"
 	FRIDAY="$(date -dfriday +%m-%d-%Y)"
-	CURRENT_SNIPPET=$(ls "$MONDAY"*)
+	CURRENT_SNIPPET="$MONDAY-to-$FRIDAY.md"
+	LAST_MONDAY="$(date -d "$(date -dlast-friday) - 4 days" +%m-%d-%Y)"
+	LAST_FRIDAY="$(date -dlast-friday +%m-%d-%Y)"
+	LAST_WEEK_SNIPPET="$LAST_MONDAY-to-$LAST_FRIDAY.md"
 
 	if [[ $COPY_MODE = true ]]
 	then
 		if [[ $LAST_WEEK = true ]]
 		then
-			LAST_MONDAY="$(date -d "$(date -dlast-friday) - 4 days" +%m-%d-%Y)"
-			LAST_FRIDAY="$(date -dlast-friday +%m-%d-%Y)"
-			sed '1s/^..//' "$LAST_MONDAY-to-$LAST_FRIDAY.md"
+			sed '1s/^..//' "$LAST_WEEK_SNIPPET"
 		else
 			sed '1s/^..//' "$CURRENT_SNIPPET"
 		fi
 	else
-		if [[ -z "$CURRENT_SNIPPET" ]]
+		if [[ $LAST_WEEK = true ]]
 		then
-			SHORT_MONDAY="$(date -d "$(date -d "$(date -dfriday) - 4 days")" +%m/%d)"
-			SHORT_FRIDAY="$(date -dfriday +%m/%d)"
-			NEW_SNIPPET="$MONDAY-to-$FRIDAY.md"
-			echo -e "# #snippet $SHORT_MONDAY - $SHORT_FRIDAY\n" > "$NEW_SNIPPET"
-			nvim "$NEW_SNIPPET"
+			nvim "$LAST_WEEK_SNIPPET"
 		else
-			nvim "$CURRENT_SNIPPET"
+			if [[ -z "$CURRENT_SNIPPET" ]]
+			then
+				# Create a new snippet file since there wasn't an existing one
+				SHORT_MONDAY="$(date -d "$(date -d "$(date -dfriday) - 4 days")" +%m/%d)"
+				SHORT_FRIDAY="$(date -dfriday +%m/%d)"
+				NEW_SNIPPET="$MONDAY-to-$FRIDAY.md"
+				echo -e "# #snippet $SHORT_MONDAY - $SHORT_FRIDAY\n" > "$NEW_SNIPPET"
+				nvim "$NEW_SNIPPET"
+			else
+				nvim "$CURRENT_SNIPPET"
+			fi
 		fi
 
 		git add -A
