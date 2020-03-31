@@ -28,14 +28,10 @@ Plug 'sebdah/vim-delve'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
 Plug 'zivyangll/git-blame.vim'
 
 call plug#end()
-
-" Load vim-sensible first so we can override defaults
-runtime! plugin/sensible.vim
 
 " Use the Nord color scheme
 colorscheme nord
