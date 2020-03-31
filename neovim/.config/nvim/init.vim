@@ -131,10 +131,6 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
-" Custom tab widths
-set tabstop=2
-set shiftwidth=2
-
 " Quick code format
 command! Format :Neoformat
 
@@ -208,3 +204,12 @@ nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> gi :call LanguageClient#textDocument_implementation()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+" Custom tab stuff
+" TODO Figure out what the fuck this all does
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set softtabstop=4
+set autoindent smartindent
+set smarttab
