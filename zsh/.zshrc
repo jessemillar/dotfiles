@@ -2,7 +2,7 @@
 export ZSH=~/.oh-my-zsh
 
 # Load plugins
-plugins=(docker docker-compose fzf tmux vi-mode wd)
+plugins=(docker docker-compose fzf kubectl tmux vi-mode wd)
 
 # Load up Oh My Zsh
 source $ZSH/oh-my-zsh.sh
@@ -33,11 +33,6 @@ zstyle ":completion:*:commands" rehash 1
 
 # Load custom functions for ASCII art
 [ -f ~/.asciirc ] && source ~/.asciirc
-
-# Load various CLI helpers
-# TODO Fix h autocompletion
-# source <(h version &>/dev/null && h completion zsh | sed "s/helm/h/g")
-source <(k version &>/dev/null && k completion zsh | sed "s/kubectl/k/g")
 
 # Load GVM so I can use older versions of Go
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
