@@ -294,6 +294,19 @@ function sink() {
 # General functions
 ####################
 
+# Fuzzy cd to selected directory
+fd() {
+    # DIR=$(find ${1:-.} -type d 2> /dev/null | fzf +m)
+    DIR=$(find . -type d 2> /dev/null | fzf +m)
+    print -z -- "cd $DIR"
+}
+
+# Fuzzy cd into the directory of the selected file
+fdf() {
+    FILE=$(fzf +m -q "$1") && DIR=$(dirname "$FILE")
+    print -z -- "cd $DIR"
+}
+
 # Quickly make a warp point with the name of the current directory
 function wda() {
 	CUR_DIR=$(basename "$(pwd)")
@@ -308,16 +321,6 @@ function ruler() {
 	printf '\n%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 	echo -e "$1"
 	printf '%*s\n\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
-}
-
-# Fuzzy find a file and then open it in nvim
-function vf() {
-	FILES=$(fzf)
-	if [[ ! $FILES ]]; then
-		return
-	fi
-
-	nvim "$FILES"
 }
 
 # Attach to an existing tmux session

@@ -10,6 +10,9 @@ export DELVE_EDITOR="$(which nvim)"
 # Kubebuilder asset setup
 export KUBEBUILDER_ASSETS="$HOME/.bin/"
 
+# Manually specify the version of Kubernetes so Kind works (doesn't support the latest kubectl)
+export KUBERNETES_VERSION=1.17.0
+
 # Path config
 PATH="$PATH:$GOPATH/bin"
 PATH="$PATH:$HOME/.bin"
