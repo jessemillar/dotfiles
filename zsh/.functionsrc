@@ -113,16 +113,16 @@ function snippet() {
 		then
 			nvim "$LAST_WEEK_SNIPPET"
 		else
-			if [[ -z "$CURRENT_SNIPPET" ]]
+			if [[ -f "$CURRENT_SNIPPET" ]]
 			then
+				nvim "$CURRENT_SNIPPET"
+			else
 				# Create a new snippet file since there wasn't an existing one
 				SHORT_MONDAY="$(date -d "$(date -d "$(date -dfriday) - 4 days")" +%m/%d)"
 				SHORT_FRIDAY="$(date -dfriday +%m/%d)"
 				NEW_SNIPPET="$MONDAY-to-$FRIDAY.md"
-				echo -e "# #snippet $SHORT_MONDAY - $SHORT_FRIDAY\n" > "$NEW_SNIPPET"
+				echo -e "# #snippet $SHORT_MONDAY - $SHORT_FRIDAY\n- " > "$NEW_SNIPPET"
 				nvim "$NEW_SNIPPET"
-			else
-				nvim "$CURRENT_SNIPPET"
 			fi
 		fi
 
