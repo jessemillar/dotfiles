@@ -295,14 +295,14 @@ function sink() {
 ####################
 
 # Fuzzy cd to selected directory
-fd() {
+df() {
     # DIR=$(find ${1:-.} -type d 2> /dev/null | fzf +m)
     DIR=$(find . -type d 2> /dev/null | fzf +m)
     print -z -- "cd $DIR"
 }
 
 # Fuzzy cd into the directory of the selected file
-fdf() {
+dff() {
     FILE=$(fzf +m -q "$1") && DIR=$(dirname "$FILE")
     print -z -- "cd $DIR"
 }
