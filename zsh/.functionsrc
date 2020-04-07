@@ -1,20 +1,18 @@
 #!/usr/bin/env bash
 
 ####################
-# k8s functions
-####################
-
-# Get all logs from the Kind cluster
-function kla() {
-	rm -rf /tmp/kind-logs
-	kind export logs /tmp/kind-logs -q
-	echo "Logs for kind cluster exported"
-	cd /tmp/kind-logs || return
-}
-
-####################
 # Work functions
 ####################
+
+function poots() {
+    ruler "Did you run az login?"
+    wd validator
+    source scripts/provision-env.sh
+    export AZURE_SUBSCRIPTION_ID=$SUBSCRIPTION
+    make provision-kind && \
+    kustomize build deploy/bootstrap-prod | envsubst | k apply -f - && \
+    kustomize build deploy/bases/monitoring/metrics-exporter | envsubst | k apply -f -
+}
 
 # Get logs from the Validator manager
 function validatorLogs() {
@@ -418,6 +416,14 @@ function usage() {
 ####################
 # Kubernetes functions
 ####################
+
+# Get all logs from the Kind cluster
+function kla() {
+	rm -rf /tmp/kind-logs
+	kind export logs /tmp/kind-logs -q
+	echo "Logs for kind cluster exported"
+	cd /tmp/kind-logs || return
+}
 
 # Delete pod via regex
 function kdelr() {
