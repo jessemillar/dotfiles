@@ -16,6 +16,9 @@ setopt correct
 # Enable the mass-rename zmv tool
 autoload -U zmv
 
+# Disable Control + Z because I always hit it accidentally when trying to zoom a tmux pane
+set +m
+
 # Don't trust the cache of binaries to make installation of new programs slightly easier at the cost of performance
 zstyle ":completion:*:commands" rehash 1
 

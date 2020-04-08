@@ -11,7 +11,7 @@ function poots() {
     export AZURE_SUBSCRIPTION_ID=$SUBSCRIPTION
     make provision-kind && \
     kustomize build deploy/bootstrap-prod | envsubst | k apply -f - && \
-    kustomize build deploy/bases/monitoring/metrics-exporter | envsubst | k apply -f -
+    kustomize build deploy/bases/monitoring/metrics-exporter | k apply -f -
 }
 
 # Get logs from the Validator manager
