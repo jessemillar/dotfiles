@@ -292,6 +292,15 @@ function sink() {
 # General functions
 ####################
 
+# Run nvim and open search if no arguments are passed
+v() {
+    if [ $# -eq 0 ]; then
+	nvim -c "Rg"
+    else
+	nvim "$@"
+    fi
+}
+
 # Fuzzy cd to selected directory
 cdf() {
     # DIR=$(find ${1:-.} -type d 2> /dev/null | fzf +m)
@@ -363,39 +372,6 @@ function copy() {
 # Run a LOVE project so you can see console output
 function luv() {
 	love "$(pwd)"
-}
-
-# Quickly search the current directory (and child directories) for files with filenames or contents that match the supplied search term
-function search() {
-	# F_FLAG denotes only searching filenames
-	F_FLAG=false
-	# ACK_FLAGS specifies flags passed to ack
-	ACK_FLAGS=()
-	# Get the search term passed as the last argument
-	for last; do true; done
-	SEARCH_WORD="$last"
-
-	printUsage() {
-		printf "Usage: search -f -w queryWord"
-	}
-
-	while getopts 'ifw' flag; do
-		case "${flag}" in
-			i) ACK_FLAGS+=(-i) ;;
-			f) F_FLAG=true ;;
-			w) ACK_FLAGS+=(-w) ;;
-			*) printUsage && return ;;
-		esac
-	done
-
-	ruler "Filenames"
-	find . -name "*$SEARCH_WORD*" | ack "${ACK_FLAGS[@]}" --passthru "$SEARCH_WORD"
-
-	ruler "File contents"
-	if [ "$F_FLAG" = false ]
-	then
-		ack "${ACK_FLAGS[@]}" "$SEARCH_WORD"
-	fi
 }
 
 # Find disk usage by directory
