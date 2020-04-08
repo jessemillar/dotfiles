@@ -122,8 +122,11 @@ nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :wri
 " Enable easier pasting
 autocmd VimEnter * PasteEasyEnable
 
-" Map fzf to Control + P
+" Map fzf's file search to Control + P
 nnoremap <C-P> :FZF<CR>
+
+" Map fzf's string search to Control + F
+nnoremap <C-F> :Rg<CR>
 
 " Change location of saved swap files
 set directory=/tmp
