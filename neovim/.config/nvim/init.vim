@@ -28,6 +28,7 @@ Plug 'sebdah/vim-delve'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sleuth'
 Plug 'vim-airline/vim-airline'
 Plug 'zivyangll/git-blame.vim'
 
@@ -208,12 +209,3 @@ nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> gi :call LanguageClient#textDocument_implementation()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
-" Custom tab stuff
-" TODO Figure out what the fuck this all does
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set softtabstop=4
-set autoindent smartindent
-set smarttab
