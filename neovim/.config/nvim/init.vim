@@ -34,11 +34,10 @@ Plug 'zivyangll/git-blame.vim'
 
 call plug#end()
 
-" Use the Nord color scheme
+" Use the Nord color scheme with true color support
 colorscheme nord
-if (has("termguicolors"))
-  set termguicolors
-endif
+set termguicolors
+let $COLORTERM="truecolor"
 
 " Tell far to use ack
 let g:far#source = 'acknvim'
@@ -127,6 +126,13 @@ nnoremap <C-P> :FZF<CR>
 
 " Map fzf's string search to Control + F
 nnoremap <C-F> :Rg<CR>
+
+" Hide the fzf statusline when started inside a :terminal (the default in Neovim)
+if has('nvim') && !exists('g:fzf_layout')
+  autocmd! FileType fzf
+  autocmd  FileType fzf set laststatus=0 noshowmode noruler
+    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+endif
 
 " Change location of saved swap files
 set directory=/tmp
