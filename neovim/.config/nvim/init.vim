@@ -150,6 +150,12 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+" Automatically close Neovim when a terminal window closes and only an empty buffer is open (for use with my `v` terminal alias)
+autocmd TermLeave * if line("$") == 1 && getline(1) == "" | q | endif
+
+" Override text wrapping to not wrap long lines (I think, somehow, vim-sleuth is setting textwidth)
+autocmd BufEnter * set textwidth=0
+
 " Change location of saved swap files
 set directory=/tmp
 
