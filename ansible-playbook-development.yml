@@ -114,6 +114,10 @@
       homebrew:
         name: python3
         state: present
+    - name: Install ripgrep
+      homebrew:
+        name: ripgrep
+        state: present
     - name: Install Ruby
       homebrew:
         name: ruby
