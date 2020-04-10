@@ -5,13 +5,14 @@
 ####################
 
 function poots() {
-    ruler "Did you run az login?"
-    wd validator
-    source scripts/provision-env.sh
-    export AZURE_SUBSCRIPTION_ID=$SUBSCRIPTION
-    make provision-kind && \
-    kustomize build deploy/bootstrap-prod | envsubst | k apply -f - && \
-    kustomize build deploy/bases/monitoring/metrics-exporter | k apply -f -
+	ruler "Did you run az login?"
+	wd validator
+	source ./scripts/provision-env.sh
+	source ./scripts/envsubst-explicit.sh
+	export AZURE_SUBSCRIPTION_ID=$SUBSCRIPTION
+	make provision-kind && \
+	kustomize build deploy/bootstrap-prod | envsubst-explicit | k apply -f - && \
+	kustomize build deploy/bases/monitoring/metrics-exporter | k apply -f -
 }
 
 # Get logs from the Validator manager
@@ -292,26 +293,36 @@ function sink() {
 # General functions
 ####################
 
+# Make a not stupid version of envsubst
+function envsub() {
+	ENV="$(env | grep = | cut -d= -f1 | sed -e "s/\(.*\)/\${\1}/" | tr '\n' ',' | sed 's/,$//')"
+	envsubst "'$ENV'" <"$@"
+}
+
 # Run nvim and open search if no arguments are passed
-v() {
-    if [ $# -eq 0 ]; then
-	nvim -c "Rg"
-    else
-	nvim "$@"
-    fi
+function v() {
+	if [ $# -eq 0 ]; then
+		nvim -c "RG"
+	else
+		nvim "$@"
+	fi
+}
+
+function s() {
+	nvim -c "RG $1"
 }
 
 # Fuzzy cd to selected directory
-cdf() {
-    # DIR=$(find ${1:-.} -type d 2> /dev/null | fzf +m)
-    DIR=$(find . -type d 2> /dev/null | fzf +m)
-    print -z -- "cd $DIR"
+function cdf() {
+	# DIR=$(find ${1:-.} -type d 2> /dev/null | fzf +m)
+	DIR=$(find . -type d 2> /dev/null | fzf +m)
+	print -z -- "cd $DIR"
 }
 
 # Fuzzy cd into the directory of the selected file
-cdff() {
-    FILE=$(fzf +m -q "$1") && DIR=$(dirname "$FILE")
-    print -z -- "cd $DIR"
+function cdff() {
+	FILE=$(fzf +m -q "$1") && DIR=$(dirname "$FILE")
+	print -z -- "cd $DIR"
 }
 
 # Quickly make a warp point with the name of the current directory

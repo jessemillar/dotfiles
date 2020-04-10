@@ -125,14 +125,24 @@ nnoremap <C-P> :Files<CR>
 tnoremap <C-P> :Files<CR>
 
 " Map fzf's string search to Control + F
-nnoremap <C-F> :Rg<CR>
-tnoremap <C-F> :Rg<CR>
+nnoremap <C-F> :RG<CR>
+tnoremap <C-F> :RG<CR>
+
+" Actually call ripgrep while searching instead of fzf-ing through ripgrep output
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = "rg --files | rg --color=always --smart-case %s | sed 's/$/:1:1:/'; rg --column --line-number --no-heading --color=always --smart-case %s || true"
+  let initial_command = printf(command_fmt, shellescape(a:query), shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}', '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
 " Use ripgrep to search for the word under the cursor
-nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
+nnoremap <silent> <Leader>rg :RG <C-R><C-W><CR>
 
 " Don't use ripgrep to search filenames
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 2..'}, <bang>0)
+" command! -bang -nargs=* Rg call fzf#vim#grep("rg --files | sed 's/$/:1:1:/'; rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 2..'}, <bang>0)
 
 " Hide the fzf statusline when started inside a :terminal (the default in Neovim)
 autocmd! FileType fzf set laststatus=0 noshowmode noruler
