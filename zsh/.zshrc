@@ -22,6 +22,9 @@ set +m
 # Don't trust the cache of binaries to make installation of new programs slightly easier at the cost of performance
 zstyle ":completion:*:commands" rehash 1
 
+# Use fzf for tab completion
+source "$HOME/.fzf-tab-completion/zsh/fzf-zsh-completion.sh"
+
 # Load environment variables for development secrets
 [ -f ~/.envrc ] && source ~/.envrc
 
