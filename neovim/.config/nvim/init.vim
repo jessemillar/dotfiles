@@ -214,13 +214,19 @@ let g:go_def_mode = 'gopls'
 " Tell vim to automatically save file changes before running certain commands
 set autowrite
 
-" Keyboard shortcuts for use with the vim-go quickfix window (appears after :GoBuild)
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
+" Quickfix window shortcuts
+map [q :cprevious<CR>
+map ]q :cnext<CR>
+map [Q :cfirst<CR>
+map ]Q :clast<CR>
+map [d :cdo
+nnoremap [a :cclose<CR>
 
 " Run goimports instead of gofmt
 let g:go_fmt_command = 'goimports'
+
+" Don't use the quicklist for language server errors
+let g:LanguageClient_diagnosticsList = 'Location'
 
 " Configure CtrlSF
 let g:ctrlsf_regex_pattern = 1
@@ -242,9 +248,9 @@ command! Blame :call gitblame#echo()
 " Required for operations modifying multiple buffers like rename
 set hidden
 let g:LanguageClient_serverCommands = {
-		\ 'go': ['gopls'],
-		\ 'yaml': ['yaml-language-server', '--stdio'],
-    \ 'sh': ['bash-language-server', 'start'],
+	      \ 'go': ['gopls'],
+	      \ 'yaml': ['yaml-language-server', '--stdio'],
+	      \ 'sh': ['bash-language-server', 'start'],
     \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
