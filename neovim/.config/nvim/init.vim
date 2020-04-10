@@ -128,6 +128,9 @@ tnoremap <C-P> :Files<CR>
 nnoremap <C-F> :Rg<CR>
 tnoremap <C-F> :Rg<CR>
 
+" Use ripgrep to search for the word under the cursor
+nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
+
 " Don't use ripgrep to search filenames
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 2..'}, <bang>0)
 

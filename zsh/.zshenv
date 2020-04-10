@@ -25,7 +25,7 @@ export ZSH_TMUX_AUTOQUIT=false
 export DISPLAY=:0
 
 # Set default options for fzf
-export FZF_DEFAULT_OPTS="--height 30% --border --bind alt-j:down,alt-k:up"
+export FZF_DEFAULT_OPTS="--height 30% --border --bind alt-j:down,alt-k:up,tab:down,btab:up"
 export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
 
 # Apply the Nord theme to fzf
