@@ -92,19 +92,13 @@ alias gtl="git tag -l"
 ## General functions
 alias ka="k apply"
 alias kapi="k api-resources --sort-by=name"
+# TODO Remove once I'm used to the Oh My Zsh kubectl plugin aliases
 alias kd="k describe"
-alias kdd="k describe deployment"
-alias kdel="k delete"
-alias kdp="k describe pod"
 alias ke="k exec"
+# TODO Remove once I'm used to the Oh My Zsh kubectl plugin aliases
 alias kg="k get"
-alias kgd="k get deployments"
-alias kgp="k get pods"
 alias kgpa="k get pods --all-namespaces"
-alias kgs="k get service"
 alias kgn="k get namespaces"
-alias kl="k logs -f"
-alias kpf="k port-forward"
 alias kpfe="k port-forward --address 0.0.0.0"
 ## Custom functions
 alias kgv="k get validations -n validations"
