@@ -121,17 +121,19 @@ nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :wri
 autocmd VimEnter * PasteEasyEnable
 
 " Map fzf's file search to Control + P
-nnoremap <C-P> :FZF<CR>
+nnoremap <C-P> :Files<CR>
+tnoremap <C-P> :Files<CR>
 
 " Map fzf's string search to Control + F
 nnoremap <C-F> :Rg<CR>
+tnoremap <C-F> :Rg<CR>
+
+" Don't use ripgrep to search filenames
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 2..'}, <bang>0)
 
 " Hide the fzf statusline when started inside a :terminal (the default in Neovim)
-if has('nvim') && !exists('g:fzf_layout')
-  autocmd! FileType fzf
-  autocmd  FileType fzf set laststatus=0 noshowmode noruler
-    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-endif
+autocmd! FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
