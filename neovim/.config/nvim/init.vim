@@ -141,9 +141,6 @@ command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 " Use ripgrep to search for the word under the cursor
 nnoremap <silent> <Leader>rg :RG <C-R><C-W><CR>
 
-" Don't use ripgrep to search filenames
-" command! -bang -nargs=* Rg call fzf#vim#grep("rg --files | sed 's/$/:1:1:/'; rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 2..'}, <bang>0)
-
 " Hide the fzf statusline when started inside a :terminal (the default in Neovim)
 autocmd! FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
