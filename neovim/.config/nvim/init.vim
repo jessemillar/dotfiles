@@ -130,7 +130,7 @@ tnoremap <C-F> :RG<CR>
 
 " Actually call ripgrep while searching instead of fzf-ing through ripgrep output
 function! RipgrepFzf(query, fullscreen)
-  let command_fmt = "rg --files | rg --color=always --smart-case %s | sed 's/$/:1:1:/'; rg --column --line-number --no-heading --color=always --smart-case %s || true"
+  let command_fmt = "rg --files | rg --smart-case %s | sed 's/$/:1:1:/'; rg --column --line-number --no-heading --color=always --smart-case %s || true"
   let initial_command = printf(command_fmt, shellescape(a:query), shellescape(a:query))
   let reload_command = printf(command_fmt, '{q}', '{q}')
   let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
