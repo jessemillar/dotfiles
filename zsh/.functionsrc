@@ -4,14 +4,14 @@
 # Work functions
 ####################
 
+# TODO Turn this into a Makefile target in the actual project
 function poots() {
 	ruler "Did you run az login?"
 	wd validator
 	source ./scripts/provision-env.sh
-	source ./scripts/envsubst-explicit.sh
 	export AZURE_SUBSCRIPTION_ID=$SUBSCRIPTION
 	make provision-kind && \
-	kustomize build deploy/bootstrap-prod | envsubst-explicit | k apply -f - && \
+	# kustomize build deploy/bootstrap-prod | envsubst | k apply -f - && \
 	kustomize build deploy/bases/monitoring/metrics-exporter | k apply -f -
 }
 
@@ -120,7 +120,7 @@ function snippet() {
 				SHORT_MONDAY="$(date -d "$(date -d "$(date -dfriday) - 4 days")" +%m/%d)"
 				SHORT_FRIDAY="$(date -dfriday +%m/%d)"
 				NEW_SNIPPET="$MONDAY-to-$FRIDAY.md"
-				echo -e "#snippet $SHORT_MONDAY - $SHORT_FRIDAY\n- \n\n#achievements\n- " > "$NEW_SNIPPET"
+				echo -e "#snippet $SHORT_MONDAY - $SHORT_FRIDAY\n- [HIGHLIGHT] \n- " > "$NEW_SNIPPET"
 				nvim "$NEW_SNIPPET"
 			fi
 		fi
