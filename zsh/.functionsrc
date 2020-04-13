@@ -302,14 +302,14 @@ function envsub() {
 # Run nvim and open search if no arguments are passed
 function v() {
 	if [ $# -eq 0 ]; then
-		nvim -c "RG!"
+		nvim -c "Rg!"
 	else
 		nvim "$@"
 	fi
 }
 
 function s() {
-	nvim -c "RG! $1"
+	nvim -c "Rg! $1"
 }
 
 # Fuzzy cd to selected directory
