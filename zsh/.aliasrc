@@ -17,6 +17,7 @@ alias rc="exec zsh"
 alias tmp="mkdir tmp 2>/dev/null || true && cd tmp"
 alias tree="tree -a -I '.git'"
 alias vimrc="nvim ~/.config/nvim/init.vim"
+alias w="watch"
 alias watch="watch " # This is so aliases get expanded when passed to `watch`
 alias wdl="wd list"
 alias whatami="lsb_release -a"

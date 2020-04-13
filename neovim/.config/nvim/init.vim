@@ -131,9 +131,6 @@ tnoremap <C-F> :Rg<CR>
 " Use ripgrep to search for the word under the cursor
 nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
 
-" Prioritize searching file content over filename with ripgrep/fzf
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..,1'}, <bang>0)
-
 " Hide the fzf statusline when started inside a :terminal (the default in Neovim)
 autocmd! FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler

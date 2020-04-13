@@ -11,7 +11,7 @@ function poots() {
 	source ./scripts/provision-env.sh
 	export AZURE_SUBSCRIPTION_ID=$SUBSCRIPTION
 	make provision-kind && \
-	# kustomize build deploy/bootstrap-prod | envsubst | k apply -f - && \
+	kustomize build deploy/bootstrap-prod | envsubst | k apply -f - && \
 	kustomize build deploy/bases/monitoring/metrics-exporter | k apply -f -
 }
 
@@ -139,6 +139,31 @@ function snippet() {
 # cd to the root of the current repository
 function root() {
 	cd "$(git rev-parse --show-toplevel)" || return
+}
+
+# Quickly make Git ignore a file's changes
+function gu() {
+	NO_ASSUME_UNCHANGED_MODE=false
+	while getopts "n" opt; do
+		case $opt in
+			n) NO_ASSUME_UNCHANGED_MODE=true ;;
+			*) echo "Usage: gu -n" && return ;;
+		esac
+	done
+
+
+	if [[ -z "$1" ]]
+	then
+		# List files current marked as "assume unchanged"
+		git ls-files -v | grep -e "^[hsmrck]"
+	else
+		if [[ $NO_ASSUME_UNCHANGED_MODE = true ]]
+		then
+			git update-index --no-assume-unchanged "$2"
+		else
+			git update-index --assume-unchanged "$1"
+		fi
+	fi
 }
 
 # Compare the current branch to a supplied branch (or master if no branch is supplied) and view the diff (similar to creating a GitHub PR)
