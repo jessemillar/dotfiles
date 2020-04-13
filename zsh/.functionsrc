@@ -155,7 +155,10 @@ function gu() {
 	if [[ -z "$1" ]]
 	then
 		# List files current marked as "assume unchanged"
-		git ls-files -v | grep -e "^[hsmrck]"
+		(
+			root
+			git ls-files -v | grep -e "^[hsmrck]"
+		)
 	else
 		if [[ $NO_ASSUME_UNCHANGED_MODE = true ]]
 		then
