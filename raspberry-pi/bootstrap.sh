@@ -54,7 +54,7 @@ stow starship
 stow tmux
 
 ruler "Install general packages"
-sudo apt install -y ack fonts-firacode git grep imagemagick less neovim python python3 python3-pip shellcheck snapd tldr tmux tree unzip watch xfce4 zsh
+sudo apt install -y ack fonts-firacode git grep imagemagick less neovim python python3 python3-pip ripgrep shellcheck snapd tldr tmux tree unzip watch xfce4 zsh
 
 ruler "Install Lua packages"
 sudo apt install -y luarocks
@@ -115,7 +115,7 @@ ruler "Install fzf with Zsh support"
 git -C ~/.fzf pull origin master || git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
 sudo apt install fd-find
-ln -s /usr/bin/fdfind ~/.bin/fd
+ln -s /usr/bin/fdfind ~/.bin/fd || true
 
 ruler "Generate SSH keypairs"
 if [ ! -f  ~/.ssh/id_rsa.pub ]
@@ -127,6 +127,9 @@ ssh-add ~/.ssh/id_rsa
 
 ruler "Install imcat"
 git clone https://github.com/stolk/imcat.git && cd imcat && make && mv imcat ~/.bin && cd .. && rm -rf imcat
+
+ruler "Install fzf-tab-completion"
+git clone https://github.com/lincheney/fzf-tab-completion && mv fzf-tab-completion ~/.fzf-tab-completion
 
 ruler "Done; Reboot manually"
 ruler "Remember to use raspi-config to enable VNC, set a resolution, change the timezone, and generate locales"
