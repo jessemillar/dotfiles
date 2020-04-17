@@ -115,7 +115,7 @@ ruler "Install fzf with Zsh support"
 git -C ~/.fzf pull origin master || git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --all
 sudo apt install fd-find
-ln -s /usr/bin/fdfind ~/.bin/fd
+ln -s /usr/bin/fdfind ~/.bin/fd || true
 
 ruler "Generate SSH keypairs"
 if [ ! -f  ~/.ssh/id_rsa.pub ]
