@@ -13,7 +13,7 @@ cd "$HOME/.neovim" || exit
 git checkout stable
 
 ruler "Compile"
-make
+CMAKE_BUILD_TYPE=RelWithDebInfo make
 
 ruler "Install"
-make install
+sudo make install

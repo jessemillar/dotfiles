@@ -19,4 +19,4 @@ ruler "Compiling"
 make
 
 ruler "Installing"
-make install
+sudo make install
