@@ -15,7 +15,7 @@ export KUBERNETES_VERSION=1.17.0
 
 # Path config
 PATH="$PATH:$GOPATH/bin"
-PATH="$PATH:$HOME/.bin"
+PATH="$HOME/.bin:$PATH"
 
 # Automatically start tmux at login
 export ZSH_TMUX_AUTOSTART=true
