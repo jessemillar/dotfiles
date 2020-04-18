@@ -39,7 +39,7 @@ moveIfSymlink "$HOME/.config/lxsession"
 moveIfSymlink "$HOME/.config/lxterminal"
 stow pixel
 
-ruler "Make .config, .bin, and Projects  directories"
+ruler "Make .config, .bin, and Projects directories"
 mkdir -p ~/.config || true
 mkdir -p ~/.bin || true
 mkdir -p ~/Projects || true
@@ -116,7 +116,7 @@ sudo apt install fd-find
 ln -s /usr/bin/fdfind ~/.bin/fd || true
 
 ruler "Generate SSH keypairs"
-if [ ! -f  ~/.ssh/id_rsa.pub ]
+if [ ! -f ~/.ssh/id_rsa.pub ]
 then
 	ssh-keygen -q -N ""
 fi
