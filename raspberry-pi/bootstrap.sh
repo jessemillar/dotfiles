@@ -131,6 +131,9 @@ git clone https://github.com/stolk/imcat.git && cd imcat && make && mv imcat ~/.
 ruler "Install fzf-tab-completion"
 git clone https://github.com/lincheney/fzf-tab-completion && mv fzf-tab-completion ~/.fzf-tab-completion
 
+ruler "Set up Trello cleaning cron job"
+(crontab -l 2>/dev/null; echo "0 9 * * * curl -X PUT $BUTLER_LEWIS_URI >/dev/null 2>&1") | sort - | uniq - | crontab -
+
 ruler "Done; Reboot manually"
 ruler "Remember to use raspi-config to enable VNC, set a resolution, change the timezone, and generate locales"
 ruler "Also set UseDNS to 'no' in /etc/ssh/sshd_config"
