@@ -20,9 +20,7 @@ source zsh/.functionsrc
 
 if ! [ -x "$(command -v mosh)" ]
 then
-	ruler "Installing mosh"
-	sudo apt update
-	sudo apt install -y mosh
+	ruler "Install/compile mosh before continuing"
 	ruler "Exit the session, reattach with mosh, and run bootstrap-pi.sh again"
 	return
 fi
