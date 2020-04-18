@@ -15,5 +15,5 @@ git checkout stable
 ruler "Compile"
 make
 
-ruler "Link the binary to ~/.bin for easy CLI access"
-ln -s ~/.neovim/build/bin/nvim ~/.bin
+ruler "Install"
+make install
