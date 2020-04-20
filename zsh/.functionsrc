@@ -330,10 +330,10 @@ function sink() {
 # General functions
 ####################
 
-# Make a not stupid version of envsubst
-function envsub() {
-	ENV="$(env | grep = | cut -d= -f1 | sed -e "s/\(.*\)/\${\1}/" | tr '\n' ',' | sed 's/,$//')"
-	envsubst "'$ENV'" <"$@"
+# Change underscores to spaces in filesname (for Ren'Py development)
+function snake() {
+	# shellcheck disable=SC2016
+	zmv '*_*' '$f:gs/_/ '
 }
 
 # Run nvim and open search if no arguments are passed

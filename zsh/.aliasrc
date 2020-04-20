@@ -3,7 +3,7 @@
 # General
 alias a="ack"
 alias ap="ack --passthru"
-alias crates="sim_arduboy -p 3 ~/Documents/Projects/crates/crates.ino.leonardo.hex"
+alias caps="setxkbmap -option caps:escape" # Reapply Caps to Escape keyboard mapping on my Pi
 alias day="date +%m-%d-%Y"
 alias e="exit"
 alias host="hostess . &"
@@ -14,6 +14,8 @@ alias mdr="mdless README.md"
 alias mdrn="mdless --no-pager README.md"
 alias play="ansible-playbook "
 alias rc="exec zsh"
+alias renpy="~/Projects/renpy/renpy.sh"
+alias snake="zmv '*_*' '$f:gs/_/ '" # Change underscores to spaces in filesname (for Ren'Py development)
 alias tmp="mkdir tmp 2>/dev/null || true && cd tmp"
 alias tree="tree -a -I '.git'"
 alias vimrc="nvim ~/.config/nvim/init.vim"
