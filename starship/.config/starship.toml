@@ -11,6 +11,7 @@ symbol = "📦 "
 symbol = ""
 
 [directory]
+prefix = "🔥 "
 truncation_length = 8
 
 [hostname]
