@@ -15,7 +15,6 @@ alias mdrn="mdless --no-pager README.md"
 alias play="ansible-playbook "
 alias rc="exec zsh"
 alias renpy="~/Projects/renpy/renpy.sh"
-alias snake="zmv '*_*' '$f:gs/_/ '" # Change underscores to spaces in filesname (for Ren'Py development)
 alias tmp="mkdir tmp 2>/dev/null || true && cd tmp"
 alias tree="tree -a -I '.git'"
 alias vimrc="nvim ~/.config/nvim/init.vim"
