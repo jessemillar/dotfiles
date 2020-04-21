@@ -6,19 +6,20 @@
 
 # TODO Turn this into a Makefile target in the actual project
 function poots() {
-	ruler "Did you run az login?"
-	wd validator
-	make provision-kind && \
-	kustomize build deploy/bootstrap-prod | envsubst | k apply -f - && \
-	kustomize build deploy/bases/monitoring/metrics-exporter | k apply -f - && \
-	kaf config/samples/test1.yaml -n validations
+	(
+		wd validator
+		make provision-kind && \
+		kustomize build deploy/bootstrap-prod | envsubst | k apply -f - && \
+		kustomize build deploy/bases/monitoring/metrics-exporter | k apply -f - && \
+		kaf config/samples/test1.yaml -n validations
+	)
 }
 
 function butts() {
 	(
 		wd validator
 		cd deploy/bases/prometheus || return
-		kustomize edit set image exporter=jessemillarprovision.azurecr.io/aks/prom-to-geneva:test
+		kustomize edit set image exporter=localhost:5000/aks/prom-to-geneva:test
 		kustomize build . | k apply -f -
 	)
 }
