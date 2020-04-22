@@ -7,10 +7,16 @@
 # TODO Turn this into a Makefile target in the actual project
 function poots() {
 	(
+		export AZURE_SUBSCRIPTION_ID="poots"
+
 		wd validator
+		ruler "make provision-kind" && \
 		make provision-kind && \
+		ruler "kustomize bootstrap-prod" && \
 		kustomize build deploy/bootstrap-prod | envsubst | k apply -f - && \
+		ruler "kustomize monitoring" && \
 		kustomize build deploy/bases/monitoring/metrics-exporter | k apply -f - && \
+		ruler "Deploy noop validator" && \
 		kaf config/samples/test1.yaml -n validations
 	)
 }
@@ -19,7 +25,9 @@ function butts() {
 	(
 		wd validator
 		cd deploy/bases/prometheus || return
+		ruler "Point to local repository" && \
 		kustomize edit set image exporter=localhost:5000/aks/prom-to-geneva:test
+		ruler "kustomize build and apply" && \
 		kustomize build . | k apply -f -
 	)
 }
@@ -441,6 +449,15 @@ function usage() {
 ####################
 # Kubernetes functions
 ####################
+
+# Quickly find and type out a pod's name and namespace
+# Usage: klf $(kgpf)
+function kgpf() {
+	POD_INFO="$(k get pods --all-namespaces | fzf)"
+	NAMESPACE="$(echo "$POD_INFO" | awk '{print $1}')"
+	POD="$(echo "$POD_INFO" | awk '{print $2}')"
+	echo "-n $NAMESPACE $POD"
+}
 
 # Get all logs from the Kind cluster
 function kla() {
