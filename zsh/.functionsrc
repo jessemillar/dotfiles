@@ -327,14 +327,29 @@ function sink() {
 }
 
 ####################
-# General functions
+# Ren'Py functions
 ####################
 
-# Change underscores to spaces in filesname (for Ren'Py development)
+# Change underscores to spaces in filesname
 function snake() {
 	# shellcheck disable=SC2016
 	zmv '*_*' '$f:gs/_/ '
 }
+
+# Resize images from the 1080p resolution on my iPad to the 720p resolution used in Ren'Py
+function renify() {
+	mv "$1" "$1.bak"
+	convert "$1.bak" -resize 66.666% "$1"
+}
+
+# Print image dimensions
+function imid() {
+	identify -format "%wx%h" "$1"
+}
+
+####################
+# General functions
+####################
 
 # Run nvim and open search if no arguments are passed
 function v() {
