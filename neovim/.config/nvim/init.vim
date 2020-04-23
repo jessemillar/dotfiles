@@ -125,8 +125,8 @@ nnoremap <C-P> :Files<CR>
 tnoremap <C-P> :Files<CR>
 
 " Map fzf's string search to Control + F
-nnoremap <C-F> :Rg<CR>
-tnoremap <C-F> :Rg<CR>
+nnoremap <C-F> :Rg
+tnoremap <C-F> :Rg
 
 " Use ripgrep to search for the word under the cursor
 nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>

@@ -100,6 +100,5 @@ alias ke="k exec"
 alias kg="k get"
 alias kgpa="k get pods --all-namespaces"
 alias kgn="k get namespaces"
-alias kpfe="k port-forward --address 0.0.0.0"
 ## Custom functions
 alias kgv="k get validations -n validations"
