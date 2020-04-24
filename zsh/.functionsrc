@@ -96,6 +96,10 @@ azlogin() {
 }
 
 # Quickly cat or edit the latest #snippet doc (and auto commit the changes)
+# Usage: `snippet` (edits current week's snippet)
+#        `snippet -c` (`cat` out the contents of the current week's snippet for copypasta)
+#        `snippet -l` (edit last week's snippet)
+#        `snippet -lc` (`cat` last week's snippet for copypasta)
 function snippet() {
 	(
 	# Get values from flags
