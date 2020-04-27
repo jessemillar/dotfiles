@@ -210,6 +210,7 @@ map ]q :cnext<CR>
 map [Q :cfirst<CR>
 map ]Q :clast<CR>
 map [d :cdo<space>
+map ]d :cdo<space>
 nnoremap [a :cclose<CR>
 
 " Run goimports instead of gofmt
