@@ -52,7 +52,7 @@ stow starship
 stow tmux
 
 ruler "Install general packages"
-sudo apt install -y ack fonts-firacode git grep imagemagick less python python3 python3-pip ripgrep shellcheck snapd tldr tmux tree unzip watch xfce4 zsh
+sudo apt install -y ack fonts-firacode fonts-noto git grep imagemagick less python python3 python3-pip ripgrep shellcheck snapd tldr tmux tree unzip watch xfce4 zsh
 
 ruler "Install Lua packages"
 sudo apt install -y luarocks
