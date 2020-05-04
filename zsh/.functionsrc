@@ -350,9 +350,16 @@ function snake() {
 }
 
 # Resize images from the 1080p resolution on my iPad to the 720p resolution used in Ren'Py
-function renify() {
+function renimg() {
 	mv "$1" "$1.bak"
 	convert "$1.bak" -resize 66.666% "$1"
+}
+
+# Convert sound files to OGG
+function rensfx() {
+	# shellcheck disable=SC2001
+	NEW_NAME=$(echo "$1" | sed 's/\..*$/\.ogg/g')
+	ffmpeg -i "$1" -acodec libvorbis "$NEW_NAME"
 }
 
 # Print image dimensions
