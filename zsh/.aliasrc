@@ -96,6 +96,7 @@ alias kapi="k api-resources --sort-by=name"
 # TODO Remove once I'm used to the Oh My Zsh kubectl plugin aliases
 alias kd="k describe"
 alias ke="k exec"
+alias kf="kgpf"
 # TODO Remove once I'm used to the Oh My Zsh kubectl plugin aliases
 alias kg="k get"
 alias kgpa="k get pods --all-namespaces"
