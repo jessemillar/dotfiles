@@ -2,9 +2,6 @@
 
 ## Summary
 
-## Timeline
-
-- []
 
 ## What Didn't Go Well
 
@@ -14,16 +11,16 @@
 
 -
 
-## Lessons Learned
+## Results
 
 -
 
-## Links
+## Appendix
 
-### General
-
-- []()
-
-### Artifacts
+### Links
 
 - []()
+
+### Timeline
+
+- []
