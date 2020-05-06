@@ -70,8 +70,8 @@ set completeopt-=preview
 let g:NERDSpaceDelims = 1
 
 " Configure template files that are autoloaded when creating a new file with a certain filename
-au BufNewFile *.sh 0r ~/.templates/bash.sh
-au BufNewFile *.yaml 0r ~/.templates/yaml.yaml
+au BufNewFile *.sh,\.*rc 0r ~/.templates/bash.sh
+au BufNewFile *.yaml,*.yml 0r ~/.templates/yaml.yaml
 au BufNewFile postmortem-*.md 0r ~/.templates/postmortem.md
 au BufNewFile Dockerfile 0r ~/.templates/Dockerfile
 
