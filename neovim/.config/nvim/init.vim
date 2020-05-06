@@ -19,6 +19,7 @@ Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'machakann/vim-sandwich'
+Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'othree/eregex.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'roxma/vim-paste-easy'
@@ -53,6 +54,15 @@ hi Normal guibg=NONE ctermbg=NONE
 
 " Use Escape to exit insert mode in the terminal
 :tnoremap <Esc> <C-\><C-n>
+
+" Save and quit windows/buffers with all typo permutations
+:command W w
+cnoreabbrev wq w<bar>Sayonara
+cnoreabbrev WQ w<bar>Sayonara
+cnoreabbrev wQ w<bar>Sayonara
+cnoreabbrev Wq w<bar>Sayonara
+cnoreabbrev  q Sayonara
+cnoreabbrev  Q Sayonara
 
 " Trim trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
