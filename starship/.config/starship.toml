@@ -26,3 +26,8 @@ disabled = false
 show_percentage = true
 style = "bold white"
 threshold = 50
+
+[kubernetes]
+disabled = false
+symbol = "💀 "
+style = "bold white"
