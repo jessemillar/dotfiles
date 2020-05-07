@@ -13,14 +13,14 @@ I utilize a combination of [GNU Stow](https://www.gnu.org/software/stow/) and [A
 ## Usage
 
 1. Make sure your current user has `sudo` permissions (either has a password or is marked as `NOPASSWD` in `/etc/passwd`)
-1. Run the following commands
+1. Run the following commands:
 
-```
-git clone https://github.com/jessemillar/dotfiles.git
-mv dotfiles ~/.dotfiles
-cd ~/.dotfiles
-./bootstrap.sh
-```
+	```
+	git clone https://github.com/jessemillar/dotfiles.git
+	mv dotfiles ~/.dotfiles
+	cd ~/.dotfiles
+	./bootstrap.sh
+	```
 
 1. Follow "Manual Steps" below
 
@@ -30,6 +30,12 @@ cd ~/.dotfiles
 
 1. Put necessary workstation SSH keys in `~/.ssh/authorized_keys`
 1. Upload `~/.ssh/id_rsa.pub` to GitHub
+1. Change the remote URL of local copy of the dotfiles repo to use SSH instead of HTTPS:
+
+	```
+	git remote set-url origin git@github.com:jessemillar/dotfiles.git
+	```
+
 1. Run workstation-specific Ansible playbooks (e.g. `ansible-playbook-work.yml`)
 1. Install Aseprite from Humble Bundle or via code compilation
 
