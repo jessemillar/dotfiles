@@ -69,6 +69,6 @@ style = "bold white"
 threshold = 50
 
 [kubernetes]
-disabled = false
+disabled = true
 symbol = "💀 "
 style = "bold white"
