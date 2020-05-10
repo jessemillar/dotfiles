@@ -53,6 +53,9 @@ hi Normal guibg=NONE ctermbg=NONE
 " Use Escape to exit insert mode in the terminal
 :tnoremap <Esc> <C-\><C-n>
 
+" Set the filetype of Ren'Py files
+autocmd BufNewFile,BufRead *.rpy set filetype=python
+
 " Save and quit windows/buffers with all typo permutations
 :command W w
 cnoreabbrev wq w<bar>Sayonara
