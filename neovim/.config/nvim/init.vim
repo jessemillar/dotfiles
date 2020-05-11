@@ -13,6 +13,7 @@ Plug 'benmills/vimux'
 Plug 'brooth/far.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
+Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/tmuxline.vim', { 'do': ':TmuxlineSnapshot! ~/.dotfiles/tmux/tmuxline.conf' }
 Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
@@ -33,9 +34,30 @@ Plug 'zivyangll/git-blame.vim'
 
 call plug#end()
 
+" Change <Leader> to be left hand-friendly
+:let mapleader = "`"
+
 " Use the Nord color scheme with true color support
 colorscheme nord
 set termguicolors
+
+" Set the colors for vim-easymotion
+hi link EasyMotionTarget ErrorMsg
+hi link EasyMotionShade  Comment
+hi link EasyMotionTarget2First MatchParen
+hi link EasyMotionTarget2Second MatchParen
+hi link EasyMotionMoveHL Search
+hi link EasyMotionIncSearch Search
+
+" Set shortcuts for vim-easymotion
+" Disable default mappings
+let g:EasyMotion_do_mapping = 0
+nmap <Leader><Space> <Plug>(easymotion-overwin-f)
+" Turn on case-insensitive search
+let g:EasyMotion_smartcase = 1
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
 " Tell far to use ack
 let g:far#source = 'acknvim'
