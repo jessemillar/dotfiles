@@ -82,6 +82,10 @@
       homebrew:
         name: github/gh/gh
         state: present
+    - name: Install glow
+      homebrew:
+        name: glow
+        state: present
     - name: Install grep
       homebrew:
         name: grep
@@ -256,15 +260,4 @@
       changed_when: false
     - name: Update tldr
       shell: tldr --update
-      changed_when: false
-    # Install mdless and applicable themes/deps for quickly viewing Markdown files
-    - name: Install mdless
-      gem:
-        name: mdless
-        state: present
-      # TODO Make this properly report when it changes
-      changed_when: false
-    - name: Install Nord theme for mdless/Pygments
-      shell: pip3 install nord-pygments -U
-      # TODO Make this properly report when it changes
       changed_when: false
