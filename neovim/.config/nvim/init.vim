@@ -19,7 +19,6 @@ Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'machakann/vim-sandwich'
-Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'preservim/nerdcommenter'
 Plug 'roxma/vim-paste-easy'
 Plug 'roxma/vim-tmux-clipboard'
@@ -79,13 +78,13 @@ hi Normal guibg=NONE ctermbg=NONE
 autocmd BufNewFile,BufRead *.rpy set filetype=python
 
 " Save and quit windows/buffers with all typo permutations
-:command W w
-cnoreabbrev wq w<bar>Sayonara
-cnoreabbrev WQ w<bar>Sayonara
-cnoreabbrev wQ w<bar>Sayonara
-cnoreabbrev Wq w<bar>Sayonara
-cnoreabbrev  q Sayonara
-cnoreabbrev  Q Sayonara
+:command  W w
+:command wq w<bar>q
+:command WQ w<bar>q
+:command wQ w<bar>q
+:command Wq w<bar>q
+:command  q q
+:command  Q q
 
 " Trim trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e

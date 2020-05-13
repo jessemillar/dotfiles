@@ -2,7 +2,7 @@
   "document": {
     "block_prefix": "\n",
     "block_suffix": "\n",
-    "color": "#ECEFF4",
+    "color": "32",
     "indent": 2
   },
   "block_quote": {
@@ -15,7 +15,7 @@
   },
   "heading": {
     "block_suffix": "\n",
-    "color": "#5E81AC",
+    "color": "ff0000",
     "bold": true
   },
   "h1": {
