@@ -19,9 +19,6 @@
     - name: Stow dotfiles for Git
       command: stow git
       changed_when: false
-    - name: Stow dotfiles for mdless
-      command: stow mdless
-      changed_when: false
     - name: Stow dotfiles for Neovim
       command: stow neovim
       changed_when: false
