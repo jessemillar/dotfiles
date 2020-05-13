@@ -283,7 +283,7 @@ function g() {
 }
 
 # Generate a .gitignore file using gitignore.io
-function gi() {
+function gitignore() {
 	if [ -z "$1" ]
 	then
 		curl -L -s https://www.gitignore.io/api/linux,macos,windows
