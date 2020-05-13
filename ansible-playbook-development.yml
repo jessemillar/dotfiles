@@ -78,6 +78,10 @@
       homebrew:
         name: git
         state: present
+    - name: Install gh
+      homebrew:
+        name: github/gh/gh
+        state: present
     - name: Install grep
       homebrew:
         name: grep
