@@ -69,7 +69,7 @@ alias gb="git branch -a"
 alias gbd="git branch -D"
 alias gc="git checkout"
 alias gcb="git checkout -b"
-alias gcl="git clone"
+alias gcl="gh repo clone"
 alias gcm="git checkout master"
 alias gd="git diff --ignore-all-space"
 alias gdc="git --no-pager diff --check"
@@ -89,6 +89,7 @@ alias gsc="git stash clear"
 alias gsu="git stash -u"
 alias gt="git tag"
 alias gtl="git tag -l"
+alias gv="gh repo view"
 
 # Kubernetes (there are also a few functions defined in .functionsrc)
 ## General functions
