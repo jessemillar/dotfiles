@@ -79,11 +79,8 @@ autocmd BufNewFile,BufRead *.rpy set filetype=python
 
 " Save and quit windows/buffers with all typo permutations
 :command  W w
-:command wq w<bar>q
-:command WQ w<bar>q
-:command wQ w<bar>q
-:command Wq w<bar>q
-:command  q q
+:command WQ wq
+:command Wq wq
 :command  Q q
 
 " Trim trailing whitespace on save
