@@ -127,7 +127,7 @@ ruler "Install imcat"
 git clone https://github.com/stolk/imcat.git && cd imcat && make && mv imcat ~/.bin && cd .. && rm -rf imcat
 
 ruler "Install fzf-tab-completion"
-rm -rf fzf-tab-completion || true && git clone https://github.com/lincheney/fzf-tab-completion && mv fzf-tab-completion ~/.fzf-tab-completion
+rm -rf ~/.fzf-tab-completion || true && git clone https://github.com/lincheney/fzf-tab-completion && mv fzf-tab-completion ~/.fzf-tab-completion
 
 ruler "Set up Trello cleaning cron job"
 (crontab -l 2>/dev/null; echo "0 9 * * * curl -X PUT $BUTLER_LEWIS_URI >/dev/null 2>&1") | sort - | uniq - | crontab -
