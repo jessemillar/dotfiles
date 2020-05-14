@@ -11,6 +11,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
 Plug 'benmills/vimux'
 Plug 'brooth/far.vim'
+Plug 'chrisbra/Colorizer'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
 Plug 'easymotion/vim-easymotion'

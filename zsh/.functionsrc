@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 
 ####################
+# Temporary functions
+####################
+
+# Search a theme file for color references that aren't included in the Nord palette
+function nord() {
+	ack "color" "$1" | ack --invert-match '2E3440|3B4252|434C5E|4C566A|D8DEE9|E5E9F0|ECEFF4k|8FBCBB|88C0D0|81A1C1|5E81AC|BF616A|D08770|EBCB8B|A3BE8C|B48EAD'
+}
+
+####################
 # Work functions
 ####################
 
@@ -31,7 +40,6 @@ function butts() {
 		kustomize build . | k apply -f -
 	)
 }
-
 
 # Get logs from the Validator manager
 function validatorLogs() {
