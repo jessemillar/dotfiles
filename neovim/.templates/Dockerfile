@@ -1,3 +1,3 @@
 FROM scratch
-ADD hello /
-CMD ["/hello"]
+ADD service /
+CMD ["/service"]
