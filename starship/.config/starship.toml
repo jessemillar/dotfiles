@@ -72,3 +72,6 @@ threshold = 50
 disabled = true
 symbol = "💀 "
 style = "bold white"
+
+[rust]
+symbol = "🐚 "

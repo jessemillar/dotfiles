@@ -8,7 +8,7 @@ export GO111MODULE=on
 export DELVE_EDITOR="$(which nvim)"
 
 # Set Neovim as my terminal editor of choice
-export EDITOR="nvim"
+export EDITOR="$(which nvim)"
 
 # Kubebuilder asset setup
 export KUBEBUILDER_ASSETS="$HOME/.bin/"
@@ -37,6 +37,9 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --color fg:-1,bg:-1,hl:#A3BE8C,fg+:#D8DEE9,bg+:#434C5E,hl+:#A3BE8C,border:#616E88
 --color pointer:#BF616A,info:#4C566A,spinner:#4C566A,header:#4C566A,prompt:#81A1C1,marker:#EBCB8B
 '
+
+# Set the style to use with apps utilizing the Glamour rendering library
+export GLAMOUR_STYLE="/home/jessemillar/.dotfiles/glow/nord.json"
 
 # Use the Nord theme with bat and force truecolor support
 export BAT_THEME="Nord"
