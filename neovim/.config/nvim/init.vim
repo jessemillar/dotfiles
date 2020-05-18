@@ -276,6 +276,7 @@ command! Blame :call gitblame#echo()
 set hidden
 let g:LanguageClient_serverCommands = {
 	      \ 'go': ['gopls'],
+	      \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
 	      \ 'yaml': ['yaml-language-server', '--stdio'],
 	      \ 'sh': ['bash-language-server', 'start'],
     \ }

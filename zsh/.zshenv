@@ -44,3 +44,6 @@ export GLAMOUR_STYLE="/home/jessemillar/.dotfiles/glow/nord.json"
 # Use the Nord theme with bat and force truecolor support
 export BAT_THEME="Nord"
 export COLORTERM="truecolor"
+
+# The port used for locally testing Heroku projects
+export PORT="8080"
