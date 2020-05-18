@@ -50,6 +50,7 @@ symbol = "📦 "
 
 [package]
 symbol = ""
+style = "bold yellow"
 
 [directory]
 prefix = "🔥 "
