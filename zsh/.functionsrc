@@ -406,15 +406,20 @@ function s() {
 
 # Fuzzy cd to selected directory
 function cdf() {
-	# DIR=$(find ${1:-.} -type d 2> /dev/null | fzf +m)
-	DIR=$(find . -type d 2> /dev/null | fzf +m)
-	print -z -- "cd $DIR"
+	DIR=$(find . -type d 2> /dev/null | fzf +m --layout=reverse)
+	if [ -n "$DIR" ]
+	then
+		print -z -- "cd $DIR"
+	fi
 }
 
 # Fuzzy cd into the directory of the selected file
 function cdff() {
-	FILE=$(fzf +m -q "$1") && DIR=$(dirname "$FILE")
-	print -z -- "cd $DIR"
+	FILE=$(fzf +m --layout=reverse -q "$1") && DIR=$(dirname "$FILE")
+	if [ -n "$DIR" ]
+	then
+		print -z -- "cd $DIR"
+	fi
 }
 
 # Quickly make a warp point with the name of the current directory
@@ -499,7 +504,7 @@ function usage() {
 # Quickly find and type out a pod's name and namespace
 # Usage: klf $(kgpf)
 function kgpf() {
-	POD_INFO="$(k get pods --all-namespaces | fzf)"
+	POD_INFO="$(k get pods --all-namespaces | fzf --layout=reverse)"
 	NAMESPACE="$(echo "$POD_INFO" | awk '{print $1}')"
 	POD="$(echo "$POD_INFO" | awk '{print $2}')"
 	echo "-n $NAMESPACE $POD"
