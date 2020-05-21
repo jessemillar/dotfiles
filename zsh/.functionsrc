@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ####################
-# Temporary functions
+# Temp functions
 ####################
 
 # Search a theme file for color references that aren't included in the Nord palette
@@ -13,16 +13,24 @@ function nord() {
 # Work functions
 ####################
 
+function getMdmSecret() {
+	(
+		export KUBECONFIG=~/.kubeconfigs/stg-prod-kubeconfig
+		k get secrets -n monitoring mdm-certificates -o yaml > mdm-secret
+		export KUBECONFIG=
+		k config use-context kind-kind
+		k apply -f mdm-secret
+	)
+}
+
 # TODO Turn this into a Makefile target in the actual project
-function poots() {
+function deployMonitoringAndNoopValidatorToLocalCluster() {
 	(
 		export AZURE_SUBSCRIPTION_ID="poots"
 
 		wd validator
 		ruler "make provision-kind" && \
 		make provision-kind && \
-		ruler "kustomize bootstrap-prod" && \
-		kustomize build deploy/bootstrap-prod | envsubst | k apply -f - && \
 		ruler "kustomize monitoring" && \
 		kustomize build deploy/bases/monitoring/metrics-exporter | k apply -f - && \
 		ruler "Deploy noop validator" && \
@@ -30,6 +38,7 @@ function poots() {
 	)
 }
 
+# TODO What does this do? I don't remember why I made it.
 function butts() {
 	(
 		wd validator
@@ -48,7 +57,7 @@ function validatorLogs() {
 }
 
 # Test local Validator code by deploying to the Kind cluster and examining logs
-function loopKind() {
+function kindDevelopmentLoop() {
 	ruler "Redeploying"
 	make redeploy-validator
 	ruler "Sleeping"
@@ -58,49 +67,11 @@ function loopKind() {
 }
 
 # Test local Validator code without deploying to the Kind cluster
-function loopLocal() {
+function localDevelopmentLoop() {
 	ruler "Deleting manager"
 	kdelr pod -n validator-crd-system validator-crd-controller-manager
 	ruler "Running make run"
 	make run
-}
-
-# Putting this here until I move it into aks-ci
-function deployNanny() {
-	ruler "Building Nanny"
-	./aks-ci underlay-nanny-build
-	ruler "Building Nanny Docker container"
-	./aks-ci underlay-nanny-docker-build
-	ruler "Pushing Nanny Docker container"
-	./aks-ci underlay-nanny-docker-push
-	ruler "Setting permissions on cluster"
-	kubectl create clusterrolebinding permissive-binding --clusterrole=cluster-admin --user=admin --user=kubelet --group=system:serviceaccounts
-	ruler "Deleting existing helm deployment"
-	h del --purge underlay-nanny
-	ruler "Purging namespace"
-	kubectl delete ns infra
-	ruler "Deploying to cluster"
-	envsubst < docs/helm-deploy.sh | bash
-	ruler "Sleeping for 30 seconds"
-	sleep 30
-	ruler "Getting logs"
-	getNannyLogs
-}
-
-function getNannyLogs() {
-	k logs -f -n infra "$(k get po -n infra | grep 'Running\|Completed\|CrashLoopBackOff' | awk '{print $1}')"
-}
-
-# This function mimics `eval $(aksiknife dev-setup)` but uses pass to circumvent the need for an AME card
-azlogin() {
-	AZURE_TENANT_ID=$(pass show "$1"/"$2"/azure-tenant-id)
-	export AZURE_TENANT_ID
-	AZURE_CLIENT_ID=$(pass show "$1"/"$2"/azure-client-id)
-	export AZURE_CLIENT_ID
-	AZURE_CLIENT_SECRET=$(pass show "$1"/"$2"/azure-client-secret)
-	export AZURE_CLIENT_SECRET
-
-	az login --tenant "$AZURE_TENANT_ID" --service-principal -u "$AZURE_CLIENT_ID" -p "$AZURE_CLIENT_SECRET"
 }
 
 # Quickly cat or edit the latest #snippet doc (and auto commit the changes)
