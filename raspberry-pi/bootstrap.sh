@@ -84,6 +84,7 @@ sudo npm install -g lua-fmt
 
 ruler "Install Rust"
 curl https://sh.rustup.rs -sSf | sh -s -- -y
+# shellcheck disable=SC1090
 source "$HOME"/.cargo/env
 
 ruler "Install the Starship prompt"

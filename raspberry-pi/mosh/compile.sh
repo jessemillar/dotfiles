@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# shellcheck disable=SC1090
 source ~/.dotfiles/zsh/.functionsrc
 
 ruler "Installing deps"
