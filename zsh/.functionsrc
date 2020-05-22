@@ -36,6 +36,7 @@ function getMdmSecret() {
 		export KUBECONFIG=
 		k config use-context kind-kind
 		k apply -f mdm-secret
+		rm mdm-secret
 	)
 }
 
