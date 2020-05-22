@@ -262,3 +262,4 @@
       changed_when: false
     - name: Run brew cleanup
       shell: brew cleanup
+      changed_when: false
