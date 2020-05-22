@@ -260,3 +260,5 @@
     - name: Update tldr
       shell: tldr --update
       changed_when: false
+    - name: Run brew cleanup
+      shell: brew cleanup
