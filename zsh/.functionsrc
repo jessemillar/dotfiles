@@ -13,6 +13,22 @@ function nord() {
 # Work functions
 ####################
 
+function updatePodRegistries() {
+	for node in $(kind get nodes); do
+		kubectl annotate node "${node}" "kind.x-k8s.io/registry=localhost:5000";
+	done
+}
+
+function promMdmDevelopmentLoop() {
+	(
+		wd validator
+		getMdmSecret
+		deployMonitoringAndNoopValidatorToLocalCluster
+		make redeploy-prom-mdm-converter
+		updatePodRegistries
+	)
+}
+
 function getMdmSecret() {
 	(
 		export KUBECONFIG=~/.kubeconfigs/stg-prod-kubeconfig

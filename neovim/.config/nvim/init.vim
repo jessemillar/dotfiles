@@ -119,7 +119,7 @@ inoremap <silent><expr><s-tab> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 command! Shebang :normal! i#!/usr/bin/env bash<CR><Esc>
 
 " A custom function for populating Man Hour badges in README files
-command! ManHours :normal! i[![Man Hours](https://img.shields.io/endpoint?url=https%3A%2F%2Fjessemillar-man-hours.herokuapp.com%2Fhours%3Frepo%3Dhttps%3A%2F%2Fgithub.com%2F<USERNAME>%2F<REPO>.git)](https://github.com/jessemillar/man-hours)<Esc>
+command! ManHours :normal! i[![Man Hours](https://img.shields.io/endpoint?url=https%3A%2F%2Fmh.jessemillar.com%2Fhours%3Frepo%3Dhttps%3A%2F%2Fgithub.com%2F<USERNAME>%2F<REPO>.git)](https://jessemillar.com/r/man-hours)<Esc>
 
 " Make a shortcut for killing smart quotes
 command! SmartQuotes :%s/’/'/ge | :%s/[“”]/"/ge

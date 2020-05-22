@@ -100,7 +100,7 @@ alias kapi="k api-resources --sort-by=name"
 alias kc="export KUBECONFIG="
 # TODO Remove once I'm used to the Oh My Zsh kubectl plugin aliases
 alias kd="k describe"
-alias ke="k exec"
+alias ke="k exec -it"
 alias kf="kgpf"
 # TODO Remove once I'm used to the Oh My Zsh kubectl plugin aliases
 alias kg="k get"
