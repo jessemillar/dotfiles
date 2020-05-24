@@ -134,7 +134,7 @@ ruler "Set up Trello cleaning cron job"
 (crontab -l 2>/dev/null; echo "15 8 * * * curl -X PUT $BUTLER_LEWIS_URI >/dev/null 2>&1") | sort - | uniq - | crontab -
 
 ruler "Set up Man Hours Badge keep alive cron job"
-(crontab -l 2>/dev/null; echo "0,30 7-23 * * * curl -X GET https://mh.jessemillar.com/ping >/dev/null 2>&1") | sort - | uniq - | crontab -
+(crontab -l 2>/dev/null; echo "0,30 7-22 * * * curl -X GET https://mh.jessemillar.com/ping >/dev/null 2>&1") | sort - | uniq - | crontab -
 
 ruler "Done; Reboot manually"
 ruler "Remember to use raspi-config to enable VNC, set a resolution, change the timezone, and generate locales"
