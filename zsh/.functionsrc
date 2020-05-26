@@ -167,8 +167,6 @@ function gnew() {
 	else
 		gh repo create "$1" --public --description "$2"
 	fi
-
-	gh repo clone "$1"
 }
 
 # Quickly make Git ignore a file's changes
