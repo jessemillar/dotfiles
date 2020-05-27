@@ -490,7 +490,13 @@ function usage() {
 # Quickly find and type out a pod's name and namespace
 # Usage: klf $(kgpf)
 function kgpf() {
-	POD_INFO="$(k get pods --all-namespaces | fzf --layout=reverse)"
+	if [[ -z "$1" ]]
+	then
+		POD_INFO="$(k get pods --all-namespaces | fzf --layout=reverse)"
+	else
+		POD_INFO="$(k get pods --all-namespaces | grep "$1" | head -1)"
+	fi
+
 	NAMESPACE="$(echo "$POD_INFO" | awk '{print $1}')"
 	POD="$(echo "$POD_INFO" | awk '{print $2}')"
 	echo "-n $NAMESPACE $POD"
