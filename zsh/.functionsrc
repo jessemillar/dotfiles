@@ -50,8 +50,10 @@ function deployMonitoringAndNoopValidatorToLocalCluster() {
 		make provision-kind && \
 		ruler "kustomize monitoring" && \
 		kustomize build deploy/bases/monitoring/metrics-exporter | k apply -f - && \
-		ruler "Deploy noop validator" && \
+		ruler "Deploy a noop validator" && \
 		kaf config/samples/test1.yaml -n validations
+		ruler "Deploy a failing noop validator" && \
+		kaf config/samples/failing_noop_validation.yaml -n validations
 	)
 }
 
