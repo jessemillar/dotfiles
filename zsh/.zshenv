@@ -14,7 +14,7 @@ export EDITOR="$(which nvim)"
 export KUBEBUILDER_ASSETS="$HOME/.bin/"
 
 # Manually specify the version of Kubernetes so Kind works (doesn't support the latest kubectl)
-export KUBERNETES_VERSION=1.17.0
+export KUBERNETES_VERSION=1.16.9
 
 # Path config
 PATH="$PATH:$GOPATH/bin"

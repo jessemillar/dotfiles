@@ -30,6 +30,7 @@ style = "bold white"
 [kubernetes.context_aliases]
 "kind-kind" = "kind"
 "validator-control-plane" = "stg"
+"jessemillar-provision-test" = "dev"
 
 [rust]
 symbol = "🐚 "

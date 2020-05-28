@@ -41,13 +41,9 @@ function getMdmSecret() {
 }
 
 # TODO Turn this into a Makefile target in the actual project
-function deployMonitoringAndNoopValidatorToLocalCluster() {
+function deployMonitoringAndTestValidations() {
 	(
-		export AZURE_SUBSCRIPTION_ID="poots"
-
 		wd validator
-		ruler "make provision-kind" && \
-		make provision-kind && \
 		ruler "kustomize monitoring" && \
 		kustomize build deploy/bases/monitoring/metrics-exporter | k apply -f - && \
 		ruler "Deploy a noop validator" && \
