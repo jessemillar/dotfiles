@@ -24,6 +24,12 @@ PATH="$HOME/.bin:$PATH"
 export ZSH_TMUX_AUTOSTART=true
 export ZSH_TMUX_AUTOQUIT=false
 
+# Configure the Azure Speech API
+export SPEECHSDK_ROOT="$HOME/.speechsdk"
+export CGO_CFLAGS="-I$SPEECHSDK_ROOT/include/c_api"
+export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib/arm32 -lMicrosoft.CognitiveServices.Speech.core"
+export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/arm32:$LD_LIBRARY_PATH"
+
 # Make tmux-yank work
 export DISPLAY=:0
 
