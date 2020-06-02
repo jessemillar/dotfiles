@@ -29,6 +29,19 @@ function promMdmDevelopmentLoop() {
 	)
 }
 
+function recreateValidatorCluster() {
+	ruler "Deleting Kind cluster"
+	kind delete cluster
+	ruler "Destroying Docker containers and networks"
+	scuttle
+	ruler "Running make provision-kind"
+	make provision-kind
+	ruler "Grabbing the MDM secret from stage"
+	getMdmSecret
+	ruler "Deploy prom-mdm-converter and some testing validations"
+	deployMonitoringAndTestValidations
+}
+
 function getMdmSecret() {
 	(
 		export KUBECONFIG=~/.kubeconfigs/stg-prod-kubeconfig
@@ -44,12 +57,15 @@ function getMdmSecret() {
 function deployMonitoringAndTestValidations() {
 	(
 		wd validator
+		ruler "Build and push the prom-mdm-converter container"
+		make redeploy-prom-mdm-converter
 		ruler "kustomize monitoring" && \
 		kustomize build deploy/bases/monitoring/metrics-exporter | k apply -f - && \
 		ruler "Deploy a noop validator" && \
 		kaf config/samples/test1.yaml -n validations
 		ruler "Deploy a failing noop validator" && \
 		kaf config/samples/failing_noop_validation.yaml -n validations
+		kaf config/samples/sometimes_failing_noop_validation.yaml -n validations
 	)
 }
 
@@ -336,6 +352,7 @@ function drydock() {
 function scuttle() {
 	docker kill "$(docker ps -a -q)" 2>/dev/null || true
 	docker rm "$(docker ps -a -q)" 2>/dev/null || true
+	docker network prune -f || true
 }
 
 # Remove everything Docker-related

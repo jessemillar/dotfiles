@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+
+# Load up the Brew environment only if it exists
 test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # Go setup
@@ -26,9 +29,9 @@ export ZSH_TMUX_AUTOQUIT=false
 
 # Configure the Azure Speech API
 export SPEECHSDK_ROOT="$HOME/.speechsdk"
-export CGO_CFLAGS="-I$SPEECHSDK_ROOT/include/c_api"
-export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib/arm32 -lMicrosoft.CognitiveServices.Speech.core"
-export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/arm32:$LD_LIBRARY_PATH"
+test -d "$SPEECHSDK_ROOT" && export CGO_CFLAGS="-I$SPEECHSDK_ROOT/include/c_api"
+test -d "$SPEECHSDK_ROOT" && export CGO_LDFLAGS="-L$SPEECHSDK_ROOT/lib/arm32 -lMicrosoft.CognitiveServices.Speech.core"
+test -d "$SPEECHSDK_ROOT" && export LD_LIBRARY_PATH="$SPEECHSDK_ROOT/lib/arm32:$LD_LIBRARY_PATH"
 
 # Make tmux-yank work
 export DISPLAY=:0
