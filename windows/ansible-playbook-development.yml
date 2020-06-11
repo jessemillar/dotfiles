@@ -1,10 +1,6 @@
 # This playbook installs apps and packages needed for general development
 - hosts: localhost
   tasks:
-    - name: Change Caps Lock to Escape via AutoHotkey
-      copy:
-        src: ~/.dotfiles/windows/autohotkey/caps-to-escape.ahk
-        dest: /mnt/c/Users/jemillar/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup
     - name: Copy WSL SSH key
       copy:
         src: '{{ item }}'
