@@ -392,6 +392,26 @@ function imid() {
 # General functions
 ####################
 
+function scratch() {
+	(
+	# Get values from flags
+	COPY_MODE=false
+	while getopts "c" opt; do
+		case $opt in
+			c) COPY_MODE=true ;;
+			*) echo "Usage: scratch -c" && return ;;
+		esac
+	done
+
+	if [[ $COPY_MODE = true ]]
+	then
+		cat ~/.scratchpad
+	else
+		nvim ~/.scratchpad
+	fi
+	)
+}
+
 # Run nvim and open search if no arguments are passed
 function v() {
 	if [ $# -eq 0 ]; then
