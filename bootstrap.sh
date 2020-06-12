@@ -23,6 +23,8 @@ Darwin*)
 	yes "" | sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 	# Put Homebrew in the PATH until the script can do it in a more permanent way
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+	# Force link the Python cask
+	brew link python@3.8 --overwrite --force
   ;;
 esac
 

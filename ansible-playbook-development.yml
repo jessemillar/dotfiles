@@ -121,9 +121,6 @@
       homebrew:
         name: python3
         state: present
-    - name: Link the python3 cask
-      shell: brew link python@3.8 --overwrite --force
-      changed_when: false
     - name: Install ripgrep
       homebrew:
         name: ripgrep
