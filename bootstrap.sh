@@ -23,8 +23,6 @@ Darwin*)
 	yes "" | sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 	ruler "Temporarily putting Linuxbrew in PATH"
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-	ruler "Forcing a Python cask link"
-	brew link python@3.8 --overwrite --force
   ;;
 esac
 
@@ -32,6 +30,8 @@ esac
 ruler "Installing ansible with brew"
 brew install ansible
 brew upgrade ansible
+ruler "Forcing a Python keg link"
+brew link python@3.8 --overwrite --force
 
 # Run the playbooks
 ruler "Running ansible-playbook-main.yml"
