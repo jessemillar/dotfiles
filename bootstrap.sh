@@ -21,9 +21,9 @@ Darwin*)
 	sudo apt install -y build-essential curl file git
 	ruler "Installing Linuxbrew"
 	yes "" | sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-	# Put Homebrew in the PATH until the script can do it in a more permanent way
+	ruler "Temporarily putting Linuxbrew in PATH"
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-	# Force link the Python cask
+	ruler "Forcing a Python cask link"
 	brew link python@3.8 --overwrite --force
   ;;
 esac
