@@ -221,6 +221,16 @@ function gdpr() {
 	fi
 }
 
+# Quickly check out a specified branch (or master if no branch is supplied)
+function gc() {
+	if [[ -z "$1" ]]
+	then
+		git checkout master
+	else
+		git checkout "$1"
+	fi
+}
+
 # Quickly merge the current branch with a supplied branch (or master if no branch is supplied)
 function gm() {
 	BRANCH=$(git rev-parse --abbrev-ref HEAD)

@@ -69,7 +69,6 @@ alias yabaiq="yabai -m query --windows"
 # git (there are also a few functions defined in .functionsrc)
 alias gb="git branch -a"
 alias gbd="git branch -D"
-alias gc="git checkout"
 alias gcb="git checkout -b"
 alias gcl="gh repo clone"
 alias gcm="git checkout master"
