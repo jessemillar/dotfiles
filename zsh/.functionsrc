@@ -62,22 +62,10 @@ function deployMonitoringAndTestValidations() {
 		ruler "kustomize monitoring" && \
 		kustomize build deploy/bases/monitoring/metrics-exporter | k apply -f - && \
 		ruler "Deploy a noop validator" && \
-		kaf config/samples/test1.yaml -n validations
+		kaf config/samples/noop-validation.yaml -n validations
 		ruler "Deploy a failing noop validator" && \
 		kaf config/samples/failing_noop_validation.yaml -n validations
 		kaf config/samples/sometimes_failing_noop_validation.yaml -n validations
-	)
-}
-
-# TODO What does this do? I don't remember why I made it.
-function butts() {
-	(
-		wd validator
-		cd deploy/bases/prometheus || return
-		ruler "Point to local repository" && \
-		kustomize edit set image exporter=localhost:5000/aks/prom-to-geneva:test
-		ruler "kustomize build and apply" && \
-		kustomize build . | k apply -f -
 	)
 }
 
