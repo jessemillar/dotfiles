@@ -9,7 +9,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'arcticicestudio/nord-vim'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
-Plug 'benmills/vimux'
 Plug 'brooth/far.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'christoomey/vim-tmux-navigator'
@@ -218,13 +217,11 @@ hi SpellBad ctermfg=236
 " Show line numbers by default
 set number
 
+" Show a guide for 120 character soft line wraps
+set colorcolumn=120
+
 " Hide linux numbers in the terminal
 au TermOpen * setlocal nonumber norelativenumber
-
-" Use vimux for Go debugging
-let g:delve_use_vimux  = 1
-let g:VimuxHeight = "25"
-command! Delve :DlvDebug
 
 " Allow for number toggling (for copying)
 command! LineNumbers set number!
