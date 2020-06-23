@@ -67,6 +67,9 @@
       homebrew:
         name: kustomize
         state: present
+    - name: Install controller-gen
+      shell: GO111MODULE=on go get "sigs.k8s.io/controller-tools/cmd/controller-gen@v0.3.0"
+      changed_when: false
     - name: Install fluxctl
       homebrew:
         name: fluxctl
