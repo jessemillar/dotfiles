@@ -60,15 +60,15 @@ sudo luarocks install lanes
 sudo luarocks install luacheck
 
 ruler "Install Go"
-GO_VERSION="go1.13.8"
-if ! grep -q "$GO_VERSION" ~/.gox/VERSION; then
+go_version="go1.13.8"
+if ! grep -q "$go_version" ~/.gox/VERSION; then
 	# Delete the existing, outdated Go version
 	rm -rf ~/.gox || true
 	# Clean up any broken symlinks
 	find ~/.bin -xtype l -delete
 fi
 if [ ! -d ~/.gox ]; then
-	wget -O go.tar.gz https://dl.google.com/go/$GO_VERSION.linux-armv6l.tar.gz
+	wget -O go.tar.gz https://dl.google.com/go/$go_version.linux-armv6l.tar.gz
 	tar -C ~/ -xzf go.tar.gz
 	mv ~/go ~/.gox
 	ln -s ~/.gox/bin/* ~/.bin

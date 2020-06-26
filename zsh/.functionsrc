@@ -71,8 +71,8 @@ function deployMonitoringAndTestValidations() {
 
 # Get logs from the Validator manager
 function validatorLogs() {
-	MANAGER=$(k get po -n validator-crd-system | grep 'validator-crd-controller-manager' | awk '{print $1}')
-	k logs -f -n validator-crd-system "$MANAGER" manager
+	manager=$(k get po -n validator-crd-system | grep 'validator-crd-controller-manager' | awk '{print $1}')
+	k logs -f -n validator-crd-system "$manager" manager
 }
 
 # Test local Validator code by deploying to the Kind cluster and examining logs
@@ -101,47 +101,47 @@ function localDevelopmentLoop() {
 function snippet() {
 	(
 	# Get values from flags
-	COPY_MODE=false
-	LAST_WEEK=false
+	copy_mode=false
+	last_week=false
 	while getopts "cl" opt; do
 		case $opt in
-			c) COPY_MODE=true ;;
-			l) LAST_WEEK=true ;;
+			c) copy_mode=true ;;
+			l) last_week=true ;;
 			*) echo "Usage: snippet -c -l" && return ;;
 		esac
 	done
 
 	cd ~/projects/personal-retrospectives/snippets || return
-	MONDAY="$(date -d "$(date -d "$(date -dfriday) - 4 days")" +%m-%d-%Y)"
-	FRIDAY="$(date -dfriday +%m-%d-%Y)"
-	CURRENT_SNIPPET="$MONDAY-to-$FRIDAY.md"
-	LAST_MONDAY="$(date -d "$(date -dlast-friday) - 4 days" +%m-%d-%Y)"
-	LAST_FRIDAY="$(date -dlast-friday +%m-%d-%Y)"
-	LAST_WEEK_SNIPPET="$LAST_MONDAY-to-$LAST_FRIDAY.md"
+	monday="$(date -d "$(date -d "$(date -dfriday) - 4 days")" +%m-%d-%Y)"
+	friday="$(date -dfriday +%m-%d-%Y)"
+	current_snippet="$monday-to-$friday.md"
+	last_monday="$(date -d "$(date -dlast-friday) - 4 days" +%m-%d-%Y)"
+	last_friday="$(date -dlast-friday +%m-%d-%Y)"
+	last_week_snippet="$last_monday-to-$last_friday.md"
 
-	if [[ $COPY_MODE = true ]]
+	if [[ $copy_mode = true ]]
 	then
-		if [[ $LAST_WEEK = true ]]
+		if [[ $last_week = true ]]
 		then
-			cat "$LAST_WEEK_SNIPPET"
+			cat "$last_week_snippet"
 		else
-			cat "$CURRENT_SNIPPET"
+			cat "$current_snippet"
 		fi
 	else
-		if [[ $LAST_WEEK = true ]]
+		if [[ $last_week = true ]]
 		then
-			nvim "$LAST_WEEK_SNIPPET"
+			nvim "$last_week_snippet"
 		else
-			if [[ -f "$CURRENT_SNIPPET" ]]
+			if [[ -f "$current_snippet" ]]
 			then
-				nvim "$CURRENT_SNIPPET"
+				nvim "$current_snippet"
 			else
 				# Create a new snippet file since there wasn't an existing one
-				SHORT_MONDAY="$(date -d "$(date -d "$(date -dfriday) - 4 days")" +%m/%d)"
-				SHORT_FRIDAY="$(date -dfriday +%m/%d)"
-				NEW_SNIPPET="$MONDAY-to-$FRIDAY.md"
-				echo -e "#snippet $SHORT_MONDAY - $SHORT_FRIDAY\n- [HIGHLIGHT] \n- " > "$NEW_SNIPPET"
-				nvim "$NEW_SNIPPET"
+				short_monday="$(date -d "$(date -d "$(date -dfriday) - 4 days")" +%m/%d)"
+				short_friday="$(date -dfriday +%m/%d)"
+				new_snippet="$monday-to-$friday.md"
+				echo -e "#snippet $short_monday - $short_friday\n- [HIGHLIGHT] \n- " > "$new_snippet"
+				nvim "$new_snippet"
 			fi
 		fi
 
@@ -211,13 +211,13 @@ function gdpr() {
 
 # Quickly merge the current branch with a supplied branch (or master if no branch is supplied)
 function gm() {
-	BRANCH=$(git rev-parse --abbrev-ref HEAD)
+	branch=$(git rev-parse --abbrev-ref HEAD)
 
 	if [[ -z "$1" ]]
 	then
-		git checkout master && git pull && git checkout "$BRANCH" && git merge master
+		git checkout master && git pull && git checkout "$branch" && git merge master
 	else
-		git checkout "$1" && git pull && git checkout "$BRANCH" && git merge "$1"
+		git checkout "$1" && git pull && git checkout "$branch" && git merge "$1"
 	fi
 }
 
@@ -255,8 +255,8 @@ function gclean() {
 		echo "Repo is already clean"
 	else
 		echo
-		read -r "DELETE?Force delete the listed branches? [y/N] "
-		if [ "$DELETE" = "y" ]; then
+		read -r "delete?Force delete the listed branches? [y/N] "
+		if [ "$delete" = "y" ]; then
 			[[ -n "$MERGED_BRANCHES" ]] && { echo "$MERGED_BRANCHES" | xargs git branch -D; }
 			[[ -n "$ORPHAN_BRANCHES" ]] && { echo "$ORPHAN_BRANCHES" | xargs git branch -D; }
 			[[ -n "$BRANCHES_WITH_NO_REMOTE" ]] && { echo "$BRANCHES_WITH_NO_REMOTE" | xargs git branch -D; }
@@ -300,27 +300,27 @@ function gitignore() {
 
 # Find local git repositories that have unpushed commits or uncommitted files
 function wip() {
-	while IFS= read -r -d '' REPO
+	while IFS= read -r -d '' repo
 	do
 		# Use a subshell to avoid having to cd out of the directory)
 		(
-		cd "$REPO" && cd ..
+		cd "$repo" && cd ..
 
 		if [[ -n $(git --no-pager diff HEAD) || -n $(git status --short) || -n $(git cherry -v 2>&1) || -n $(git --no-pager log --branches --not --remotes --no-walk --pretty=tformat:"%d%n") || -n $(git branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }') ]]
 		then
-			echo "$REPO"
+			echo "$repo"
 
 			# Make newlines the only split character
 			IFS=$'\n'
 
-			for LINE in $(git branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }')
+			for line in $(git branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }')
 			do
-				echo "  No remote: $LINE"
+				echo "  No remote: $line"
 			done
 
-			for LINE in $(git --no-pager log --branches --not --remotes --no-walk --pretty=tformat:"%d%n")
+			for line in $(git --no-pager log --branches --not --remotes --no-walk --pretty=tformat:"%d%n")
 			do
-				echo "  Unpushed/outdated: $LINE"
+				echo "  Unpushed/outdated: $line"
 			done
 		fi
 		)
@@ -421,19 +421,19 @@ function s() {
 
 # Fuzzy cd to selected directory
 function cdf() {
-	DIR=$(find . -type d 2> /dev/null | fzf +m --layout=reverse)
-	if [ -n "$DIR" ]
+	dir=$(find . -type d 2> /dev/null | fzf +m --layout=reverse)
+	if [ -n "$dir" ]
 	then
-		print -z -- "cd $DIR"
+		print -z -- "cd $dir"
 	fi
 }
 
 # Fuzzy cd into the directory of the selected file
 function cdff() {
-	FILE=$(fzf +m --layout=reverse -q "$1") && DIR=$(dirname "$FILE")
-	if [ -n "$DIR" ]
+	file=$(fzf +m --layout=reverse -q "$1") && dir=$(dirname "$file")
+	if [ -n "$dir" ]
 	then
-		print -z -- "cd $DIR"
+		print -z -- "cd $dir"
 	fi
 }
 
@@ -466,14 +466,14 @@ function cells() {
 	else
 		for ((i=0; i<$1; i++))
 		do
-			WIDTH=1920
-			HEIGHT=800
+			width=1920
+			height=800
 
 			if [ -z "$2" ]
 			then
-				gautomata -w $WIDTH -h $HEIGHT -b -a random
+				gautomata -w $width -h $height -b -a random
 			else
-				gautomata -w $WIDTH -h $HEIGHT -b -a "$2"
+				gautomata -w $width -h $height -b -a "$2"
 			fi
 		done
 
@@ -499,17 +499,17 @@ function luv() {
 
 # Find disk usage by directory
 function usage() {
-	DIR="$1"
+	dir="$1"
 
-	if [[ $# -eq 0 || "$DIR" = "." ]]
+	if [[ $# -eq 0 || "$dir" = "." ]]
 	then
-		DIR="$(pwd)"
+		dir="$(pwd)"
 	fi
 
 	ruler "Total disk usage"
 	df -h /
-	ruler "Disk usage of $DIR"
-	sudo du -cha --max-depth=1 "$DIR" | sort -rh | grep -E "M\s|G\s|K\s"
+	ruler "Disk usage of $dir"
+	sudo du -cha --max-depth=1 "$dir" | sort -rh | grep -E "M\s|G\s|K\s"
 }
 
 ####################
@@ -526,9 +526,9 @@ function kgpf() {
 		POD_INFO="$(k get pods --all-namespaces | grep "$1" | head -1)"
 	fi
 
-	NAMESPACE="$(echo "$POD_INFO" | awk '{print $1}')"
-	POD="$(echo "$POD_INFO" | awk '{print $2}')"
-	echo "-n $NAMESPACE $POD"
+	namespace="$(echo "$POD_INFO" | awk '{print $1}')"
+	pod="$(echo "$POD_INFO" | awk '{print $2}')"
+	echo "-n $namespace $pod"
 }
 
 # Get all logs from the Kind cluster
@@ -542,33 +542,33 @@ function kla() {
 # Delete pod via regex
 function kdelr() {
 	# An array for non-flag arguments
-	ARGS=()
+	args=()
 	# Set default values for optional flags
-	NAMESPACE="default"
+	namespace="default"
 
 	# Get values from flags
 	while test $# -gt 0; do
 		case "$1" in
 			-n)
 				shift
-				NAMESPACE=$1
+				namespace=$1
 				shift
 				;;
 			*)
-				ARGS+=("$1")
+				args+=("$1")
 				shift
 				;;
 		esac
 	done
 
-	if [ ! ${#ARGS[@]} -eq 2 ]
+	if [ ! ${#args[@]} -eq 2 ]
 	then
 		echo "Usage: kdelr pod -n validator-crd-system validator-crd-controller-manager"
 		return
 	fi
 
-	RESOURCE_TYPE="${ARGS[1]}"
-	REGEX="${ARGS[2]}"
+	resource_type="${args[1]}"
+	regex="${args[2]}"
 
-	kubectl get "$RESOURCE_TYPE" -n "$NAMESPACE" --no-headers=true | awk '/'"$REGEX"'/{print $1}'| xargs kubectl delete "$RESOURCE_TYPE" -n "$NAMESPACE"
+	kubectl get "$resource_type" -n "$namespace" --no-headers=true | awk '/'"$regex"'/{print $1}'| xargs kubectl delete "$resource_type" -n "$namespace"
 }
