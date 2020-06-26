@@ -67,6 +67,7 @@ alias ped="cd ..; pico-build edit; cd src"
 alias yabaiq="yabai -m query --windows"
 
 # git (there are also a few functions defined in .functionsrc)
+alias ga="git add"
 alias gb="git branch -a"
 alias gbd="git branch -D"
 alias gc="git checkout"

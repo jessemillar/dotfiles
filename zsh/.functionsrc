@@ -278,6 +278,17 @@ function g() {
 	fi
 }
 
+# Add a commit message to already-staged git changes with a commit message and push to remote
+function G() {
+	if [ -z "$1" ]
+	then
+		echo "No commit message supplied"
+	else
+		git commit -s -m "$1"
+		git push -u
+	fi
+}
+
 # Generate a .gitignore file using gitignore.io
 function gitignore() {
 	if [ -z "$1" ]
