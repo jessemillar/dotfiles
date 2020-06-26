@@ -213,18 +213,15 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
-" Quick code format
-command! Format :Neoformat
-
 " Automatically enable spellcheck for .md files and don't mark URL-like things as spelling errors
 autocmd BufRead,BufNewFile *.md setlocal spell | syn match UrlNoSpell '\w\+:\/\/[^[:space:]]\+' contains=@NoSpell
 hi SpellBad ctermfg=236
 
-" Show line numbers by default
-set number
-
 " Show a guide for 120 character soft line wraps
 set colorcolumn=120
+
+" Show line numbers by default
+set number
 
 " Hide linux numbers in the terminal
 au TermOpen * setlocal nonumber norelativenumber
