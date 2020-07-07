@@ -99,6 +99,9 @@ set completeopt-=preview
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
+" Don't continue comments on to new lines automatically
+autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
+
 " Configure template files that are autoloaded when creating a new file with a certain filename
 au BufNewFile *.sh,\.*rc 0r ~/.templates/bash.sh
 au BufNewFile *.yaml,*.yml 0r ~/.templates/yaml.yaml
