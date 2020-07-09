@@ -344,13 +344,13 @@ function wip() {
 
 # Kill all running containers
 function drydock() {
-	docker kill "$(docker ps -a -q)" 2>/dev/null || true
+	docker kill -f "$(docker ps -a -q)" 2>/dev/null || true
 }
 
 # Kill and remove all containers
 function scuttle() {
-	docker kill "$(docker ps -a -q)" 2>/dev/null || true
-	docker rm "$(docker ps -a -q)" 2>/dev/null || true
+	drydock
+	docker rm -f "$(docker ps -a -q)" 2>/dev/null || true
 	docker network prune -f || true
 }
 
