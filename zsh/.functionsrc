@@ -273,7 +273,7 @@ function g() {
 		echo "No commit message supplied"
 	else
 		git add -A
-		git commit -s -m "$1"
+		git commit -m "$1"
 		git push -u
 	fi
 }
@@ -284,7 +284,7 @@ function G() {
 	then
 		echo "No commit message supplied"
 	else
-		git commit -s -m "$1"
+		git commit -m "$1"
 		git push -u
 	fi
 }
