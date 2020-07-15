@@ -24,4 +24,6 @@
 [http]
 	sslVerify = true
 [pull]
-	rebase = false
+	rebase = true
+[rebase]
+	autoStash = true
