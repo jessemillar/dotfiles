@@ -267,6 +267,12 @@ inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 " Git blame config
 command! Blame :call gitblame#echo()
 
+" Vim debug shortcuts
+nnoremap <silent> gs :GoDebugStart<CR>
+nnoremap <silent> gc :GoDebugContinue<CR>
+nnoremap <silent> gt :GoDebugTest<CR>
+nnoremap <silent> gb :GoDebugBreakpoint<CR>
+
 " Configure LanguageClient
 " Required for operations modifying multiple buffers like rename
 set hidden
