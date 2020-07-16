@@ -9,7 +9,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'arcticicestudio/nord-vim'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
-Plug 'benmills/vimux'
 Plug 'brooth/far.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'christoomey/vim-tmux-navigator'
@@ -24,7 +23,6 @@ Plug 'preservim/nerdcommenter'
 Plug 'roxma/vim-paste-easy'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'sbdchd/neoformat'
-Plug 'sebdah/vim-delve'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -107,14 +105,6 @@ au BufNewFile *.sh,\.*rc 0r ~/.templates/bash.sh
 au BufNewFile *.yaml,*.yml 0r ~/.templates/yaml.yaml
 au BufNewFile postmortem-*.md 0r ~/.templates/postmortem.md
 au BufNewFile Dockerfile 0r ~/.templates/Dockerfile
-
-" Use vimux for Go debugging
-let g:VimuxHeight = "25"
-let g:VimuxUseNearest = 0
-let g:delve_use_vimux  = 1
-
-" Quickly toggle Go breakpoints
-nnoremap <Leader>b :DlvToggleBreakpoint<CR>
 
 " Use deoplete with tab
 let g:deoplete#enable_at_startup = 1
