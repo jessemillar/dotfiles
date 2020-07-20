@@ -267,10 +267,10 @@ inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 " Git blame config
 command! Blame :call gitblame#echo()
 
-" Vim debug shortcuts
+" Go debugger shortcuts
 nnoremap <silent> gs :GoDebugStart<CR>
-nnoremap <silent> gc :GoDebugContinue<CR>
 nnoremap <silent> gt :GoDebugTest<CR>
+nnoremap <silent> gc :GoDebugContinue<CR>
 nnoremap <silent> gb :GoDebugBreakpoint<CR>
 
 " Configure LanguageClient
