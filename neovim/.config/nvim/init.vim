@@ -39,6 +39,9 @@ call plug#end()
 colorscheme nord
 set termguicolors
 
+" Mouse support for less embarrassing screen sharing
+set mouse=a
+
 " Set the colors for vim-easymotion
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade  Comment
