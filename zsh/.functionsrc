@@ -53,6 +53,10 @@ function getMdmSecret() {
 	)
 }
 
+function getBearerToken() {
+	CERULEAN_BEARER_TOKEN=$(curl -s -X POST -d "grant_type=client_credentials&client_id=$CERULEAN_APP_ID&client_secret=$CERULEAN_APP_PASSWORD&resource=https%3A%2F%2Fmanagement.azure.com%2F" "https://login.microsoftonline.com/$CERULEAN_APP_TENANT_ID/oauth2/token" | jq -r .access_token)
+}
+
 # TODO Turn this into a Makefile target in the actual project
 function deployMonitoringAndTestValidations() {
 	(
