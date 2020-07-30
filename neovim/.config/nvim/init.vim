@@ -39,8 +39,9 @@ call plug#end()
 colorscheme nord
 set termguicolors
 
-" Mouse support for less embarrassing screen sharing
+" Mouse support (that doesn't select text) for less embarrassing screen sharing
 set mouse=a
+noremap <LeftMouse> ma<LeftMouse>`a
 
 " Set the colors for vim-easymotion
 hi link EasyMotionTarget ErrorMsg
@@ -84,6 +85,9 @@ autocmd BufNewFile,BufRead *.rpy set filetype=python
 :command WQ wq
 :command Wq wq
 :command  Q q
+
+" Alias for formatting
+:command Format Neoformat
 
 " Trim trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -272,6 +276,7 @@ command! Blame :call gitblame#echo()
 
 " Go debugger shortcuts
 nnoremap <silent> gs :GoDebugStart<CR>
+nnoremap <silent> gq :GoDebugStop<CR>
 nnoremap <silent> gt :GoDebugTest<CR>
 nnoremap <silent> gc :GoDebugContinue<CR>
 nnoremap <silent> gb :GoDebugBreakpoint<CR>
