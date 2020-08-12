@@ -275,11 +275,13 @@ inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 command! Blame :call gitblame#echo()
 
 " Go debugger shortcuts
-nnoremap <silent> gs :GoDebugStart<CR>
-nnoremap <silent> gq :GoDebugStop<CR>
-nnoremap <silent> gt :GoDebugTest<CR>
-nnoremap <silent> gc :GoDebugContinue<CR>
-nnoremap <silent> gb :GoDebugBreakpoint<CR>
+nnoremap <silent> gds :GoDebugStart<CR>
+nnoremap <silent> gdq :GoDebugStop<CR>
+nnoremap <silent> gdt :GoDebugTest<CR>
+nnoremap <silent> gdc :GoDebugContinue<CR>
+nnoremap <silent> gdn :GoDebugNext<CR>
+nnoremap <silent> gdp :GoDebugPrint<space>
+nnoremap <silent> gdb :GoDebugBreakpoint<CR>
 
 " Configure LanguageClient
 " Required for operations modifying multiple buffers like rename
