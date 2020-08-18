@@ -19,6 +19,7 @@ Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'machakann/vim-sandwich'
+Plug 'OmniSharp/omnisharp-vim'
 Plug 'preservim/nerdcommenter'
 Plug 'roxma/vim-paste-easy'
 Plug 'roxma/vim-tmux-clipboard'
@@ -28,6 +29,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-scripts/c.vim'
 Plug 'zivyangll/git-blame.vim'
 
 call plug#end()
@@ -280,6 +282,7 @@ nnoremap <silent> gdq :GoDebugStop<CR>
 nnoremap <silent> gdt :GoDebugTest<CR>
 nnoremap <silent> gdc :GoDebugContinue<CR>
 nnoremap <silent> gdn :GoDebugNext<CR>
+nnoremap <silent> gdi :GoDebugStep<CR>
 nnoremap <silent> gdp :GoDebugPrint<space>
 nnoremap <silent> gdb :GoDebugBreakpoint<CR>
 
