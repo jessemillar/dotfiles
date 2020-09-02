@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/jessemillar/dotfiles.svg?branch=master)](https://travis-ci.org/jessemillar/dotfiles) [![Man Hours](https://img.shields.io/endpoint?url=https%3A%2F%2Fmh.jessemillar.com%2Fhours%3Frepo%3Dhttps%3A%2F%2Fgithub.com%2Fjessemillar%2Fdotfiles.git)](https://jessemillar.com/r/man-hours)
 
-[![Deploy to Azure](https://img.shields.io/badge/deploy-to%20azure-blue?style=for-the-badge&logo=microsoft-azure)](https://azuredeploy.net/)
+[![Deploy to Azure](https://img.shields.io/badge/deploy-to%20azure-blue?style=for-the-badge&logo=microsoft-azure)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjessemillar%2Fdotfiles%2Fmaster%2Fazuredeploy.json)
 
 ## Overview
 
