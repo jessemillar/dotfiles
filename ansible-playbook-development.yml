@@ -186,12 +186,12 @@
       changed_when: false
     - name: Install tmux-yank dependencies
       become: yes
-      shell: apt install xsel
+      shell: apt install -y xsel
       register: result
       changed_when: result.stdout is not search("0 newly installed")
     - name: Install gvm dependencies
       become: yes
-      shell: apt install curl git mercurial make binutils bison gcc build-essential
+      shell: apt install -y curl git mercurial make binutils bison gcc build-essential
       register: result
       changed_when: result.stdout is not search("0 newly installed")
     - name: Install gvm
