@@ -23,6 +23,10 @@ export KUBERNETES_VERSION=1.16.9
 PATH="$PATH:$GOPATH/bin"
 PATH="$HOME/.bin:$PATH"
 
+# Ruby Gems
+export GEM_HOME="$HOME/.gems"
+export PATH="$GEM_HOME/bin:$PATH"
+
 # Automatically start tmux at login
 export ZSH_TMUX_AUTOSTART=true
 export ZSH_TMUX_AUTOQUIT=false
