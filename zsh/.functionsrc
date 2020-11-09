@@ -588,3 +588,32 @@ function kdelr() {
 
 	kubectl get "$resource_type" -n "$namespace" --no-headers=true | awk '/'"$regex"'/{print $1}'| xargs kubectl delete "$resource_type" -n "$namespace"
 }
+
+
+####################
+# Guitar functions (https://github.com/bfroggio/guitar)
+####################
+
+# Add a song to the guitar list
+function guitar() {
+	(
+		cd ~/projects/guitar || true
+		./guitar.sh "$1"
+	)
+}
+
+# Add a song to the bass list
+function bass() {
+	(
+		cd ~/projects/guitar || true
+		./bass.sh "$1"
+	)
+}
+
+# Add a song to the guitar and bass lists
+function amp() {
+	(
+		cd ~/projects/guitar || true
+		./both.sh "$1"
+	)
+}
