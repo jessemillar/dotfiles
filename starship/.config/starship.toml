@@ -27,10 +27,11 @@ disabled = true
 disabled = false
 symbol = "💀 "
 style = "bold white"
+
 [kubernetes.context_aliases]
 "kind-kind" = "kind"
-"validator-control-plane" = "stg"
-"jessemillar-provision-test" = "dev"
+"validator-control-plane-staging" = "Val stg"
+"validator-control-plane" = "Val 🚨 PROD 🚨"
 
 [rust]
 symbol = "🐚 "

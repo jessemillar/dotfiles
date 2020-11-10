@@ -100,7 +100,10 @@ alias gv="gh repo view"
 ## General functions
 alias ka="k apply"
 alias kapi="k api-resources --sort-by=name"
-alias kc="export KUBECONFIG="
+## Context management
+alias kc="kubectl config unset current-context"
+alias kvstg="kubectl config use-context validator-control-plane-staging"
+alias kvprod="kubectl config use-context validator-control-plane"
 # TODO Remove once I'm used to the Oh My Zsh kubectl plugin aliases
 alias kd="k describe"
 alias ke="k exec -it"
