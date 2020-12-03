@@ -35,7 +35,7 @@ export ZSH_TMUX_AUTOQUIT=false
 export DISPLAY=:0
 
 # Tell ripgrep where to look for global config flags
-export RIPGREP_CONFIG_PATH="~/.ripgreprc"
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 # Set default options for fzf
 export FZF_DEFAULT_OPTS="--height 30% --border --bind alt-j:down,alt-k:up,tab:down,btab:up,alt-space:toggle"
