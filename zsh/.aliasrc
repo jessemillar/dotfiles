@@ -39,9 +39,15 @@ alias wsl="wsl.exe"
 
 # tmux (there are also a few functions defined in .functionsrc)
 alias tm="tmux"
+alias tmkill="tmux kill-session"
 alias tml="tmux ls"
 alias tmn="tmux new"
-alias tmkill="tmux kill-session"
+# Copy raw bytes unmodified into the tmux paste buffer
+alias tmc="tmux loadb -"
+# Paste the tmux paste buffer and performs octal encoding of non-printable characters
+alias tmp="tmux showb"
+# Paste raw bytes unmodified into stdout
+alias tmpr="tmux saveb -"
 
 # Go
 alias gg="go get -v"
