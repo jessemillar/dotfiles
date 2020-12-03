@@ -1,3 +1,7 @@
+# Search hidden files
 --hidden
+# Follow symlinks
 --follow
+# Don't care about case
+--smart-case
 
