@@ -6,7 +6,6 @@ alias ap="ack --passthru"
 alias caps="setxkbmap -option caps:escape" # Reapply Caps to Escape keyboard mapping on my Pi
 alias day="date +%m-%d-%Y"
 alias e="exit"
-alias host="hostess . &"
 alias lines="tokei"
 alias md="glow -s ~/.dotfiles/glow/nord.json --pager"
 alias mdn="glow -s ~/.dotfiles/glow/nord.json"
@@ -16,7 +15,7 @@ alias play="ansible-playbook "
 alias rc="exec zsh"
 alias renpy="~/Projects/renpy/renpy.sh"
 alias sudoe='sudo -E env PATH=$PATH'
-alias tmp="mkdir tmp 2>/dev/null || true && cd tmp"
+alias mktmp="mkdir tmp 2>/dev/null || true && cd tmp"
 alias tree="tree -a -I '.git'"
 alias vimdiff="nvim -d"
 alias vimrc="nvim ~/.config/nvim/init.vim"
@@ -24,10 +23,6 @@ alias w="watch"
 alias watch="watch " # This is so aliases get expanded when passed to `watch`
 alias wdl="wd list"
 alias whatami="lsb_release -a"
-
-# Work
-alias ac="./aks-ci"
-alias acl="./aks-ci list"
 
 # Windows (for use with WSL2)
 alias choco="choco.exe"
@@ -42,12 +37,9 @@ alias tm="tmux"
 alias tmkill="tmux kill-session"
 alias tml="tmux ls"
 alias tmn="tmux new"
-# Copy raw bytes unmodified into the tmux paste buffer
-alias tmc="tmux loadb -"
-# Paste the tmux paste buffer and performs octal encoding of non-printable characters
-alias tmp="tmux showb"
-# Paste raw bytes unmodified into stdout
-alias tmpr="tmux saveb -"
+alias tmc="tmux loadb -" # Copy raw bytes unmodified into the tmux paste buffer
+alias tmp="tmux showb" # Paste the tmux paste buffer and performs octal encoding of non-printable characters
+alias tmpr="tmux saveb -" # Paste raw bytes unmodified into stdout
 
 # Go
 alias gg="go get -v"
@@ -68,9 +60,6 @@ alias pest="/Applications/PICO-8.app/Contents/MacOS/pico8 -run"
 alias pun="cd ..; pico-build run; cd src"
 alias pud="mv ~/Library/Application\\ Support/pico-8/carts/new.p8 _assets.p8"
 alias ped="cd ..; pico-build edit; cd src"
-
-# yabai
-alias yabaiq="yabai -m query --windows"
 
 # git (there are also a few functions defined in .functionsrc)
 alias ga="git add"
