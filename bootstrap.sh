@@ -9,18 +9,18 @@ case $(uname -s) in
 Darwin*)
 	# Mac
 	ruler "Installing Homebrew for macOS"
-  yes "" | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	yes "" | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   ;;
 *)
 	# Linux (WSL included)
-	ruler "Updating packages via apt"
-	sudo apt update
-	sudo apt full-upgrade -y
-	sudo apt autoremove -y
-	ruler "Installing Linuxbrew dependencies via apt"
-	sudo apt install -y build-essential curl file git
+	ruler "Updating packages via apt-get"
+	sudo apt-get update
+	sudo apt-get full-upgrade -y
+	sudo apt-get autoremove -y
+	ruler "Installing Linuxbrew dependencies via apt-get"
+	sudo apt-get install -y build-essential curl file git
 	ruler "Installing Linuxbrew"
-	yes "" | sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 	ruler "Temporarily putting Linuxbrew in PATH"
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   ;;
