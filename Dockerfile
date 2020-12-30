@@ -16,7 +16,8 @@ COPY . /home/$USERNAME/.dotfiles
 ENV TERM=xterm
 
 # Install everything
-RUN cd /home/$USERNAME/.dotfiles && ./bootstrap.sh
+WORKDIR /home/$USERNAME/.dotfiles
+RUN ./bootstrap.sh
 
 # Keep the container from exiting
 CMD ["/usr/bin/zsh"]
