@@ -101,11 +101,13 @@ alias kcvstg="kubectl config use-context validator-control-plane-staging"
 alias kcvprod="kubectl config use-context validator-control-plane"
 # TODO Remove once I'm used to the Oh My Zsh kubectl plugin aliases
 alias kd="k describe"
+alias kdf="k delete -f"
 alias ke="k exec -it"
 alias kf="kgpf"
 # TODO Remove once I'm used to the Oh My Zsh kubectl plugin aliases
 alias kg="k get"
 alias kgpa="k get pods --all-namespaces"
+alias kgsa="k get services --all-namespaces"
 alias kgn="k get namespaces"
 ## Custom functions
 alias kgv="k get validations -n validations"
