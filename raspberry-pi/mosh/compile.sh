@@ -3,21 +3,21 @@
 # shellcheck disable=SC1090
 source ~/.dotfiles/zsh/.functionsrc
 
-ruler "Installing deps"
+reverb "Installing deps"
 sudo apt update
 sudo apt install -y debhelper autotools-dev protobuf-compiler libprotobuf-dev dh-autoreconf pkg-config libutempter-dev zlib1g-dev libncurses5-dev libssl-dev bash-completion locales
 
-ruler "Cloning repo"
+reverb "Cloning repo"
 git clone https://github.com/mobile-shell/mosh
 mv mosh "$HOME/.mosh"
 cd "$HOME/.mosh" || exit
 
-ruler "Configuring"
+reverb "Configuring"
 ./autogen.sh
 ./configure
 
-ruler "Compiling"
+reverb "Compiling"
 make
 
-ruler "Installing"
+reverb "Installing"
 sudo make install

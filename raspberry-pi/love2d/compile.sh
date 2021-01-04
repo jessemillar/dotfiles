@@ -3,29 +3,24 @@
 # Exit when any command fails
 set -e
 
-(
-# Source .functionsrc to get access to the ruler function
-# shellcheck disable=SC1090
-source ~/.dotfiles/zsh/.functionsrc
-
-ruler "Checking for existing LÖVE"
+reverb "Checking for existing LÖVE"
 if ! [ -x "$(command -v love)" ]
 then
-	ruler "Installing dependencies"
+	reverb "Installing dependencies"
 	sudo apt install -y build-essential autotools-dev automake libtool pkg-config libfreetype6-dev libluajit-5.1-dev libphysfs-dev libsdl2-dev libopenal-dev libogg-dev libvorbis-dev libmodplug-dev libmpg123-dev libtheora-dev
 	cd
-	ruler "Cloning repo"
+	reverb "Cloning repo"
 	git clone https://github.com/love2d/love
 	mv love .love
 	cd .love
-	ruler "Compiling version 11.3"
+	reverb "Compiling version 11.3"
 	git checkout 11.3
 	./platform/unix/automagic
 	./configure
 	make
-	ruler "Symlinking executable to ~/.bin"
+	reverb "Symlinking executable to ~/.bin"
 	ln -s ~/.love/src/love ~/.bin
 fi
 
-ruler "Done"
+reverb "Done"
 )

@@ -30,15 +30,15 @@ function promMdmDevelopmentLoop() {
 }
 
 function recreateValidatorCluster() {
-	ruler "Deleting Kind cluster"
+	reverb "Deleting Kind cluster"
 	kind delete cluster
-	ruler "Destroying Docker containers and networks"
+	reverb "Destroying Docker containers and networks"
 	scuttle
-	ruler "Running make provision-kind"
+	reverb "Running make provision-kind"
 	make provision-kind
-	ruler "Grabbing the MDM secret from stage"
+	reverb "Grabbing the MDM secret from stage"
 	getMdmSecret
-	ruler "Deploy prom-mdm-converter and some testing validations"
+	reverb "Deploy prom-mdm-converter and some testing validations"
 	deployMonitoringAndTestValidations
 }
 
@@ -62,13 +62,13 @@ function getBearerToken() {
 function deployMonitoringAndTestValidations() {
 	(
 		wd validator
-		ruler "Build and push the prom-mdm-converter container"
+		reverb "Build and push the prom-mdm-converter container"
 		make redeploy-prom-mdm-converter
-		ruler "kustomize monitoring" && \
+		reverb "kustomize monitoring" && \
 		kustomize build deploy/bases/monitoring/metrics-exporter | k apply -f - && \
-		ruler "Deploy a noop validator" && \
+		reverb "Deploy a noop validator" && \
 		kaf config/samples/noop-validation.yaml -n validations
-		ruler "Deploy a failing noop validator" && \
+		reverb "Deploy a failing noop validator" && \
 		kaf config/samples/failing_noop_validation.yaml -n validations
 		kaf config/samples/sometimes_failing_noop_validation.yaml -n validations
 	)
@@ -82,19 +82,19 @@ function validatorLogs() {
 
 # Test local Validator code by deploying to the Kind cluster and examining logs
 function kindDevelopmentLoop() {
-	ruler "Redeploying"
+	reverb "Redeploying"
 	make redeploy-validator
-	ruler "Sleeping"
+	reverb "Sleeping"
 	sleep 20
-	ruler "Getting logs"
+	reverb "Getting logs"
 	validatorLogs
 }
 
 # Test local Validator code without deploying to the Kind cluster
 function localDevelopmentLoop() {
-	ruler "Deleting manager"
+	reverb "Deleting manager"
 	kdelr pod -n validator-crd-system validator-crd-controller-manager
-	ruler "Running make run"
+	reverb "Running make run"
 	make run
 }
 
@@ -241,17 +241,17 @@ function gclean() {
 	BRANCHES_WITH_NO_REMOTE=$(git branch -vv | cut -c 3- | awk '$3 !~/\[/ { print $1 }')
 
 	if [[ -n "$MERGED_BRANCHES" ]]; then
-		ruler "Merged branches"
+		reverb "Merged branches"
 		echo "$MERGED_BRANCHES"
 	fi
 
 	if [[ -n "$ORPHAN_BRANCHES" ]]; then
-		ruler "Orphan branches"
+		reverb "Orphan branches"
 		echo "$ORPHAN_BRANCHES"
 	fi
 
 	if [[ -n "$BRANCHES_WITH_NO_REMOTE" ]]; then
-		ruler "Branches with no remote"
+		reverb "Branches with no remote"
 		echo "$BRANCHES_WITH_NO_REMOTE"
 	fi
 
@@ -462,13 +462,6 @@ function wda() {
 	echo " + '$CUR_DIR_STRIPPED'"
 }
 
-# Echo output with surrounding whitespace and lines across the width of the screen for readability
-function ruler() {
-	printf '\n%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
-	echo -e "$1"
-	printf '%*s\n\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
-}
-
 # Attach to an existing tmux session
 function tma() {
 	tmux a -t "$1" -d
@@ -522,9 +515,9 @@ function usage() {
 		dir="$(pwd)"
 	fi
 
-	ruler "Total disk usage"
+	reverb "Total disk usage"
 	df -h /
-	ruler "Disk usage of $dir"
+	reverb "Disk usage of $dir"
 	sudo du -cha --max-depth=1 "$dir" | sort -rh | grep -E "M\s|G\s|K\s"
 }
 
