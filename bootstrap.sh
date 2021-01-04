@@ -7,13 +7,13 @@
 source zsh/.functionsrc
 
 # Install the Homebrew package manager
-./bootstrap-homebrew.sh
+source bootstrap-homebrew.sh
 
 # Install Ansible via Homebrew
-./bootstrap-ansible.sh
+source bootstrap-ansible.sh
 
 # Run the playbooks
-./bootstrap-ansible-playbooks.sh
+source bootstrap-ansible-playbooks.sh
 
 # Print a message on completion
 ruler "bootstrap.sh finished; run any os-specific bootstrap.sh scripts and then reboot"

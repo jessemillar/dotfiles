@@ -9,18 +9,21 @@ ENV TERM=xterm
 RUN apt-get update && apt-get -y install sudo
 RUN useradd -m $USERNAME && echo "$USERNAME:$USERNAME" | chpasswd && adduser $USERNAME sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-
-# Copy in my dotfiles
-COPY . /home/$USERNAME/.dotfiles
-WORKDIR /home/$USERNAME/.dotfiles
-
-# Change to the newly created user to allow sudo in the bootstrap scripts
 USER $USERNAME
 
-# These three script mimic bootstrap.sh in a way that allows Docker layer caching to speed up debugging
-RUN ./bootstrap-homebrew.sh
-RUN ./bootstrap-ansible.sh
-RUN ./bootstrap-ansible-playbooks.sh
+# The bootstrap-*.sh scripts used below mimic bootstrap.sh in a way that allows Docker layer caching to speed up debugging
+WORKDIR /home/$USERNAME/.dotfiles
+# Copy in zsh functions the bootstrap-*.sh scripts use
+COPY zsh zsh
+RUN source zsh/.functionsrc
+COPY bootstrap-homebrew.sh .
+RUN source bootstrap-homebrew.sh
+COPY bootstrap-ansible.sh .
+RUN source bootstrap-ansible.sh
+# Copy in all files now that we've laid the groundwork in Docker layer caches
+COPY . .
+COPY bootstrap-ansible-playbooks.sh .
+RUN source bootstrap-ansible-playbooks.sh
 
 # Keep the container from exiting
 CMD ["/usr/bin/zsh"]

@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-# Source .functionsrc to get access to the ruler function
-# shellcheck disable=SC1091
-source zsh/.functionsrc
-
 # Install the Homebrew package manager
 case $(uname -s) in
 Darwin*)
@@ -15,9 +11,8 @@ Darwin*)
 	# Linux (WSL included)
 	ruler "Updating packages via apt-get"
 	sudo apt-get update
-	# TODO Uncomment these lines
-	# sudo apt-get full-upgrade -y
-	# sudo apt-get autoremove -y
+	sudo apt-get upgrade -y
+	sudo apt-get autoremove -y
 	ruler "Installing Homebrew dependencies via apt-get"
 	sudo apt-get install -y build-essential curl file git
 	ruler "Installing Homebrew for Linux"
