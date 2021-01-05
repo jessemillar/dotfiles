@@ -16,8 +16,7 @@ cd ..
 
 if ! [ -x "$(command -v mosh)" ]
 then
-	reverb "Install/compile mosh before continuing"
-	reverb "Exit the session, reattach with mosh, and run bootstrap-pi.sh again"
+	reverb -e "Install/compile mosh before continuing\nExit the session, reattach with mosh, and run bootstrap-pi.sh again"
 	return
 fi
 
@@ -132,8 +131,5 @@ reverb "Set up Trello cleaning cron job"
 reverb "Set up Man Hours Badge keep alive cron job"
 (crontab -l 2>/dev/null; echo "0,30 7-22 * * * curl -X GET https://mh.jessemillar.com/ping >/dev/null 2>&1") | sort - | uniq - | crontab -
 
-reverb "Done; Reboot manually"
-reverb "Remember to use raspi-config to enable VNC, set a resolution, change the timezone, and generate locales"
-reverb "Also set UseDNS to 'no' in /etc/ssh/sshd_config"
-reverb "Also upload ~/.ssh/id_rsa.pub to GitHub and re-clone .dotfiles"
+reverb -e "Done\nReboot manually\nRemember to use raspi-config to enable VNC, set a resolution, change the timezone, and generate locales\nAlso set UseDNS to 'no' in /etc/ssh/sshd_config\nAlso upload ~/.ssh/id_rsa.pub to GitHub and re-clone .dotfiles"
 )

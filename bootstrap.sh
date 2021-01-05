@@ -12,4 +12,4 @@ source bootstrap-ansible.sh
 source bootstrap-ansible-playbooks.sh
 
 # Print a message on completion
-reverb "bootstrap.sh finished; run any os-specific bootstrap.sh scripts and then reboot"
+reverb -e "bootstrap.sh finished\nrun any os-specific bootstrap.sh scripts and then reboot"
