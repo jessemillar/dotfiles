@@ -174,7 +174,7 @@
       shell: $(brew --prefix)/opt/fzf/install --all
       changed_when: false
     - name: Install the fzf tab completion script
-      shell: git clone https://github.com/lincheney/fzf-tab-completion && rm -rf "$HOME/.fzf-tab-completion" | true && mv fzf-tab-completion "$HOME/.fzf-tab-completion"
+      shell: cd "$HOME" && git clone https://github.com/lincheney/fzf-tab-completion && rm -rf "$HOME/.fzf-tab-completion" || true && mv fzf-tab-completion "$HOME/.fzf-tab-completion"
       changed_when: false
     - name: Install tmux-yank dependencies
       shell: sudo apt-get update && sudo apt-get install -y xsel
