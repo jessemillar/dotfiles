@@ -1,9 +1,10 @@
-#!/usr/bin/env zsh
+# shellcheck disable=SC1090,SC2039
 
 # Path to your oh-my-zsh installation
 export ZSH=~/.oh-my-zsh
 
 # Load plugins
+# shellcheck disable=SC2034,SC2039
 plugins=(docker docker-compose fzf kubectl tmux vi-mode wd)
 
 # Load up Oh My Zsh

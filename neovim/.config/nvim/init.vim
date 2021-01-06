@@ -83,7 +83,7 @@ hi Normal guibg=NONE ctermbg=NONE
 autocmd BufNewFile,BufRead *.rpy set filetype=python
 
 " Set the filetype of common files
-autocmd BufNewFile,BufRead .zshrc set filetype=sh
+autocmd BufNewFile,BufRead .zshrc set filetype=sh " The ShellCheck GitHub Action sees this as a shell script
 autocmd BufNewFile,BufRead .zshenv set filetype=sh
 autocmd BufNewFile,BufRead .functionsrc set filetype=sh
 autocmd BufNewFile,BufRead .aliasrc set filetype=sh
