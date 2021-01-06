@@ -11,9 +11,10 @@ jobs:
     - name: Run ShellCheck
       uses: ludeeus/action-shellcheck@master
       with:
-        check_together: 'yes'
-        ignore: zshrc
+        ignore: 'zsh/.zshrc'
         additional_files: 'zsh/.zshenv zsh/.functionsrc zsh/.aliasrc zsh/.asciirc'
+      env:
+        SHELLCHECK_OPTS: -e SC1090
 
   publish-docker-image:
     runs-on: ubuntu-latest
