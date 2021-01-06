@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # shellcheck disable=SC1090,SC2039
 
 # Path to your oh-my-zsh installation
