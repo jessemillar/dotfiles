@@ -83,6 +83,7 @@ hi Normal guibg=NONE ctermbg=NONE
 autocmd BufNewFile,BufRead *.rpy set filetype=python
 
 " Set the filetype of common files
+autocmd BufNewFile,BufRead .zshrc set filetype=sh
 autocmd BufNewFile,BufRead .zshenv set filetype=sh
 autocmd BufNewFile,BufRead .functionsrc set filetype=sh
 autocmd BufNewFile,BufRead .aliasrc set filetype=sh

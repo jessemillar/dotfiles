@@ -8,8 +8,7 @@ export GOPATH="$HOME/.go"
 export GOBIN="$GOPATH/bin"
 export GOPRIVATE="goms.io"
 export GO111MODULE=on
-DELVE_EDITOR="$(which nvim)"
-export DELVE_EDITOR
+export DELVE_EDITOR="$(which nvim)"
 
 # Set Neovim as my terminal editor of choice
 EDITOR="$(which nvim)"
