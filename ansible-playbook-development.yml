@@ -32,18 +32,8 @@
       command: stow tmux
       changed_when: false
   tasks:
-    - name: Install packages to allow apt-get to use a repository over HTTPS
-      become: yes
-      shell: apt-get update && apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-      register: result
-      changed_when: result.stdout is not search("0 newly installed")
-    - name: Add Mosh development repository
-      become: yes
-      shell: add-apt-repository "ppa:keithw/mosh-dev"
-      changed_when: false
-    - name: Install Mosh with 256 color support
-      become: yes
-      shell: apt-get update && apt-get install -y mosh
+    - name: Install Mosh
+      shell: sudo apt-get update && sudo apt-get install -y mosh
       register: result
       changed_when: result.stdout is not search("0 newly installed")
     - homebrew_tap:
@@ -177,8 +167,7 @@
         name: yq
         state: present
     - name: Install zsh
-      become: yes
-      shell: apt-get install -y zsh
+      shell: sudo apt-get update && sudo apt-get install -y zsh
       register: result
       changed_when: result.stdout is not search("0 newly installed")
     - name: Install fzf zsh support
@@ -188,13 +177,11 @@
       shell: git clone https://github.com/lincheney/fzf-tab-completion && rm -rf "$HOME/.fzf-tab-completion" | true && mv fzf-tab-completion "$HOME/.fzf-tab-completion"
       changed_when: false
     - name: Install tmux-yank dependencies
-      become: yes
-      shell: apt-get install -y xsel
+      shell: sudo apt-get update && sudo apt-get install -y xsel
       register: result
       changed_when: result.stdout is not search("0 newly installed")
     - name: Install gvm dependencies
-      become: yes
-      shell: apt-get install -y curl git mercurial make binutils bison gcc build-essential
+      shell: sudo apt-get update && sudo apt-get install -y curl git mercurial make binutils bison gcc build-essential
       register: result
       changed_when: result.stdout is not search("0 newly installed")
     - name: Install gvm
