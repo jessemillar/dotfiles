@@ -13,7 +13,7 @@ jobs:
       with:
         check_together: 'yes'
         additional_files: 'zsh/.zshenv zsh/.functionsrc zsh/.aliasrc zsh/.asciirc'
-        ignore: 'zsh/.zshrc'
+        ignore: zsh/.zshrc
 
   publish-docker-image:
     runs-on: ubuntu-latest
