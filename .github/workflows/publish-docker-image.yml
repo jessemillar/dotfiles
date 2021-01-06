@@ -21,3 +21,4 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: jessemillar/dotfiles
           tags: latest
+          cache_froms: jessemillar/dotfiles:latest
