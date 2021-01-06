@@ -11,8 +11,9 @@ jobs:
     - name: Run ShellCheck
       uses: ludeeus/action-shellcheck@master
       with:
-       additional_files: '.zshenv .functionsrc .aliasrc .asciirc'
-       ignore: '.zshrc'
+        check_together: 'yes'
+        additional_files: './zsh/.zshenv ./zsh/.functionsrc ./zsh/.aliasrc ./zsh/.asciirc'
+        ignore: './zsh/.zshrc'
 
   publish-docker-image:
     runs-on: ubuntu-latest
