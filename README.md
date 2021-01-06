@@ -14,6 +14,16 @@ I utilize a combination of [GNU Stow](https://www.gnu.org/software/stow/) and [A
 
 ## Usage
 
+### Docker Container
+
+If you're interested in trying out my dev environment quickly, there's a Docker container!
+
+```
+docker run -it jessemillar/dotfiles:latest
+```
+
+### General
+
 1. Make sure your current user has `sudo` permissions (either has a password or is marked as `NOPASSWD` in `/etc/passwd`)
 1. Run the following commands:
 
