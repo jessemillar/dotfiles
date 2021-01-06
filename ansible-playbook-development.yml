@@ -242,8 +242,6 @@
       shell: command -v zsh | sudo tee -a /etc/shells && sudo usermod --shell $(command -v zsh) $(whoami)
       changed_when: false
       failed_when: false
-    - openssh_keypair:
-        path: ~/.ssh/id_rsa
     - name: Install imcat
       shell: git clone https://github.com/stolk/imcat.git && cd imcat && make && mv imcat ~/.bin && cd .. && rm -rf imcat
       changed_when: false
