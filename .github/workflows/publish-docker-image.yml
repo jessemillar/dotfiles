@@ -12,7 +12,7 @@ jobs:
       uses: ludeeus/action-shellcheck@master
       with:
         check_together: 'yes'
-        additional_files: 'zsh/.zshenv zsh/.functionsrc zsh/.aliasrc zsh/.asciirc'
+        additional_files: '.zshenv .functionsrc .aliasrc .asciirc'
 
   publish-docker-image:
     runs-on: ubuntu-latest
