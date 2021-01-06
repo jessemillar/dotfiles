@@ -1,17 +1,19 @@
 #!/usr/bin/env bash
 
 # Load up the Brew environment only if it exists
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Go setup
 export GOPATH="$HOME/.go"
 export GOBIN="$GOPATH/bin"
 export GOPRIVATE="goms.io"
 export GO111MODULE=on
-export DELVE_EDITOR="$(which nvim)"
+DELVE_EDITOR="$(which nvim)"
+export DELVE_EDITOR
 
 # Set Neovim as my terminal editor of choice
-export EDITOR="$(which nvim)"
+EDITOR="$(which nvim)"
+export EDITOR
 
 # Kubebuilder asset setup
 export KUBEBUILDER_ASSETS="$HOME/.bin/"

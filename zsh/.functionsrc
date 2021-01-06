@@ -260,8 +260,8 @@ function gclean() {
 		echo "Repo is already clean"
 	else
 		echo
-		read -r "delete?Force delete the listed branches? [y/N] "
-		if [ "$delete" = "y" ]; then
+		read -r "DELETE?Force delete the listed branches? [y/N] "
+		if [ "$DELETE" = "y" ]; then
 			[[ -n "$MERGED_BRANCHES" ]] && { echo "$MERGED_BRANCHES" | xargs git branch -D; }
 			[[ -n "$ORPHAN_BRANCHES" ]] && { echo "$ORPHAN_BRANCHES" | xargs git branch -D; }
 			[[ -n "$BRANCHES_WITH_NO_REMOTE" ]] && { echo "$BRANCHES_WITH_NO_REMOTE" | xargs git branch -D; }

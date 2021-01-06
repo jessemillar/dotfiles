@@ -82,6 +82,12 @@ hi Normal guibg=NONE ctermbg=NONE
 " Set the filetype of Ren'Py files
 autocmd BufNewFile,BufRead *.rpy set filetype=python
 
+" Set the filetype of common files
+autocmd BufNewFile,BufRead .zshenv set filetype=sh
+autocmd BufNewFile,BufRead .functionsrc set filetype=sh
+autocmd BufNewFile,BufRead .aliasrc set filetype=sh
+autocmd BufNewFile,BufRead .asciirc set filetype=sh
+
 " Save and quit windows/buffers with all typo permutations
 :command  W w
 :command WQ wq
