@@ -18,3 +18,5 @@ spec:
       containers:
       - name: dotfiles
         image: jessemillar/dotfiles:latest
+        stdin: true
+        tty: true

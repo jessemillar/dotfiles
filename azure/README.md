@@ -19,5 +19,5 @@ In certain Microsoft Azure subscriptions/environments, it's desirable to deploy 
 	```
 1. Access the container's CLI
 	```
-	kubectl exec --stdin --tty $(kubectl get pods --selector=app=dotfiles -o jsonpath='{.items[*].metadata.name}') /usr/bin/zsh
+	kubectl exec --stdin --tty $(kubectl get pods --selector=app=dotfiles -o jsonpath='{.items[0].metadata.name}') zsh
 	```

@@ -3,6 +3,13 @@ FROM ubuntu:latest
 # Set the root user's username
 ENV USERNAME=jessemillar
 
+# Add support for special characters by generating locale files
+RUN apt-get update && apt-get -y install locales locales-all
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
 # Enable sudo usage so I don't have to change my install scripts for now
 RUN apt-get update && apt-get -y install sudo
 RUN useradd -m $USERNAME && echo "$USERNAME:$USERNAME" | chpasswd && adduser $USERNAME sudo
@@ -24,7 +31,7 @@ COPY bootstrap-ansible.sh .
 RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && ./bootstrap-ansible.sh
 # Copy in all files now that we've laid the groundwork in Docker layer caches
 RUN reverb "Dockerfile: Copying all dotfiles into container"
-COPY . .
+COPY --chown=$USERNAME:$USERNAME . .
 # Remove the duplicate copy of the reverb binary
 RUN sudo rm reverb-linux-amd64
 RUN reverb "Dockerfile: Running Ansible playbooks"
