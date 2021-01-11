@@ -3,9 +3,17 @@ kind: Deployment
 metadata:
   name: dotfiles
   namespace: default
+  labels:
+    app: dotfiles
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: dotfiles
   template:
+    metadata:
+      labels:
+        app: dotfiles
     spec:
       containers:
       - name: dotfiles

@@ -31,4 +31,5 @@ RUN reverb "Dockerfile: Running Ansible playbooks"
 RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && ./bootstrap-ansible-playbooks.sh
 
 # Keep the container from exiting
-CMD ["/usr/bin/zsh"]
+ENTRYPOINT ["tail", "-f", "/dev/null"]
+
