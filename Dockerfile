@@ -17,17 +17,18 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER $USERNAME
 
 # Download the handy reverb logging utility
-COPY reverb-linux-amd64 /usr/local/bin/reverb
+COPY --chown=$USERNAME:$USERNAME reverb-linux-amd64 /usr/local/bin/reverb
 RUN sudo chmod +x /usr/local/bin/reverb
 RUN reverb "Dockerfile: reverb successfully installed"
 
 # The bootstrap-*.sh scripts used below mimic bootstrap.sh in a way that allows Docker layer caching to speed up debugging
+RUN mkdir /home/$USERNAME/.dotfiles
 WORKDIR /home/$USERNAME/.dotfiles
 RUN reverb "Dockerfile: Setting up Homebrew"
-COPY bootstrap-homebrew.sh .
+COPY --chown=$USERNAME:$USERNAME bootstrap-homebrew.sh .
 RUN ./bootstrap-homebrew.sh
 RUN reverb "Dockerfile: Setting up ansible"
-COPY bootstrap-ansible.sh .
+COPY --chown=$USERNAME:$USERNAME bootstrap-ansible.sh .
 RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && ./bootstrap-ansible.sh
 # Copy in all files now that we've laid the groundwork in Docker layer caches
 RUN reverb "Dockerfile: Copying all dotfiles into container"

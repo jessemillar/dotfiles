@@ -17,7 +17,7 @@ In certain Microsoft Azure subscriptions/environments, it's desirable to deploy 
 	```
 	kubectl apply -f kubernetes-dotfiles.yaml
 	```
-1. Access the container's CLI
+1. Access the container's CLI (if you receive an error about not being a proper terminal environment, preface this command with `winpty`)
 	```
 	kubectl exec --stdin --tty $(kubectl get pods --selector=app=dotfiles -o jsonpath='{.items[0].metadata.name}') zsh
 	```
