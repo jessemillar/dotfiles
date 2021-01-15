@@ -610,3 +610,14 @@ function amp() {
 		./both.sh "$1"
 	)
 }
+
+####################
+# Allergy trackin gfunctions (https://github.com/jessemillar/allergies)
+####################
+
+function allergies() {
+	(
+		cd ~/projects/allergies || true
+		./allergies.sh
+	)
+}
