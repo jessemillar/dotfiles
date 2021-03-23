@@ -396,9 +396,18 @@ function imid() {
 # General functions
 ####################
 
+# Make a new directory and cd into it
+function mkd() {
+	mkdir "$1" && cd "$1" || return
+}
+
 # Run a command until it fails
 function untilFail() {
-	while "$@"; do :; done
+	COUNTER=1
+	while "$@"; do
+		reverb "Command ran $COUNTER time(s)"
+		((COUNTER++))
+	done
 }
 
 # Add notes to a local-only scratch file
@@ -537,7 +546,7 @@ function kgpf() {
 
 	namespace="$(echo "$POD_INFO" | awk '{print $1}')"
 	pod="$(echo "$POD_INFO" | awk '{print $2}')"
-	echo "-n $namespace $pod"
+	echo "--namespace $namespace $pod"
 }
 
 # Get all logs from the Kind cluster
