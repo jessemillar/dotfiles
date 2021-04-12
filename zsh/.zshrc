@@ -6,7 +6,7 @@ export ZSH=~/.oh-my-zsh
 
 # Load plugins
 # shellcheck disable=SC2034,SC2039
-plugins=(docker docker-compose fzf kubectl tmux vi-mode wd)
+plugins=(docker docker-compose fzf globalias kubectl tmux vi-mode wd)
 
 # Load up Oh My Zsh
 source $ZSH/oh-my-zsh.sh

@@ -539,9 +539,9 @@ function usage() {
 function kgpf() {
 	if [[ -z "$1" ]]
 	then
-		POD_INFO="$(k get pods --all-namespaces | fzf --layout=reverse)"
+		POD_INFO="$(kubectl get pods --all-namespaces | fzf --layout=reverse)"
 	else
-		POD_INFO="$(k get pods --all-namespaces | grep "$1" | head -1)"
+		POD_INFO="$(kubectl get pods --all-namespaces | grep "$1" | head -1)"
 	fi
 
 	namespace="$(echo "$POD_INFO" | awk '{print $1}')"
@@ -590,7 +590,6 @@ function kdelr() {
 
 	kubectl get "$resource_type" -n "$namespace" --no-headers=true | awk '/'"$regex"'/{print $1}'| xargs kubectl delete "$resource_type" -n "$namespace"
 }
-
 
 ####################
 # Guitar functions (https://github.com/bfroggio/guitar)
