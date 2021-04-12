@@ -108,6 +108,7 @@ alias kf="kgpf"
 alias kg="kubectl get"
 alias kgpa="kubectl get pods --all-namespaces"
 alias kgsa="kubectl get services --all-namespaces"
+alias kgmc="kubectl get managedclusters -n validations"
 alias kgn="kubectl get namespaces"
 ## Custom functions
 alias kgv="kubectl get validations -n validations"
