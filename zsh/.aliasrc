@@ -2,6 +2,7 @@
 
 # General
 alias a="ack"
+alias ai="ack --invert-match"
 alias ap="ack --passthru"
 alias caps="setxkbmap -option caps:escape" # Reapply Caps to Escape keyboard mapping on my Pi
 alias day="date +%m-%d-%Y"

@@ -558,7 +558,7 @@ function kla() {
 }
 
 # Quickly search Validator logs
-function kvla() {
+function klva() {
 	# shellcheck disable=SC2046
 	kubectl logs $(kgpf validator-crd) manager | ack "$1"
 }
