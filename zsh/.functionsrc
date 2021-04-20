@@ -10,6 +10,12 @@ function klva() {
 	kubectl logs $(kgpf validator-crd) manager | ack "$1"
 }
 
+# Quickly search Validator logs and don't highlight matches
+function klvaq() {
+	# shellcheck disable=SC2046
+	kubectl logs $(kgpf validator-crd) manager | grep "$1"
+}
+
 function updatePodRegistries() {
 	for node in $(kind get nodes); do
 		kubectl annotate node "${node}" "kind.x-k8s.io/registry=localhost:5000";
