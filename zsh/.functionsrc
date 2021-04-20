@@ -1,17 +1,14 @@
 #!/usr/bin/env bash
 
 ####################
-# Temp functions
-####################
-
-# Search a theme file for color references that aren't included in the Nord palette
-function nord() {
-	ack "color" "$1" | ack --invert-match '2E3440|3B4252|434C5E|4C566A|D8DEE9|E5E9F0|ECEFF4k|8FBCBB|88C0D0|81A1C1|5E81AC|BF616A|D08770|EBCB8B|A3BE8C|B48EAD'
-}
-
-####################
 # Work functions
 ####################
+
+# Quickly search Validator logs
+function klva() {
+	# shellcheck disable=SC2046
+	kubectl logs $(kgpf validator-crd) manager | ack "$1"
+}
 
 function updatePodRegistries() {
 	for node in $(kind get nodes); do
@@ -53,11 +50,6 @@ function getMdmSecret() {
 	)
 }
 
-function getBearerToken() {
-	CERULEAN_BEARER_TOKEN=$(curl -s -X POST -d "grant_type=client_credentials&client_id=$CERULEAN_APP_ID&client_secret=$CERULEAN_APP_PASSWORD&resource=https%3A%2F%2Fmanagement.azure.com%2F" "https://login.microsoftonline.com/$CERULEAN_APP_TENANT_ID/oauth2/token" | jq -r .access_token)
-	echo "$CERULEAN_BEARER_TOKEN"
-}
-
 # TODO Turn this into a Makefile target in the actual project
 function deployMonitoringAndTestValidations() {
 	(
@@ -72,12 +64,6 @@ function deployMonitoringAndTestValidations() {
 		kaf config/samples/failing_noop_validation.yaml -n validations
 		kaf config/samples/sometimes_failing_noop_validation.yaml -n validations
 	)
-}
-
-# Get logs from the Validator manager
-function validatorLogs() {
-	manager=$(k get po -n validator-crd-system | grep 'validator-crd-controller-manager' | awk '{print $1}')
-	k logs -f -n validator-crd-system "$manager" manager
 }
 
 # Test local Validator code by deploying to the Kind cluster and examining logs
@@ -555,12 +541,6 @@ function kla() {
 	kind export logs /tmp/kind-logs -q
 	echo "Logs for kind cluster exported"
 	cd /tmp/kind-logs || return
-}
-
-# Quickly search Validator logs
-function klva() {
-	# shellcheck disable=SC2046
-	kubectl logs $(kgpf validator-crd) manager | ack "$1"
 }
 
 # Delete pod via regex
