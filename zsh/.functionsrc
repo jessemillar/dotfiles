@@ -534,7 +534,7 @@ function usage() {
 # Kubernetes functions
 ####################
 
-# Quickly find and type out a pod's name and namespace
+# Quickly find and type out a pod's name and namespace (aliased to "kf" in .aliasrc)
 # Usage: klf $(kgpf)
 function kgpf() {
 	if [[ -z "$1" ]]
@@ -555,6 +555,12 @@ function kla() {
 	kind export logs /tmp/kind-logs -q
 	echo "Logs for kind cluster exported"
 	cd /tmp/kind-logs || return
+}
+
+# Quickly search Validator logs
+function kvla() {
+	# shellcheck disable=SC2046
+	kubectl logs $(kgpf validator-crd) manager | ack "$1"
 }
 
 # Delete pod via regex
