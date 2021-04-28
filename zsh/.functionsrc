@@ -4,6 +4,18 @@
 # Work functions
 ####################
 
+# Quickly search all Validator logs in a pager
+function klv() {
+	# shellcheck disable=SC2046
+	kubectl logs $(kgpf validator-crd) manager | less
+}
+
+# Quickly follow Validator logs
+function klvf() {
+	# shellcheck disable=SC2046
+	kubectl logs --follow $(kgpf validator-crd) manager
+}
+
 # Quickly search Validator logs
 function klva() {
 	# shellcheck disable=SC2046

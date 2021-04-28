@@ -305,9 +305,11 @@ autocmd FileType go,rust,yaml,sh nnoremap <F5> :call LanguageClient_contextMenu(
 autocmd FileType go,rust,yaml,sh nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 autocmd FileType go,rust,yaml,sh nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 autocmd FileType go,rust,yaml,sh nnoremap <silent> gi :call LanguageClient#textDocument_implementation()<CR>
+autocmd FileType go,rust,yaml,sh nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
 autocmd FileType go,rust,yaml,sh nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 " C# language server config
+let g:OmniSharp_selector_findusages = 'fzf'
 autocmd FileType cs nmap <silent> <buffer> gd <Plug>(omnisharp_go_to_definition)
 autocmd FileType cs nmap <silent> <buffer> gi <Plug>(omnisharp_find_implementations)
 autocmd FileType cs nmap <silent> <buffer> <F2> <Plug>(omnisharp_rename)
