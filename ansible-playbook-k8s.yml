@@ -78,12 +78,6 @@
       homebrew:
         name: kind
         state: present
-    - name: Install the h wrapper
-      shell: curl -L https://raw.githubusercontent.com/deis/h/master/h -o ~/.bin/h && chmod +x ~/.bin/h
-      changed_when: false
-    - name: Install the k wrapper
-      shell: curl -L https://raw.githubusercontent.com/deis/k/master/k -o ~/.bin/k && chmod +x ~/.bin/k
-      changed_when: false
     - name: Install Kubebuilder
       shell: |
         os=$(go env GOOS)

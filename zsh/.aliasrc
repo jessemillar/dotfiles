@@ -108,7 +108,7 @@ alias ke="kubectl exec -it"
 alias kf="kgpf"
 # TODO Remove once I'm used to the Oh My Zsh kubectl plugin aliases
 alias kg="kubectl get"
-alias kgpa="kubectl get pods --all-namespaces"
+alias kgpa="kubectl get pods --all-namespaces -o wide"
 alias kgsa="kubectl get services --all-namespaces"
 alias kgmc="kubectl get managedclusters -n validations"
 alias kgn="kubectl get namespaces"
