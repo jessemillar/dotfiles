@@ -164,7 +164,7 @@
         state: present
     - name: Install yq
       homebrew:
-        name: yq
+        name: yq@3
         state: present
     - name: Install zsh
       shell: sudo apt-get update && sudo apt-get install -y zsh
@@ -192,7 +192,7 @@
       changed_when: result.stdout is not search("Already installed! Remove old installation by running")
       failed_when: result.rc != 0 and result.stdout is not search("Already installed! Remove old installation by running")
     - name: Install go1.14.1 via gvm
-      shell: brew install go && source ~/.gvm/scripts/gvm && gvm install go1.14.1 --prefer-binary && gvm use go1.14.1 --default && brew remove go
+      shell: source ~/.gvm/scripts/gvm && gvm install go1.14.15 --prefer-binary && gvm use go1.14.15 --default
       args:
         executable: /usr/bin/zsh
       changed_when: false
@@ -228,8 +228,8 @@
     - name: Install Oh My Zsh
       shell: sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
       register: result
-      changed_when: result.stdout is not search("You already have Oh My Zsh installed.")
-      failed_when: result.rc != 0 and result.stdout is not search("You already have Oh My Zsh installed.")
+      changed_when: result.stdout is not search("ZSH folder already exists")
+      failed_when: result.rc != 0 and result.stdout is not search("ZSH folder already exists")
     - name: Remove the default ~/.zshrc
       file:
         path: ~/.zshrc

@@ -4,7 +4,7 @@
 case $(uname -s) in
 Darwin*)
 	# Mac
-	reverb "Installing Homebrew for macOS"
+	reverb "Installing Homebrew"
 	yes "" | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   ;;
 *)
@@ -15,8 +15,8 @@ Darwin*)
 	sudo apt-get autoremove -y
 	reverb "Installing Homebrew dependencies via apt-get"
 	sudo apt-get install -y build-essential curl file git
-	reverb "Installing Homebrew for Linux"
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+	reverb "Installing Homebrew"
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	reverb "Temporarily putting Homebrew in PATH"
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   ;;
