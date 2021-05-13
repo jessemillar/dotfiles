@@ -36,8 +36,6 @@
       shell: sudo apt-get update && sudo apt-get install -y mosh
       register: result
       changed_when: result.stdout is not search("0 newly installed")
-    - homebrew_tap:
-        name: linuxbrew/xorg
     - name: Update Homebrew and upgrade all existing packages
       homebrew:
         update_homebrew: yes
