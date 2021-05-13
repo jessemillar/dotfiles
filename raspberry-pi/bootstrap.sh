@@ -79,7 +79,7 @@ sudo npm install -g lua-fmt
 
 reverb "Install Rust"
 curl https://sh.rustup.rs -sSf | sh -s -- -y
-# shellcheck disable=SC1090
+# shellcheck disable=SC1091
 source "$HOME"/.cargo/env
 
 reverb "Install the Starship prompt"
