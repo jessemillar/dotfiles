@@ -33,9 +33,6 @@ Plug 'zivyangll/git-blame.vim'
 
 call plug#end()
 
-" Change <Leader> to be left hand-friendly
-:let mapleader = "`"
-
 " Use the Nord color scheme with true color support
 colorscheme nord
 set termguicolors
@@ -103,10 +100,11 @@ au BufNewFile *.yaml,*.yml 0r ~/.templates/yaml.yaml
 au BufNewFile postmortem-*.md 0r ~/.templates/postmortem.md
 au BufNewFile Dockerfile 0r ~/.templates/Dockerfile
 
-" Use deoplete with tab
+" deoplete config
 let g:deoplete#enable_at_startup = 1
 highlight Pmenu ctermfg=236 ctermbg=243
 highlight PmenuSel ctermfg=236 ctermbg=255
+" Use deoplete with tab
 inoremap <silent><expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <silent><expr><s-tab> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
@@ -115,11 +113,6 @@ command! Shebang :normal! i#!/usr/bin/env bash<CR><Esc>
 
 " Make a shortcut for killing smart quotes
 command! SmartQuotes :%s/’/'/ge | :%s/[“”]/"/ge
-
-" Use an Omni pattern for Go completions
-call deoplete#custom#option('omni_patterns', {
-	\ 'go': '[^. *\t]\.\w*',
-	\})
 
 " Configure vim-airline
 let g:airline_theme='nord'
