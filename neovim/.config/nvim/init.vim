@@ -13,7 +13,6 @@ Plug 'brooth/far.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
-" Plug 'easymotion/vim-easymotion'
 Plug 'edkolev/tmuxline.vim', { 'do': ':TmuxlineSnapshot! ~/.dotfiles/tmux/tmuxline.conf' }
 Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
@@ -44,24 +43,6 @@ set termguicolors
 " Mouse support (that doesn't select text) for less embarrassing screen sharing
 set mouse=nv
 noremap <LeftMouse> ma<LeftMouse>`a
-
-" Set the colors for vim-easymotion
-" hi link EasyMotionTarget ErrorMsg
-" hi link EasyMotionShade  Comment
-" hi link EasyMotionTarget2First MatchParen
-" hi link EasyMotionTarget2Second MatchParen
-" hi link EasyMotionMoveHL Search
-" hi link EasyMotionIncSearch Search
-
-" Set shortcuts for vim-easymotion
-" Disable default mappings
-" let g:EasyMotion_do_mapping = 0
-" nmap <Leader><Space> <Plug>(easymotion-overwin-f)
-" Turn on case-insensitive search
-" let g:EasyMotion_smartcase = 1
-" JK motions: Line motions
-" map <Leader>j <Plug>(easymotion-j)
-" map <Leader>k <Plug>(easymotion-k)
 
 " Tell far to use ack
 let g:far#source = 'acknvim'
@@ -263,19 +244,6 @@ let g:go_fmt_command = 'goimports'
 
 " Don't use the quicklist for language server errors
 let g:LanguageClient_diagnosticsList = 'Location'
-
-" Configure CtrlSF
-let g:ctrlsf_regex_pattern = 1
-let g:ctrlsf_default_root = 'project'
-let g:ctrlsf_ackprg = 'ack'
-nmap     <C-F>f <Plug>CtrlSFPrompt
-vmap     <C-F>f <Plug>CtrlSFVwordPath
-vmap     <C-F>F <Plug>CtrlSFVwordExec
-nmap     <C-F>n <Plug>CtrlSFCwordPath
-nmap     <C-F>p <Plug>CtrlSFPwordPath
-nnoremap <C-F>o :CtrlSFOpen<CR>
-nnoremap <C-F>t :CtrlSFToggle<CR>
-inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
 " Git blame config
 command! Blame :call gitblame#echo()
