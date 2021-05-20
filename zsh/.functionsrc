@@ -120,7 +120,7 @@ function snippet() {
 		esac
 	done
 
-	cd ~/projects/personal-retrospectives/snippets || return
+	cd ~/projects/snippets || return
 	monday="$(date -d "$(date -d "$(date -dfriday) - 4 days")" +%m-%d-%Y)"
 	friday="$(date -dfriday +%m-%d-%Y)"
 	current_snippet="$monday-to-$friday.md"
@@ -144,6 +144,7 @@ function snippet() {
 			if [[ -f "$current_snippet" ]]
 			then
 				nvim "$current_snippet"
+				ln -sf "$current_snippet" latest
 			else
 				# Create a new snippet file since there wasn't an existing one
 				short_monday="$(date -d "$(date -d "$(date -dfriday) - 4 days")" +%m/%d)"
@@ -151,6 +152,7 @@ function snippet() {
 				new_snippet="$monday-to-$friday.md"
 				echo -e "#snippet $short_monday - $short_friday\n- [HIGHLIGHT] \n- " > "$new_snippet"
 				nvim "$new_snippet"
+				ln -sf "$new_snippet" latest
 			fi
 		fi
 

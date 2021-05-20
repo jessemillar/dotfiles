@@ -101,7 +101,7 @@ au BufNewFile postmortem-*.md 0r ~/.templates/postmortem.md
 au BufNewFile Dockerfile 0r ~/.templates/Dockerfile
 
 " deoplete config
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 highlight Pmenu ctermfg=236 ctermbg=243
 highlight PmenuSel ctermfg=236 ctermbg=255
 " Use deoplete with tab
