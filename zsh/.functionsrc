@@ -121,11 +121,11 @@ function snippet() {
 	done
 
 	cd ~/projects/snippets || return
-	monday="$(date -d "$(date -d "$(date -dfriday) - 4 days")" +%m-%d-%Y)"
-	friday="$(date -dfriday +%m-%d-%Y)"
+	monday="$(date -d "$(date -d "$(date -dfriday) - 4 days")" +%Y-%m-%d)"
+	friday="$(date -dfriday +%Y-%m-%d)"
 	current_snippet="$monday-to-$friday.md"
-	last_monday="$(date -d "$(date -dlast-friday) - 4 days" +%m-%d-%Y)"
-	last_friday="$(date -dlast-friday +%m-%d-%Y)"
+	last_monday="$(date -d "$(date -dlast-friday) - 4 days" +%Y-%m-%d)"
+	last_friday="$(date -dlast-friday +%Y-%m-%d)"
 	last_week_snippet="$last_monday-to-$last_friday.md"
 
 	if [[ $copy_mode = true ]]
@@ -155,6 +155,12 @@ function snippet() {
 				ln -sf "$new_snippet" latest
 			fi
 		fi
+
+		# TODO: Remove this when GitHub Enterprise gets its act together
+		(
+		cd toc || return
+		./generate.sh
+		)
 
 		git add -A
 		git commit -m "Automatic #snippet update"
