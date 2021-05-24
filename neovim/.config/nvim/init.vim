@@ -24,7 +24,6 @@ Plug 'preservim/nerdcommenter'
 Plug 'roxma/vim-paste-easy'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'sbdchd/neoformat'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
@@ -100,14 +99,6 @@ au BufNewFile *.sh,\.*rc 0r ~/.templates/bash.sh
 au BufNewFile *.yaml,*.yml 0r ~/.templates/yaml.yaml
 au BufNewFile postmortem-*.md 0r ~/.templates/postmortem.md
 au BufNewFile Dockerfile 0r ~/.templates/Dockerfile
-
-" deoplete config
-" let g:deoplete#enable_at_startup = 1
-highlight Pmenu ctermfg=236 ctermbg=243
-highlight PmenuSel ctermfg=236 ctermbg=255
-" Use deoplete with tab
-inoremap <silent><expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <silent><expr><s-tab> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " Enable a shortcut for inserting bash shebangs
 command! Shebang :normal! i#!/usr/bin/env bash<CR><Esc>
