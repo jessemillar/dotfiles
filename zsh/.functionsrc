@@ -150,7 +150,7 @@ function snippet() {
 				short_monday="$(date -d "$(date -d "$(date -dfriday) - 4 days")" +%m/%d)"
 				short_friday="$(date -dfriday +%m/%d)"
 				new_snippet="$monday-to-$friday.md"
-				echo -e "#snippet $short_monday - $short_friday\n- [HIGHLIGHT] \n- " > "$new_snippet"
+				echo -e "#snippet $short_monday - $short_friday\n- [GOAL] \n- [HIGHLIGHT] \n- " > "$new_snippet"
 				nvim "$new_snippet"
 				ln -sf "$new_snippet" latest
 			fi
