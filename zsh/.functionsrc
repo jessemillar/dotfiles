@@ -373,6 +373,7 @@ function scuttle() {
 
 # Remove everything Docker-related
 function sink() {
+	scuttle || true
 	docker system prune -a --volumes
 }
 
