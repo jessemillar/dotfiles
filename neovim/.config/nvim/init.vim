@@ -21,7 +21,6 @@ Plug 'machakann/vim-sandwich'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'preservim/nerdcommenter'
-"Plug 'roxma/vim-paste-easy'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-fugitive'
@@ -143,9 +142,6 @@ endfunction
 " Tab between buffers
 nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
-
-" Enable easier pasting
-"autocmd VimEnter * PasteEasyEnable
 
 " Map fzf's file search to Control + P
 nnoremap <C-P> :Files<CR>
