@@ -15,7 +15,8 @@ symbol = "📦 "
 disabled = true
 
 [directory]
-truncation_length = 8
+truncation_length = 3
+truncate_to_repo = false
 
 [hostname]
 disabled = true
