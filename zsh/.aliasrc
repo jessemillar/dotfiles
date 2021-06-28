@@ -114,4 +114,5 @@ alias kgsa="kubectl get services --all-namespaces"
 alias kgmc="kubectl get managedclusters -n validations"
 alias kgn="kubectl get namespaces"
 ## Custom functions
+alias kge="kubectl get errorbudget -n errorbudgets"
 alias kgv="kubectl get validations -n validations"
