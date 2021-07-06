@@ -46,6 +46,9 @@ let g:far#source = 'acknvim'
 " Disable netrw history
 let g:netrw_dirhistmax = 0
 
+" Show a set number of lines above and below the cursor
+set scrolloff=10
+
 " Don't color in the gutter
 highlight clear SignColumn
 highlight LineNr guibg=NONE
@@ -56,15 +59,13 @@ hi Normal guibg=NONE ctermbg=NONE
 " Use Escape to exit insert mode in the terminal
 :tnoremap <Esc> <C-\><C-n>
 
-" Set the filetype of Ren'Py files
-autocmd BufNewFile,BufRead *.rpy set filetype=python
-
 " Set the filetype of common files
 autocmd BufNewFile,BufRead .zshrc set filetype=sh " The ShellCheck GitHub Action sees this as a shell script
 autocmd BufNewFile,BufRead .zshenv set filetype=sh
 autocmd BufNewFile,BufRead .functionsrc set filetype=sh
 autocmd BufNewFile,BufRead .aliasrc set filetype=sh
 autocmd BufNewFile,BufRead .asciirc set filetype=sh
+autocmd BufNewFile,BufRead *.rpy set filetype=python " Set the filetype of Ren'Py files
 
 " Save and quit windows/buffers with all typo permutations
 :command  W w
@@ -140,8 +141,8 @@ function! s:check_back_space() abort
 endfunction
 
 " Tab between buffers
-nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
-nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+nnoremap <silent>   <tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+nnoremap <silent> <s-tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
 " Map fzf's file search to Control + P
 nnoremap <C-P> :Files<CR>
@@ -158,7 +159,7 @@ nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
 autocmd! FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
-" Customize fzf colors to match your color scheme
+" Customize fzf colors to match my color scheme
 " - fzf#wrap translates this to a set of `--color` options
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -202,7 +203,7 @@ set colorcolumn=120
 " Show line numbers by default
 set number
 
-" Hide linux numbers in the terminal
+" Hide line numbers in the terminal
 au TermOpen * setlocal nonumber norelativenumber
 
 " Allow for number toggling (for copying)
