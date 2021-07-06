@@ -232,10 +232,16 @@ map [d :cdo<space>
 map ]d :cdo<space>
 nnoremap [a :cclose<CR>
 
+" Locationlist window shortcuts
+map [l :lprevious<CR>
+map ]l :lnext<CR>
+map [L :lfirst<CR>
+map ]L :llast<CR>
+
 " Run goimports instead of gofmt
 let g:go_fmt_command = 'goimports'
 
-" Don't use the quicklist for language server errors
+" Don't use the quickfix list for language server errors
 let g:LanguageClient_diagnosticsList = 'Location'
 
 " Git blame config
