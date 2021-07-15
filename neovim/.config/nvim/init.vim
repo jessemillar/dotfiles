@@ -95,8 +95,9 @@ let g:NERDSpaceDelims = 1
 autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
 
 " Configure template files that are autoloaded when creating a new file with a certain filename
-au BufNewFile *.sh,\.*rc 0r ~/.templates/bash.sh
-au BufNewFile *.yaml,*.yml 0r ~/.templates/yaml.yaml
+au BufNewFile *.htm,*.html 0r ~/.templates/html.html
+au BufNewFile *.sh,.*rc 0r ~/.templates/bash.sh
+au BufNewFile *.yml,*.yaml 0r ~/.templates/yaml.yaml
 au BufNewFile postmortem-*.md 0r ~/.templates/postmortem.md
 au BufNewFile Dockerfile 0r ~/.templates/Dockerfile
 
@@ -193,8 +194,8 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
-" Automatically enable spellcheck for .md files and don't mark URL-like things as spelling errors
-autocmd BufRead,BufNewFile *.md setlocal spell | syn match UrlNoSpell '\w\+:\/\/[^[:space:]]\+' contains=@NoSpell
+" Automatically enable spellcheck for .md and .txt files and don't mark URL-like things as spelling errors
+autocmd BufRead,BufNewFile *.md,*.txt setlocal spell | syn match UrlNoSpell '\w\+:\/\/[^[:space:]]\+' contains=@NoSpell
 hi SpellBad ctermfg=236
 
 " Show a guide for 120 character soft line wraps
