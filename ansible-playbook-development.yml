@@ -162,7 +162,7 @@
         state: present
     - name: Install yq
       homebrew:
-        name: yq@3
+        name: yq
         state: present
     - name: Install zsh
       shell: sudo apt-get update && sudo apt-get install -y zsh
