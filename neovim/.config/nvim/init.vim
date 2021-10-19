@@ -18,6 +18,7 @@ Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'machakann/vim-sandwich'
+Plug 'mzlogin/vim-markdown-toc'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'preservim/nerdcommenter'
@@ -103,6 +104,9 @@ au BufNewFile Dockerfile 0r ~/.templates/Dockerfile
 
 " Enable a shortcut for inserting bash shebangs
 command! Shebang :normal! i#!/usr/bin/env bash<CR><Esc>
+
+" Generate a Markdown table of contents
+command! Toc :GenTocGFM
 
 " Make a shortcut for killing smart quotes
 command! SmartQuotes :%s/’/'/ge | :%s/[“”]/"/ge
