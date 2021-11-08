@@ -134,7 +134,7 @@
         state: present
     - name: Install tldr
       homebrew:
-        name: tldr
+        name: tealdeer
         state: present
     - name: Install tmux
       homebrew:
