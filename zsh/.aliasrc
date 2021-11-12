@@ -8,6 +8,7 @@ alias aq="grep" # Don't highlight matches
 alias caps="setxkbmap -option caps:escape" # Reapply Caps to Escape keyboard mapping on my Pi
 alias day="date +%m-%d-%Y"
 alias e="exit"
+alias l="ls -la"
 alias lines="tokei"
 alias md="glow -s ~/.dotfiles/glow/nord.json --pager"
 alias mdn="glow -s ~/.dotfiles/glow/nord.json"
