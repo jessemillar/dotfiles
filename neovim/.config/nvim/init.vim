@@ -68,6 +68,9 @@ autocmd BufNewFile,BufRead .aliasrc set filetype=sh
 autocmd BufNewFile,BufRead .asciirc set filetype=sh
 autocmd BufNewFile,BufRead *.rpy set filetype=python " Set the filetype of Ren'Py files
 
+" Make Y yank the whole line like it did before
+nnoremap Y yy
+
 " Save and quit windows/buffers with all typo permutations
 :command  W w
 :command WQ wq
@@ -267,6 +270,7 @@ nnoremap <silent> gdb :GoDebugBreakpoint<CR>
 set hidden
 let g:LanguageClient_serverCommands = {
 	      \ 'go': ['gopls'],
+	      \ 'python': ['pyls'],
 	      \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
 	      \ 'yaml': ['yaml-language-server', '--stdio'],
 	      \ 'sh': ['bash-language-server', 'start'],
