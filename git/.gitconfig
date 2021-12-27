@@ -25,5 +25,7 @@
 	sslVerify = true
 [pull]
 	rebase = true
+[checkout]
+	defaultRemote = origin
 [rebase]
 	autoStash = true
