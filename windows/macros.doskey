@@ -1,0 +1,24 @@
+g=git add -A $T git commit -m $* $T git push
+ga=git add $*
+gb=git branch -a
+gbd=git branch -D $*
+gc=git switch $*
+gcb=git checkout -b $*
+gcl=git clone $*
+gcm=git checkout master
+gd=git diff --ignore-all-space
+gdc=git --no-pager diff --check
+gl=git log
+gp=git pull
+gpu=git push
+gput=git push --tags
+gr=git remote -v
+grh=git fetch origin $T git reset --hard origin/master
+grs=git remote set-url origin $*
+gs=git status
+gsa=git stash apply
+gsc=git stash clear
+gsh=git show
+gsu=git stash -u
+
+vsd=%comspec% /k "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\Tools\VsDevCmd.bat"
