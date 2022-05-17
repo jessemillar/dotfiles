@@ -14,7 +14,7 @@ Darwin*)
 	sudo apt-get upgrade -y
 	sudo apt-get autoremove -y
 	reverb "Installing Homebrew dependencies via apt-get"
-	sudo apt-get install -y build-essential curl file git python
+	sudo apt-get install -y build-essential curl file git python2
 	reverb "Installing Homebrew"
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	reverb "Temporarily putting Homebrew in PATH"
