@@ -37,6 +37,7 @@ alias wsl="wsl.exe"
 
 # tmux (there are also a few functions defined in .functionsrc)
 alias tm="tmux"
+alias tmd="tmux detach -P"
 alias tmkill="tmux kill-session"
 alias tml="tmux ls"
 alias tmn="tmux new"
