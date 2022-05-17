@@ -1,12 +1,8 @@
 # Any dependencies needed for other playbooks to run successfully should be managed here
 - hosts: localhost
   tasks:
-  - name: Install python3
-    homebrew:
-      name: python3
-      state: present
-      update_homebrew: yes
   - name: Install stow
     homebrew:
       name: stow
       state: latest
+      update_homebrew: yes
