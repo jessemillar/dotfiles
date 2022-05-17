@@ -10,6 +10,14 @@
       "type": "String",
       "defaultValue": "terminal-vm"
     },
+    "virtualMachineSize": {
+      "type": "String",
+      "defaultValue": "Standard_B4ms"
+    },
+    "diskSize": {
+      "type": "Int",
+      "defaultValue": 64
+    },
     "adminUsername": {
       "type": "String",
       "defaultValue": "jessemillar"
@@ -137,7 +145,7 @@
       ],
       "properties": {
         "hardwareProfile": {
-          "vmSize": "Standard_B4ms"
+          "vmSize": "[parameters('virtualMachineSize')]"
         },
         "storageProfile": {
           "imageReference": {
@@ -154,7 +162,7 @@
             "managedDisk": {
               "storageAccountType": "Premium_LRS"
             },
-            "diskSizeGB": 64
+            "diskSizeGB": "[parameters('diskSize')]"
           }
         },
         "osProfile": {
