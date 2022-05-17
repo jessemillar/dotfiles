@@ -29,3 +29,5 @@
 	defaultRemote = origin
 [rebase]
 	autoStash = true
+[init]
+	defaultBranch = master
