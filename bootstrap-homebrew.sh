@@ -16,6 +16,8 @@ Darwin*)
 	reverb "Installing Homebrew dependencies via apt-get"
 	sudo apt-get install -y build-essential curl file git
 	reverb "Installing Homebrew"
+	# Install Homebrew without user interaction
+	export NONINTERACTIVE=true
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	reverb "Temporarily putting Homebrew in PATH"
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
