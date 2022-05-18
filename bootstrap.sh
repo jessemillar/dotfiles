@@ -2,6 +2,9 @@
 
 # I broke the steps of this script into multiple scripts that I can manually call from Dockerfile to make Docker debugging faster
 
+# Install a logging helper
+source bootstrap-reverb.sh
+
 # Install the Homebrew package manager
 source bootstrap-homebrew.sh
 
