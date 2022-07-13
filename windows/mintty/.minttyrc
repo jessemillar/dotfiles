@@ -35,10 +35,9 @@ BoldAsFont=yes
 BoldAsColour=no
 Locale=en_US
 Charset=UTF-8
-Columns=317
-Rows=96
+Columns=175
+Rows=50
 Scrollbar=none
 ScrollMod=off
 ConfirmExit=no
 EmojiPlacement=stretch
-
