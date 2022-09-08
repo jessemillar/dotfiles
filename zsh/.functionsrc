@@ -1,107 +1,5 @@
 #!/usr/bin/env bash
 
-####################
-# Work functions
-####################
-
-# Quickly search all Validator logs in a pager
-function klv() {
-	# shellcheck disable=SC2046
-	kubectl logs $(kgpf validator-crd) manager | less
-}
-
-# Quickly follow Validator logs
-function klvf() {
-	# shellcheck disable=SC2046
-	kubectl logs --follow $(kgpf validator-crd) manager
-}
-
-# Quickly search Validator logs
-function klva() {
-	# shellcheck disable=SC2046
-	kubectl logs $(kgpf validator-crd) manager | ack "$1"
-}
-
-# Quickly search Validator logs and don't highlight matches
-function klvaq() {
-	# shellcheck disable=SC2046
-	kubectl logs $(kgpf validator-crd) manager | grep "$1"
-}
-
-function updatePodRegistries() {
-	for node in $(kind get nodes); do
-		kubectl annotate node "${node}" "kind.x-k8s.io/registry=localhost:5000";
-	done
-}
-
-function promMdmDevelopmentLoop() {
-	(
-		wd validator
-		getMdmSecret
-		deployMonitoringAndNoopValidatorToLocalCluster
-		make redeploy-prom-mdm-converter
-		updatePodRegistries
-	)
-}
-
-function recreateValidatorCluster() {
-	reverb "Deleting Kind cluster"
-	kind delete cluster
-	reverb "Destroying Docker containers and networks"
-	scuttle
-	reverb "Running make provision-kind"
-	make provision-kind
-	reverb "Grabbing the MDM secret from stage"
-	getMdmSecret
-	reverb "Deploy prom-mdm-converter and some testing validations"
-	deployMonitoringAndTestValidations
-}
-
-function getMdmSecret() {
-	(
-		export KUBECONFIG=~/.kubeconfigs/stg-prod-kubeconfig
-		k get secrets -n monitoring mdm-certificates -o yaml > mdm-secret
-		export KUBECONFIG=
-		k config use-context kind-kind
-		k apply -f mdm-secret
-		rm mdm-secret
-	)
-}
-
-# TODO Turn this into a Makefile target in the actual project
-function deployMonitoringAndTestValidations() {
-	(
-		wd validator
-		reverb "Build and push the prom-mdm-converter container"
-		make redeploy-prom-mdm-converter
-		reverb "kustomize monitoring" && \
-		kustomize build deploy/bases/monitoring/metrics-exporter | k apply -f - && \
-		reverb "Deploy a noop validator" && \
-		kaf config/samples/noop-validation.yaml -n validations
-		reverb "Deploy a failing noop validator" && \
-		kaf config/samples/failing_noop_validation.yaml -n validations
-		kaf config/samples/sometimes_failing_noop_validation.yaml -n validations
-	)
-}
-
-# Test local Validator code by deploying to the Kind cluster and examining logs
-function kindDevelopmentLoop() {
-	reverb "Redeploying"
-	make redeploy-validator
-	reverb "Sleeping"
-	sleep 20
-	reverb "Getting logs"
-	validatorLogs
-}
-
-# Test local Validator code without deploying to the Kind cluster
-function localDevelopmentLoop() {
-	reverb "Deleting manager"
-	kdelr pod -n validator-crd-system validator-crd-controller-manager
-	reverb "Running make run"
-	make run
-}
-
 # Quickly cat or edit the latest #snippet doc (and auto commit the changes)
 # Usage: `snippet` (edits current week's snippet)
 #        `snippet -c` (`cat` out the contents of the current week's snippet for copypasta)
@@ -176,6 +74,14 @@ function snippet() {
 # cd to the root of the current repository
 function root() {
 	cd "$(git rev-parse --show-toplevel)" || return
+}
+
+function gcm() {
+	git checkout "$(gmb)"
+}
+
+function grh() {
+	git fetch origin && git reset --hard origin/"$(gmb)"
 }
 
 # Create a new GitHub repo and clone it

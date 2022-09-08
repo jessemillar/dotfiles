@@ -7,6 +7,7 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'OmniSharp/omnisharp-vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
 Plug 'brooth/far.vim'
@@ -15,13 +16,14 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
 Plug 'edkolev/tmuxline.vim', { 'do': ':TmuxlineSnapshot! ~/.dotfiles/tmux/tmuxline.conf' }
 Plug 'fatih/vim-go'
+Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'machakann/vim-sandwich'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'OmniSharp/omnisharp-vim'
 Plug 'preservim/nerdcommenter'
+Plug 'preservim/vim-markdown'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-fugitive'
@@ -43,6 +45,12 @@ noremap <LeftMouse> ma<LeftMouse>`a
 
 " Tell far to use ack
 let g:far#source = 'acknvim'
+
+" Don't fold Markdown headers
+let g:vim_markdown_folding_disabled = 1
+
+" Follow Markdown links with anchors
+let g:vim_markdown_follow_anchor = 1
 
 " Disable netrw history
 let g:netrw_dirhistmax = 0
