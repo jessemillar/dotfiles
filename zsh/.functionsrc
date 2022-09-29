@@ -88,7 +88,7 @@ function gd() {
 	if test -f "diff.sh"; then
 		./diff.sh
 	else
-		git diff --ignore-all-space
+		git diff
 	fi
 }
 
