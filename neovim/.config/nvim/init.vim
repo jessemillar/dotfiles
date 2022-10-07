@@ -23,7 +23,6 @@ Plug 'machakann/vim-sandwich'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
-Plug 'preservim/vim-markdown'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-fugitive'
@@ -45,12 +44,6 @@ noremap <LeftMouse> ma<LeftMouse>`a
 
 " Tell far to use ack
 let g:far#source = 'acknvim'
-
-" Don't fold Markdown headers
-let g:vim_markdown_folding_disabled = 1
-
-" Follow Markdown links with anchors
-let g:vim_markdown_follow_anchor = 1
 
 " Disable netrw history
 let g:netrw_dirhistmax = 0
