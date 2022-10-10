@@ -203,6 +203,10 @@ function g() {
 	then
 		echo "No commit message supplied"
 	else
+		if test -f "pre-commit.sh"; then
+			./pre-commit.sh
+		fi
+
 		git add -A
 		git commit -m "$1"
 		git push -u
