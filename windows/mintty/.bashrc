@@ -1,16 +1,20 @@
+# warp
 alias thump="cd ~/Documents/Projects/michael-the-ant-thumper"
 alias boneless="cd ~/Documents/Projects/boneless"
 alias pooper="cd ~/Documents/Projects/pigeon-pooper-2d"
 alias staff="cd ~/Documents/Projects/the-staff-of-lewis"
 
+# project-specific
 alias gbstudio="cd ~/Documents/gb-studio && npm start"
 
+# utils
 alias mac='find . -name '.DS_Store' -depth -exec rm {} \;; find . -type d -name '.Spotlight-V100' -exec rm -rf {} \;; find . -type d -name '.Trashes' -exec rm -rf {} \;; find . -type d -name '__MACOSX' -exec rm -rf {} \;; echo "Done"'
 
+# system
 alias l="ls -la"
 alias v="vi"
 
-# git (there are also a few functions defined in .functionsrc)
+# git
 alias ga="git add"
 alias gb="git branch -a"
 alias gbd="git branch -D"
