@@ -8,6 +8,7 @@ alias gbstudio="cd ~/Documents/gb-studio && npm start"
 alias mac='find . -name '.DS_Store' -depth -exec rm {} \;; find . -type d -name '.Spotlight-V100' -exec rm -rf {} \;; find . -type d -name '.Trashes' -exec rm -rf {} \;; find . -type d -name '__MACOSX' -exec rm -rf {} \;; echo "Done"'
 
 alias l="ls -la"
+alias v="vi"
 
 # git (there are also a few functions defined in .functionsrc)
 alias ga="git add"
