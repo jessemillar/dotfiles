@@ -71,6 +71,35 @@ function snippet() {
 # git functions
 ####################
 
+function ghours() {
+	timestamps=$(git log --date=iso-strict | grep Date | cut -c9- | tac)
+	last_timestamp=""
+	total_seconds=0
+
+	eight_hours=$((8*60*60))
+	one_hour=$((60*60))
+
+	while IFS= read -r line
+	do
+	    if test -z "$last_timestamp"
+	    then
+		last_timestamp="$line"
+	    else
+		time_difference=$(($(date +%s -d "$line")-$(date +%s -d "$last_timestamp")))
+		if [ "$time_difference" -gt $eight_hours ];
+		then
+		    total_seconds=$((total_seconds+one_hour))
+		else
+		    total_seconds=$((total_seconds+time_difference))
+		fi
+
+		last_timestamp="$line"
+	    fi
+	done <<< "$timestamps"
+
+	echo $((total_seconds/one_hour))
+}
+
 # cd to the root of the current repository
 function root() {
 	cd "$(git rev-parse --show-toplevel)" || return
