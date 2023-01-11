@@ -48,8 +48,8 @@ function ghours() {
 	last_timestamp=""
 	total_seconds=0
 
-	eight_hours=$((8*60*60))
 	one_hour=$((60*60))
+	thirty_minutes=$((30*60))
 
 	while IFS= read -r line
 	do
@@ -58,9 +58,9 @@ function ghours() {
 		last_timestamp="$line"
 	    else
 		time_difference=$(($(date +%s -d "$line")-$(date +%s -d "$last_timestamp")))
-		if [ "$time_difference" -gt $eight_hours ];
+		if [ "$time_difference" -gt $one_hour ];
 		then
-		    total_seconds=$((total_seconds+one_hour))
+		    total_seconds=$((total_seconds+thirty_minutes))
 		else
 		    total_seconds=$((total_seconds+time_difference))
 		fi

@@ -76,7 +76,6 @@ function ghours() {
 	last_timestamp=""
 	total_seconds=0
 
-	eight_hours=$((8*60*60))
 	one_hour=$((60*60))
 	thirty_minutes=$((30*60))
 
