@@ -1,20 +1,16 @@
-# warp
+alias experiments="cd ~/Documents/Projects/godot-experiments"
 alias thump="cd ~/Documents/Projects/michael-the-ant-thumper"
 alias boneless="cd ~/Documents/Projects/boneless"
 alias pooper="cd ~/Documents/Projects/pigeon-pooper-2d"
 alias staff="cd ~/Documents/Projects/the-staff-of-lewis"
 
-# project-specific
 alias gbstudio="cd ~/Documents/gb-studio && npm start"
 
-# utils
 alias mac='find . -name '.DS_Store' -depth -exec rm {} \;; find . -type d -name '.Spotlight-V100' -exec rm -rf {} \;; find . -type d -name '.Trashes' -exec rm -rf {} \;; find . -type d -name '__MACOSX' -exec rm -rf {} \;; echo "Done"'
 
-# system
 alias l="ls -la"
-alias v="vi"
 
-# git
+# git (there are also a few functions defined in .functionsrc)
 alias ga="git add"
 alias gb="git branch -a"
 alias gbd="git branch -D"
@@ -46,6 +42,35 @@ alias gsu="git stash -u"
 alias gt="git tag"
 alias gtl="git tag -l"
 alias gv="gh repo view"
+
+function ghours() {
+	timestamps=$(git log --date=iso-strict | grep Date | cut -c9- | tac)
+	last_timestamp=""
+	total_seconds=0
+
+	eight_hours=$((8*60*60))
+	one_hour=$((60*60))
+
+	while IFS= read -r line
+	do
+	    if test -z "$last_timestamp"
+	    then
+		last_timestamp="$line"
+	    else
+		time_difference=$(($(date +%s -d "$line")-$(date +%s -d "$last_timestamp")))
+		if [ "$time_difference" -gt $eight_hours ];
+		then
+		    total_seconds=$((total_seconds+one_hour))
+		else
+		    total_seconds=$((total_seconds+time_difference))
+		fi
+
+		last_timestamp="$line"
+	    fi
+	done <<< "$timestamps"
+
+	echo $((total_seconds/one_hour))
+}
 
 # cd to the root of the current repository
 function root() {
