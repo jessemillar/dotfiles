@@ -1,7 +1,17 @@
-alias boneless="cd ~/Documents/Projects/boneless"
-alias dotfiles="cd ~/dotfiles"
-alias experiments="cd ~/Documents/Projects/godot-experiments"
-alias npp="cd ~/Documents/npp"
-alias pooper="cd ~/Documents/Projects/pigeon-pooper-2d"
-alias staff="cd ~/Documents/Projects/the-staff-of-lewis"
-alias thump="cd ~/Documents/Projects/michael-the-ant-thumper"
+# Preface all aliases with 'w' for namespacing
+
+# General
+alias wdotfiles="cd ~/dotfiles"
+alias wnpp="cd ~/Documents/npp"
+
+# Personal
+alias wboneless="cd ~/Documents/Projects/boneless"
+alias wexperiments="cd ~/Documents/Projects/godot-experiments"
+alias wpooper="cd ~/Documents/Projects/pigeon-pooper-2d"
+alias wstaff="cd ~/Documents/Projects/the-staff-of-lewis"
+alias wthump="cd ~/Documents/Projects/michael-the-ant-thumper"
+
+# Work
+alias warm="cd ~/source/repos/AzureUX-ARM"
+alias wsource="cd ~/source/repos"
+alias wwiki="cd ~/source/repos/AzureUX-ARMWiki"
