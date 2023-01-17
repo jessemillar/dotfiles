@@ -1,9 +1,3 @@
-alias experiments="cd ~/Documents/Projects/godot-experiments"
-alias thump="cd ~/Documents/Projects/michael-the-ant-thumper"
-alias boneless="cd ~/Documents/Projects/boneless"
-alias pooper="cd ~/Documents/Projects/pigeon-pooper-2d"
-alias staff="cd ~/Documents/Projects/the-staff-of-lewis"
-
 alias gbstudio="cd ~/Documents/gb-studio && npm start"
 
 alias mac='find . -name '.DS_Store' -depth -exec rm {} \;; find . -type d -name '.Spotlight-V100' -exec rm -rf {} \;; find . -type d -name '.Trashes' -exec rm -rf {} \;; find . -type d -name '__MACOSX' -exec rm -rf {} \;; echo "Done"'
