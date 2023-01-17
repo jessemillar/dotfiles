@@ -1,5 +1,4 @@
 alias gbstudio="cd ~/Documents/gb-studio && npm start"
-alias npp="~/Documents/npp/notepad++.exe"
 
 # Remove garbage macOS files
 alias mac='find . -name '.DS_Store' -depth -exec rm {} \;; find . -type d -name '.Spotlight-V100' -exec rm -rf {} \;; find . -type d -name '.Trashes' -exec rm -rf {} \;; find . -type d -name '__MACOSX' -exec rm -rf {} \;; echo "Done"'
@@ -44,6 +43,13 @@ alias gt="git tag"
 alias gtl="git tag -l"
 alias gv="gh repo view"
 
+# Functions
+## General
+function npp() {
+	~/Documents/npp/notepad++.exe "$1" &
+}
+
+## Git Functions
 function ghours() {
 	timestamps=$(git log --date=iso-strict | grep Date | cut -c9- | tac)
 	last_timestamp=""
