@@ -1,5 +1,5 @@
 alias gbstudio="cd ~/Documents/gb-studio && npm start"
-alias notepad="~/Documents/npp/notepad++.exe"
+alias npp="~/Documents/npp/notepad++.exe"
 
 # Remove garbage macOS files
 alias mac='find . -name '.DS_Store' -depth -exec rm {} \;; find . -type d -name '.Spotlight-V100' -exec rm -rf {} \;; find . -type d -name '.Trashes' -exec rm -rf {} \;; find . -type d -name '__MACOSX' -exec rm -rf {} \;; echo "Done"'
