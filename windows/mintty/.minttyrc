@@ -1,4 +1,4 @@
-BackgroundColour=46,52,64
+BackgroundColour=30,30,30
 ForegroundColour=216,222,233
 CursorColour=216,222,233
 Black=59,66,82
@@ -17,7 +17,7 @@ Cyan=136,192,208
 BoldCyan=143,188,187
 White=229,233,240
 BoldWhite=236,239,244
-ThemeFile=nord
+ThemeFile=npp
 CursorType=block
 Font=Fira Code
 FontHeight=10
@@ -35,9 +35,10 @@ BoldAsFont=yes
 BoldAsColour=no
 Locale=en_US
 Charset=UTF-8
-Columns=175
+Columns=200
 Rows=50
 Scrollbar=none
 ScrollMod=off
 ConfirmExit=no
 EmojiPlacement=stretch
+
