@@ -3,6 +3,7 @@
 # General
 alias wdotfiles="cd ~/dotfiles"
 alias wnpp="cd ~/Documents/npp"
+alias wprojects="cd ~/Documents/Projects"
 
 # Personal
 alias wboneless="cd ~/Documents/Projects/boneless"
