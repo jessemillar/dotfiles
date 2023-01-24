@@ -46,7 +46,7 @@ alias gv="gh repo view"
 # Functions
 ## General
 function npp() {
-	~/Documents/npp/notepad++.exe "$1" &
+	start ~/Documents/npp/notepad++.exe "$1"
 }
 
 ## Git Functions
