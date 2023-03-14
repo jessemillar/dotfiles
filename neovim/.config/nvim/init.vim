@@ -31,6 +31,9 @@ Plug 'zivyangll/git-blame.vim'
 
 call plug#end()
 
+" Disable a broken keyboard command, use `` instead
+:map <C-o> <Nop>
+
 " Use the Nord color scheme with true color support
 colorscheme nord
 set termguicolors
