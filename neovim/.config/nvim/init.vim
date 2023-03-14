@@ -38,6 +38,10 @@ call plug#end()
 colorscheme nord
 set termguicolors
 
+" Configure which keys accept coc.vim autocompletion
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+inoremap <expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
 " Mouse support (that doesn't select text) for less embarrassing screen sharing
 set mouse=nv
 noremap <LeftMouse> ma<LeftMouse>`a
@@ -137,17 +141,6 @@ let g:tmuxline_preset = {
       \'cwin' : '#I#F #W',
       \'y'    : '%a, %b %e',
       \'z'    : '%l:%M %P'}
-
-" coc.nvim tab to select completion
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 
 " Tab between buffers
 nnoremap <silent>   <tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
