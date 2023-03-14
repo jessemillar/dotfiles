@@ -7,7 +7,6 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'OmniSharp/omnisharp-vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
 Plug 'brooth/far.vim'
@@ -16,7 +15,6 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
 Plug 'edkolev/tmuxline.vim', { 'do': ':TmuxlineSnapshot! ~/.dotfiles/tmux/tmuxline.conf' }
 Plug 'fatih/vim-go'
-Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'machakann/vim-sandwich'
@@ -25,7 +23,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'sbdchd/neoformat'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'vim-airline/vim-airline'
@@ -66,30 +63,23 @@ hi Normal guibg=NONE ctermbg=NONE
 :tnoremap <Esc> <C-\><C-n>
 
 " Set the filetype of common files
-autocmd BufNewFile,BufRead .zshrc set filetype=sh " The ShellCheck GitHub Action sees this as a shell script
+" The ShellCheck GitHub Action sees this as a shell script
+autocmd BufNewFile,BufRead .zshrc set filetype=sh
 autocmd BufNewFile,BufRead .zshenv set filetype=sh
 autocmd BufNewFile,BufRead .functionsrc set filetype=sh
 autocmd BufNewFile,BufRead .aliasrc set filetype=sh
 autocmd BufNewFile,BufRead .asciirc set filetype=sh
-autocmd BufNewFile,BufRead *.rpy set filetype=python " Set the filetype of Ren'Py files
+" Set the filetype of Ren'Py files
+autocmd BufNewFile,BufRead *.rpy set filetype=python
 
 " Make Y yank the whole line like it did before
 nnoremap Y yy
-
-" Save and quit windows/buffers with all typo permutations
-:command  W w
-:command WQ wq
-:command Wq wq
-:command  Q q
 
 " Alias for formatting
 :command Format Neoformat
 
 " Trim trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
-
-" Reload this config file easily
-command! Reload :source $MYVIMRC
 
 " Preview replaces live
 set inccommand=nosplit
@@ -143,7 +133,7 @@ let g:tmuxline_preset = {
       \'z'    : '%l:%M %P'}
 
 " Tab between buffers
-nnoremap <silent>   <tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+nnoremap <silent> <tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap <silent> <s-tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
 " Map fzf's file search to Control + P
@@ -226,19 +216,19 @@ let g:go_def_mode = 'gopls'
 set autowrite
 
 " Quickfix window shortcuts
-map [q :cprevious<CR>
-map ]q :cnext<CR>
-map [Q :cfirst<CR>
-map ]Q :clast<CR>
-map [d :cdo<space>
-map ]d :cdo<space>
+nnoremap [q :cprevious<CR>
+nnoremap ]q :cnext<CR>
+nnoremap [Q :cfirst<CR>
+nnoremap ]Q :clast<CR>
+nnoremap [d :cdo<space>
+nnoremap ]d :cdo<space>
 nnoremap [a :cclose<CR>
 
 " Locationlist window shortcuts
-map [l :lprevious<CR>
-map ]l :lnext<CR>
-map [L :lfirst<CR>
-map ]L :llast<CR>
+nnoremap [l :lprevious<CR>
+nnoremap ]l :lnext<CR>
+nnoremap [L :lfirst<CR>
+nnoremap ]L :llast<CR>
 
 " Run goimports instead of gofmt
 let g:go_fmt_command = 'goimports'
@@ -250,14 +240,14 @@ let g:LanguageClient_diagnosticsList = 'Location'
 command! Blame :call gitblame#echo()
 
 " Go debugger shortcuts
-nnoremap <silent> gds :GoDebugStart<CR>
-nnoremap <silent> gdq :GoDebugStop<CR>
-nnoremap <silent> gdt :GoDebugTest<CR>
-nnoremap <silent> gdc :GoDebugContinue<CR>
-nnoremap <silent> gdn :GoDebugNext<CR>
-nnoremap <silent> gdi :GoDebugStep<CR>
-nnoremap <silent> gdp :GoDebugPrint<space>
-nnoremap <silent> gdb :GoDebugBreakpoint<CR>
+nnoremap <silent> gbs :GoDebugStart<CR>
+nnoremap <silent> gbq :GoDebugStop<CR>
+nnoremap <silent> gbt :GoDebugTest<CR>
+nnoremap <silent> gbc :GoDebugContinue<CR>
+nnoremap <silent> gbn :GoDebugNext<CR>
+nnoremap <silent> gbi :GoDebugStep<CR>
+nnoremap <silent> gbp :GoDebugPrint<space>
+nnoremap <silent> gbb :GoDebugBreakpoint<CR>
 
 " Configure LanguageClient
 " Required for operations modifying multiple buffers like rename
@@ -277,9 +267,3 @@ autocmd FileType go,rust,yaml,sh nnoremap <silent> gd :call LanguageClient#textD
 autocmd FileType go,rust,yaml,sh nnoremap <silent> gi :call LanguageClient#textDocument_implementation()<CR>
 autocmd FileType go,rust,yaml,sh nnoremap <silent> gr :call LanguageClient#textDocument_references()<CR>
 autocmd FileType go,rust,yaml,sh nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
-" C# language server config
-let g:OmniSharp_selector_findusages = 'fzf'
-autocmd FileType cs nmap <silent> <buffer> gd <Plug>(omnisharp_go_to_definition)
-autocmd FileType cs nmap <silent> <buffer> gi <Plug>(omnisharp_find_implementations)
-autocmd FileType cs nmap <silent> <buffer> <F2> <Plug>(omnisharp_rename)
