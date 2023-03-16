@@ -15,6 +15,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'dense-analysis/ale'
 Plug 'edkolev/tmuxline.vim', { 'do': ':TmuxlineSnapshot! ~/.dotfiles/tmux/tmuxline.conf' }
 Plug 'fatih/vim-go'
+Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'machakann/vim-sandwich'
@@ -29,18 +30,15 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/c.vim'
 Plug 'zivyangll/git-blame.vim'
 
-call plug#end()
-
-" Disable a broken keyboard command, use `` instead
+" Disable a "broken" keyboard command, use `` instead; can't figure out why it's broken
 :map <C-o> <Nop>
 
 " Use the Nord color scheme with true color support
 colorscheme nord
 set termguicolors
 
-" Configure which keys accept coc.vim autocompletion
-inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
-inoremap <expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+" use <tab> to trigger completion and navigate to the next complete item
+inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "\<Tab>"
 
 " Mouse support (that doesn't select text) for less embarrassing screen sharing
 set mouse=nv
