@@ -30,7 +30,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/c.vim'
 Plug 'zivyangll/git-blame.vim'
 
-" Disable a "broken" keyboard command, use `` instead; can't figure out why it's broken
+call plug#end()
+
+" Disable a "broken" keyboard command, use `` instead can't figure out why it's broken
 :map <C-o> <Nop>
 
 " Use the Nord color scheme with true color support
