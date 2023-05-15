@@ -1,0 +1,5 @@
+[user]
+	email = jesse@jessemillar.com
+	name = Jesse Millar
+[core]
+	autocrlf = false
