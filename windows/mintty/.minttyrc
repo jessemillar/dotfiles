@@ -42,3 +42,4 @@ ScrollMod=off
 ConfirmExit=no
 EmojiPlacement=stretch
 
+OpaqueWhenFocused=yes
