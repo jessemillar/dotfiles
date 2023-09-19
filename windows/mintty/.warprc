@@ -14,5 +14,6 @@ alias wthump="cd ~/Documents/Projects/michael-the-ant-thumper"
 
 # Work
 alias warm="cd ~/source/repos/AzureUX-ARM"
+alias wbuildout="cd ~/source/repos/AzureUX-ARM-Buildout"
 alias wsource="cd ~/source/repos"
 alias wwiki="cd ~/source/repos/AzureUX-ARMWiki"
