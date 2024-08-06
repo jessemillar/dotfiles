@@ -1,3 +1,1 @@
-1. Install MINTTY via Git for Windows
-1. Install the Fira Code font
-1. Install the .pngs for emoji (https://github.com/mintty/mintty/wiki/Tips#emojis)
+See README in the `mintty` dir if you want a minimal setup. Otherwise, run `bootstrap.sh` to use Ansible to install and configure a bunch of stuff.
